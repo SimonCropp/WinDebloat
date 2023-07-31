@@ -123,7 +123,7 @@ public class Class1
     {
         Console.WriteLine($"Install {id}");
         var builder = new StringBuilder();
-        var arguments = $"install --id {id} --disable-interactivity --exact --no-upgrade";
+        var arguments = $"install --id {id} --disable-interactivity --exact --no-upgrade  --accept-source-agreements --accept-package-agreements";
         var commandResult = await Cli.Wrap("winget")
             .WithArguments(arguments)
             .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
