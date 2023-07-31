@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Management;
+using System.ServiceProcess;
+using System.Text;
 using CliWrap;
 using Microsoft.Win32;
 using NUnit.Framework;
@@ -50,10 +52,34 @@ public class Class1
         await UninstallByName("Paint");
         await UninstallByName("Clipchamp");
         await UninstallByName("Cortana");
+        DisableService("HpTouchpointAnalyticsService");
+        DisableService("HPAppHelperCap");
+        DisableService("HPDiagsCap");
+        DisableService("HPSysInfoCap");
+        DisableService("hpsvcsscan");
+        DisableService("HotKeyServiceDSU");
         await UninstallByName("HP Notifications");
+        await UninstallByName("HP Documentation");
+        await UninstallByName("HPHelp");
         await UninstallByName("Power Automate");
         await UninstallByName("OneNote for Windows 10");
-        
+        DisableService("Spooler");
+    }
+
+    static void DisableService(string serviceName)
+    {
+        using (var sc = new ServiceController(serviceName))
+        {
+            if (sc.Status == ServiceControllerStatus.Running)
+            {
+                sc.Stop();
+            }
+        }
+
+        using (var m = new ManagementObject($"Win32_Service.Name=\"{serviceName}\""))
+        {
+            m.InvokeMethod("ChangeStartMode", new object[] {"Disabled"});
+        }
     }
 
     static void RemoveChat()
@@ -70,15 +96,17 @@ public class Class1
     {
         Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowTaskViewButton", 0);
     }
+
     static void RemoveTaskBarSearch()
     {
         Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 0);
     }
+
     static void EnableDeveloperMode()
     {
-        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx","AllowDevelopmentWithoutDevLicense", 1);
+        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx", "AllowDevelopmentWithoutDevLicense", 1, RegistryValueKind.DWord);
     }
-    
+
     private static async Task Install(string id)
     {
         Console.WriteLine($"Install {id}");
@@ -86,8 +114,8 @@ public class Class1
         var arguments = $"install --id {id} --disable-interactivity --exact --no-upgrade";
         var commandResult = await Cli.Wrap("winget")
             .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
+            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
+            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
             .WithValidation(CommandResultValidation.None)
             .ExecuteAsync();
         var output = builder.ToString();
@@ -110,14 +138,14 @@ public class Class1
         var arguments = $"uninstall --id {id} --disable-interactivity --exact";
         var commandResult = await Cli.Wrap("winget")
             .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
+            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
+            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
             .WithValidation(CommandResultValidation.None)
             .ExecuteAsync();
         var output = builder.ToString();
         if (output.Contains("No installed package found matching input criteria."))
         {
-            Console.WriteLine(  output);
+            Console.WriteLine(output);
             return;
         }
 
@@ -145,14 +173,14 @@ public class Class1
         var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact";
         var commandResult = await Cli.Wrap("winget")
             .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_=> AppendLine(builder, _)))
+            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
+            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
             .WithValidation(CommandResultValidation.None)
             .ExecuteAsync();
         var output = builder.ToString();
         if (output.Contains("No installed package found matching input criteria."))
         {
-            Console.WriteLine(  output);
+            Console.WriteLine(output);
             return;
         }
 
