@@ -20,7 +20,6 @@ public class Class1
         EnableDeveloperMode();
         DisableWebSearch();
         await Install("dotPDNLLC.paintdotnet");
-        await Install("SublimeHQ.SublimeText.4");
         await UninstallByName("Teams Machine-Wide Installer");
         await UninstallByName("Movies & TV");
         await UninstallByName("Xbox TCUI");
@@ -29,12 +28,11 @@ public class Class1
         await UninstallByName("Xbox Identity Provider");
         await UninstallByName("Xbox Game Speech Window");
         await UninstallByName("Xbox Game Bar");
-        await UninstallById("Microsoft.GamingApp_8wekyb3d8bbwe");
+        await UninstallByName("Xbox");
         await UninstallByName("Phone Link");
         await UninstallByName("Microsoft Tips");
         await UninstallByName("MSN Weather");
         await UninstallByName("Windows Media Player");
-        await UninstallByName("Geekbench 6");
         await UninstallByName("Mail and Calendar");
         await UninstallByName("Microsoft Whiteboard");
         await UninstallByName("Microsoft Pay");
@@ -52,8 +50,9 @@ public class Class1
         await UninstallByName("Get Help");
         await UninstallByName("Paint 3D");
         await UninstallByName("Paint");
-        await UninstallByName("Clipchamp");
         await UninstallByName("Cortana");
+        await UninstallByName("Clipchamp");
+
         DisableService("HpTouchpointAnalyticsService");
         DisableService("HPAppHelperCap");
         DisableService("HPDiagsCap");
@@ -66,6 +65,7 @@ public class Class1
         await UninstallByName("Power Automate");
         await UninstallByName("OneNote for Windows 10");
         DisableService("Spooler");
+        await Upgrade();
     }
 
     static void DisableService(string serviceName)
@@ -93,6 +93,7 @@ public class Class1
     {
         Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", 0);
     }
+
     static void DisableStartupBoost()
     {
         Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "StartupBoostEnabled", 1, RegistryValueKind.DWord);
@@ -118,7 +119,7 @@ public class Class1
         Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
     }
 
-    private static async Task Install(string id)
+    static async Task Install(string id)
     {
         Console.WriteLine($"Install {id}");
         var builder = new StringBuilder();
@@ -142,7 +143,7 @@ public class Class1
         }
     }
 
-    private static async Task UninstallById(string id)
+    static async Task UninstallById(string id)
     {
         Console.WriteLine($"Uninstall {id}");
         var builder = new StringBuilder();
@@ -166,7 +167,7 @@ public class Class1
         }
     }
 
-    private static void AppendLine(StringBuilder builder, string line)
+    static void AppendLine(StringBuilder builder, string line)
     {
         line = line.Trim();
         if (line.Length <= 1)
@@ -177,7 +178,7 @@ public class Class1
         builder.AppendLine(line);
     }
 
-    private static async Task UninstallByName(string name)
+    static async Task UninstallByName(string name)
     {
         Console.WriteLine($"Uninstall {name}");
         var builder = new StringBuilder();
@@ -195,6 +196,24 @@ public class Class1
             return;
         }
 
+        if (commandResult.ExitCode != 0)
+        {
+            throw new(output);
+        }
+    }
+
+    static async Task Upgrade()
+    {
+        Console.WriteLine("upgrade");
+        var builder = new StringBuilder();
+        var arguments = "upgrade --all";
+        var commandResult = await Cli.Wrap("winget")
+            .WithArguments(arguments)
+            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
+            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
+            .WithValidation(CommandResultValidation.None)
+            .ExecuteAsync();
+        var output = builder.ToString();
         if (commandResult.ExitCode != 0)
         {
             throw new(output);
