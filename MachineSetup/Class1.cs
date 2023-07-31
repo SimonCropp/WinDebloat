@@ -12,6 +12,7 @@ public class Class1
     public async Task Foo()
     {
         //https://winget.run
+        //https://github.com/valinet/ExplorerPatcher
         RemoveChat();
         DisableStartupBoost();
         RemoveTaskBarSearch();
@@ -29,7 +30,6 @@ public class Class1
         await UninstallByName("Xbox Game Speech Window");
         await UninstallByName("Xbox Game Bar");
         await UninstallByName("Xbox");
-        await UninstallByName("Phone Link");
         await UninstallByName("Microsoft Tips");
         await UninstallByName("MSN Weather");
         await UninstallByName("Windows Media Player");
