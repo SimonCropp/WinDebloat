@@ -13,10 +13,12 @@ public class Class1
     {
         //https://winget.run
         RemoveChat();
+        DisableStartupBoost();
         RemoveTaskBarSearch();
         RemoveWidgets();
         RemoveTaskView();
         EnableDeveloperMode();
+        DisableWebSearch();
         await Install("dotPDNLLC.paintdotnet");
         await Install("SublimeHQ.SublimeText.4");
         await UninstallByName("Teams Machine-Wide Installer");
@@ -91,6 +93,10 @@ public class Class1
     {
         Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", 0);
     }
+    static void DisableStartupBoost()
+    {
+        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "StartupBoostEnabled", 1, RegistryValueKind.DWord);
+    }
 
     static void RemoveTaskView()
     {
@@ -105,6 +111,11 @@ public class Class1
     static void EnableDeveloperMode()
     {
         Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx", "AllowDevelopmentWithoutDevLicense", 1, RegistryValueKind.DWord);
+    }
+
+    static void DisableWebSearch()
+    {
+        Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
     }
 
     private static async Task Install(string id)
