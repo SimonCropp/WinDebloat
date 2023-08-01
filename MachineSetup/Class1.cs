@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System.Diagnostics;
+using System.Management;
 using System.ServiceProcess;
 using System.Text;
 using CliWrap;
@@ -21,6 +22,8 @@ public class Class1
         EnableDeveloperMode();
         DisableWebSearch();
         ForcedPhysicalSectorSizeInBytes();
+        InstallDiffEngineTray();
+        
         await Install("dotPDNLLC.paintdotnet");
         await Install("Microsoft.SQLServerManagementStudio");
         await Install("ScooterSoftware.BeyondCompare4");
@@ -71,6 +74,11 @@ public class Class1
         await Upgrade();
     }
 
+    private void InstallDiffEngineTray()
+    {
+        Process.Start("dotnet", "tool install -g DiffEngineTray");
+    }
+
     static void DisableService(string serviceName)
     {
         using (var sc = new ServiceController(serviceName))
@@ -115,18 +123,30 @@ public class Class1
     //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
     static void EnableDeveloperMode()
     {
-        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx", "AllowDevelopmentWithoutDevLicense", 1, RegistryValueKind.DWord);
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
+            "AllowDevelopmentWithoutDevLicense",
+            1,
+            RegistryValueKind.DWord);
     }
 
     static void DisableWebSearch()
     {
-        Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+            "DisableSearchBoxSuggestions",
+            1,
+            RegistryValueKind.DWord);
     }
 
     //https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size
     static void ForcedPhysicalSectorSizeInBytes()
     {
-        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device", "ForcedPhysicalSectorSizeInBytes", new[]{ "* 4095"}, RegistryValueKind.MultiString);
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device",
+            "ForcedPhysicalSectorSizeInBytes",
+            new[]{ "* 4095"},
+            RegistryValueKind.MultiString);
     }
 
     static async Task Install(string id)
