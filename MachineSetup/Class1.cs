@@ -20,7 +20,10 @@ public class Class1
         RemoveTaskView();
         EnableDeveloperMode();
         DisableWebSearch();
+        ForcedPhysicalSectorSizeInBytes();
         await Install("dotPDNLLC.paintdotnet");
+        await Install("Microsoft.SQLServerManagementStudio");
+        await Install("ScooterSoftware.BeyondCompare4");
         await UninstallByName("Teams Machine-Wide Installer");
         await UninstallByName("Movies & TV");
         await UninstallByName("Xbox TCUI");
@@ -109,6 +112,7 @@ public class Class1
         Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 0);
     }
 
+    //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
     static void EnableDeveloperMode()
     {
         Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx", "AllowDevelopmentWithoutDevLicense", 1, RegistryValueKind.DWord);
@@ -117,6 +121,12 @@ public class Class1
     static void DisableWebSearch()
     {
         Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableSearchBoxSuggestions", 1, RegistryValueKind.DWord);
+    }
+
+    //https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size
+    static void ForcedPhysicalSectorSizeInBytes()
+    {
+        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device", "ForcedPhysicalSectorSizeInBytes", new[]{ "* 4095"}, RegistryValueKind.MultiString);
     }
 
     static async Task Install(string id)
