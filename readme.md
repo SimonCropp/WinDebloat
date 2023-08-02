@@ -59,7 +59,7 @@ dotnet tool install -g WinDebloat
 
 ### Installs
 
- * Paint.net
+ * Paint.net. Consider [supporting with $$](https://www.getpaint.net/donate.html)
 
 
 ### Other
