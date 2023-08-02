@@ -16,10 +16,11 @@ Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
 dotnet tool install -g WinDebloat
 ```
 
+
 ## Behaviour
 
 
-### Uninstalls:
+### Uninstalls
 
  * Teams Machine-Wide Installer
  * Movies & TV
@@ -57,7 +58,7 @@ dotnet tool install -g WinDebloat
 
 
 ### Installs
-        
+
  * Paint.net
 
 
