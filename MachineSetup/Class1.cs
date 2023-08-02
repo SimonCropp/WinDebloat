@@ -21,9 +21,10 @@ public class Class1
         DisableWebSearch();
         ForcedPhysicalSectorSizeInBytes();
         InstallDiffEngineTray();
+        MakePowerShelUnrestricted();
 
         await Install("dotPDNLLC.paintdotnet");
-        await Install("Microsoft.SQLServerManagementStudio");
+        //await Install("Microsoft.SQLServerManagementStudio");
         await Install("ScooterSoftware.BeyondCompare4");
         await UninstallByName("Teams Machine-Wide Installer");
         await UninstallByName("Movies & TV");
@@ -128,6 +129,13 @@ public class Class1
             "AllowDevelopmentWithoutDevLicense",
             1,
             RegistryValueKind.DWord);
+
+    static void MakePowerShelUnrestricted() =>
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
+            "ExecutionPolicy",
+            "Unrestricted",
+            RegistryValueKind.String);
 
     static void DisableWebSearch() =>
         Registry.SetValue(
