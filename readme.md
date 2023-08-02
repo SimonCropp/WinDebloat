@@ -18,7 +18,7 @@ dotnet tool install -g WinDebloat
 
 Run
 
-```
+```ps
 WinDebloat
 ```
 
