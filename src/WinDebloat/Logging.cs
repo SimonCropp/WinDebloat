@@ -13,6 +13,7 @@ static class Logging
             rollOnFileSizeLimit: true,
             fileSizeLimitBytes: 1000000, //1mb
             retainedFileCountLimit: 10);
+        configuration.WriteTo.Console();
         Log.Logger = configuration.CreateLogger();
     }
 }

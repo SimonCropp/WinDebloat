@@ -11,6 +11,7 @@
         <PackageReference Include="CliWrap" Version="3.6.4" />
         <PackageReference Include="ProjectDefaults" Version="1.0.91" PrivateAssets="all" />
         <PackageReference Include="Serilog" Version="3.0.1" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
         <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     </ItemGroup>
 </Project>
