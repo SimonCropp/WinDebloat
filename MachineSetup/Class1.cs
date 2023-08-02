@@ -1,7 +1,5 @@
-﻿using System.Diagnostics;
-using System.Management;
+﻿using System.Management;
 using System.ServiceProcess;
-using System.Text;
 using CliWrap;
 using Microsoft.Win32;
 using NUnit.Framework;
@@ -23,7 +21,7 @@ public class Class1
         DisableWebSearch();
         ForcedPhysicalSectorSizeInBytes();
         InstallDiffEngineTray();
-        
+
         await Install("dotPDNLLC.paintdotnet");
         await Install("Microsoft.SQLServerManagementStudio");
         await Install("ScooterSoftware.BeyondCompare4");
@@ -74,10 +72,8 @@ public class Class1
         await Upgrade();
     }
 
-    private void InstallDiffEngineTray()
-    {
+    static void InstallDiffEngineTray() =>
         Process.Start("dotnet", "tool install -g DiffEngineTray");
-    }
 
     static void DisableService(string serviceName)
     {
@@ -95,59 +91,58 @@ public class Class1
         }
     }
 
-    static void RemoveChat()
-    {
-        Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarMn", 0);
-    }
+    static void RemoveChat() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+            "TaskbarMn",
+            0);
 
-    static void RemoveWidgets()
-    {
-        Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "TaskbarDa", 0);
-    }
+    static void RemoveWidgets() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+            "TaskbarDa",
+            0);
 
-    static void DisableStartupBoost()
-    {
-        Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "StartupBoostEnabled", 1, RegistryValueKind.DWord);
-    }
+    static void DisableStartupBoost() =>
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "StartupBoostEnabled",
+            1,
+            RegistryValueKind.DWord);
 
-    static void RemoveTaskView()
-    {
-        Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "ShowTaskViewButton", 0);
-    }
+    static void RemoveTaskView() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+            "ShowTaskViewButton",
+            0);
 
-    static void RemoveTaskBarSearch()
-    {
-        Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search", "SearchboxTaskbarMode", 0);
-    }
+    static void RemoveTaskBarSearch() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
+            "SearchboxTaskbarMode",
+            0);
 
     //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-    static void EnableDeveloperMode()
-    {
+    static void EnableDeveloperMode() =>
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
             "AllowDevelopmentWithoutDevLicense",
             1,
             RegistryValueKind.DWord);
-    }
 
-    static void DisableWebSearch()
-    {
+    static void DisableWebSearch() =>
         Registry.SetValue(
             @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
             "DisableSearchBoxSuggestions",
             1,
             RegistryValueKind.DWord);
-    }
 
     //https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size
-    static void ForcedPhysicalSectorSizeInBytes()
-    {
+    static void ForcedPhysicalSectorSizeInBytes() =>
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device",
             "ForcedPhysicalSectorSizeInBytes",
             new[]{ "* 4095"},
             RegistryValueKind.MultiString);
-    }
 
     static async Task Install(string id)
     {
