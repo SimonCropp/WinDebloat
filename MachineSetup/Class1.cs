@@ -70,7 +70,7 @@ public class Class1
         await UninstallByName("Power Automate");
         await UninstallByName("OneNote for Windows 10");
         DisableService("Spooler");
-        await Upgrade();
+        //await Upgrade();
     }
 
     static void InstallDiffEngineTray() =>
