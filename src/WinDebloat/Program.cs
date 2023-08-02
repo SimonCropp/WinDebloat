@@ -36,6 +36,7 @@
         await WinGet.UninstallByName("Xbox Identity Provider");
         await WinGet.UninstallByName("Xbox Game Speech Window");
         await WinGet.UninstallByName("Xbox Game Bar");
+        await WinGet.UninstallByName("Xbox Accessories");
         await WinGet.UninstallByName("Xbox");
         await WinGet.UninstallByName("Microsoft Tips");
         await WinGet.UninstallByName("MSN Weather");
