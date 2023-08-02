@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <PackAsTool>True</PackAsTool>
-        <OutputType>WinExe</OutputType>
+        <OutputType>Exe</OutputType>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
