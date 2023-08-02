@@ -16,6 +16,12 @@ Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
 dotnet tool install -g WinDebloat
 ```
 
+Run
+
+```
+WinDebloat
+```
+
 
 ## Behaviour
 
