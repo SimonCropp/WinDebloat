@@ -10,7 +10,7 @@ public static class WinGet
 
     public static Task<RunResult> Uninstall(string name)
     {
-        var list = Run($"uninstall --name \"{name}\" --disable-interactivity --exact");
+        var list = Run($"uninstall --name \"{name}\" --disable-interactivity --accept-source-agreements --exact");
         return list;
     }
 
