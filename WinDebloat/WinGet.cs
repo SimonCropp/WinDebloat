@@ -10,7 +10,7 @@ public static class WinGet
 
     static async Task Install(string match)
     {
-        var arguments = $"install {match} --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements  --accept-package-agreements";
+        var arguments = $"install {match} --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -32,8 +32,23 @@ public static class WinGet
     public static Task UninstallByName(string name) =>
         Uninstall($"--name \"{name}\"");
 
-    static Task Uninstall(string match) =>
-        Run($"uninstall {match} --disable-interactivity --exact --silent");
+    static async Task Uninstall(string match)
+    {
+        var arguments = $"uninstall {match} --disable-interactivity --exact --silent --accept-source-agreements";
+        var result = await Run(arguments);
+
+        if (result.ExitCode == 0)
+        {
+            return;
+        }
+
+        if (result.Output.Any(_ => _.Contains("No installed package found matching input criteria")))
+        {
+            return;
+        }
+
+        Throw(arguments, result);
+    }
 
     public static async Task<List<Package>> List()
     {
