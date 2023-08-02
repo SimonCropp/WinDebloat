@@ -65,7 +65,7 @@ dotnet tool install -g WinDebloat
 ### Other
 
 * Remove windows chat<br>
-  Set `"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarMn` to `0`
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarMn` to `0`
 * Remove widgets<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDa` to `0`
 * Disable edge startup boost<br>
