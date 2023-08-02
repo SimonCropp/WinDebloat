@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <PackAsTool>True</PackAsTool>
+        <OutputType>WinExe</OutputType>
+        <Description>A utility to debloat Windows 11</Description>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <RootNamespace>MachineSetup</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="CliWrap" Version="3.6.4" />
+        <PackageReference Include="ProjectDefaults" Version="1.0.91" PrivateAssets="all" />
+        <PackageReference Include="Serilog" Version="3.0.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    </ItemGroup>
+</Project>

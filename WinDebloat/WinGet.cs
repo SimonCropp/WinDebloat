@@ -1,11 +1,17 @@
-using CliWrap;
+using Serilog;
 
 public static class WinGet
 {
-    public static Task<RunResult> Install(string name)
+    public static async Task<RunResult> Install(string name)
     {
-        var list = Run($"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --accept-source-agreements --accept-package-agreements");
-        return list;
+        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --accept-source-agreements --accept-package-agreements";
+        var result = await Run(arguments);
+
+        if (result.ExitCode != 0)
+        {
+            Throw(arguments, result);
+        }
+        return result;
     }
 
     public static Task<RunResult> Uninstall(string name)
@@ -47,6 +53,7 @@ public static class WinGet
 
     public static async Task<RunResult> Run(string arguments)
     {
+        Log.Information($"Executing: winget {arguments}");
         var error = new List<string>();
         var output = new List<string>();
 

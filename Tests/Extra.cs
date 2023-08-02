@@ -1,8 +1,4 @@
-﻿using System.Management;
-using System.ServiceProcess;
-using Microsoft.Win32;
-
-[TestFixture]
+﻿[TestFixture]
 public class Extra
 {
     [Test]

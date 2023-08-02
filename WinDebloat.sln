@@ -2,7 +2,7 @@
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 16.0.29201.188
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineSetup", "MachineSetup\MachineSetup.csproj", "{8B75B835-A73B-490C-AA3A-074CFF898794}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinDebloat", "WinDebloat\WinDebloat.csproj", "{8B75B835-A73B-490C-AA3A-074CFF898794}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{1FC3805A-56F1-4703-B77E-39165E9D4C50}"
 EndProject

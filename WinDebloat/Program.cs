@@ -1,11 +1,24 @@
 ﻿using Microsoft.Win32;
-using NUnit.Framework;
+using Serilog;
 
-[TestFixture]
-public class Class1
+static class Program
 {
-    [Test]
-    public async Task Foo()
+    static async Task Main()
+    {
+        Logging.Init();
+
+        try
+        {
+            await Inner();
+        }
+        catch (Exception exception)
+        {
+            Log.Fatal(exception, "Failed at startup");
+            throw;
+        }
+    }
+
+    static async Task Inner()
     {
         //https://winget.run
         //https://github.com/valinet/ExplorerPatcher
@@ -18,7 +31,6 @@ public class Class1
         DisableWebSearch();
         MakePowerShelUnrestricted();
 
-        await WinGet.Install("dotPDNLLC.paintdotnet");
         await WinGet.Uninstall("Teams Machine-Wide Installer");
         await WinGet.Uninstall("Movies & TV");
         await WinGet.Uninstall("Xbox TCUI");
@@ -48,6 +60,7 @@ public class Class1
         await WinGet.Uninstall("Get Help");
         await WinGet.Uninstall("Paint 3D");
         await WinGet.Uninstall("Paint");
+        await WinGet.Install("dotPDNLLC.paintdotnet");
         await WinGet.Uninstall("Cortana");
         await WinGet.Uninstall("Clipchamp");
         await WinGet.Uninstall("Power Automate");
