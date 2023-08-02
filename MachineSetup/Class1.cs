@@ -1,6 +1,5 @@
 ﻿using System.Management;
 using System.ServiceProcess;
-using CliWrap;
 using Microsoft.Win32;
 using NUnit.Framework;
 
@@ -23,40 +22,40 @@ public class Class1
         InstallDiffEngineTray();
         MakePowerShelUnrestricted();
 
-        await Install("dotPDNLLC.paintdotnet");
+        await WinGet.Install("dotPDNLLC.paintdotnet");
         //await Install("Microsoft.SQLServerManagementStudio");
-        await Install("ScooterSoftware.BeyondCompare4");
-        await UninstallByName("Teams Machine-Wide Installer");
-        await UninstallByName("Movies & TV");
-        await UninstallByName("Xbox TCUI");
-        await UninstallByName("Xbox Console Companion");
-        await UninstallByName("Xbox Game Bar Plugin");
-        await UninstallByName("Xbox Identity Provider");
-        await UninstallByName("Xbox Game Speech Window");
-        await UninstallByName("Xbox Game Bar");
-        await UninstallByName("Xbox");
-        await UninstallByName("Microsoft Tips");
-        await UninstallByName("MSN Weather");
-        await UninstallByName("Windows Media Player");
-        await UninstallByName("Mail and Calendar");
-        await UninstallByName("Microsoft Whiteboard");
-        await UninstallByName("Microsoft Pay");
-        await UninstallByName("Skype");
-        await UninstallByName("Windows Maps");
-        await UninstallByName("Feedback Hub");
-        await UninstallByName("Microsoft Photos");
-        await UninstallByName("Windows Camera");
-        await UninstallByName("Microsoft To Do");
-        await UninstallByName("Microsoft People");
-        await UninstallByName("Solitaire & Casual Games");
-        await UninstallByName("Mixed Reality Portal");
-        await UninstallByName("Microsoft Sticky Notes");
-        await UninstallByName("News");
-        await UninstallByName("Get Help");
-        await UninstallByName("Paint 3D");
-        await UninstallByName("Paint");
-        await UninstallByName("Cortana");
-        await UninstallByName("Clipchamp");
+        await WinGet.Install("ScooterSoftware.BeyondCompare4");
+        await WinGet.Uninstall("Teams Machine-Wide Installer");
+        await WinGet.Uninstall("Movies & TV");
+        await WinGet.Uninstall("Xbox TCUI");
+        await WinGet.Uninstall("Xbox Console Companion");
+        await WinGet.Uninstall("Xbox Game Bar Plugin");
+        await WinGet.Uninstall("Xbox Identity Provider");
+        await WinGet.Uninstall("Xbox Game Speech Window");
+        await WinGet.Uninstall("Xbox Game Bar");
+        await WinGet.Uninstall("Xbox");
+        await WinGet.Uninstall("Microsoft Tips");
+        await WinGet.Uninstall("MSN Weather");
+        await WinGet.Uninstall("Windows Media Player");
+        await WinGet.Uninstall("Mail and Calendar");
+        await WinGet.Uninstall("Microsoft Whiteboard");
+        await WinGet.Uninstall("Microsoft Pay");
+        await WinGet.Uninstall("Skype");
+        await WinGet.Uninstall("Windows Maps");
+        await WinGet.Uninstall("Feedback Hub");
+        await WinGet.Uninstall("Microsoft Photos");
+        await WinGet.Uninstall("Windows Camera");
+        await WinGet.Uninstall("Microsoft To Do");
+        await WinGet.Uninstall("Microsoft People");
+        await WinGet.Uninstall("Solitaire & Casual Games");
+        await WinGet.Uninstall("Mixed Reality Portal");
+        await WinGet.Uninstall("Microsoft Sticky Notes");
+        await WinGet.Uninstall("News");
+        await WinGet.Uninstall("Get Help");
+        await WinGet.Uninstall("Paint 3D");
+        await WinGet.Uninstall("Paint");
+        await WinGet.Uninstall("Cortana");
+        await WinGet.Uninstall("Clipchamp");
 
         DisableService("HpTouchpointAnalyticsService");
         DisableService("HPAppHelperCap");
@@ -64,11 +63,11 @@ public class Class1
         DisableService("HPSysInfoCap");
         DisableService("hpsvcsscan");
         DisableService("HotKeyServiceDSU");
-        await UninstallByName("HP Notifications");
-        await UninstallByName("HP Documentation");
-        await UninstallByName("HPHelp");
-        await UninstallByName("Power Automate");
-        await UninstallByName("OneNote for Windows 10");
+        await WinGet.Uninstall("HP Notifications");
+        await WinGet.Uninstall("HP Documentation");
+        await WinGet.Uninstall("HPHelp");
+        await WinGet.Uninstall("Power Automate");
+        await WinGet.Uninstall("OneNote for Windows 10");
         DisableService("Spooler");
         //await Upgrade();
     }
@@ -151,105 +150,4 @@ public class Class1
             "ForcedPhysicalSectorSizeInBytes",
             new[]{ "* 4095"},
             RegistryValueKind.MultiString);
-
-    static async Task Install(string id)
-    {
-        Console.WriteLine($"Install {id}");
-        var builder = new StringBuilder();
-        var arguments = $"install --id {id} --disable-interactivity --exact --no-upgrade  --accept-source-agreements --accept-package-agreements";
-        var commandResult = await Cli.Wrap("winget")
-            .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteAsync();
-        var output = builder.ToString();
-        if (output.Contains("A package version is already installed"))
-        {
-            Console.WriteLine("  Already installed");
-            return;
-        }
-
-        if (commandResult.ExitCode != 0)
-        {
-            throw new(output);
-        }
-    }
-
-    static async Task UninstallById(string id)
-    {
-        Console.WriteLine($"Uninstall {id}");
-        var builder = new StringBuilder();
-        var arguments = $"uninstall --id {id} --disable-interactivity --exact";
-        var commandResult = await Cli.Wrap("winget")
-            .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteAsync();
-        var output = builder.ToString();
-        if (output.Contains("No installed package found matching input criteria."))
-        {
-            Console.WriteLine(output);
-            return;
-        }
-
-        if (commandResult.ExitCode != 0)
-        {
-            throw new(output);
-        }
-    }
-
-    static void AppendLine(StringBuilder builder, string line)
-    {
-        line = line.Trim();
-        if (line.Length <= 1)
-        {
-            return;
-        }
-
-        builder.AppendLine(line);
-    }
-
-    static async Task UninstallByName(string name)
-    {
-        Console.WriteLine($"Uninstall {name}");
-        var builder = new StringBuilder();
-        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact";
-        var commandResult = await Cli.Wrap("winget")
-            .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteAsync();
-        var output = builder.ToString();
-        if (output.Contains("No installed package found matching input criteria."))
-        {
-            Console.WriteLine(output);
-            return;
-        }
-
-        if (commandResult.ExitCode != 0)
-        {
-            throw new(output);
-        }
-    }
-
-    static async Task Upgrade()
-    {
-        Console.WriteLine("upgrade");
-        var builder = new StringBuilder();
-        var arguments = "upgrade --all";
-        var commandResult = await Cli.Wrap("winget")
-            .WithArguments(arguments)
-            .WithStandardOutputPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithStandardErrorPipe(PipeTarget.ToDelegate(_ => AppendLine(builder, _)))
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteAsync();
-        var output = builder.ToString();
-        if (commandResult.ExitCode != 0)
-        {
-            throw new(output);
-        }
-    }
 }

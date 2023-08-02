@@ -1,6 +1,0 @@
-﻿{
-  Item1: -1978335135,
-  Item2: [
-    A package version is already installed. Installation cancelled.
-  ]
-}
