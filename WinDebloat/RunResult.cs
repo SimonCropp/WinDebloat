@@ -1,0 +1,1 @@
+﻿public record RunResult(int ExitCode, List<string> Output, List<string> Error);

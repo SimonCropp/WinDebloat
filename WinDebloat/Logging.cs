@@ -1,5 +1,3 @@
-using Serilog;
-
 static class Logging
 {
     public static string LogsDirectory { get; } = Path.Combine(AssemblyLocation.CurrentDirectory, "logs");

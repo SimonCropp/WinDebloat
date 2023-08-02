@@ -3,7 +3,6 @@
         <TargetFramework>net7.0-windows</TargetFramework>
         <PackAsTool>True</PackAsTool>
         <OutputType>WinExe</OutputType>
-        <Description>A utility to debloat Windows 11</Description>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>

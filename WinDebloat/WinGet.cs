@@ -1,5 +1,3 @@
-using Serilog;
-
 public static class WinGet
 {
     public static Task InstallByName(string name) =>
@@ -75,12 +73,13 @@ public static class WinGet
 
     static void Throw(string arguments, RunResult result)
     {
-        throw new($"""
-                   Error. Command line: winget {arguments}.
-                     ExitCode: {result.ExitCode}
-                     Output: {string.Join('\n', result.Output)}
-                     Error: {string.Join('\n', result.Error)}
-                   """);
+        throw new(
+            $"""
+             Error. Command line: winget {arguments}.
+               ExitCode: {result.ExitCode}
+               Output: {string.Join('\n', result.Output)}
+               Error: {string.Join('\n', result.Error)}
+             """);
     }
 
     public static async Task<RunResult> Run(string arguments)
@@ -99,7 +98,7 @@ public static class WinGet
         return new(commandResult.ExitCode, output, error);
     }
 
-    private static void AppendLine(List<string> list, string line)
+    static void AppendLine(List<string> list, string line)
     {
         var data = line.Trim();
         if (data is {Length: > 1})
@@ -108,7 +107,3 @@ public static class WinGet
         }
     }
 }
-
-public record Package(string Name, string Id);
-
-public record RunResult(int ExitCode, List<string> Output, List<string> Error);

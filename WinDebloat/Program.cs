@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32;
-using Serilog;
-
-static class Program
+﻿static class Program
 {
     static async Task Main()
     {
