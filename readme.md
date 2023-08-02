@@ -62,7 +62,7 @@ WinDebloat
  * Cortana
  * Clipchamp
  * Power Automate
- * OneNote for Windows 10
+ * OneNote
 
 
 ### Installs
