@@ -68,7 +68,7 @@ dotnet tool install -g WinDebloat
   Set `"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarMn` to `0`
 * Remove widgets<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDa` to `0`
-* Disable edge staup boost<br>
+* Disable edge startup boost<br>
   Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `1`
 * Hide Task View Button<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowTaskViewButton` to `0`
