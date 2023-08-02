@@ -10,13 +10,15 @@ A dotnet tool that removes the bloat in Windows 11
 
 Ensure [dotnet CLI is installed](https://docs.microsoft.com/en-us/dotnet/core/tools/).
 
-Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
+
+### Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
 
 ```ps
 dotnet tool install -g WinDebloat
 ```
 
-Run
+
+### Run
 
 ```ps
 WinDebloat
