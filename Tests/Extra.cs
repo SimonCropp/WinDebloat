@@ -8,7 +8,7 @@ public class Extra
         InstallDiffEngineTray();
 
         //await Install("Microsoft.SQLServerManagementStudio");
-        await WinGet.Install("ScooterSoftware.BeyondCompare4");
+        await WinGet.InstallById("ScooterSoftware.BeyondCompare4");
 
         DisableService("HpTouchpointAnalyticsService");
         DisableService("HPAppHelperCap");
@@ -16,9 +16,9 @@ public class Extra
         DisableService("HPSysInfoCap");
         DisableService("hpsvcsscan");
         DisableService("HotKeyServiceDSU");
-        await WinGet.Uninstall("HP Notifications");
-        await WinGet.Uninstall("HP Documentation");
-        await WinGet.Uninstall("HPHelp");
+        await WinGet.UninstallByName("HP Notifications");
+        await WinGet.UninstallByName("HP Documentation");
+        await WinGet.UninstallByName("HPHelp");
         DisableService("Spooler");
         //await Upgrade();
     }
@@ -28,25 +28,29 @@ public class Extra
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stornvme\Parameters\Device",
             "ForcedPhysicalSectorSizeInBytes",
-            new[]{ "* 4095"},
+            new[] {"* 4095"},
             RegistryValueKind.MultiString);
 
     static void InstallDiffEngineTray() =>
         Process.Start("dotnet", "tool install -g DiffEngineTray");
 
-    static void DisableService(string serviceName)
+    static void DisableService(string name)
     {
-        using (var sc = new ServiceController(serviceName))
+        var services = ServiceController.GetServices();
+        var service = services.SingleOrDefault(_ => _.ServiceName == name);
+        if (service == null)
         {
-            if (sc.Status == ServiceControllerStatus.Running)
-            {
-                sc.Stop();
-            }
+            return;
         }
 
-        using (var m = new ManagementObject($"Win32_Service.Name=\"{serviceName}\""))
+        if (service.Status == ServiceControllerStatus.Running)
         {
-            m.InvokeMethod("ChangeStartMode", new object[] {"Disabled"});
+            service.Stop();
         }
+
+        using var managementObject = new ManagementObject($"Win32_Service.Name=\"{name}\"");
+        managementObject.InvokeMethod(
+            "ChangeStartMode",
+            new object[] {"Disabled"});
     }
 }

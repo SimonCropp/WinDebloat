@@ -2,25 +2,40 @@ using Serilog;
 
 public static class WinGet
 {
-    public static async Task<RunResult> Install(string name)
+    public static Task InstallByName(string name) =>
+        Install($"--name \"{name}\"");
+
+    public static Task InstallById(string id) =>
+        Install($"--id \"{id}\"");
+
+    static async Task Install(string match)
     {
-        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --accept-source-agreements --accept-package-agreements";
+        var arguments = $"install {match} --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements  --accept-package-agreements";
         var result = await Run(arguments);
 
-        if (result.ExitCode != 0)
+        if (result.ExitCode == 0)
         {
-            Throw(arguments, result);
+            return;
         }
-        return result;
+
+        if (result.Output.Any(_ => _.Contains("already installed")))
+        {
+            return;
+        }
+
+        Throw(arguments, result);
     }
 
-    public static Task<RunResult> Uninstall(string name)
-    {
-        var list = Run($"uninstall --name \"{name}\" --disable-interactivity --exact");
-        return list;
-    }
+    public static Task UninstallById(string id) =>
+        Uninstall($"--id \"{id}\"");
 
-    public static async Task<List<string>> List()
+    public static Task UninstallByName(string name) =>
+        Uninstall($"--name \"{name}\"");
+
+    static Task Uninstall(string match) =>
+        Run($"uninstall {match} --disable-interactivity --exact --silent");
+
+    public static async Task<List<Package>> List()
     {
         var result = await Run("list");
 
@@ -29,12 +44,14 @@ public static class WinGet
             Throw("list", result);
         }
 
-        var list = new List<string>();
+        var list = new List<Package>();
         foreach (var line in result.Output.Skip(2))
         {
             if (line.Length > 35)
             {
-                list.Add(line[..35].TrimEnd());
+                list.Add(new(
+                    line[..35].TrimEnd(),
+                    line[36..73].TrimEnd()));
             }
         }
 
@@ -76,5 +93,7 @@ public static class WinGet
         }
     }
 }
+
+public record Package(string Name, string Id);
 
 public record RunResult(int ExitCode, List<string> Output, List<string> Error);

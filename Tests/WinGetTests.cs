@@ -1,15 +1,46 @@
 ﻿[TestFixture]
 public class WinGetTests
 {
-    [Test]
-    public async Task Test()
-    {
-        await WinGet.Install("Windows Calculator");
-        var list = await WinGet.List();
-        Assert.IsTrue(list.Any(_ => _ == "Windows Calculator"));
+    string name = "GitHub CLI";
+    string id = "GitHub.cli";
 
-        await WinGet.Uninstall("Windows Calculator");
+    [Test]
+    public async Task AlreadyInstalled()
+    {
+        await WinGet.InstallById(id);
+        await WinGet.InstallById(id);
+        await WinGet.InstallByName(name);
+    }
+
+    [Test]
+    public async Task AlreadyUninstalled()
+    {
+        await WinGet.UninstallById(id);
+        await WinGet.UninstallById(id);
+        await WinGet.UninstallByName(name);
+    }
+
+    [Test]
+    public async Task IdTest()
+    {
+        await WinGet.InstallById(id);
+        var list = await WinGet.List();
+        Assert.IsTrue(list.Any(_ => _.Id == id));
+
+        await WinGet.UninstallById(id);
         list = await WinGet.List();
-        Assert.IsFalse(list.Any(_ => _ == "Windows Calculator"));
+        Assert.IsFalse(list.Any(_ => _.Id == id));
+    }
+
+    [Test]
+    public async Task NameTest()
+    {
+        await WinGet.InstallByName(name);
+        var list = await WinGet.List();
+        Assert.IsTrue(list.Any(_ => _.Name == name));
+
+        await WinGet.UninstallByName(name);
+        list = await WinGet.List();
+        Assert.IsFalse(list.Any(_ => _.Name == name));
     }
 }
