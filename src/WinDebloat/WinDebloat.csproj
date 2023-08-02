@@ -6,7 +6,6 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
-        <RootNamespace>MachineSetup</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="CliWrap" Version="3.6.4" />
