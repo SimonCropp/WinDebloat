@@ -6,10 +6,10 @@ public class WinGetTests
     {
         await WinGet.Install("Windows Calculator");
         var list = await WinGet.List();
-        Assert.IsTrue(list.Any(_=>_ == "Windows Calculator"));
+        Assert.IsTrue(list.Any(_ => _ == "Windows Calculator"));
 
-        await  WinGet.Uninstall("Windows Calculator");
+        await WinGet.Uninstall("Windows Calculator");
         list = await WinGet.List();
-        Assert.IsFalse(list.Any(_=>_ == "Windows Calculator"));
+        Assert.IsFalse(list.Any(_ => _ == "Windows Calculator"));
     }
 }
