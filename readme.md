@@ -95,6 +95,9 @@ WinDebloat
   Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection\Allow Telemetry` to `0`
 * Disable Advertiser Id<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo\Enabled` to `0`
+* Disable Lock Screen Ads<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\RotatingLockScreenOverlayEnabled` to `0`<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338387Enabled` to `0`
 
 
 ## Icons
