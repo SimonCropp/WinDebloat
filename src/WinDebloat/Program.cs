@@ -26,7 +26,7 @@
         //https://winget.run
         //https://github.com/valinet/ExplorerPatcher
         RemoveChat();
-        DisableCompatibilityTelemetry();
+        DisableTelemetry();
         DisableStartupBoost();
         RemoveTaskBarSearch();
         EnableFileExtensions();
@@ -114,7 +114,7 @@
             "TaskbarMn",
             0);
 
-    static void DisableCompatibilityTelemetry() =>
+    static void DisableTelemetry() =>
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
             "Allow Telemetry",
