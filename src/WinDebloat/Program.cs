@@ -28,6 +28,7 @@
         RemoveChat();
         DisableStartupBoost();
         RemoveTaskBarSearch();
+        EnableFileExtensions();
         RemoveWidgets();
         RemoveTaskView();
         EnableDeveloperMode();
@@ -135,6 +136,12 @@
         Registry.SetValue(
             @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
             "SearchboxTaskbarMode",
+            0);
+
+    static void EnableFileExtensions() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+            "HideFileExt",
             0);
 
     //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
