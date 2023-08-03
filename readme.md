@@ -90,7 +90,7 @@ WinDebloat
 * Disable Web Search<br>
   Set `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\DisableSearchBoxSuggestions` to `1`
 * Enable file extensions<br>
-  Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `1`
+  Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `0`
 
 
 ## Icons
