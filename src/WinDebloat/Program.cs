@@ -79,7 +79,8 @@
 
     static void DisableStartupBoost() =>
         Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge", "StartupBoostEnabled",
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+            "StartupBoostEnabled",
             0,
             RegistryValueKind.DWord);
 
