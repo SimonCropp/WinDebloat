@@ -29,6 +29,7 @@
         DisableTelemetry();
         DisableAdvertiserId();
         DisableLockScreenAds();
+        DisableSuggestedApps();
         DisableStartupBoost();
         RemoveTaskBarSearch();
         EnableFileExtensions();
@@ -138,6 +139,18 @@
         Registry.SetValue(
             @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
             "SubscribedContent-338387Enabled",
+            0);
+    }
+
+    static void DisableSuggestedApps()
+    {
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+            "SystemPaneSuggestionsEnabled",
+            0);
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+            "SilentInstalledAppsEnabled",
             0);
     }
 
