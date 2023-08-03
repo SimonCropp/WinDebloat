@@ -77,7 +77,7 @@ WinDebloat
 * Remove widgets<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDa` to `0`
 * Disable edge startup boost<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `1`
+  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `0`
 * Hide Task View Button<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowTaskViewButton` to `0`
 * Remove Task Bar Search<br>
