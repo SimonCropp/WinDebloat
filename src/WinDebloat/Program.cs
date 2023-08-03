@@ -34,6 +34,7 @@
         RemoveTaskBarSearch();
         EnableFileExtensions();
         RemoveWidgets();
+        HideStartMenuRecommendedSection();
         RemoveTaskView();
         EnableDeveloperMode();
         DisableWebSearch();
@@ -159,6 +160,12 @@
             @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
             "TaskbarDa",
             0);
+
+    static void HideStartMenuRecommendedSection() =>
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+            "HideRecommendedSection",
+            1);
 
     static void DisableStartupBoost() =>
         Registry.SetValue(
