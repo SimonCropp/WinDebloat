@@ -120,15 +120,13 @@
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
             "Allow Telemetry",
-            0,
-            RegistryValueKind.DWord);
+            0);
 
     static void DisableAdvertiserId() =>
         Registry.SetValue(
             @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
             "Enabled",
-            0,
-            RegistryValueKind.DWord);
+            0);
 
     //https://superuser.com/questions/1327459/remove-fun-facts-from-spotlight-lock-screen-in-windows-10-home-1803
     static void DisableLockScreenAds()
@@ -153,8 +151,7 @@
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
             "StartupBoostEnabled",
-            0,
-            RegistryValueKind.DWord);
+            0);
 
     static void RemoveTaskView() =>
         Registry.SetValue(
@@ -179,8 +176,7 @@
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
             "AllowDevelopmentWithoutDevLicense",
-            1,
-            RegistryValueKind.DWord);
+            1);
 
     static void MakePowerShelUnrestricted() =>
         Registry.SetValue(
@@ -193,6 +189,5 @@
         Registry.SetValue(
             @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
             "DisableSearchBoxSuggestions",
-            1,
-            RegistryValueKind.DWord);
+            1);
 }
