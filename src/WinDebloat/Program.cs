@@ -26,6 +26,7 @@
         //https://winget.run
         //https://github.com/valinet/ExplorerPatcher
         RemoveChat();
+        DisableCompatibilityTelemetry();
         DisableStartupBoost();
         RemoveTaskBarSearch();
         EnableFileExtensions();
@@ -112,6 +113,13 @@
             @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
             "TaskbarMn",
             0);
+
+    static void DisableCompatibilityTelemetry() =>
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+            "Allow Telemetry",
+            0,
+            RegistryValueKind.DWord);
 
     static void RemoveWidgets() =>
         Registry.SetValue(
