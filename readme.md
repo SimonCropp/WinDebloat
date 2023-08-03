@@ -70,6 +70,7 @@ WinDebloat
  * Clipchamp
  * Power Automate
  * OneNote
+ * Windows Web Experience Pack
 
 
 ### Installs
@@ -84,7 +85,7 @@ WinDebloat
 * Remove widgets<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDa` to `0`
 * Disable edge startup boost<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `1`
+  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `0`
 * Hide Task View Button<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowTaskViewButton` to `0`
 * Remove Task Bar Search<br>
@@ -95,6 +96,20 @@ WinDebloat
   Set `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell\ExecutionPolicy` to `Unrestricted`
 * Disable Web Search<br>
   Set `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\DisableSearchBoxSuggestions` to `1`
+* Enable file extensions<br>
+  Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `0`
+* Disable Telemetry<br>
+  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection\Allow Telemetry` to `0`
+* Disable Advertiser Id<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo\Enabled` to `0`
+* Disable Lock Screen Ads<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\RotatingLockScreenOverlayEnabled` to `0`<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338387Enabled` to `0`
+* Disable Suggested Apps<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SystemPaneSuggestionsEnabled` to `0`<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SilentInstalledAppsEnabled` to `0`
+* Hide start menu Recommended Section<br>
+  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer\HideRecommendedSection` to `1`
 
 
 ## Icons
