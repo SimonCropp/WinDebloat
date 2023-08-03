@@ -101,6 +101,8 @@ WinDebloat
 * Disable Suggested Apps<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SystemPaneSuggestionsEnabled` to `0`<br>
   Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SilentInstalledAppsEnabled` to `0`
+* Hide start menu Recommended Section<br>
+  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer\HideRecommendedSection` to `1`
 
 
 ## Icons
