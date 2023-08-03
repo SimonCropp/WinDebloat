@@ -93,6 +93,8 @@ WinDebloat
   Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `0`
 * Disable Telemetry<br>
   Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection\Allow Telemetry` to `0`
+* Disable Advertiser Id<br>
+  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo\Enabled` to `0`
 
 
 ## Icons

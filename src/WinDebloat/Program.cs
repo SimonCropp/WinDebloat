@@ -27,6 +27,7 @@
         //https://github.com/valinet/ExplorerPatcher
         RemoveChat();
         DisableTelemetry();
+        DisableAdvertiserId();
         DisableStartupBoost();
         RemoveTaskBarSearch();
         EnableFileExtensions();
@@ -118,6 +119,13 @@
         Registry.SetValue(
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
             "Allow Telemetry",
+            0,
+            RegistryValueKind.DWord);
+
+    static void DisableAdvertiserId() =>
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
+            "Enabled",
             0,
             RegistryValueKind.DWord);
 
