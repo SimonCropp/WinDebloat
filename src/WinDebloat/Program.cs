@@ -63,6 +63,7 @@
         await WinGet.UninstallByName("Clipchamp");
         await WinGet.UninstallByName("Power Automate");
         await WinGet.UninstallByName("OneNote for Windows 10");
+        await WinGet.UninstallById("MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy");
     }
 
     static void RemoveChat() =>
