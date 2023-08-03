@@ -63,6 +63,7 @@ WinDebloat
  * Clipchamp
  * Power Automate
  * OneNote
+ * Windows Web Experience Pack
 
 
 ### Installs
