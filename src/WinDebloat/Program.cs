@@ -28,6 +28,7 @@
         RemoveChat();
         DisableTelemetry();
         DisableAdvertiserId();
+        DisableLockScreenAds();
         DisableStartupBoost();
         RemoveTaskBarSearch();
         EnableFileExtensions();
@@ -128,6 +129,19 @@
             "Enabled",
             0,
             RegistryValueKind.DWord);
+
+    //https://superuser.com/questions/1327459/remove-fun-facts-from-spotlight-lock-screen-in-windows-10-home-1803
+    static void DisableLockScreenAds()
+    {
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+            "RotatingLockScreenOverlayEnabled",
+            0);
+        Registry.SetValue(
+            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+            "SubscribedContent-338387Enabled",
+            0);
+    }
 
     static void RemoveWidgets() =>
         Registry.SetValue(
