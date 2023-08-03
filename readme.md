@@ -89,6 +89,8 @@ WinDebloat
   Set `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell\ExecutionPolicy` to `Unrestricted`
 * Disable Web Search<br>
   Set `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\DisableSearchBoxSuggestions` to `1`
+* Enable file extensions<br>
+  Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `1`
 
 
 ## Icons
