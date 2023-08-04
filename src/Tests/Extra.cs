@@ -8,7 +8,6 @@ public class Extra
         InstallDiffEngineTray();
 
         //await Install("Microsoft.SQLServerManagementStudio");
-        await WinGet.InstallById("ScooterSoftware.BeyondCompare4");
 
         DisableService("HpTouchpointAnalyticsService");
         DisableService("HPAppHelperCap");
@@ -16,9 +15,9 @@ public class Extra
         DisableService("HPSysInfoCap");
         DisableService("hpsvcsscan");
         DisableService("HotKeyServiceDSU");
-        await WinGet.UninstallByName("HP Notifications");
-        await WinGet.UninstallByName("HP Documentation");
-        await WinGet.UninstallByName("HPHelp");
+        await WinGet.Uninstall("HP Notifications");
+        await WinGet.Uninstall("HP Documentation");
+        await WinGet.Uninstall("HPHelp");
         DisableService("Spooler");
         //await Upgrade();
     }

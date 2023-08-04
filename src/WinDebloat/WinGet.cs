@@ -1,14 +1,8 @@
 public static class WinGet
 {
-    public static Task InstallByName(string name) =>
-        Install($"--name \"{name}\"");
-
-    public static Task InstallById(string id) =>
-        Install($"--id \"{id}\"");
-
-    static async Task Install(string match)
+    public static async Task Install(string name)
     {
-        var arguments = $"install {match} --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -24,15 +18,9 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static Task UninstallById(string id) =>
-        Uninstall($"--id \"{id}\"");
-
-    public static Task UninstallByName(string name) =>
-        Uninstall($"--name \"{name}\"");
-
-    static async Task Uninstall(string match)
+    public static async Task Uninstall(string name)
     {
-        var arguments = $"uninstall {match} --disable-interactivity --exact --silent --accept-source-agreements";
+        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -48,7 +36,7 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static async Task<List<Package>> List()
+    public static async Task<List<string>> List()
     {
         var result = await Run("list --accept-source-agreements");
 
@@ -57,14 +45,12 @@ public static class WinGet
             Throw("list", result);
         }
 
-        var list = new List<Package>();
+        var list = new List<string>();
         foreach (var line in result.Output.Skip(2))
         {
             if (line.Length > 35)
             {
-                list.Add(new(
-                    line[..35].Trim(),
-                    line[36..73].Trim()));
+                list.Add(line[..35].Trim());
             }
         }
 
