@@ -75,7 +75,7 @@ public static class WinGet
     {
         var arguments = "source reset --force";
         var result = await Run(arguments);
-        
+
         if (result.ExitCode != 0)
         {
             Throw(arguments, result);
