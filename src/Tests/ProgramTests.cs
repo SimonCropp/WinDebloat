@@ -9,7 +9,17 @@ public class ProgramTests
         {
             foreach (var job in group.Jobs)
             {
-                job.Assert();
+                if (job is RegistryJob registryJob)
+                {
+                    var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
+
+                    if (registryJob.Value.Equals(actual))
+                    {
+                        return;
+                    }
+
+                    throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.Value}");
+                }
             }
         }
     }

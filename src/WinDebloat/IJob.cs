@@ -3,6 +3,7 @@
     public string Name { get; }
     public string? Notes { get; }
     string Description { get; }
-    void Assert();
-    void Run();
+    Task<JobResult> Run();
 }
+
+public record JobResult(bool applied, string? reason);

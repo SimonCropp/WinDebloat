@@ -30,7 +30,7 @@
             {
                 Log.Information($"  Job: {job.Name}");
                 Log.Information($"    {job.Description}");
-                job.Run();
+                await job.Run();
             }
         }
 
