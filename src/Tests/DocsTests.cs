@@ -41,6 +41,8 @@ public class DocsTests
             case RegistryJob registry:
                 writer.WriteLine(
                     $"""
+                     Apply:
+
                      ```ps
                      Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.Value}
                      ```
