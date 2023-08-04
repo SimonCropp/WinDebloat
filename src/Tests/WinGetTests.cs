@@ -43,4 +43,12 @@ public class WinGetTests
         list = await WinGet.List();
         Assert.IsFalse(list.Any(_ => _.Name == name));
     }
+
+    [Test]
+    [NonParallelizable]
+    public async Task ListAndAcceptSourceAgreements()
+    {
+        await WinGet.ResetSources();
+        await WinGet.List(); // This should not throw
+    }
 }

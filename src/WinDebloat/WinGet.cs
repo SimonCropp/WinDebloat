@@ -71,6 +71,17 @@ public static class WinGet
         return list;
     }
 
+    public static async Task ResetSources()
+    {
+        var arguments = "source reset --force";
+        var result = await Run(arguments);
+        
+        if (result.ExitCode != 0)
+        {
+            Throw(arguments, result);
+        }
+    }
+
     static void Throw(string arguments, RunResult result)
     {
         throw new(
