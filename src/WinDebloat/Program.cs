@@ -22,15 +22,25 @@
 
     public static async Task Inner()
     {
-        var installedTask = WinGet.List();
+        installed = await WinGet.List();
         foreach (var group in Groups)
         {
             Log.Information($"Group: {group.Name}");
             foreach (var job in group.Jobs)
             {
                 Log.Information($"  Job: {job.Name}");
-                Log.Information($"    {job.Description}");
-                await job.Run();
+                switch (job)
+                {
+                    case RegistryJob registry:
+                        HandleRegistry(registry);
+                        continue;
+                    case InstallJob installJob:
+                        await HandleInstall(installJob);
+                        continue;
+                    case UninstallJob uninstallJob:
+                        await HandleUninstall(uninstallJob);
+                        continue;
+                }
             }
         }
 
@@ -73,8 +83,6 @@
             "Windows Web Experience Pack"
         };
 
-        var installed = await installedTask;
-
         foreach (var package in toUninstall)
         {
             if (!IsInstalled(package))
@@ -101,9 +109,45 @@
 
             await WinGet.Install(package);
         }
+    }
 
-        bool IsInstalled(string package) =>
-            installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
+    static async Task HandleUninstall(UninstallJob uninstall)
+    {
+        if (IsInstalled(uninstall.Name))
+        {
+            await WinGet.Install(uninstall.Name);
+            return;
+        }
+
+        Log.Information($"    Skipping uninstall of '{uninstall.Name}' since already uninstalled");
+    }
+
+    static async Task HandleInstall(InstallJob install)
+    {
+        if (IsInstalled(install.Name))
+        {
+            Log.Information($"    Skipping install of '{install.Name}' since already installed");
+            return;
+        }
+
+        await WinGet.Install(install.Name);
+    }
+
+    static bool IsInstalled(string package) =>
+        installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
+
+    static void HandleRegistry(RegistryJob registry)
+    {
+        var (key, name, value, kind, _) = registry;
+        Log.Information(@$"    Registry target {key}\{name} to {value} ({kind})");
+        var currentValue = Registry.GetValue(key, name, null);
+        if (value.Equals(currentValue))
+        {
+            Log.Information($"      Value is already {value}");
+            return;
+        }
+
+        Registry.SetValue(key, name, value, kind);
     }
 
     public static List<Group> Groups = new()
@@ -202,4 +246,6 @@
                 "WebWidgetAllowed",
                 0)),
     };
+
+    static List<string> installed = null!;
 }
