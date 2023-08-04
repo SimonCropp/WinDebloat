@@ -63,8 +63,8 @@ public static class WinGet
             if (line.Length > 35)
             {
                 list.Add(new(
-                    line[..35].TrimEnd(),
-                    line[36..73].TrimEnd()));
+                    line[..35].Trim(),
+                    line[36..73].Trim()));
             }
         }
 
