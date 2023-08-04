@@ -1,4 +1,4 @@
-﻿static class Program
+﻿public static class Program
 {
     static async Task Main()
     {
@@ -20,25 +20,22 @@
         }
     }
 
-    static async Task Inner()
+    public static async Task Inner()
     {
         var installedTask = WinGet.List();
         //https://winget.run
         //https://github.com/valinet/ExplorerPatcher
-        RemoveChat();
-        DisableTelemetry();
-        DisableAdvertiserId();
-        DisableLockScreenAds();
-        DisableSuggestedApps();
-        DisableStartupBoost();
-        RemoveTaskBarSearch();
-        EnableFileExtensions();
-        RemoveWidgets();
-        HideStartMenuRecommendedSection();
-        RemoveTaskView();
-        EnableDeveloperMode();
-        DisableWebSearch();
-        MakePowerShelUnrestricted();
+
+        foreach (var group in Groups)
+        {
+            Log.Information($"Group: {group.Name}");
+            foreach (var job in group.Jobs)
+            {
+                Log.Information($"  Job: {job.Name}");
+                Log.Information($"    {job.Description}");
+                job.Run();
+            }
+        }
 
         var toUninstall = new List<string>
         {
@@ -112,102 +109,94 @@
             installed.Any(_ => string.Equals(_.Name, package, StringComparison.OrdinalIgnoreCase));
     }
 
-    static void RemoveChat() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "TaskbarMn",
-            0);
-
-    static void DisableTelemetry() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
-            "Allow Telemetry",
-            0);
-
-    static void DisableAdvertiserId() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
-            "Enabled",
-            0);
-
-    //https://superuser.com/questions/1327459/remove-fun-facts-from-spotlight-lock-screen-in-windows-10-home-1803
-    static void DisableLockScreenAds()
+    public static List<Group> Groups = new()
     {
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "RotatingLockScreenOverlayEnabled",
-            0);
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SubscribedContent-338387Enabled",
-            0);
-    }
-
-    static void DisableSuggestedApps()
-    {
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SystemPaneSuggestionsEnabled",
-            0);
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SilentInstalledAppsEnabled",
-            0);
-    }
-
-    static void RemoveWidgets() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "TaskbarDa",
-            0);
-
-    static void HideStartMenuRecommendedSection() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
-            "HideRecommendedSection",
-            1);
-
-    static void DisableStartupBoost() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
-            "StartupBoostEnabled",
-            0);
-
-    static void RemoveTaskView() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "ShowTaskViewButton",
-            0);
-
-    static void RemoveTaskBarSearch() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
-            "SearchboxTaskbarMode",
-            0);
-
-    static void EnableFileExtensions() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "HideFileExt",
-            0);
-
-    //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-    static void EnableDeveloperMode() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
-            "AllowDevelopmentWithoutDevLicense",
-            1);
-
-    static void MakePowerShelUnrestricted() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
-            "ExecutionPolicy",
-            "Unrestricted",
-            RegistryValueKind.String);
-
-    static void DisableWebSearch() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
-            "DisableSearchBoxSuggestions",
-            1);
+        new(
+            "DisableLockScreenAds",
+            new[]
+            {
+                new RegistryJob(
+                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "RotatingLockScreenOverlayEnabled",
+                    0),
+                new RegistryJob(
+                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-338387Enabled",
+                    0),
+            }),
+        new(
+            "RemoveChat",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "TaskbarMn",
+                0)),
+        new(
+            "DisableTelemetry",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                "Allow Telemetry",
+                0)),
+        new(
+            "DisableAdvertiserId",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
+                "Enabled",
+                0)),
+        new(
+            "RemoveWidgets",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "TaskbarDa",
+                0)),
+        new(
+            "HideStartMenuRecommendedSection",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                "HideRecommendedSection",
+                1)),
+        new(
+            "DisableStartupBoost",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "StartupBoostEnabled",
+                0)),
+        new(
+            "RemoveTaskView",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "ShowTaskViewButton",
+                0)),
+        new(
+            "RemoveTaskBarSearch",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
+                "SearchboxTaskbarMode",
+                0)),
+        new(
+            "EnableFileExtensions",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "HideFileExt",
+                0)),
+        new(
+            "EnableDeveloperMode",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
+                "AllowDevelopmentWithoutDevLicense",
+                1,
+                Notes: " * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development")),
+        new(
+            "MakePowerShelUnrestricted",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
+                "ExecutionPolicy",
+                "Unrestricted",
+                RegistryValueKind.String)),
+        new(
+            "DisableWebSearch",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                "DisableSearchBoxSuggestions",
+                1)),
+    };
 }
