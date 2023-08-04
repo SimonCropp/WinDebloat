@@ -26,8 +26,16 @@ public class DocsTests
         }
     }
 
-    static void HandleJob(IJob job, StreamWriter writer)
+    static void HandleJob(IJob job, TextWriter writer)
     {
+        if (job.Notes != null)
+        {
+            writer.WriteLine("Notes:");
+            writer.WriteLine();
+            writer.WriteLine(job.Notes);
+            writer.WriteLine();
+        }
+
         switch (job)
         {
             case RegistryJob registry:

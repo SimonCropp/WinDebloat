@@ -288,6 +288,10 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Cu
 
 ### EnableDeveloperMode
 
+Notes:
+
+ * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx -Name AllowDevelopmentWithoutDevLicense -Type DWord -Value 1
 ```
