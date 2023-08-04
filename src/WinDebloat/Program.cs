@@ -195,5 +195,11 @@
                 @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "DisableSearchBoxSuggestions",
                 1)),
+        new(
+            "DisableEdgeDesktopSearchBar",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "WebWidgetAllowed",
+                0)),
     };
 }
