@@ -31,6 +31,7 @@
         DisableLockScreenAds();
         DisableSuggestedApps();
         DisableStartupBoost();
+        DisableEdgeDesktopSearchBar();
         RemoveTaskBarSearch();
         EnableFileExtensions();
         RemoveWidgets();
@@ -166,6 +167,12 @@
             @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
             "HideRecommendedSection",
             1);
+
+    static void DisableEdgeDesktopSearchBar() =>
+        Registry.SetValue(
+            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+            "WebWidgetAllowed",
+            0);     
 
     static void DisableStartupBoost() =>
         Registry.SetValue(
