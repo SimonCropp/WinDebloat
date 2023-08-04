@@ -23,9 +23,6 @@
     public static async Task Inner()
     {
         var installedTask = WinGet.List();
-        //https://winget.run
-        //https://github.com/valinet/ExplorerPatcher
-
         foreach (var group in Groups)
         {
             Log.Information($"Group: {group.Name}");

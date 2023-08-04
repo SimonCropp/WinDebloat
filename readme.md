@@ -31,6 +31,11 @@ dotnet tool update -g WinDebloat
 WinDebloat
 ```
 
+## Notes
+
+ * https://winget.run
+ * https://github.com/valinet/ExplorerPatcher
+
 
 ## Behaviour
 
