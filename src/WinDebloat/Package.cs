@@ -1,1 +1,0 @@
-﻿public record Package(string Name, string Id);
