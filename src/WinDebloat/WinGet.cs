@@ -50,7 +50,7 @@ public static class WinGet
 
     public static async Task<List<Package>> List()
     {
-        var result = await Run("list");
+        var result = await Run("list --accept-source-agreements");
 
         if (result.ExitCode != 0)
         {
@@ -63,12 +63,23 @@ public static class WinGet
             if (line.Length > 35)
             {
                 list.Add(new(
-                    line[..35].TrimEnd(),
-                    line[36..73].TrimEnd()));
+                    line[..35].Trim(),
+                    line[36..73].Trim()));
             }
         }
 
         return list;
+    }
+
+    public static async Task ResetSources()
+    {
+        var arguments = "source reset --force";
+        var result = await Run(arguments);
+        
+        if (result.ExitCode != 0)
+        {
+            Throw(arguments, result);
+        }
     }
 
     static void Throw(string arguments, RunResult result)
