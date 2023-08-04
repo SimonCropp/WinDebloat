@@ -79,9 +79,9 @@ public static class WinGet
              """);
     }
 
-    public static async Task<RunResult> Run(string arguments)
+    static async Task<RunResult> Run(string arguments)
     {
-        Log.Information($"Executing: winget {arguments}");
+        Log.Debug($"Executing: winget {arguments}");
         var error = new List<string>();
         var output = new List<string>();
 
