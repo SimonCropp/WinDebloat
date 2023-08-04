@@ -7,6 +7,6 @@
 
     public Task Run()
     {
-        return  WinGet.InstallByName(Name);
+        return  WinGet.Install(Name);
     }
 }

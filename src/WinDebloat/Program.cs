@@ -83,7 +83,7 @@
                 continue;
             }
 
-            await WinGet.UninstallByName(package);
+            await WinGet.Uninstall(package);
         }
 
         var toInstall = new List<string>
@@ -99,11 +99,11 @@
                 continue;
             }
 
-            await WinGet.InstallById(package);
+            await WinGet.Install(package);
         }
 
         bool IsInstalled(string package) =>
-            installed.Any(_ => string.Equals(_.Name, package, StringComparison.OrdinalIgnoreCase));
+            installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
     }
 
     public static List<Group> Groups = new()
