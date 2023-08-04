@@ -7,7 +7,7 @@ static class Logging
         Console.Write($"Logs Directory: {LogsDirectory}");
         Directory.CreateDirectory(LogsDirectory);
         var configuration = new LoggerConfiguration();
-        configuration.MinimumLevel.Debug();
+        configuration.MinimumLevel.Information();
         configuration.WriteTo.File(
             Path.Combine(LogsDirectory, "log.txt"),
             rollOnFileSizeLimit: true,
