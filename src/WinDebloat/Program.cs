@@ -43,72 +43,6 @@
                 }
             }
         }
-
-        var toUninstall = new List<string>
-        {
-            "Teams Machine-Wide Installer",
-            "Movies & TV",
-            "Xbox TCUI",
-            "Xbox Console Companion",
-            "Xbox Game Bar Plugin",
-            "Xbox Identity Provider",
-            "Xbox Game Speech Window",
-            "Xbox Game Bar",
-            "Xbox Accessories",
-            "Xbox",
-            "Microsoft Tips",
-            "MSN Weather",
-            "Windows Media Player",
-            "Mail and Calendar",
-            "Microsoft Whiteboard",
-            "Microsoft Pay",
-            "Skype",
-            "Windows Maps",
-            "Feedback Hub",
-            "Microsoft Photos",
-            "Windows Camera",
-            "Microsoft To Do",
-            "Microsoft People",
-            "Solitaire & Casual Games",
-            "Mixed Reality Portal",
-            "Microsoft Sticky Notes",
-            "News",
-            "Get Help",
-            "Paint 3D",
-            "Paint",
-            "Cortana",
-            "Clipchamp",
-            "Power Automate",
-            "OneNote for Windows 10",
-            "Windows Web Experience Pack"
-        };
-
-        foreach (var package in toUninstall)
-        {
-            if (!IsInstalled(package))
-            {
-                Log.Information($"Skipping uninstall of {package} since not installed");
-                continue;
-            }
-
-            await WinGet.Uninstall(package);
-        }
-
-        var toInstall = new List<string>
-        {
-            "paint.net"
-        };
-
-        foreach (var package in toInstall)
-        {
-            if (IsInstalled(package))
-            {
-                Log.Information($"Skipping install of {package} since already installed");
-                continue;
-            }
-
-            await WinGet.Install(package);
-        }
     }
 
     static async Task HandleUninstall(UninstallJob uninstall)
@@ -152,6 +86,48 @@
 
     public static List<Group> Groups = new()
     {
+        new("Teams Machine-Wide Installer", new[] {new UninstallJob("Teams Machine-Wide Installer")}),
+        new("Movies & TV", new[] {new UninstallJob("Movies & TV")}),
+        new("Microsoft Tips", new[] {new UninstallJob("Microsoft Tips")}),
+        new("MSN Weather", new[] {new UninstallJob("MSN Weather")}),
+        new("Windows Media Player", new[] {new UninstallJob("Windows Media Player")}),
+        new("Mail and Calendar", new[] {new UninstallJob("Mail and Calendar")}),
+        new("Microsoft Whiteboard", new[] {new UninstallJob("Microsoft Whiteboard")}),
+        new("Microsoft Pay", new[] {new UninstallJob("Microsoft Pay")}),
+        new("Skype", new[] {new UninstallJob("Skype")}),
+        new("Windows Maps", new[] {new UninstallJob("Windows Maps")}),
+        new("Feedback Hub", new[] {new UninstallJob("Feedback Hub")}),
+        new("Microsoft Photos", new[] {new UninstallJob("Microsoft Photos")}),
+        new("Windows Camera", new[] {new UninstallJob("Windows Camera")}),
+        new("Microsoft To Do", new[] {new UninstallJob("Microsoft To Do")}),
+        new("Microsoft People", new[] {new UninstallJob("Microsoft People")}),
+        new("Solitaire & Casual Games", new[] {new UninstallJob("Solitaire & Casual Games")}),
+        new("Mixed Reality Portal", new[] {new UninstallJob("Mixed Reality Portal")}),
+        new("Microsoft Sticky Notes", new[] {new UninstallJob("Microsoft Sticky Notes")}),
+        new("News", new[] {new UninstallJob("News")}),
+        new("Get Help", new[] {new UninstallJob("Get Help")}),
+        new("Cortana", new[] {new UninstallJob("Cortana")}),
+        new("Power Automate", new[] {new UninstallJob("Power Automate")}),
+        new("OneNote for Windows 10", new[] {new UninstallJob("OneNote for Windows 10")}),
+        new("Clipchamp", new[] {new UninstallJob("Clipchamp")}),
+        new("Windows Web Experience Pack", new[] {new UninstallJob("Windows Web Experience Pack")}),
+        new("Paint 3D", new[] {new UninstallJob("Paint 3D")}),
+        new("Xbox", new[]
+        {
+            new UninstallJob("Xbox TCUI"),
+            new UninstallJob("Xbox Console Companion"),
+            new UninstallJob("Xbox Game Bar Plugin"),
+            new UninstallJob("Xbox Identity Provider"),
+            new UninstallJob("Xbox Game Speech Window"),
+            new UninstallJob("Xbox Game Bar"),
+            new UninstallJob("Xbox Accessories"),
+            new UninstallJob("Xbox"),
+        }),
+        new("Paint", new IJob[]
+        {
+            new UninstallJob("Paint"),
+            new InstallJob("paint.net"),
+        }),
         new(
             "DisableLockScreenAds",
             new[]
