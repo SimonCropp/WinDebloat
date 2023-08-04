@@ -25,23 +25,34 @@
         installed = await WinGet.List();
         foreach (var group in Groups)
         {
+            if (group.Jobs.Count == 1)
+            {
+                await HandleJob(group.Jobs[0]);
+                continue;
+            }
+
             Log.Information($"Group: {group.Name}");
             foreach (var job in group.Jobs)
             {
-                Log.Information($"  Job: {job.Name}");
-                switch (job)
-                {
-                    case RegistryJob registry:
-                        HandleRegistry(registry);
-                        continue;
-                    case InstallJob installJob:
-                        await HandleInstall(installJob);
-                        continue;
-                    case UninstallJob uninstallJob:
-                        await HandleUninstall(uninstallJob);
-                        continue;
-                }
+                await HandleJob(job);
             }
+        }
+    }
+
+    private static async Task HandleJob(IJob job)
+    {
+        Log.Information($"  Job: {job.Name}");
+        switch (job)
+        {
+            case RegistryJob registry:
+                HandleRegistry(registry);
+                return;
+            case InstallJob installJob:
+                await HandleInstall(installJob);
+                return;
+            case UninstallJob uninstallJob:
+                await HandleUninstall(uninstallJob);
+                return;
         }
     }
 
@@ -73,11 +84,11 @@
     static void HandleRegistry(RegistryJob registry)
     {
         var (key, name, value, kind, _) = registry;
-        Log.Information(@$"    Registry target {key}\{name} to {value} ({kind})");
+        Log.Information(@$"    Registry: {key}\{name} to {value} ({kind})");
         var currentValue = Registry.GetValue(key, name, null);
         if (value.Equals(currentValue))
         {
-            Log.Information($"      Value is already {value}");
+            Log.Information($"      Skipped since value is already {value}");
             return;
         }
 
@@ -86,32 +97,32 @@
 
     public static List<Group> Groups = new()
     {
-        new("Teams Machine-Wide Installer", new[] {new UninstallJob("Teams Machine-Wide Installer")}),
-        new("Movies & TV", new[] {new UninstallJob("Movies & TV")}),
-        new("Microsoft Tips", new[] {new UninstallJob("Microsoft Tips")}),
-        new("MSN Weather", new[] {new UninstallJob("MSN Weather")}),
-        new("Windows Media Player", new[] {new UninstallJob("Windows Media Player")}),
-        new("Mail and Calendar", new[] {new UninstallJob("Mail and Calendar")}),
-        new("Microsoft Whiteboard", new[] {new UninstallJob("Microsoft Whiteboard")}),
-        new("Microsoft Pay", new[] {new UninstallJob("Microsoft Pay")}),
-        new("Skype", new[] {new UninstallJob("Skype")}),
-        new("Windows Maps", new[] {new UninstallJob("Windows Maps")}),
-        new("Feedback Hub", new[] {new UninstallJob("Feedback Hub")}),
-        new("Microsoft Photos", new[] {new UninstallJob("Microsoft Photos")}),
-        new("Windows Camera", new[] {new UninstallJob("Windows Camera")}),
-        new("Microsoft To Do", new[] {new UninstallJob("Microsoft To Do")}),
-        new("Microsoft People", new[] {new UninstallJob("Microsoft People")}),
-        new("Solitaire & Casual Games", new[] {new UninstallJob("Solitaire & Casual Games")}),
-        new("Mixed Reality Portal", new[] {new UninstallJob("Mixed Reality Portal")}),
-        new("Microsoft Sticky Notes", new[] {new UninstallJob("Microsoft Sticky Notes")}),
-        new("News", new[] {new UninstallJob("News")}),
-        new("Get Help", new[] {new UninstallJob("Get Help")}),
-        new("Cortana", new[] {new UninstallJob("Cortana")}),
-        new("Power Automate", new[] {new UninstallJob("Power Automate")}),
-        new("OneNote for Windows 10", new[] {new UninstallJob("OneNote for Windows 10")}),
-        new("Clipchamp", new[] {new UninstallJob("Clipchamp")}),
-        new("Windows Web Experience Pack", new[] {new UninstallJob("Windows Web Experience Pack")}),
-        new("Paint 3D", new[] {new UninstallJob("Paint 3D")}),
+        new("Teams Machine-Wide Installer", new UninstallJob("Teams Machine-Wide Installer")),
+        new("Movies & TV", new UninstallJob("Movies & TV")),
+        new("Microsoft Tips", new UninstallJob("Microsoft Tips")),
+        new("MSN Weather", new UninstallJob("MSN Weather")),
+        new("Windows Media Player", new UninstallJob("Windows Media Player")),
+        new("Mail and Calendar", new UninstallJob("Mail and Calendar")),
+        new("Microsoft Whiteboard", new UninstallJob("Microsoft Whiteboard")),
+        new("Microsoft Pay", new UninstallJob("Microsoft Pay")),
+        new("Skype", new UninstallJob("Skype")),
+        new("Windows Maps", new UninstallJob("Windows Maps")),
+        new("Feedback Hub", new UninstallJob("Feedback Hub")),
+        new("Microsoft Photos", new UninstallJob("Microsoft Photos")),
+        new("Windows Camera", new UninstallJob("Windows Camera")),
+        new("Microsoft To Do", new UninstallJob("Microsoft To Do")),
+        new("Microsoft People", new UninstallJob("Microsoft People")),
+        new("Solitaire & Casual Games", new UninstallJob("Solitaire & Casual Games")),
+        new("Mixed Reality Portal", new UninstallJob("Mixed Reality Portal")),
+        new("Microsoft Sticky Notes", new UninstallJob("Microsoft Sticky Notes")),
+        new("News", new UninstallJob("News")),
+        new("Get Help", new UninstallJob("Get Help")),
+        new("Cortana", new UninstallJob("Cortana")),
+        new("Power Automate", new UninstallJob("Power Automate")),
+        new("OneNote for Windows 10", new UninstallJob("OneNote for Windows 10")),
+        new("Clipchamp", new UninstallJob("Clipchamp")),
+        new("Windows Web Experience Pack", new UninstallJob("Windows Web Experience Pack")),
+        new("Paint 3D", new UninstallJob("Paint 3D")),
         new("Xbox", new[]
         {
             new UninstallJob("Xbox TCUI"),
