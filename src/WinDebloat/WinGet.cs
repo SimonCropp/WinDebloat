@@ -50,7 +50,7 @@ public static class WinGet
 
     public static async Task<List<Package>> List()
     {
-        var result = await Run("list");
+        var result = await Run("list --accept-source-agreements");
 
         if (result.ExitCode != 0)
         {
