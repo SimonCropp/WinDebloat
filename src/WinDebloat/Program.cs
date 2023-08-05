@@ -1,5 +1,5 @@
 ﻿using System.CommandLine;
-using System.CommandLine.Parsing;
+using System.Diagnostics.CodeAnalysis;
 
 public static class Program
 {
@@ -13,19 +13,19 @@ public static class Program
             var excludeOptions = new Option<string[]>(
                 name: "--exclude",
                 description: "Ids of items to exclude.",
-                parseArgument: ParseExcludes)
+                parseArgument: result => ArgumentParser.ParseExcludes(result, TryFindGroup))
             {
                 AllowMultipleArgumentsPerToken = true
             };
 
-            var rootCommand = new RootCommand();
-            rootCommand.AddOption(excludeOptions);
+            var command = new RootCommand();
+            command.AddOption(excludeOptions);
 
-            rootCommand.SetHandler(
+            command.SetHandler(
                 async excludes => await Inner(excludes),
                 excludeOptions);
 
-            return await rootCommand.InvokeAsync(args);
+            return await command.InvokeAsync(args);
         }
         catch (Exception exception)
         {
@@ -38,23 +38,12 @@ public static class Program
         }
     }
 
-    static string[] ParseExcludes(ArgumentResult result)
+
+
+    static bool TryFindGroup(string id, [NotNullWhen(true)] out Group? group)
     {
-        var excludes = new string[result.Tokens.Count];
-        for (var index = 0; index < result.Tokens.Count; index++)
-        {
-            var token = result.Tokens[index];
-            var value = token.Value;
-            if (!Groups.Any(_ => _.IsMatch(value)))
-            {
-                result.ErrorMessage = $"No group found for exclude: {value}";
-                return Array.Empty<string>();
-            }
-
-            excludes[index] = value;
-        }
-
-        return excludes;
+        group = Groups.SingleOrDefault(_ => _.IsMatch(id));
+        return group != null;
     }
 
     public static async Task Inner(string[] excludes)
@@ -292,17 +281,19 @@ public static class Program
                 "TaskbarDa",
                 0,
                 1)),
-        new("Xbox", new[]
-        {
-            new UninstallJob("Xbox TCUI"),
-            new UninstallJob("Xbox Console Companion"),
-            new UninstallJob("Xbox Game Bar Plugin"),
-            new UninstallJob("Xbox Identity Provider"),
-            new UninstallJob("Xbox Game Speech Window"),
-            new UninstallJob("Xbox Game Bar"),
-            new UninstallJob("Xbox Accessories"),
-            new UninstallJob("Xbox"),
-        }),
+        new(
+            "Xbox",
+            new[]
+            {
+                new UninstallJob("Xbox TCUI"),
+                new UninstallJob("Xbox Console Companion"),
+                new UninstallJob("Xbox Game Bar Plugin"),
+                new UninstallJob("Xbox Identity Provider"),
+                new UninstallJob("Xbox Game Speech Window"),
+                new UninstallJob("Xbox Game Bar"),
+                new UninstallJob("Xbox Accessories"),
+                new UninstallJob("Xbox"),
+            }),
     };
 
     static List<string> installed = null!;

@@ -9,17 +9,16 @@ public class ProgramTests
         {
             foreach (var job in group.Jobs)
             {
-                if (job is RegistryJob registry)
+                if (job is RegistryJob registryJob)
                 {
-                    var actual = Registry.GetValue(registry.Key, registry.Name, null);
+                    var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
 
-                    var value = registry.ApplyValue;
-                    if (value.Equals(actual))
+                    if (registryJob.ApplyValue.Equals(actual))
                     {
                         return;
                     }
 
-                    throw new($@"{registry.Key}\{registry.Name} is {actual} when it should be {value}");
+                    throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.ApplyValue}");
                 }
             }
         }
