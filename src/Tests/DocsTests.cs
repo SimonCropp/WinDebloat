@@ -9,8 +9,11 @@ public class DocsTests
         using var writer = File.CreateText(md);
         foreach (var group in Program.Groups)
         {
-            writer.WriteLine($"### {group.Name}");
-            writer.WriteLine();
+            writer.WriteLine(
+                $"""
+                 ### {group.Name}
+
+                 """);
             if (group.Jobs.Count == 1)
             {
                 HandleJob(group.Jobs[0], writer);
@@ -19,8 +22,11 @@ public class DocsTests
 
             foreach (var job in group.Jobs)
             {
-                writer.WriteLine($@"#### {job.Name}");
-                writer.WriteLine();
+                writer.WriteLine(
+                    $"""
+                     #### {job.Name}
+
+                     """);
                 HandleJob(job, writer);
             }
         }
@@ -30,10 +36,14 @@ public class DocsTests
     {
         if (job.Notes != null)
         {
-            writer.WriteLine("Notes:");
-            writer.WriteLine();
-            writer.WriteLine(job.Notes);
-            writer.WriteLine();
+            writer.WriteLine(
+                $"""
+
+                 Notes:
+
+                 {job.Notes}
+                
+                 """);
         }
 
         switch (job)
@@ -59,7 +69,7 @@ public class DocsTests
                 writer.WriteLine(
                     $"""
                      ```ps
-                     winget {WinGet.GetInstallArguments(installJob.Name)}
+                     winget install --name "{installJob.Name}" --exact
                      ```
                      """);
                 writer.WriteLine();
@@ -68,7 +78,7 @@ public class DocsTests
                 writer.WriteLine(
                     $"""
                      ```ps
-                     winget {WinGet.GetUninstallArguments(uninstallJob.Name)}
+                     winget uninstall --name "{uninstallJob.Name}" --exact
                      ```
                      """);
                 writer.WriteLine();

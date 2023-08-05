@@ -1,157 +1,157 @@
 ### Teams Machine-Wide Installer
 
 ```ps
-winget uninstall --name "Teams Machine-Wide Installer" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Teams Machine-Wide Installer" --exact
 ```
 
 ### Movies & TV
 
 ```ps
-winget uninstall --name "Movies & TV" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Movies & TV" --exact
 ```
 
 ### Microsoft Tips
 
 ```ps
-winget uninstall --name "Microsoft Tips" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft Tips" --exact
 ```
 
 ### MSN Weather
 
 ```ps
-winget uninstall --name "MSN Weather" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "MSN Weather" --exact
 ```
 
 ### Windows Media Player
 
 ```ps
-winget uninstall --name "Windows Media Player" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Windows Media Player" --exact
 ```
 
 ### Mail and Calendar
 
 ```ps
-winget uninstall --name "Mail and Calendar" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Mail and Calendar" --exact
 ```
 
 ### Microsoft Whiteboard
 
 ```ps
-winget uninstall --name "Microsoft Whiteboard" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft Whiteboard" --exact
 ```
 
 ### Microsoft Pay
 
 ```ps
-winget uninstall --name "Microsoft Pay" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft Pay" --exact
 ```
 
 ### Skype
 
 ```ps
-winget uninstall --name "Skype" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Skype" --exact
 ```
 
 ### Windows Maps
 
 ```ps
-winget uninstall --name "Windows Maps" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Windows Maps" --exact
 ```
 
 ### Feedback Hub
 
 ```ps
-winget uninstall --name "Feedback Hub" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Feedback Hub" --exact
 ```
 
 ### Microsoft Photos
 
 ```ps
-winget uninstall --name "Microsoft Photos" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft Photos" --exact
 ```
 
 ### Windows Camera
 
 ```ps
-winget uninstall --name "Windows Camera" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Windows Camera" --exact
 ```
 
 ### Microsoft To Do
 
 ```ps
-winget uninstall --name "Microsoft To Do" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft To Do" --exact
 ```
 
 ### Microsoft People
 
 ```ps
-winget uninstall --name "Microsoft People" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft People" --exact
 ```
 
 ### Solitaire & Casual Games
 
 ```ps
-winget uninstall --name "Solitaire & Casual Games" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Solitaire & Casual Games" --exact
 ```
 
 ### Mixed Reality Portal
 
 ```ps
-winget uninstall --name "Mixed Reality Portal" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Mixed Reality Portal" --exact
 ```
 
 ### Microsoft Sticky Notes
 
 ```ps
-winget uninstall --name "Microsoft Sticky Notes" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Microsoft Sticky Notes" --exact
 ```
 
 ### News
 
 ```ps
-winget uninstall --name "News" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "News" --exact
 ```
 
 ### Get Help
 
 ```ps
-winget uninstall --name "Get Help" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Get Help" --exact
 ```
 
 ### Cortana
 
 ```ps
-winget uninstall --name "Cortana" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Cortana" --exact
 ```
 
 ### Power Automate
 
 ```ps
-winget uninstall --name "Power Automate" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Power Automate" --exact
 ```
 
 ### OneNote for Windows 10
 
 ```ps
-winget uninstall --name "OneNote for Windows 10" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "OneNote for Windows 10" --exact
 ```
 
 ### Clipchamp
 
 ```ps
-winget uninstall --name "Clipchamp" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Clipchamp" --exact
 ```
 
 ### Windows Web Experience Pack
 
 ```ps
-winget uninstall --name "Windows Web Experience Pack" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Windows Web Experience Pack" --exact
 ```
 
 ### Paint 3D
 
 ```ps
-winget uninstall --name "Paint 3D" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Paint 3D" --exact
 ```
 
 ### Xbox
@@ -159,49 +159,49 @@ winget uninstall --name "Paint 3D" --disable-interactivity --exact --silent --ac
 #### Xbox TCUI
 
 ```ps
-winget uninstall --name "Xbox TCUI" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox TCUI" --exact
 ```
 
 #### Xbox Console Companion
 
 ```ps
-winget uninstall --name "Xbox Console Companion" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Console Companion" --exact
 ```
 
 #### Xbox Game Bar Plugin
 
 ```ps
-winget uninstall --name "Xbox Game Bar Plugin" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Game Bar Plugin" --exact
 ```
 
 #### Xbox Identity Provider
 
 ```ps
-winget uninstall --name "Xbox Identity Provider" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Identity Provider" --exact
 ```
 
 #### Xbox Game Speech Window
 
 ```ps
-winget uninstall --name "Xbox Game Speech Window" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Game Speech Window" --exact
 ```
 
 #### Xbox Game Bar
 
 ```ps
-winget uninstall --name "Xbox Game Bar" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Game Bar" --exact
 ```
 
 #### Xbox Accessories
 
 ```ps
-winget uninstall --name "Xbox Accessories" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox Accessories" --exact
 ```
 
 #### Xbox
 
 ```ps
-winget uninstall --name "Xbox" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Xbox" --exact
 ```
 
 ### Paint
@@ -209,13 +209,13 @@ winget uninstall --name "Xbox" --disable-interactivity --exact --silent --accept
 #### Paint
 
 ```ps
-winget uninstall --name "Paint" --disable-interactivity --exact --silent --accept-source-agreements
+winget uninstall --name "Paint" --exact
 ```
 
 #### paint.net
 
 ```ps
-winget install --name "paint.net" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements
+winget install --name "paint.net" --exact
 ```
 
 ### DisableLockScreenAds
@@ -375,6 +375,7 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Cu
 ```
 
 ### EnableDeveloperMode
+
 
 Notes:
 

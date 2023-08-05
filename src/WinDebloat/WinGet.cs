@@ -23,7 +23,7 @@ public static class WinGet
 
     public static async Task Uninstall(string name)
     {
-        var arguments = GetUninstallArguments(name);
+        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -38,9 +38,6 @@ public static class WinGet
 
         Throw(arguments, result);
     }
-
-    public static string GetUninstallArguments(string name) =>
-        $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
 
     public static async Task<List<string>> List()
     {
