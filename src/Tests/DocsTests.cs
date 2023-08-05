@@ -40,19 +40,19 @@ public class DocsTests
     {
         switch (job)
         {
-            case RegistryJob registry:
+            case RegistryJob(var key, var name, var applyValue, var revertValue, var kind, _):
                 writer.WriteLine(
                     $"""
                      Command to manually apply:
 
                      ```ps
-                     Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.ApplyValue}
+                     Set-ItemProperty -Path Registry::{key} -Name {name} -Type {kind} -Value {applyValue}
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.RevertValue}
+                     Set-ItemProperty -Path Registry::{key} -Name {name} -Type {kind} -Value {revertValue}
                      ```
 
                      """);
