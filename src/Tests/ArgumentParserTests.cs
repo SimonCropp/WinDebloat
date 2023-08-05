@@ -69,7 +69,7 @@ public class ArgumentParserTests
 
     static bool Found(string id, [NotNullWhen(true)] out Group? group)
     {
-        group = new("theId", new UninstallJob("app"));
+        group = new("theId", true, new UninstallJob("app"));
         return true;
     }
 
