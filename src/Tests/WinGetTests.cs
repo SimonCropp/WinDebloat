@@ -1,4 +1,5 @@
-﻿[TestFixture]
+﻿#if DEBUG
+[TestFixture]
 [NonParallelizable]
 public class WinGetTests
 {
@@ -39,3 +40,4 @@ public class WinGetTests
         await WinGet.List();
     }
 }
+#endif
