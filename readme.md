@@ -33,8 +33,9 @@ WinDebloat
 
 ## Notes
 
- * https://winget.run
- * https://github.com/valinet/ExplorerPatcher
+ * [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+ * https://winget.run. An online registry of winget packages.
+ * [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher). A helpful to use in conjunction with this project to make Windows more usable.
  * [Setting a single registry entry using PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries#setting-a-single-registry-entry)
 
 
