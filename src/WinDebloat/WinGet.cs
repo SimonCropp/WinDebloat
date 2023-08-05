@@ -2,7 +2,7 @@ public static class WinGet
 {
     public static async Task Install(string name)
     {
-        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        var arguments = GetInstallArguments(name);
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -17,6 +17,9 @@ public static class WinGet
 
         Throw(arguments, result);
     }
+
+    public static string GetInstallArguments(string name) =>
+        $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
 
     public static async Task Uninstall(string name)
     {

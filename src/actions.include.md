@@ -1,48 +1,4 @@
-# <img src="/src/icon.png" height="30px"> WinDebloat
-
-[![Build status](https://ci.appveyor.com/api/projects/status/0kb6mmg47arsjw3x/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/WinDebloat)
-[![NuGet Status](https://img.shields.io/nuget/v/WinDebloat.svg)](https://www.nuget.org/packages/WinDebloat/)
-
-A dotnet tool that removes the bloat in Windows 11
-
-
-## Installation
-
-Ensure [dotnet CLI is installed](https://docs.microsoft.com/en-us/dotnet/core/tools/).
-
-
-### Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
-
-```ps
-dotnet tool install -g WinDebloat
-```
-
-
-#### Update
-
-```ps
-dotnet tool update -g WinDebloat
-```
-
-
-### Run
-
-```ps
-WinDebloat
-```
-
-## Notes
-
- * [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
- * https://winget.run. An online registry of winget packages.
- * [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher). A helpful to use in conjunction with this project to make Windows more usable.
- * [Setting a single registry entry using PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries#setting-a-single-registry-entry)
-
-
-## Behavior
-
-
-### Teams Machine-Wide Installer <!-- include: actions. path: /src/actions.include.md -->
+### Teams Machine-Wide Installer
 
 Uninstall `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
 
@@ -617,12 +573,4 @@ Command to manually revert:
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name WebWidgetAllowed -Type DWord -Value 1
 ```
- <!-- endInclude -->
 
-
-## Icons
-
-[Elephant](https://thenounproject.com/icon/elephant-face-1557798/) designed by [Icons Producer](https://thenounproject.com/iconsproducer/) from [The Noun Project](https://thenounproject.com).
-
-## Testing
-Unit tests should be run with elevated privileges

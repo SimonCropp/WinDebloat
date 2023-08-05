@@ -1,4 +1,4 @@
-﻿static class Program
+﻿public static class Program
 {
     static async Task Main()
     {
@@ -20,201 +20,235 @@
         }
     }
 
-    static async Task Inner()
+    public static async Task Inner()
     {
-        var installedTask = WinGet.List();
-        //https://winget.run
-        //https://github.com/valinet/ExplorerPatcher
-        RemoveChat();
-        DisableTelemetry();
-        DisableAdvertiserId();
-        DisableLockScreenAds();
-        DisableSuggestedApps();
-        DisableStartupBoost();
-        DisableEdgeDesktopSearchBar();
-        RemoveTaskBarSearch();
-        EnableFileExtensions();
-        RemoveWidgets();
-        HideStartMenuRecommendedSection();
-        RemoveTaskView();
-        EnableDeveloperMode();
-        DisableWebSearch();
-        MakePowerShelUnrestricted();
-
-        var toUninstall = new List<string>
+        installed = await WinGet.List();
+        foreach (var group in Groups)
         {
-            "Teams Machine-Wide Installer",
-            "Movies & TV",
-            "Xbox TCUI",
-            "Xbox Console Companion",
-            "Xbox Game Bar Plugin",
-            "Xbox Identity Provider",
-            "Xbox Game Speech Window",
-            "Xbox Game Bar",
-            "Xbox Accessories",
-            "Xbox",
-            "Microsoft Tips",
-            "MSN Weather",
-            "Windows Media Player",
-            "Mail and Calendar",
-            "Microsoft Whiteboard",
-            "Microsoft Pay",
-            "Skype",
-            "Windows Maps",
-            "Feedback Hub",
-            "Microsoft Photos",
-            "Windows Camera",
-            "Microsoft To Do",
-            "Microsoft People",
-            "Solitaire & Casual Games",
-            "Mixed Reality Portal",
-            "Microsoft Sticky Notes",
-            "News",
-            "Get Help",
-            "Paint 3D",
-            "Paint",
-            "Cortana",
-            "Clipchamp",
-            "Power Automate",
-            "OneNote for Windows 10",
-            "Windows Web Experience Pack"
-        };
-
-        var installed = await installedTask;
-
-        foreach (var package in toUninstall)
-        {
-            if (!IsInstalled(package))
+            if (group.Jobs.Count == 1)
             {
-                Log.Information($"Skipping uninstall of {package} since not installed");
+                await HandleJob(group.Jobs[0]);
                 continue;
             }
 
-            await WinGet.Uninstall(package);
-        }
-
-        var toInstall = new List<string>
-        {
-            "paint.net"
-        };
-
-        foreach (var package in toInstall)
-        {
-            if (IsInstalled(package))
+            Log.Information($"Group: {group.Name}");
+            foreach (var job in group.Jobs)
             {
-                Log.Information($"Skipping install of {package} since already installed");
-                continue;
+                await HandleJob(job);
             }
+        }
+    }
 
-            await WinGet.Install(package);
+    private static async Task HandleJob(IJob job)
+    {
+        Log.Information($"  Job: {job.Name}");
+        switch (job)
+        {
+            case RegistryJob registry:
+                HandleRegistry(registry);
+                return;
+            case InstallJob installJob:
+                await HandleInstall(installJob);
+                return;
+            case UninstallJob uninstallJob:
+                await HandleUninstall(uninstallJob);
+                return;
+        }
+    }
+
+    static async Task HandleUninstall(UninstallJob uninstall)
+    {
+        if (IsInstalled(uninstall.Name))
+        {
+            await WinGet.Install(uninstall.Name);
+            Log.Information("    Uninstalled");
+            return;
         }
 
-        bool IsInstalled(string package) =>
-            installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
+        Log.Information($"    Skipping uninstall of '{uninstall.Name}' since already uninstalled");
     }
 
-    static void RemoveChat() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "TaskbarMn",
-            0);
-
-    static void DisableTelemetry() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
-            "Allow Telemetry",
-            0);
-
-    static void DisableAdvertiserId() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
-            "Enabled",
-            0);
-
-    //https://superuser.com/questions/1327459/remove-fun-facts-from-spotlight-lock-screen-in-windows-10-home-1803
-    static void DisableLockScreenAds()
+    static async Task HandleInstall(InstallJob install)
     {
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "RotatingLockScreenOverlayEnabled",
-            0);
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SubscribedContent-338387Enabled",
-            0);
+        if (IsInstalled(install.Name))
+        {
+            Log.Information($"    Skipping install of '{install.Name}' since already installed");
+            return;
+        }
+
+        await WinGet.Install(install.Name);
+        Log.Information("    Installed");
     }
 
-    static void DisableSuggestedApps()
+    static bool IsInstalled(string package) =>
+        installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
+
+    static void HandleRegistry(RegistryJob registry)
     {
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SystemPaneSuggestionsEnabled",
-            0);
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
-            "SilentInstalledAppsEnabled",
-            0);
+        var (key, name, applyValue, _, kind, _) = registry;
+        Log.Information(@$"    Registry: {key}\{name} to {applyValue} ({kind})");
+        var currentValue = Registry.GetValue(key, name, null);
+        if (applyValue.Equals(currentValue))
+        {
+            Log.Information($"      Skipped since value is already {applyValue}");
+            return;
+        }
+
+        Registry.SetValue(key, name, applyValue, kind);
     }
 
-    static void RemoveWidgets() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "TaskbarDa",
-            0);
+    public static List<Group> Groups = new()
+    {
+        new("Teams Machine-Wide Installer", new UninstallJob("Teams Machine-Wide Installer")),
+        new("Movies & TV", new UninstallJob("Movies & TV")),
+        new("Microsoft Tips", new UninstallJob("Microsoft Tips")),
+        new("MSN Weather", new UninstallJob("MSN Weather")),
+        new("Windows Media Player", new UninstallJob("Windows Media Player")),
+        new("Mail and Calendar", new UninstallJob("Mail and Calendar")),
+        new("Microsoft Whiteboard", new UninstallJob("Microsoft Whiteboard")),
+        new("Microsoft Pay", new UninstallJob("Microsoft Pay")),
+        new("Skype", new UninstallJob("Skype")),
+        new("Windows Maps", new UninstallJob("Windows Maps")),
+        new("Feedback Hub", new UninstallJob("Feedback Hub")),
+        new("Microsoft Photos", new UninstallJob("Microsoft Photos")),
+        new("Windows Camera", new UninstallJob("Windows Camera")),
+        new("Microsoft To Do", new UninstallJob("Microsoft To Do")),
+        new("Microsoft People", new UninstallJob("Microsoft People")),
+        new("Solitaire & Casual Games", new UninstallJob("Solitaire & Casual Games")),
+        new("Mixed Reality Portal", new UninstallJob("Mixed Reality Portal")),
+        new("Microsoft Sticky Notes", new UninstallJob("Microsoft Sticky Notes")),
+        new("News", new UninstallJob("News")),
+        new("Get Help", new UninstallJob("Get Help")),
+        new("Cortana", new UninstallJob("Cortana")),
+        new("Power Automate", new UninstallJob("Power Automate")),
+        new("OneNote for Windows 10", new UninstallJob("OneNote for Windows 10")),
+        new("Clipchamp", new UninstallJob("Clipchamp")),
+        new("Windows Web Experience Pack", new UninstallJob("Windows Web Experience Pack")),
+        new("Paint 3D", new UninstallJob("Paint 3D")),
+        new("Xbox", new[]
+        {
+            new UninstallJob("Xbox TCUI"),
+            new UninstallJob("Xbox Console Companion"),
+            new UninstallJob("Xbox Game Bar Plugin"),
+            new UninstallJob("Xbox Identity Provider"),
+            new UninstallJob("Xbox Game Speech Window"),
+            new UninstallJob("Xbox Game Bar"),
+            new UninstallJob("Xbox Accessories"),
+            new UninstallJob("Xbox"),
+        }),
+        new("Paint", new IJob[]
+        {
+            new UninstallJob("Paint"),
+            new InstallJob("paint.net"),
+        }),
+        new(
+            "DisableLockScreenAds",
+            new[]
+            {
+                new RegistryJob(
+                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "RotatingLockScreenOverlayEnabled",
+                    0,
+                    1),
+                new RegistryJob(
+                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-338387Enabled",
+                    0,
+                    1),
+            }),
+        new(
+            "RemoveChat",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "TaskbarMn",
+                0,
+                1)),
+        new(
+            "DisableTelemetry",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                "Allow Telemetry",
+                0,
+                1)),
+        new(
+            "DisableAdvertiserId",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
+                "Enabled",
+                0,
+                1)),
+        new(
+            "RemoveWidgets",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "TaskbarDa",
+                0,
+                1)),
+        new(
+            "HideStartMenuRecommendedSection",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                "HideRecommendedSection",
+                1,
+                0)),
+        new(
+            "DisableStartupBoost",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "StartupBoostEnabled",
+                0,
+                1)),
+        new(
+            "RemoveTaskView",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "ShowTaskViewButton",
+                0,
+                1)),
+        new(
+            "RemoveTaskBarSearch",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
+                "SearchboxTaskbarMode",
+                0,
+                1)),
+        new(
+            "EnableFileExtensions",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                "HideFileExt",
+                0,
+                1)),
+        new(
+            "EnableDeveloperMode",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
+                "AllowDevelopmentWithoutDevLicense",
+                1,
+                0,
+                Notes: " * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development")),
+        new(
+            "MakePowerShelUnrestricted",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
+                "ExecutionPolicy",
+                "Unrestricted",
+                RegistryValueKind.String)),
+        new(
+            "DisableWebSearch",
+            new RegistryJob(
+                @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                "DisableSearchBoxSuggestions",
+                1,
+                0)),
+        new(
+            "DisableEdgeDesktopSearchBar",
+            new RegistryJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "WebWidgetAllowed",
+                0,
+                1)),
+    };
 
-    static void HideStartMenuRecommendedSection() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
-            "HideRecommendedSection",
-            1);
-
-    static void DisableEdgeDesktopSearchBar() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
-            "WebWidgetAllowed",
-            0);
-
-    static void DisableStartupBoost() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
-            "StartupBoostEnabled",
-            0);
-
-    static void RemoveTaskView() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "ShowTaskViewButton",
-            0);
-
-    static void RemoveTaskBarSearch() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
-            "SearchboxTaskbarMode",
-            0);
-
-    static void EnableFileExtensions() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-            "HideFileExt",
-            0);
-
-    //https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-    static void EnableDeveloperMode() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
-            "AllowDevelopmentWithoutDevLicense",
-            1);
-
-    static void MakePowerShelUnrestricted() =>
-        Registry.SetValue(
-            @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
-            "ExecutionPolicy",
-            "Unrestricted",
-            RegistryValueKind.String);
-
-    static void DisableWebSearch() =>
-        Registry.SetValue(
-            @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
-            "DisableSearchBoxSuggestions",
-            1);
+    static List<string> installed = null!;
 }
