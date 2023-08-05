@@ -4,7 +4,7 @@ static class Logging
 
     public static void Init()
     {
-        Console.Write($"Logs Directory: {LogsDirectory}");
+        Console.WriteLine($"Logs Directory: {LogsDirectory}");
         Directory.CreateDirectory(LogsDirectory);
         var configuration = new LoggerConfiguration();
         configuration.MinimumLevel.Information();

@@ -13,6 +13,8 @@ public class DocsTests
                 $"""
                  ### {group.Name}
 
+                 Id to toggle behavior: `{group.Id}`
+
                  """);
             if (group.Jobs.Count == 1)
             {
@@ -29,12 +31,13 @@ public class DocsTests
                      """);
                 HandleJob(job, writer);
             }
+
+            writer.WriteLine();
         }
     }
 
     static void HandleJob(IJob job, TextWriter writer)
     {
-
         switch (job)
         {
             case RegistryJob registry:
@@ -51,9 +54,9 @@ public class DocsTests
                      ```ps
                      Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.RevertValue}
                      ```
+
                      """);
-                writer.WriteLine();
-                return;
+                break;
             case InstallJob installJob:
                 writer.WriteLine(
                     $"""
@@ -64,9 +67,9 @@ public class DocsTests
                      ```ps
                      winget install --name "{installJob.Name}" --exact
                      ```
+
                      """);
-                writer.WriteLine();
-                return;
+                break;
             case UninstallJob uninstallJob:
                 writer.WriteLine(
                     $"""
@@ -77,20 +80,20 @@ public class DocsTests
                      ```ps
                      winget uninstall --name "{uninstallJob.Name}" --exact
                      ```
+
                      """);
-                writer.WriteLine();
-                return;
+                break;
         }
         if (job.Notes != null)
         {
             writer.WriteLine(
                 $"""
-
                  Notes:
 
                  {job.Notes}
                 
                  """);
         }
+        writer.WriteLine();
     }
 }

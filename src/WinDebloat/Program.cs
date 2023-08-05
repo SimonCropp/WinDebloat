@@ -1,13 +1,31 @@
-﻿public static class Program
+﻿using System.CommandLine;
+using System.CommandLine.Parsing;
+
+public static class Program
 {
-    static async Task Main()
+    static async Task<int> Main(string[] args)
     {
         Logging.Init();
 
         var stopwatch = Stopwatch.StartNew();
         try
         {
-            await Inner();
+            var excludeOptions = new Option<string[]>(
+                name: "--exclude",
+                description: "Ids of items to exclude.",
+                parseArgument: ParseExcludes)
+            {
+                AllowMultipleArgumentsPerToken = true
+            };
+
+            var rootCommand = new RootCommand();
+            rootCommand.AddOption(excludeOptions);
+
+            rootCommand.SetHandler(
+                async excludes => await Inner(excludes),
+                excludeOptions);
+
+            return await rootCommand.InvokeAsync(args);
         }
         catch (Exception exception)
         {
@@ -20,11 +38,42 @@
         }
     }
 
-    public static async Task Inner()
+    static string[] ParseExcludes(ArgumentResult result)
     {
+        var excludes = new string[result.Tokens.Count];
+        for (var index = 0; index < result.Tokens.Count; index++)
+        {
+            var token = result.Tokens[index];
+            var value = token.Value;
+            if (!Groups.Any(_ => _.IsMatch(value)))
+            {
+                result.ErrorMessage = $"No group found for exclude: {value}";
+                return Array.Empty<string>();
+            }
+
+            excludes[index] = value;
+        }
+
+        return excludes;
+    }
+
+    public static async Task Inner(string[] excludes)
+    {
+        Log.Information("Excludes:");
+        foreach (var exclude in excludes)
+        {
+            Log.Information($" * {exclude}");
+        }
+
         installed = await WinGet.List();
         foreach (var group in Groups)
         {
+            if (excludes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
+            {
+                Log.Information($"Skipping '{group.Name}' since it is excluded");
+                continue;
+            }
+
             if (group.Jobs.Count == 1)
             {
                 await HandleJob(group.Jobs[0]);
@@ -41,16 +90,18 @@
 
     private static async Task HandleJob(IJob job)
     {
-        Log.Information($"  Job: {job.Name}");
         switch (job)
         {
             case RegistryJob registry:
+                Log.Information($"  Job: {job.Name}");
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
+                Log.Information($"  Install: {job.Name}");
                 await HandleInstall(installJob);
                 return;
             case UninstallJob uninstallJob:
+                Log.Information($"  Uninstall: {job.Name}");
                 await HandleUninstall(uninstallJob);
                 return;
         }
@@ -60,19 +111,19 @@
     {
         if (IsInstalled(uninstall.Name))
         {
-            await WinGet.Install(uninstall.Name);
+            await WinGet.Uninstall(uninstall.Name);
             Log.Information("    Uninstalled");
             return;
         }
 
-        Log.Information($"    Skipping uninstall of '{uninstall.Name}' since already uninstalled");
+        Log.Information("    Skipped since not installed");
     }
 
     static async Task HandleInstall(InstallJob install)
     {
         if (IsInstalled(install.Name))
         {
-            Log.Information($"    Skipping install of '{install.Name}' since already installed");
+            Log.Information("    Skipped since installed");
             return;
         }
 
@@ -90,7 +141,7 @@
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information($"      Skipped since value is already {applyValue}");
+            Log.Information("      Skipped since value already correct");
             return;
         }
 
@@ -105,7 +156,8 @@
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
                 "Enabled",
                 0,
-                1)),
+                1,
+                Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
         new("Camera", new UninstallJob("Windows Camera")),
         new(
             "Chat",
@@ -160,7 +212,7 @@
         new("Maps", new UninstallJob("Windows Maps")),
         new("Media Player", new UninstallJob("Windows Media Player")),
         new("Mixed Reality Portal", new UninstallJob("Mixed Reality Portal")),
-        new("Movies & TV", new UninstallJob("Movies & TV")),
+        new("Movies and TV", new UninstallJob("Movies & TV")),
         new("News", new UninstallJob("News")),
         new("OneNote", new UninstallJob("OneNote for Windows 10")),
         new("Pay", new UninstallJob("Microsoft Pay")),

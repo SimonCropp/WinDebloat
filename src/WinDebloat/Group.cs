@@ -4,4 +4,9 @@
         this(name, new[] {job})
     {
     }
+
+    public string Id => Name.Replace(" ", "");
+
+    public bool IsMatch(string exclude) =>
+        Id.Equals(exclude, StringComparison.OrdinalIgnoreCase);
 }
