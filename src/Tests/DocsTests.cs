@@ -34,30 +34,19 @@ public class DocsTests
 
     static void HandleJob(IJob job, TextWriter writer)
     {
-        if (job.Notes != null)
-        {
-            writer.WriteLine(
-                $"""
-
-                 Notes:
-
-                 {job.Notes}
-                
-                 """);
-        }
 
         switch (job)
         {
             case RegistryJob registry:
                 writer.WriteLine(
                     $"""
-                     Apply:
+                     Command to manually apply:
 
                      ```ps
                      Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.ApplyValue}
                      ```
 
-                     Revert:
+                     Command to manually revert:
 
                      ```ps
                      Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.RevertValue}
@@ -68,6 +57,10 @@ public class DocsTests
             case InstallJob installJob:
                 writer.WriteLine(
                     $"""
+                     Install `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+                     
+                     Command to manually apply:
+
                      ```ps
                      winget install --name "{installJob.Name}" --exact
                      ```
@@ -77,12 +70,27 @@ public class DocsTests
             case UninstallJob uninstallJob:
                 writer.WriteLine(
                     $"""
+                     Uninstall `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+                     Command to manually apply:
+
                      ```ps
                      winget uninstall --name "{uninstallJob.Name}" --exact
                      ```
                      """);
                 writer.WriteLine();
                 return;
+        }
+        if (job.Notes != null)
+        {
+            writer.WriteLine(
+                $"""
+
+                 Notes:
+
+                 {job.Notes}
+                
+                 """);
         }
     }
 }

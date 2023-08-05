@@ -35,86 +35,448 @@ WinDebloat
 
  * https://winget.run
  * https://github.com/valinet/ExplorerPatcher
+ * [Setting a single registry entry using PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries#setting-a-single-registry-entry)
 
 
-## Behaviour
+## Behavior
+
+### Teams Machine-Wide Installer <!-- include: actions. path: /src/actions.include.md -->
+
+```ps
+winget uninstall --name "Teams Machine-Wide Installer" --exact
+```
+
+### Movies & TV
+
+```ps
+winget uninstall --name "Movies & TV" --exact
+```
+
+### Microsoft Tips
+
+```ps
+winget uninstall --name "Microsoft Tips" --exact
+```
+
+### MSN Weather
+
+```ps
+winget uninstall --name "MSN Weather" --exact
+```
+
+### Windows Media Player
+
+```ps
+winget uninstall --name "Windows Media Player" --exact
+```
+
+### Mail and Calendar
+
+```ps
+winget uninstall --name "Mail and Calendar" --exact
+```
+
+### Microsoft Whiteboard
+
+```ps
+winget uninstall --name "Microsoft Whiteboard" --exact
+```
+
+### Microsoft Pay
+
+```ps
+winget uninstall --name "Microsoft Pay" --exact
+```
+
+### Skype
+
+```ps
+winget uninstall --name "Skype" --exact
+```
+
+### Windows Maps
+
+```ps
+winget uninstall --name "Windows Maps" --exact
+```
+
+### Feedback Hub
+
+```ps
+winget uninstall --name "Feedback Hub" --exact
+```
+
+### Microsoft Photos
+
+```ps
+winget uninstall --name "Microsoft Photos" --exact
+```
+
+### Windows Camera
+
+```ps
+winget uninstall --name "Windows Camera" --exact
+```
+
+### Microsoft To Do
+
+```ps
+winget uninstall --name "Microsoft To Do" --exact
+```
+
+### Microsoft People
+
+```ps
+winget uninstall --name "Microsoft People" --exact
+```
+
+### Solitaire & Casual Games
+
+```ps
+winget uninstall --name "Solitaire & Casual Games" --exact
+```
+
+### Mixed Reality Portal
+
+```ps
+winget uninstall --name "Mixed Reality Portal" --exact
+```
+
+### Microsoft Sticky Notes
+
+```ps
+winget uninstall --name "Microsoft Sticky Notes" --exact
+```
+
+### News
+
+```ps
+winget uninstall --name "News" --exact
+```
+
+### Get Help
+
+```ps
+winget uninstall --name "Get Help" --exact
+```
+
+### Cortana
+
+```ps
+winget uninstall --name "Cortana" --exact
+```
+
+### Power Automate
+
+```ps
+winget uninstall --name "Power Automate" --exact
+```
+
+### OneNote for Windows 10
+
+```ps
+winget uninstall --name "OneNote for Windows 10" --exact
+```
+
+### Clipchamp
+
+```ps
+winget uninstall --name "Clipchamp" --exact
+```
+
+### Windows Web Experience Pack
+
+```ps
+winget uninstall --name "Windows Web Experience Pack" --exact
+```
+
+### Paint 3D
+
+```ps
+winget uninstall --name "Paint 3D" --exact
+```
+
+### Xbox
+
+#### Xbox TCUI
+
+```ps
+winget uninstall --name "Xbox TCUI" --exact
+```
+
+#### Xbox Console Companion
+
+```ps
+winget uninstall --name "Xbox Console Companion" --exact
+```
+
+#### Xbox Game Bar Plugin
+
+```ps
+winget uninstall --name "Xbox Game Bar Plugin" --exact
+```
+
+#### Xbox Identity Provider
+
+```ps
+winget uninstall --name "Xbox Identity Provider" --exact
+```
+
+#### Xbox Game Speech Window
+
+```ps
+winget uninstall --name "Xbox Game Speech Window" --exact
+```
+
+#### Xbox Game Bar
+
+```ps
+winget uninstall --name "Xbox Game Bar" --exact
+```
+
+#### Xbox Accessories
+
+```ps
+winget uninstall --name "Xbox Accessories" --exact
+```
+
+#### Xbox
+
+```ps
+winget uninstall --name "Xbox" --exact
+```
+
+### Paint
+
+#### Paint
+
+```ps
+winget uninstall --name "Paint" --exact
+```
+
+#### paint.net
+
+```ps
+winget install --name "paint.net" --exact
+```
+
+### DisableLockScreenAds
+
+#### RotatingLockScreenOverlayEnabled
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name RotatingLockScreenOverlayEnabled -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name RotatingLockScreenOverlayEnabled -Type DWord -Value 1
+```
+
+#### SubscribedContent-338387Enabled
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338387Enabled -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338387Enabled -Type DWord -Value 1
+```
+
+### RemoveChat
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -Type DWord -Value 1
+```
+
+### DisableTelemetry
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name Allow Telemetry -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name Allow Telemetry -Type DWord -Value 1
+```
+
+### DisableAdvertiserId
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 1
+```
+
+### RemoveWidgets
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -Type DWord -Value 1
+```
+
+### HideStartMenuRecommendedSection
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name HideRecommendedSection -Type DWord -Value 1
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name HideRecommendedSection -Type DWord -Value 0
+```
+
+### DisableStartupBoost
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name StartupBoostEnabled -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name StartupBoostEnabled -Type DWord -Value 1
+```
+
+### RemoveTaskView
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Type DWord -Value 1
+```
+
+### RemoveTaskBarSearch
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search -Name SearchboxTaskbarMode -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search -Name SearchboxTaskbarMode -Type DWord -Value 1
+```
+
+### EnableFileExtensions
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -Type DWord -Value 1
+```
+
+### EnableDeveloperMode
 
 
-### Uninstalls
+Notes:
 
- * Teams Machine-Wide Installer
- * Movies & TV
- * Xbox TCUI
- * Xbox Console Companion
- * Xbox Game Bar Plugin
- * Xbox Identity Provider
- * Xbox Game Speech Window
- * Xbox Game Bar
- * Xbox
- * Microsoft Tips
- * MSN Weather
- * Windows Media Player
- * Mail and Calendar
- * Microsoft Whiteboard
- * Microsoft Pay
- * Skype
- * Windows Maps
- * Feedback Hub
- * Microsoft Photos
- * Windows Camera
- * Microsoft To Do
- * Microsoft People
- * Solitaire & Casual Games
- * Mixed Reality Portal
- * Microsoft Sticky Notes
- * News
- * Get Help
- * Paint 3D
- * Paint
- * Cortana
- * Clipchamp
- * Power Automate
- * OneNote
- * Windows Web Experience Pack
+ * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
 
+Apply:
 
-### Installs
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx -Name AllowDevelopmentWithoutDevLicense -Type DWord -Value 1
+```
 
- * Paint.net. Consider [supporting with $$](https://www.getpaint.net/donate.html)
+Revert:
 
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx -Name AllowDevelopmentWithoutDevLicense -Type DWord -Value 0
+```
 
-### Other
+### MakePowerShelUnrestricted
 
-* Remove windows chat<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarMn` to `0`
-* Remove widgets<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDa` to `0`
-* Disable edge startup boost<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\StartupBoostEnabled` to `0`
-* Hide Task View Button<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowTaskViewButton` to `0`
-* Remove Task Bar Search<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search\SearchboxTaskbarMode` to `0`
-* Enable [Developer Mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development)<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx\AllowDevelopmentWithoutDevLicense` to `1`.
-* Make PowerShel Unrestricted<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell\ExecutionPolicy` to `Unrestricted`
-* Disable Web Search<br>
-  Set `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer\DisableSearchBoxSuggestions` to `1`
-* Enable file extensions<br>
-  Set `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt` to `0`
-* Disable Telemetry<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection\Allow Telemetry` to `0`
-* Disable Advertiser Id<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo\Enabled` to `0`
-* Disable Lock Screen Ads<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\RotatingLockScreenOverlayEnabled` to `0`<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SubscribedContent-338387Enabled` to `0`
-* Disable Suggested Apps<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SystemPaneSuggestionsEnabled` to `0`<br>
-  Set `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SilentInstalledAppsEnabled` to `0`
-* Hide start menu Recommended Section<br>
-  Set `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer\HideRecommendedSection` to `1`
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell -Name ExecutionPolicy -Type DWord -Value Unrestricted
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell -Name ExecutionPolicy -Type DWord -Value String
+```
+
+### DisableWebSearch
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -Type DWord -Value 1
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -Type DWord -Value 0
+```
+
+### DisableEdgeDesktopSearchBar
+
+Apply:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name WebWidgetAllowed -Type DWord -Value 0
+```
+
+Revert:
+
+```ps
+Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name WebWidgetAllowed -Type DWord -Value 1
+```
+ <!-- endInclude -->
 
 
 ## Icons

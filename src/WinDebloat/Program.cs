@@ -83,7 +83,7 @@
 
     static void HandleRegistry(RegistryJob registry)
     {
-        var (key, name, applyValue, revertValue, kind, _) = registry;
+        var (key, name, applyValue, _, kind, _) = registry;
         Log.Information(@$"    Registry: {key}\{name} to {applyValue} ({kind})");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))

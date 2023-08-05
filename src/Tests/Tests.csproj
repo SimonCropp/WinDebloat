@@ -9,6 +9,7 @@
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
         <PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.1" />
         <PackageReference Include="Verify.Nunit" Version="20.6.0" />
+        <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.5.1" />
       <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
     </ItemGroup>
 </Project>
