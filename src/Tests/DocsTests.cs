@@ -44,7 +44,13 @@ public class DocsTests
                      Apply:
 
                      ```ps
-                     Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.Value}
+                     Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.ApplyValue}
+                     ```
+
+                     Revert:
+
+                     ```ps
+                     Set-ItemProperty -Path Registry::{registry.Key} -Name {registry.Name} -Type {registry.Kind} -Value {registry.RevertValue}
                      ```
                      """);
                 writer.WriteLine();

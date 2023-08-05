@@ -83,16 +83,16 @@
 
     static void HandleRegistry(RegistryJob registry)
     {
-        var (key, name, value, kind, _) = registry;
-        Log.Information(@$"    Registry: {key}\{name} to {value} ({kind})");
+        var (key, name, applyValue, revertValue, kind, _) = registry;
+        Log.Information(@$"    Registry: {key}\{name} to {applyValue} ({kind})");
         var currentValue = Registry.GetValue(key, name, null);
-        if (value.Equals(currentValue))
+        if (applyValue.Equals(currentValue))
         {
-            Log.Information($"      Skipped since value is already {value}");
+            Log.Information($"      Skipped since value is already {applyValue}");
             return;
         }
 
-        Registry.SetValue(key, name, value, kind);
+        Registry.SetValue(key, name, applyValue, kind);
     }
 
     public static List<Group> Groups = new()
@@ -146,72 +146,84 @@
                 new RegistryJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "RotatingLockScreenOverlayEnabled",
-                    0),
+                    0,
+                    1),
                 new RegistryJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "SubscribedContent-338387Enabled",
-                    0),
+                    0,
+                    1),
             }),
         new(
             "RemoveChat",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarMn",
-                0)),
+                0,
+                1)),
         new(
             "DisableTelemetry",
             new RegistryJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
                 "Allow Telemetry",
-                0)),
+                0,
+                1)),
         new(
             "DisableAdvertiserId",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
                 "Enabled",
-                0)),
+                0,
+                1)),
         new(
             "RemoveWidgets",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarDa",
-                0)),
+                0,
+                1)),
         new(
             "HideStartMenuRecommendedSection",
             new RegistryJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "HideRecommendedSection",
-                1)),
+                1,
+                0)),
         new(
             "DisableStartupBoost",
             new RegistryJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
                 "StartupBoostEnabled",
-                0)),
+                0,
+                1)),
         new(
             "RemoveTaskView",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "ShowTaskViewButton",
-                0)),
+                0,
+                1)),
         new(
             "RemoveTaskBarSearch",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
                 "SearchboxTaskbarMode",
-                0)),
+                0,
+                1)),
         new(
             "EnableFileExtensions",
             new RegistryJob(
                 @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "HideFileExt",
-                0)),
+                0,
+                1)),
         new(
             "EnableDeveloperMode",
             new RegistryJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
                 "AllowDevelopmentWithoutDevLicense",
                 1,
+                0,
                 Notes: " * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development")),
         new(
             "MakePowerShelUnrestricted",
@@ -225,13 +237,15 @@
             new RegistryJob(
                 @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "DisableSearchBoxSuggestions",
-                1)),
+                1,
+                0)),
         new(
             "DisableEdgeDesktopSearchBar",
             new RegistryJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
                 "WebWidgetAllowed",
-                0)),
+                0,
+                1)),
     };
 
     static List<string> installed = null!;

@@ -13,12 +13,12 @@ public class ProgramTests
                 {
                     var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
 
-                    if (registryJob.Value.Equals(actual))
+                    if (registryJob.ApplyValue.Equals(actual))
                     {
                         return;
                     }
 
-                    throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.Value}");
+                    throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.ApplyValue}");
                 }
             }
         }
