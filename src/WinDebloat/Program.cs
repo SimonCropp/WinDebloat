@@ -17,13 +17,21 @@ public static partial class Program
             {
                 AllowMultipleArgumentsPerToken = true
             };
+            var includeOptions = new Option<string[]>(
+                name: "--include",
+                description: "Ids of optional items to include.",
+                parseArgument: result => ArgumentParser.ParseIncludes(result, TryFindGroup))
+            {
+                AllowMultipleArgumentsPerToken = true
+            };
 
             var command = new RootCommand();
             command.AddOption(excludeOptions);
+            command.AddOption(includeOptions);
 
             command.SetHandler(
-                async excludes => await Inner(excludes),
-                excludeOptions);
+                async (excludes,includes) => await Inner(excludes,includes),
+                excludeOptions, includeOptions);
 
             return await command.InvokeAsync(args);
         }
@@ -44,7 +52,7 @@ public static partial class Program
         return group != null;
     }
 
-    public static async Task Inner(string[] excludes)
+    public static async Task Inner(string[] excludes,string[] includes)
     {
         if (excludes.Any())
         {
