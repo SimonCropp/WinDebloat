@@ -41,6 +41,7 @@ WinDebloat
 
 ## Behavior
 
+
 ### Teams Machine-Wide Installer <!-- include: actions. path: /src/actions.include.md -->
 
 Uninstall `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
