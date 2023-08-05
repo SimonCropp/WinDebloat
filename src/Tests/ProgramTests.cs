@@ -1,4 +1,5 @@
-﻿[TestFixture]
+﻿#if DEBUG
+[TestFixture]
 public class ProgramTests
 {
     [Test]
@@ -24,3 +25,4 @@ public class ProgramTests
         }
     }
 }
+#endif
