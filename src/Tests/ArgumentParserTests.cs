@@ -31,7 +31,7 @@ public class ArgumentParserTests
     public Task ExcludeEmpty()
     {
         var argumentResult = constructArgument(Array.Empty<string>());
-        var excludes = ArgumentParser.ParseExcludes(argumentResult, Found);
+        var excludes = ArgumentParser.ParseExcludes(argumentResult, FoundDefault);
 
         return Verify(
             new
@@ -40,11 +40,12 @@ public class ArgumentParserTests
                 argumentResult.ErrorMessage
             });
     }
+
     [Test]
     public Task ExcludeMatch()
     {
         var argumentResult = constructArgument(new []{"theId"});
-        var excludes = ArgumentParser.ParseExcludes(argumentResult, Found);
+        var excludes = ArgumentParser.ParseExcludes(argumentResult, FoundDefault);
 
         return Verify(
             new
@@ -67,9 +68,16 @@ public class ArgumentParserTests
             });
     }
 
-    static bool Found(string id, [NotNullWhen(true)] out Group? group)
+    static bool FoundDefault(string id, [NotNullWhen(true)] out Group? group)
     {
         group = new("theId", true, new UninstallJob("app"));
+        return true;
+    }
+
+
+    static bool FoundNonDefault(string id, [NotNullWhen(true)] out Group? group)
+    {
+        group = new("theId", false, new UninstallJob("app"));
         return true;
     }
 
