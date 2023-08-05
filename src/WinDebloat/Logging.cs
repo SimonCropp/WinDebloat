@@ -1,15 +1,14 @@
 static class Logging
 {
-    public static string LogsDirectory { get; } = Path.Combine(AssemblyLocation.CurrentDirectory, "logs");
-
     public static void Init()
     {
-        Console.WriteLine($"Logs Directory: {LogsDirectory}");
-        Directory.CreateDirectory(LogsDirectory);
+        var directory = Path.Combine(AssemblyLocation.CurrentDirectory, "logs");
+        Console.WriteLine($"Logs Directory: {directory}");
+        Directory.CreateDirectory(directory);
         var configuration = new LoggerConfiguration();
         configuration.MinimumLevel.Information();
         configuration.WriteTo.File(
-            Path.Combine(LogsDirectory, "log.txt"),
+            Path.Combine(directory, "log.txt"),
             rollOnFileSizeLimit: true,
             fileSizeLimitBytes: 1000000, //1mb
             retainedFileCountLimit: 10);
