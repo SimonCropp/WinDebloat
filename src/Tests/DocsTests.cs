@@ -60,7 +60,7 @@ public class DocsTests
             case InstallJob installJob:
                 writer.WriteLine(
                     $"""
-                     Install `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+                     Installs `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
                      
                      Command to manually apply:
 
@@ -73,7 +73,7 @@ public class DocsTests
             case UninstallJob uninstallJob:
                 writer.WriteLine(
                     $"""
-                     Uninstall `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+                     Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
 
                      Command to manually apply:
 
