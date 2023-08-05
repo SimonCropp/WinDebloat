@@ -42,11 +42,19 @@ WinDebloat
 
 ### Teams Machine-Wide Installer <!-- include: actions. path: /src/actions.include.md -->
 
+Uninstall `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Teams Machine-Wide Installer" --exact
 ```
 
 ### Movies & TV
+
+Uninstall `Movies & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Movies & TV" --exact
@@ -54,11 +62,19 @@ winget uninstall --name "Movies & TV" --exact
 
 ### Microsoft Tips
 
+Uninstall `Microsoft Tips` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Microsoft Tips" --exact
 ```
 
 ### MSN Weather
+
+Uninstall `MSN Weather` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "MSN Weather" --exact
@@ -66,11 +82,19 @@ winget uninstall --name "MSN Weather" --exact
 
 ### Windows Media Player
 
+Uninstall `Windows Media Player` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Windows Media Player" --exact
 ```
 
 ### Mail and Calendar
+
+Uninstall `Mail and Calendar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Mail and Calendar" --exact
@@ -78,11 +102,19 @@ winget uninstall --name "Mail and Calendar" --exact
 
 ### Microsoft Whiteboard
 
+Uninstall `Microsoft Whiteboard` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Microsoft Whiteboard" --exact
 ```
 
 ### Microsoft Pay
+
+Uninstall `Microsoft Pay` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Pay" --exact
@@ -90,11 +122,19 @@ winget uninstall --name "Microsoft Pay" --exact
 
 ### Skype
 
+Uninstall `Skype` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Skype" --exact
 ```
 
 ### Windows Maps
+
+Uninstall `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Maps" --exact
@@ -102,11 +142,19 @@ winget uninstall --name "Windows Maps" --exact
 
 ### Feedback Hub
 
+Uninstall `Feedback Hub` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Feedback Hub" --exact
 ```
 
 ### Microsoft Photos
+
+Uninstall `Microsoft Photos` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Photos" --exact
@@ -114,11 +162,19 @@ winget uninstall --name "Microsoft Photos" --exact
 
 ### Windows Camera
 
+Uninstall `Windows Camera` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Windows Camera" --exact
 ```
 
 ### Microsoft To Do
+
+Uninstall `Microsoft To Do` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft To Do" --exact
@@ -126,11 +182,19 @@ winget uninstall --name "Microsoft To Do" --exact
 
 ### Microsoft People
 
+Uninstall `Microsoft People` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Microsoft People" --exact
 ```
 
 ### Solitaire & Casual Games
+
+Uninstall `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Solitaire & Casual Games" --exact
@@ -138,11 +202,19 @@ winget uninstall --name "Solitaire & Casual Games" --exact
 
 ### Mixed Reality Portal
 
+Uninstall `Mixed Reality Portal` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Mixed Reality Portal" --exact
 ```
 
 ### Microsoft Sticky Notes
+
+Uninstall `Microsoft Sticky Notes` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Sticky Notes" --exact
@@ -150,11 +222,19 @@ winget uninstall --name "Microsoft Sticky Notes" --exact
 
 ### News
 
+Uninstall `News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "News" --exact
 ```
 
 ### Get Help
+
+Uninstall `Get Help` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Get Help" --exact
@@ -162,11 +242,19 @@ winget uninstall --name "Get Help" --exact
 
 ### Cortana
 
+Uninstall `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Cortana" --exact
 ```
 
 ### Power Automate
+
+Uninstall `Power Automate` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Power Automate" --exact
@@ -174,11 +262,19 @@ winget uninstall --name "Power Automate" --exact
 
 ### OneNote for Windows 10
 
+Uninstall `OneNote for Windows 10` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "OneNote for Windows 10" --exact
 ```
 
 ### Clipchamp
+
+Uninstall `Clipchamp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Clipchamp" --exact
@@ -186,11 +282,19 @@ winget uninstall --name "Clipchamp" --exact
 
 ### Windows Web Experience Pack
 
+Uninstall `Windows Web Experience Pack` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Windows Web Experience Pack" --exact
 ```
 
 ### Paint 3D
+
+Uninstall `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Paint 3D" --exact
@@ -200,11 +304,19 @@ winget uninstall --name "Paint 3D" --exact
 
 #### Xbox TCUI
 
+Uninstall `Xbox TCUI` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Xbox TCUI" --exact
 ```
 
 #### Xbox Console Companion
+
+Uninstall `Xbox Console Companion` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Console Companion" --exact
@@ -212,11 +324,19 @@ winget uninstall --name "Xbox Console Companion" --exact
 
 #### Xbox Game Bar Plugin
 
+Uninstall `Xbox Game Bar Plugin` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Xbox Game Bar Plugin" --exact
 ```
 
 #### Xbox Identity Provider
+
+Uninstall `Xbox Identity Provider` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Identity Provider" --exact
@@ -224,11 +344,19 @@ winget uninstall --name "Xbox Identity Provider" --exact
 
 #### Xbox Game Speech Window
 
+Uninstall `Xbox Game Speech Window` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Xbox Game Speech Window" --exact
 ```
 
 #### Xbox Game Bar
+
+Uninstall `Xbox Game Bar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Game Bar" --exact
@@ -236,11 +364,19 @@ winget uninstall --name "Xbox Game Bar" --exact
 
 #### Xbox Accessories
 
+Uninstall `Xbox Accessories` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Xbox Accessories" --exact
 ```
 
 #### Xbox
+
+Uninstall `Xbox` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox" --exact
@@ -250,11 +386,19 @@ winget uninstall --name "Xbox" --exact
 
 #### Paint
 
+Uninstall `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+
+Command to manually apply:
+
 ```ps
 winget uninstall --name "Paint" --exact
 ```
 
 #### paint.net
+
+Install `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
 
 ```ps
 winget install --name "paint.net" --exact
@@ -264,13 +408,13 @@ winget install --name "paint.net" --exact
 
 #### RotatingLockScreenOverlayEnabled
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name RotatingLockScreenOverlayEnabled -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name RotatingLockScreenOverlayEnabled -Type DWord -Value 1
@@ -278,13 +422,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 #### SubscribedContent-338387Enabled
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338387Enabled -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338387Enabled -Type DWord -Value 1
@@ -292,13 +436,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### RemoveChat
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -Type DWord -Value 1
@@ -306,13 +450,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### DisableTelemetry
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name Allow Telemetry -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name Allow Telemetry -Type DWord -Value 1
@@ -320,13 +464,13 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### DisableAdvertiserId
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 1
@@ -334,13 +478,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### RemoveWidgets
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -Type DWord -Value 1
@@ -348,13 +492,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### HideStartMenuRecommendedSection
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name HideRecommendedSection -Type DWord -Value 1
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name HideRecommendedSection -Type DWord -Value 0
@@ -362,13 +506,13 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### DisableStartupBoost
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name StartupBoostEnabled -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name StartupBoostEnabled -Type DWord -Value 1
@@ -376,13 +520,13 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### RemoveTaskView
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Type DWord -Value 1
@@ -390,13 +534,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### RemoveTaskBarSearch
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search -Name SearchboxTaskbarMode -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search -Name SearchboxTaskbarMode -Type DWord -Value 1
@@ -404,13 +548,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### EnableFileExtensions
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -Type DWord -Value 1
@@ -418,18 +562,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Cu
 
 ### EnableDeveloperMode
 
-
-Notes:
-
- * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx -Name AllowDevelopmentWithoutDevLicense -Type DWord -Value 1
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx -Name AllowDevelopmentWithoutDevLicense -Type DWord -Value 0
@@ -437,13 +576,13 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### MakePowerShelUnrestricted
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell -Name ExecutionPolicy -Type DWord -Value Unrestricted
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell -Name ExecutionPolicy -Type DWord -Value String
@@ -451,13 +590,13 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShel
 
 ### DisableWebSearch
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -Type DWord -Value 1
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -Type DWord -Value 0
@@ -465,13 +604,13 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\W
 
 ### DisableEdgeDesktopSearchBar
 
-Apply:
+Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name WebWidgetAllowed -Type DWord -Value 0
 ```
 
-Revert:
+Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge -Name WebWidgetAllowed -Type DWord -Value 1
