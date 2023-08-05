@@ -96,15 +96,15 @@ public static class Program
         switch (job)
         {
             case RegistryJob registry:
-                Log.Information($"  Registry: {job.Name}");
+                Log.Information($"Registry: {job.Name}");
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
-                Log.Information($"  Install: {job.Name}");
+                Log.Information($"Install: {job.Name}");
                 await HandleInstall(installJob);
                 return;
             case UninstallJob uninstallJob:
-                Log.Information($"  Uninstall: {job.Name}");
+                Log.Information($"Uninstall: {job.Name}");
                 await HandleUninstall(uninstallJob);
                 return;
         }
@@ -115,23 +115,23 @@ public static class Program
         if (IsInstalled(uninstall.Name))
         {
             await WinGet.Uninstall(uninstall.Name);
-            Log.Information("    Uninstalled");
+            Log.Information("Uninstalled");
             return;
         }
 
-        Log.Information("    Skipped since not installed");
+        Log.Information("Skipped since not installed");
     }
 
     static async Task HandleInstall(InstallJob install)
     {
         if (IsInstalled(install.Name))
         {
-            Log.Information("    Skipped since installed");
+            Log.Information("Skipped since installed");
             return;
         }
 
         await WinGet.Install(install.Name);
-        Log.Information("    Installed");
+        Log.Information("Installed");
     }
 
     static bool IsInstalled(string package) =>
@@ -140,11 +140,11 @@ public static class Program
     static void HandleRegistry(RegistryJob registry)
     {
         var (key, name, applyValue, _, kind, _) = registry;
-        Log.Information(@$"    {key}\{name} to {applyValue} ({kind})");
+        Log.Information(@$"{key}\{name} to {applyValue} ({kind})");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information("      Skipped since value already correct");
+            Log.Information("Skipped since value already correct");
             return;
         }
 
