@@ -115,23 +115,23 @@ public static class Program
         if (IsInstalled(uninstall.Name))
         {
             await WinGet.Uninstall(uninstall.Name);
-            Log.Information("Uninstalled");
+            Log.Information($"Uninstalled {uninstall.Name}");
             return;
         }
 
-        Log.Information("Skipped since not installed");
+        Log.Information($"Skipped uninstall of {uninstall.Name} since not installed");
     }
 
     static async Task HandleInstall(InstallJob install)
     {
         if (IsInstalled(install.Name))
         {
-            Log.Information("Skipped since installed");
+            Log.Information($"Skipped install of {install.Name} since installed");
             return;
         }
 
         await WinGet.Install(install.Name);
-        Log.Information("Installed");
+        Log.Information($"Installed {install.Name}");
     }
 
     static bool IsInstalled(string package) =>
@@ -140,11 +140,11 @@ public static class Program
     static void HandleRegistry(RegistryJob registry)
     {
         var (key, name, applyValue, _, kind, _) = registry;
-        Log.Information(@$"{key}\{name} to {applyValue} ({kind})");
+        Log.Information(@$"{registry.Path} to {applyValue}");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information("Skipped since value already correct");
+            Log.Information($@"Skipped registry entry {registry.Path} since value already correct");
             return;
         }
 
