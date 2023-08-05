@@ -61,6 +61,7 @@
         if (IsInstalled(uninstall.Name))
         {
             await WinGet.Install(uninstall.Name);
+            Log.Information("    Uninstalled");
             return;
         }
 
@@ -76,6 +77,7 @@
         }
 
         await WinGet.Install(install.Name);
+        Log.Information("    Installed");
     }
 
     static bool IsInstalled(string package) =>
