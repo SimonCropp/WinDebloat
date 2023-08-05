@@ -59,10 +59,13 @@ public static class Program
 
     public static async Task Inner(string[] excludes)
     {
-        Log.Information("Excludes:");
-        foreach (var exclude in excludes)
+        if (excludes.Any())
         {
-            Log.Information($" * {exclude}");
+            Log.Information("Excludes:");
+            foreach (var exclude in excludes)
+            {
+                Log.Information($" * {exclude}");
+            }
         }
 
         installed = await WinGet.List();
@@ -93,7 +96,7 @@ public static class Program
         switch (job)
         {
             case RegistryJob registry:
-                Log.Information($"  Job: {job.Name}");
+                Log.Information($"  Registry: {job.Name}");
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
@@ -137,7 +140,7 @@ public static class Program
     static void HandleRegistry(RegistryJob registry)
     {
         var (key, name, applyValue, _, kind, _) = registry;
-        Log.Information(@$"    Registry: {key}\{name} to {applyValue} ({kind})");
+        Log.Information(@$"    {key}\{name} to {applyValue} ({kind})");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
