@@ -46,7 +46,7 @@ Optional items can be included by using the `--include` argument:
 WinDebloat --include Paint
 ```
 
-See [Optional Items Removed / Disabled](Items Removed / Disabled)
+See [Optional Items Removed / Disabled](#optional-items-removed--disabled)
 
 
 ### Excluding items
