@@ -43,7 +43,20 @@ public class ArgumentParserTests
             .UseTextForParameters(findGroup.Method.Name);
     }
 
-    static bool[] bools = {true, false};
+    [TestCaseSource(nameof(GetData))]
+    public Task Include(FindGroup findGroup)
+    {
+        var argument = constructArgument(new[] {"id"});
+        var includes = ArgumentParser.ParseIncludes(argument, findGroup);
+
+        return Verify(
+                new
+                {
+                    includes,
+                    argument.ErrorMessage
+                })
+            .UseTextForParameters(findGroup.Method.Name);
+    }
 
     public static IEnumerable<object[]> GetData()
     {

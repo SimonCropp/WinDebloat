@@ -2,9 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 
 public delegate bool FindGroup(string id, [NotNullWhen(true)] out Group? group);
+
 public static class ArgumentParser
 {
-
     public static string[] ParseExcludes(ArgumentResult result, FindGroup findGroup)
     {
         var values = result.Values();
@@ -18,6 +18,7 @@ public static class ArgumentParser
                 errors.Add($"No item found for exclude: {id}");
                 continue;
             }
+
             if (!group.IsDefault)
             {
                 errors.Add($"Item is not include by default: {id}");
@@ -31,6 +32,7 @@ public static class ArgumentParser
 
         return excludes;
     }
+
     public static string[] ParseIncludes(ArgumentResult result, FindGroup findGroup)
     {
         var values = result.Values();
