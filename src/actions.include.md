@@ -1,6 +1,9 @@
+## Default Items Removed / Disabled
+
+
 ### Advertiser Id
 
-Id to toggle behavior: `AdvertiserId`
+Id to exclude: `AdvertiserId`
 
 Command to manually apply:
 
@@ -21,9 +24,9 @@ Notes:
 
 ### Camera
 
-Id to toggle behavior: `Camera`
+Id to exclude: `Camera`
 
-Uninstalls `Windows Camera` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Windows Camera` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -34,7 +37,7 @@ winget uninstall --name "Windows Camera" --exact
 
 ### Chat
 
-Id to toggle behavior: `Chat`
+Id to exclude: `Chat`
 
 Command to manually apply:
 
@@ -51,9 +54,9 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### Clipchamp
 
-Id to toggle behavior: `Clipchamp`
+Id to exclude: `Clipchamp`
 
-Uninstalls `Clipchamp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Clipchamp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -64,9 +67,9 @@ winget uninstall --name "Clipchamp" --exact
 
 ### Cortana
 
-Id to toggle behavior: `Cortana`
+Id to exclude: `Cortana`
 
-Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -77,7 +80,7 @@ winget uninstall --name "Cortana" --exact
 
 ### DeveloperMode
 
-Id to toggle behavior: `DeveloperMode`
+Id to exclude: `DeveloperMode`
 
 Command to manually apply:
 
@@ -98,7 +101,7 @@ Notes:
 
 ### EdgeDesktopSearchBar
 
-Id to toggle behavior: `EdgeDesktopSearchBar`
+Id to exclude: `EdgeDesktopSearchBar`
 
 Command to manually apply:
 
@@ -115,9 +118,9 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### Feedback Hub
 
-Id to toggle behavior: `FeedbackHub`
+Id to exclude: `FeedbackHub`
 
-Uninstalls `Feedback Hub` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Feedback Hub` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -128,7 +131,7 @@ winget uninstall --name "Feedback Hub" --exact
 
 ### FileExtensions
 
-Id to toggle behavior: `FileExtensions`
+Id to exclude: `FileExtensions`
 
 Command to manually apply:
 
@@ -145,9 +148,9 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Cu
 
 ### Games
 
-Id to toggle behavior: `Games`
+Id to exclude: `Games`
 
-Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -158,9 +161,9 @@ winget uninstall --name "Solitaire & Casual Games" --exact
 
 ### Get Help
 
-Id to toggle behavior: `GetHelp`
+Id to exclude: `GetHelp`
 
-Uninstalls `Get Help` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Get Help` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -171,7 +174,7 @@ winget uninstall --name "Get Help" --exact
 
 ### Lock Screen Ads
 
-Id to toggle behavior: `LockScreenAds`
+Id to exclude: `LockScreenAds`
 
 #### RotatingLockScreenOverlayEnabled
 
@@ -206,9 +209,9 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### Mail and Calendar
 
-Id to toggle behavior: `MailandCalendar`
+Id to exclude: `MailandCalendar`
 
-Uninstalls `Mail and Calendar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Mail and Calendar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -219,9 +222,9 @@ winget uninstall --name "Mail and Calendar" --exact
 
 ### Maps
 
-Id to toggle behavior: `Maps`
+Id to exclude: `Maps`
 
-Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -232,9 +235,9 @@ winget uninstall --name "Windows Maps" --exact
 
 ### Media Player
 
-Id to toggle behavior: `MediaPlayer`
+Id to exclude: `MediaPlayer`
 
-Uninstalls `Windows Media Player` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Windows Media Player` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -245,9 +248,9 @@ winget uninstall --name "Windows Media Player" --exact
 
 ### Mixed Reality Portal
 
-Id to toggle behavior: `MixedRealityPortal`
+Id to exclude: `MixedRealityPortal`
 
-Uninstalls `Mixed Reality Portal` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Mixed Reality Portal` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -258,9 +261,9 @@ winget uninstall --name "Mixed Reality Portal" --exact
 
 ### Movies and TV
 
-Id to toggle behavior: `MoviesandTV`
+Id to exclude: `MoviesandTV`
 
-Uninstalls `Movies & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Movies & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -271,9 +274,9 @@ winget uninstall --name "Movies & TV" --exact
 
 ### News
 
-Id to toggle behavior: `News`
+Id to exclude: `News`
 
-Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -284,9 +287,9 @@ winget uninstall --name "News" --exact
 
 ### OneNote
 
-Id to toggle behavior: `OneNote`
+Id to exclude: `OneNote`
 
-Uninstalls `OneNote for Windows 10` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `OneNote for Windows 10` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -297,9 +300,9 @@ winget uninstall --name "OneNote for Windows 10" --exact
 
 ### Pay
 
-Id to toggle behavior: `Pay`
+Id to exclude: `Pay`
 
-Uninstalls `Microsoft Pay` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft Pay` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -308,38 +311,11 @@ winget uninstall --name "Microsoft Pay" --exact
 ```
 
 
-### Paint
-
-Id to toggle behavior: `Paint`
-
-#### Paint
-
-Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
-
-Command to manually apply:
-
-```ps
-winget uninstall --name "Paint" --exact
-```
-
-
-#### paint.net
-
-Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-Command to manually apply:
-
-```ps
-winget install --name "paint.net" --exact
-```
-
-
-
 ### People
 
-Id to toggle behavior: `People`
+Id to exclude: `People`
 
-Uninstalls `Microsoft People` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft People` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -350,9 +326,9 @@ winget uninstall --name "Microsoft People" --exact
 
 ### Photos
 
-Id to toggle behavior: `Photos`
+Id to exclude: `Photos`
 
-Uninstalls `Microsoft Photos` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft Photos` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -363,9 +339,9 @@ winget uninstall --name "Microsoft Photos" --exact
 
 ### Power Automate
 
-Id to toggle behavior: `PowerAutomate`
+Id to exclude: `PowerAutomate`
 
-Uninstalls `Power Automate` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Power Automate` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -376,7 +352,7 @@ winget uninstall --name "Power Automate" --exact
 
 ### PowerShelUnrestricted
 
-Id to toggle behavior: `PowerShelUnrestricted`
+Id to exclude: `PowerShelUnrestricted`
 
 Command to manually apply:
 
@@ -393,9 +369,9 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShel
 
 ### Paint 3D
 
-Id to toggle behavior: `Paint3D`
+Id to exclude: `Paint3D`
 
-Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -406,9 +382,9 @@ winget uninstall --name "Paint 3D" --exact
 
 ### Skype
 
-Id to toggle behavior: `Skype`
+Id to exclude: `Skype`
 
-Uninstalls `Skype` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Skype` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -419,7 +395,7 @@ winget uninstall --name "Skype" --exact
 
 ### StartupBoost
 
-Id to toggle behavior: `StartupBoost`
+Id to exclude: `StartupBoost`
 
 Command to manually apply:
 
@@ -436,7 +412,7 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### Start Menu Recommendations
 
-Id to toggle behavior: `StartMenuRecommendations`
+Id to exclude: `StartMenuRecommendations`
 
 Command to manually apply:
 
@@ -453,9 +429,9 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### Sticky Notes
 
-Id to toggle behavior: `StickyNotes`
+Id to exclude: `StickyNotes`
 
-Uninstalls `Microsoft Sticky Notes` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft Sticky Notes` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -466,7 +442,7 @@ winget uninstall --name "Microsoft Sticky Notes" --exact
 
 ### TaskBarSearch
 
-Id to toggle behavior: `TaskBarSearch`
+Id to exclude: `TaskBarSearch`
 
 Command to manually apply:
 
@@ -483,7 +459,7 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### Task View
 
-Id to toggle behavior: `TaskView`
+Id to exclude: `TaskView`
 
 Command to manually apply:
 
@@ -500,9 +476,9 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### Teams
 
-Id to toggle behavior: `Teams`
+Id to exclude: `Teams`
 
-Uninstalls `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -513,7 +489,7 @@ winget uninstall --name "Teams Machine-Wide Installer" --exact
 
 ### Telemetry
 
-Id to toggle behavior: `Telemetry`
+Id to exclude: `Telemetry`
 
 Command to manually apply:
 
@@ -530,9 +506,9 @@ Set-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\
 
 ### Tips
 
-Id to toggle behavior: `Tips`
+Id to exclude: `Tips`
 
-Uninstalls `Microsoft Tips` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft Tips` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -543,9 +519,9 @@ winget uninstall --name "Microsoft Tips" --exact
 
 ### To Do
 
-Id to toggle behavior: `ToDo`
+Id to exclude: `ToDo`
 
-Uninstalls `Microsoft To Do` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft To Do` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -556,9 +532,9 @@ winget uninstall --name "Microsoft To Do" --exact
 
 ### Weather
 
-Id to toggle behavior: `Weather`
+Id to exclude: `Weather`
 
-Uninstalls `MSN Weather` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `MSN Weather` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -569,9 +545,9 @@ winget uninstall --name "MSN Weather" --exact
 
 ### Web Experience Pack
 
-Id to toggle behavior: `WebExperiencePack`
+Id to exclude: `WebExperiencePack`
 
-Uninstalls `Windows Web Experience Pack` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Windows Web Experience Pack` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -582,7 +558,7 @@ winget uninstall --name "Windows Web Experience Pack" --exact
 
 ### WebSearch
 
-Id to toggle behavior: `WebSearch`
+Id to exclude: `WebSearch`
 
 Command to manually apply:
 
@@ -599,9 +575,9 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\W
 
 ### Whiteboard
 
-Id to toggle behavior: `Whiteboard`
+Id to exclude: `Whiteboard`
 
-Uninstalls `Microsoft Whiteboard` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Microsoft Whiteboard` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -612,7 +588,7 @@ winget uninstall --name "Microsoft Whiteboard" --exact
 
 ### Widgets
 
-Id to toggle behavior: `Widgets`
+Id to exclude: `Widgets`
 
 Command to manually apply:
 
@@ -629,11 +605,11 @@ Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\Cu
 
 ### Xbox
 
-Id to toggle behavior: `Xbox`
+Id to exclude: `Xbox`
 
 #### Xbox TCUI
 
-Uninstalls `Xbox TCUI` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox TCUI` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -644,7 +620,7 @@ winget uninstall --name "Xbox TCUI" --exact
 
 #### Xbox Console Companion
 
-Uninstalls `Xbox Console Companion` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Console Companion` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -655,7 +631,7 @@ winget uninstall --name "Xbox Console Companion" --exact
 
 #### Xbox Game Bar Plugin
 
-Uninstalls `Xbox Game Bar Plugin` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Game Bar Plugin` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -666,7 +642,7 @@ winget uninstall --name "Xbox Game Bar Plugin" --exact
 
 #### Xbox Identity Provider
 
-Uninstalls `Xbox Identity Provider` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Identity Provider` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -677,7 +653,7 @@ winget uninstall --name "Xbox Identity Provider" --exact
 
 #### Xbox Game Speech Window
 
-Uninstalls `Xbox Game Speech Window` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Game Speech Window` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -688,7 +664,7 @@ winget uninstall --name "Xbox Game Speech Window" --exact
 
 #### Xbox Game Bar
 
-Uninstalls `Xbox Game Bar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Game Bar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -699,7 +675,7 @@ winget uninstall --name "Xbox Game Bar" --exact
 
 #### Xbox Accessories
 
-Uninstalls `Xbox Accessories` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox Accessories` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
@@ -710,12 +686,42 @@ winget uninstall --name "Xbox Accessories" --exact
 
 #### Xbox
 
-Uninstalls `Xbox` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+Uninstalls `Xbox` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox" --exact
+```
+
+
+
+## Optional Items Removed / Disabled
+
+
+### Paint
+
+Id to include: `Paint`
+
+#### Paint
+
+Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Paint" --exact
+```
+
+
+#### paint.net
+
+Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget install --name "paint.net" --exact
 ```
 
 
