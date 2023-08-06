@@ -58,7 +58,7 @@ WinDebloat --exclude AdvertiserId Xbox
 ```
 
 
-## Default Items Removed / Disabled <!-- include: actions. path: /src/actions.include.md -->
+## Default Items Removed / Disabled<!-- include: actions. path: /src/actions.include.md -->
 
 
 ### Advertiser Id
@@ -819,7 +819,7 @@ winget install --name "paint.net" --exact
 ```
 
 
- <!-- endInclude -->
+<!-- endInclude -->
 
 
 ## Notes
