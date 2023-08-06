@@ -142,30 +142,7 @@ winget uninstall --name "Cortana" --exact
 ```
 
 
-### DeveloperMode
-
-Id to exclude: `DeveloperMode`
-
-Command to manually apply:
-
-```ps
-New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Force
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "1"
-```
-
-Command to manually revert:
-
-```ps
-New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Force
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "0"
-```
-
-Notes:
-
- * https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-
-
-### EdgeDesktopSearchBar
+### Edge Desktop Search Bar
 
 Id to exclude: `EdgeDesktopSearchBar`
 
@@ -424,9 +401,9 @@ winget uninstall --name "Power Automate" --exact
 ```
 
 
-### PowerShelUnrestricted
+### PowerShell Unrestricted
 
-Id to exclude: `PowerShelUnrestricted`
+Id to exclude: `PowerShellUnrestricted`
 
 Command to manually apply:
 
@@ -469,9 +446,9 @@ winget uninstall --name "Skype" --exact
 ```
 
 
-### StartupBoost
+### Startup boost
 
-Id to exclude: `StartupBoost`
+Id to exclude: `Startupboost`
 
 Command to manually apply:
 
@@ -486,6 +463,10 @@ Command to manually revert:
 New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Force
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type "DWord" -Value "1"
 ```
+
+Notes:
+
+ * [Microsoft Edge Startup boost](https://www.microsoft.com/en-us/edge/features/startup-boost)
 
 
 ### Start Menu Recommendations
@@ -520,7 +501,7 @@ winget uninstall --name "Microsoft Sticky Notes" --exact
 ```
 
 
-### TaskBarSearch
+### TaskBar Search
 
 Id to exclude: `TaskBarSearch`
 
@@ -642,9 +623,9 @@ winget uninstall --name "Windows Web Experience Pack" --exact
 ```
 
 
-### WebSearch
+### Start Menu Web Search
 
-Id to exclude: `WebSearch`
+Id to exclude: `StartMenuWebSearch`
 
 Command to manually apply:
 
@@ -787,6 +768,29 @@ winget uninstall --name "Xbox" --exact
 
 
 ## Optional Items Removed / Disabled
+
+
+### Developer Mode
+
+Id to include: `DeveloperMode`
+
+Command to manually apply:
+
+```ps
+New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Force
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "1"
+```
+
+Command to manually revert:
+
+```ps
+New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Force
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "0"
+```
+
+Notes:
+
+ * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
 
 ### Paint
