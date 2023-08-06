@@ -9,7 +9,7 @@ public class ArgumentParserTests
 
     static ArgumentParserTests()
     {
-        var tokensField = typeof(ArgumentResult).GetField("_tokens",BindingFlags.NonPublic | BindingFlags.Instance)!;
+        var tokensField = typeof(ArgumentResult).GetField("_tokens", BindingFlags.NonPublic | BindingFlags.Instance)!;
         var constructor = typeof(ArgumentResult).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
             .Single();
         constructArgument = inputs =>
@@ -21,55 +21,60 @@ public class ArgumentParserTests
                     null
                 })!;
             var result = (ArgumentResult) invoke;
-            var tokens = (List<Token>)tokensField.GetValue(result)!;
-            tokens.AddRange(inputs.Select(_=>new Token(_, TokenType.Argument, null!)));
+            var tokens = (List<Token>) tokensField.GetValue(result)!;
+            tokens.AddRange(inputs.Select(_ => new Token(_, TokenType.Argument, null!)));
             return result;
         };
     }
 
-    [Test]
-    public Task ExcludeEmpty()
+
+    [TestCaseSource(nameof(GetData))]
+    public Task Exclude(FindGroup findGroup)
     {
-        var argumentResult = constructArgument(Array.Empty<string>());
-        var excludes = ArgumentParser.ParseExcludes(argumentResult, Found);
+        var argument = constructArgument(new[] {"id"});
+        var excludes = ArgumentParser.ParseExcludes(argument, findGroup);
 
         return Verify(
-            new
-            {
-                excludes,
-                argumentResult.ErrorMessage
-            });
+                new
+                {
+                    excludes,
+                    argument.ErrorMessage
+                })
+            .UseTextForParameters(findGroup.Method.Name);
     }
-    [Test]
-    public Task ExcludeMatch()
+
+    [TestCaseSource(nameof(GetData))]
+    public Task Include(FindGroup findGroup)
     {
-        var argumentResult = constructArgument(new []{"theId"});
-        var excludes = ArgumentParser.ParseExcludes(argumentResult, Found);
+        var argument = constructArgument(new[] {"id"});
+        var includes = ArgumentParser.ParseIncludes(argument, findGroup);
 
         return Verify(
-            new
-            {
-                excludes,
-                argumentResult.ErrorMessage
-            });
-    }
-    [Test]
-    public Task ExcludeMisMatch()
-    {
-        var argumentResult = constructArgument(new []{"badId"});
-        var excludes = ArgumentParser.ParseExcludes(argumentResult, NotFound);
-
-        return Verify(
-            new
-            {
-                excludes,
-                argumentResult.ErrorMessage
-            });
+                new
+                {
+                    includes,
+                    argument.ErrorMessage
+                })
+            .UseTextForParameters(findGroup.Method.Name);
     }
 
-    static bool Found(string id, [NotNullWhen(true)] out Group? group)
+    public static IEnumerable<object[]> GetData()
     {
-        group = new("theId", new UninstallJob("app"));
+        foreach (var findGroup in new FindGroup[] {FoundDefault, FoundNonDefault, NotFound})
+        {
+            yield return new object[] {findGroup};
+        }
+    }
+
+    static bool FoundDefault(string id, [NotNullWhen(true)] out Group? group)
+    {
+        group = new("goodId", true, new UninstallJob("app"));
+        return true;
+    }
+
+    static bool FoundNonDefault(string id, [NotNullWhen(true)] out Group? group)
+    {
+        group = new("goodId", false, new UninstallJob("app"));
         return true;
     }
 

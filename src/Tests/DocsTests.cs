@@ -6,34 +6,74 @@ public class DocsTests
     {
         var md = Path.Combine(AttributeReader.GetSolutionDirectory(), @"actions.include.md");
         File.Delete(md);
+
         using var writer = File.CreateText(md);
-        foreach (var group in Program.Groups)
+
+        writer.WriteLine(
+            """
+            ## Default Items Removed / Disabled
+
+
+            """);
+
+        foreach (var group in Program.Groups.Where(_ => _.IsDefault))
+        {
+            WriteGroup(writer, group);
+        }
+
+        writer.WriteLine(
+            """
+            ## Optional Items Removed / Disabled
+
+
+            """);
+        foreach (var group in Program.Groups.Where(_ => !_.IsDefault))
+        {
+            WriteGroup(writer, group);
+        }
+    }
+
+    private static void WriteGroup(StreamWriter writer, Group group)
+    {
+        writer.WriteLine(
+            $"""
+             ### {group.Name}
+             
+             """);
+        if (group.IsDefault)
         {
             writer.WriteLine(
                 $"""
-                 ### {group.Name}
-
-                 Id to toggle behavior: `{group.Id}`
+                 Id to exclude: `{group.Id}`
 
                  """);
-            if (group.Jobs.Count == 1)
-            {
-                HandleJob(group.Jobs[0], writer);
-                continue;
-            }
-
-            foreach (var job in group.Jobs)
-            {
-                writer.WriteLine(
-                    $"""
-                     #### {job.Name}
-
-                     """);
-                HandleJob(job, writer);
-            }
-
-            writer.WriteLine();
         }
+        else
+        {
+            writer.WriteLine(
+                $"""
+                 Id to include: `{group.Id}`
+
+                 """);
+        }
+
+        if (group.Jobs.Count == 1)
+        {
+            HandleJob(group.Jobs[0], writer);
+            return;
+        }
+
+        foreach (var job in group.Jobs)
+        {
+            writer.WriteLine(
+                $"""
+                 #### {job.Name}
+
+                 """);
+            HandleJob(job, writer);
+        }
+
+        writer.WriteLine();
     }
 
     static void HandleJob(IJob job, TextWriter writer)
@@ -61,7 +101,7 @@ public class DocsTests
                 writer.WriteLine(
                     $"""
                      Installs `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-                     
+
                      Command to manually apply:
 
                      ```ps
@@ -73,7 +113,7 @@ public class DocsTests
             case UninstallJob uninstallJob:
                 writer.WriteLine(
                     $"""
-                     Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/). 
+                     Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
                      Command to manually apply:
 
@@ -84,6 +124,7 @@ public class DocsTests
                      """);
                 break;
         }
+
         if (job.Notes != null)
         {
             writer.WriteLine(
@@ -94,6 +135,7 @@ public class DocsTests
                 
                  """);
         }
+
         writer.WriteLine();
     }
 }

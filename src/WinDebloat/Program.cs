@@ -17,13 +17,21 @@ public static partial class Program
             {
                 AllowMultipleArgumentsPerToken = true
             };
+            var includeOptions = new Option<string[]>(
+                name: "--include",
+                description: "Ids of optional items to include.",
+                parseArgument: result => ArgumentParser.ParseIncludes(result, TryFindGroup))
+            {
+                AllowMultipleArgumentsPerToken = true
+            };
 
             var command = new RootCommand();
             command.AddOption(excludeOptions);
+            command.AddOption(includeOptions);
 
             command.SetHandler(
-                async excludes => await Inner(excludes),
-                excludeOptions);
+                async (excludes,includes) => await Inner(excludes,includes),
+                excludeOptions, includeOptions);
 
             return await command.InvokeAsync(args);
         }
@@ -44,24 +52,29 @@ public static partial class Program
         return group != null;
     }
 
-    public static async Task Inner(string[] excludes)
+    public static async Task Inner(string[] excludes,string[] includes)
     {
-        if (excludes.Any())
-        {
-            Log.Information("Excludes:");
-            foreach (var exclude in excludes)
-            {
-                Log.Information($" * {exclude}");
-            }
-        }
+        LogExcludes(excludes);
+        LogIncludes(includes);
 
         installed = await WinGet.List();
         foreach (var group in Groups)
         {
-            if (excludes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
+            if (group.IsDefault)
             {
-                Log.Information($"Skipping '{group.Name}' since it is excluded");
-                continue;
+                if (excludes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
+                {
+                    Log.Information($"Skipping '{group.Name}' since it is excluded");
+                    continue;
+                }
+            }
+            else
+            {
+                if (!includes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
+                {
+                    Log.Information($"Skipping '{group.Name}' since it is not included by default an has not been explicitly included");
+                    continue;
+                }
             }
 
             if (group.Jobs.Count == 1)
@@ -75,6 +88,34 @@ public static partial class Program
             {
                 await HandleJob(job);
             }
+        }
+    }
+
+    static void LogIncludes(string[] includes)
+    {
+        if (!includes.Any())
+        {
+            return;
+        }
+
+        Log.Information("Includes:");
+        foreach (var include in includes)
+        {
+            Log.Information($" * {include}");
+        }
+    }
+
+    static void LogExcludes(string[] excludes)
+    {
+        if (!excludes.Any())
+        {
+            return;
+        }
+
+        Log.Information("Excludes:");
+        foreach (var exclude in excludes)
+        {
+            Log.Information($" * {exclude}");
         }
     }
 
