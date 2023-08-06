@@ -6,6 +6,7 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <PackageProjectUrl>https://github.com/SimonCropp/WinDebloat</PackageProjectUrl>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="CliWrap" Version="3.6.4" />
