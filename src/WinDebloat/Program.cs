@@ -32,7 +32,7 @@ public static partial class Program
             command.AddOption(includeOptions);
 
             command.SetHandler(
-                async (excludes,includes) => await Inner(excludes,includes),
+                async (excludes, includes) => await Inner(excludes, includes),
                 excludeOptions, includeOptions);
 
             return await command.InvokeAsync(args);

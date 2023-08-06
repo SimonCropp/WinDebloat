@@ -819,6 +819,25 @@ winget install --name "paint.net" --exact
 ```
 
 
+
+### Printer
+
+Id to include: `Printer`
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "Spooler"
+Set-Service -Name "Spooler" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "Spooler" -StartupType "Automatic"
+Start-Service -Name "Spooler"
+```
+
 <!-- endInclude -->
 
 

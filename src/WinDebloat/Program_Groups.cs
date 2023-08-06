@@ -96,7 +96,7 @@
                 "ExecutionPolicy",
                 "Unrestricted",
                 RegistryValueKind.String)),
-        new("Printer Spooler", false, new DisableServiceJob("Printer Spooler")),
+        new("Printer", false, new DisableServiceJob("Spooler")),
         new("Skype", true, new UninstallJob("Skype")),
         new(
             "Startup boost",
