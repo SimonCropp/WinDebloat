@@ -289,6 +289,19 @@ winget uninstall --name "OneNote for Windows 10" --exact
 ```
 
 
+### Paint 3D
+
+Id to exclude: `Paint3D`
+
+Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Paint 3D" --exact
+```
+
+
 ### Pay
 
 Id to exclude: `Pay`
@@ -357,19 +370,6 @@ Command to manually revert:
 ```ps
 New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell" -Force
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell" -Name "ExecutionPolicy" -Type "DWord" -Value "String"
-```
-
-
-### Paint 3D
-
-Id to exclude: `Paint3D`
-
-Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-Command to manually apply:
-
-```ps
-winget uninstall --name "Paint 3D" --exact
 ```
 
 

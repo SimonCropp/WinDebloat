@@ -75,7 +75,6 @@
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
         new("News", true, new UninstallJob("News")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
-        new("Pay", true, new UninstallJob("Microsoft Pay")),
         new(
             "Paint",
             false,
@@ -84,6 +83,8 @@
                 new UninstallJob("Paint"),
                 new InstallJob("paint.net"),
             }),
+        new("Paint 3D", true, new UninstallJob("Paint 3D")),
+        new("Pay", true, new UninstallJob("Microsoft Pay")),
         new("People", true, new UninstallJob("Microsoft People")),
         new("Photos", true, new UninstallJob("Microsoft Photos")),
         new("Power Automate", true, new UninstallJob("Power Automate")),
@@ -95,7 +96,6 @@
                 "ExecutionPolicy",
                 "Unrestricted",
                 RegistryValueKind.String)),
-        new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new("Skype", true, new UninstallJob("Skype")),
         new(
             "Startup boost",
