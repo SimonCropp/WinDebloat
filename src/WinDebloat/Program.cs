@@ -1,5 +1,7 @@
 ﻿using System.CommandLine;
 using System.Diagnostics.CodeAnalysis;
+using System.Management;
+using System.ServiceProcess;
 
 public static partial class Program
 {
@@ -58,6 +60,8 @@ public static partial class Program
         LogIncludes(includes);
 
         installed = await WinGet.List();
+
+        services = ServiceController.GetServices();
         foreach (var group in Groups)
         {
             if (group.IsDefault)
@@ -124,55 +128,92 @@ public static partial class Program
         switch (job)
         {
             case RegistryJob registry:
-                Log.Information($"Registry: {job.Name}");
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
-                Log.Information($"Install: {job.Name}");
                 await HandleInstall(installJob);
                 return;
             case UninstallJob uninstallJob:
-                Log.Information($"Uninstall: {job.Name}");
                 await HandleUninstall(uninstallJob);
+                return;
+            case DisableServiceJob disableServiceJob:
+                HandleDisableService(disableServiceJob);
                 return;
         }
     }
 
-    static async Task HandleUninstall(UninstallJob uninstall)
+    static void HandleDisableService(DisableServiceJob job)
     {
-        if (IsInstalled(uninstall.Name))
+        var name = job.Name;
+        Log.Information($"DisableService: {name}");
+        var service = services.SingleOrDefault(_ => string.Equals(_.ServiceName, name, StringComparison.OrdinalIgnoreCase));
+        if (service == null)
         {
-            await WinGet.Uninstall(uninstall.Name);
-            Log.Information($"Uninstalled {uninstall.Name}");
+            Log.Information($"Skipped disabling service {name} since not installed");
             return;
         }
 
-        Log.Information($"Skipped uninstall of {uninstall.Name} since not installed");
+        if (service.Status == ServiceControllerStatus.Running)
+        {
+            service.Stop();
+        }
+        else
+        {
+            Log.Information($"Skipped stopping service {name} since not running");
+        }
+
+        if (service.StartType == ServiceStartMode.Disabled)
+        {
+            Log.Information($"Skipped disabling service {name} since already disabled");
+            return;
+        }
+
+        using var managementObject = new ManagementObject($"Win32_Service.Name=\"{name}\"");
+        managementObject.InvokeMethod(
+            "ChangeStartMode",
+            new object[] {"Disabled"});
     }
 
-    static async Task HandleInstall(InstallJob install)
+    static async Task HandleUninstall(UninstallJob job)
     {
-        if (IsInstalled(install.Name))
+        var name = job.Name;
+        Log.Information($"Uninstall: {name}");
+        if (IsInstalled(name))
         {
-            Log.Information($"Skipped install of {install.Name} since installed");
+            await WinGet.Uninstall(name);
+            Log.Information($"Uninstalled {name}");
             return;
         }
 
-        await WinGet.Install(install.Name);
-        Log.Information($"Installed {install.Name}");
+        Log.Information($"Skipped uninstall of {name} since not installed");
+    }
+
+    static async Task HandleInstall(InstallJob job)
+    {
+        var name = job.Name;
+        Log.Information($"Install: {name}");
+        if (IsInstalled(name))
+        {
+            Log.Information($"Skipped install of {name} since installed");
+            return;
+        }
+
+        await WinGet.Install(name);
+        Log.Information($"Installed {name}");
     }
 
     static bool IsInstalled(string package) =>
         installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
 
-    static void HandleRegistry(RegistryJob registry)
+    static void HandleRegistry(RegistryJob job)
     {
-        var (key, name, applyValue, _, kind, _) = registry;
-        Log.Information(@$"{registry.Path} to {applyValue}");
+        var (key, name, applyValue, _, kind, _) = job;
+        Log.Information($"Registry: {name}");
+        Log.Information(@$"{job.Path} to {applyValue}");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information($@"Skipped registry entry {registry.Path} since value already correct");
+            Log.Information($@"Skipped registry entry {job.Path} since value already correct");
             return;
         }
 
@@ -180,4 +221,5 @@ public static partial class Program
     }
 
     static List<string> installed = null!;
+    static ServiceController[] services = null!;
 }

@@ -80,6 +80,25 @@ public class DocsTests
     {
         switch (job)
         {
+            case DisableServiceJob disableServiceJob:
+                writer.WriteLine(
+                    $"""
+                     Command to manually apply:
+
+                     ```ps
+                     Stop-Service -Name "{disableServiceJob.Name}"
+                     Set-Service -Name "{disableServiceJob.Name}" -StartupType "Disabled"
+                     ```
+
+                     Command to manually revert:
+
+                     ```ps
+                     Set-Service -Name "{disableServiceJob.Name}" -StartupType "Automatic"
+                     Start-Service -Name "{disableServiceJob.Name}"
+                     ```
+
+                     """);
+                break;
             case RegistryJob(var key, var name, var applyValue, var revertValue, var kind, _):
                 writer.WriteLine(
                     $"""
