@@ -86,13 +86,13 @@ public class DocsTests
                      Command to manually apply:
 
                      ```ps
-                     Set-ItemProperty -Path Registry::{key} -Name {name} -Type {kind} -Value {applyValue}
+                     Set-ItemProperty -Path "Registry::{key}" -Name "{name}" -Type "{kind}" -Value "{applyValue}"
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Set-ItemProperty -Path Registry::{key} -Name {name} -Type {kind} -Value {revertValue}
+                     Set-ItemProperty -Path "Registry::{key}" -Name "{name}" -Type "{kind}" -Value "{revertValue}"
                      ```
 
                      """);
