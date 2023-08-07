@@ -209,11 +209,11 @@ public static partial class Program
     {
         var (key, name, applyValue, _, kind, _) = job;
         Log.Information($"Registry: {name}");
-        Log.Information(@$"{job.Path} to {applyValue}");
+        Log.Information($"{job.Path} to {applyValue}");
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information($@"Skipped registry entry {job.Path} since value already correct");
+            Log.Information($"Skipped registry entry {job.Path} since value already correct");
             return;
         }
 
