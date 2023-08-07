@@ -95,6 +95,7 @@
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
                 "ExecutionPolicy",
                 "Unrestricted",
+                "Restricted",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
         new("Skype", true, new UninstallJob("Skype")),
