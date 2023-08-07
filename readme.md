@@ -469,6 +469,10 @@ Command to manually revert:
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "HideRecommendedSection" -Type "DWord" -Value "0"
 ```
 
+Notes:
+
+ * the parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
+
 
 ### Sticky Notes
 
