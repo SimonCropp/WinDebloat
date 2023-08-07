@@ -117,7 +117,7 @@
                 "HideRecommendedSection",
                 1,
                 0,
-                Notes: @" * the parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist")),
+                Notes: @" * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist")),
         new("Sticky Notes", true, new UninstallJob("Microsoft Sticky Notes")),
         new(
             "TaskBar Search",
