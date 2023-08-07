@@ -53,6 +53,22 @@
         new("Games", true, new UninstallJob("Solitaire & Casual Games")),
         new("Get Help", true, new UninstallJob("Get Help")),
         new(
+            "HP",
+            false,
+            new IJob[]
+            {
+                new UninstallJob("HP Desktop Support Utilities"),
+                new UninstallJob("HP Documentation"),
+                new UninstallJob("HP Notifications"),
+                new UninstallJob("HPHelp"),
+                new DisableServiceJob("HpTouchpointAnalyticsService"),
+                new DisableServiceJob("HPAppHelperCap"),
+                new DisableServiceJob("HPDiagsCap"),
+                new DisableServiceJob("HPSysInfoCap"),
+                new DisableServiceJob("hpsvcsscan"),
+                new DisableServiceJob("HotKeyServiceDSU")
+            }),
+        new(
             "Lock Screen Ads",
             true,
             new[]

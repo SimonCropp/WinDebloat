@@ -793,6 +793,146 @@ Notes:
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
 
+### HP
+
+Id to include: `HP`
+
+#### HP Notifications
+
+Uninstalls `HP Notifications` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "HP Notifications" --exact
+```
+
+
+#### HP Documentation
+
+Uninstalls `HP Documentation` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "HP Documentation" --exact
+```
+
+
+#### HPHelp
+
+Uninstalls `HPHelp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "HPHelp" --exact
+```
+
+
+#### HpTouchpointAnalyticsService
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "HpTouchpointAnalyticsService"
+Set-Service -Name "HpTouchpointAnalyticsService" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "HpTouchpointAnalyticsService" -StartupType "Automatic"
+Start-Service -Name "HpTouchpointAnalyticsService"
+```
+
+
+#### HPAppHelperCap
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "HPAppHelperCap"
+Set-Service -Name "HPAppHelperCap" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "HPAppHelperCap" -StartupType "Automatic"
+Start-Service -Name "HPAppHelperCap"
+```
+
+
+#### HPDiagsCap
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "HPDiagsCap"
+Set-Service -Name "HPDiagsCap" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "HPDiagsCap" -StartupType "Automatic"
+Start-Service -Name "HPDiagsCap"
+```
+
+
+#### HPSysInfoCap
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "HPSysInfoCap"
+Set-Service -Name "HPSysInfoCap" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "HPSysInfoCap" -StartupType "Automatic"
+Start-Service -Name "HPSysInfoCap"
+```
+
+
+#### hpsvcsscan
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "hpsvcsscan"
+Set-Service -Name "hpsvcsscan" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "hpsvcsscan" -StartupType "Automatic"
+Start-Service -Name "hpsvcsscan"
+```
+
+
+#### HotKeyServiceDSU
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "HotKeyServiceDSU"
+Set-Service -Name "HotKeyServiceDSU" -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "HotKeyServiceDSU" -StartupType "Automatic"
+Start-Service -Name "HotKeyServiceDSU"
+```
+
+
+
 ### Paint
 
 Id to include: `Paint`
