@@ -33,7 +33,7 @@ public class DocsTests
         }
     }
 
-    private static void WriteGroup(StreamWriter writer, Group group)
+    static void WriteGroup(StreamWriter writer, Group group)
     {
         writer.WriteLine(
             $"""
