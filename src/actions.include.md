@@ -711,14 +711,14 @@ Notes:
 
 Id to include: `HP`
 
-#### HP Notifications
+#### HP Desktop Support Utilities
 
-Uninstalls `HP Notifications` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `HP Desktop Support Utilities` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
 
 ```ps
-winget uninstall --name "HP Notifications" --exact
+winget uninstall --name "HP Desktop Support Utilities" --exact
 ```
 
 
@@ -730,6 +730,17 @@ Command to manually apply:
 
 ```ps
 winget uninstall --name "HP Documentation" --exact
+```
+
+
+#### HP Notifications
+
+Uninstalls `HP Notifications` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "HP Notifications" --exact
 ```
 
 
