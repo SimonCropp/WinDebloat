@@ -856,6 +856,19 @@ winget uninstall --name "Windows Calculator" --exact
 ```
 
 
+### Clock
+
+Id to include: `Clock`
+
+Uninstalls `Windows Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Clock" --exact
+```
+
+
 ### Developer Mode
 
 Id to include: `DeveloperMode`
