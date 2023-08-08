@@ -11,6 +11,7 @@
                 0,
                 1,
                 Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
+        new("Calculator", false, new UninstallJob("Windows Calculator")),
         new("Camera", true, new UninstallJob("Windows Camera")),
         new(
             "Chat",

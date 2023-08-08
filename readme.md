@@ -386,19 +386,6 @@ winget uninstall --name "Paint 3D" --exact
 ```
 
 
-### Print 3D
-
-Id to exclude: `Print3D`
-
-Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-Command to manually apply:
-
-```ps
-winget uninstall --name "Print 3D" --exact
-```
-
-
 ### Pay
 
 Id to exclude: `Pay`
@@ -471,6 +458,19 @@ Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShe
                  -Name "ExecutionPolicy"`
                  -Type "String"`
                  -Value "Restricted"
+```
+
+
+### Print 3D
+
+Id to exclude: `Print3D`
+
+Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Print 3D" --exact
 ```
 
 
@@ -841,6 +841,19 @@ winget uninstall --name "Xbox" --exact
 
 
 ## Optional Items Removed / Disabled
+
+
+### Calculator
+
+Id to include: `Calculator`
+
+Uninstalls `Windows Calculator` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Calculator" --exact
+```
 
 
 ### Developer Mode
