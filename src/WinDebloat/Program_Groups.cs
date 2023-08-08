@@ -100,7 +100,6 @@
                 new InstallJob("paint.net"),
             }),
         new("Paint 3D", true, new UninstallJob("Paint 3D")),
-        new("Print 3D", true, new UninstallJob("Print 3D")),
         new("Pay", true, new UninstallJob("Microsoft Pay")),
         new("People", true, new UninstallJob("Microsoft People")),
         new("Photos", true, new UninstallJob("Microsoft Photos")),
@@ -115,6 +114,7 @@
                 "Restricted",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
+        new("Print 3D", true, new UninstallJob("Print 3D")),
         new("Skype", true, new UninstallJob("Skype")),
         new(
             "Startup boost",
