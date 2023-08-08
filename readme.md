@@ -843,6 +843,19 @@ winget uninstall --name "Xbox" --exact
 ## Optional Items Removed / Disabled
 
 
+### Calculator
+
+Id to include: `Calculator`
+
+Uninstalls `Windows Calculator` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Calculator" --exact
+```
+
+
 ### Developer Mode
 
 Id to include: `DeveloperMode`
