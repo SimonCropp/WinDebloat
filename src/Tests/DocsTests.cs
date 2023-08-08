@@ -87,13 +87,15 @@ public class DocsTests
 
                      ```ps
                      Stop-Service -Name "{disableServiceJob.Name}"
-                     Set-Service -Name "{disableServiceJob.Name}" -StartupType "Disabled"
+                     Set-Service -Name "{disableServiceJob.Name}"`
+                                 -StartupType "Disabled"
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Set-Service -Name "{disableServiceJob.Name}" -StartupType "Automatic"
+                     Set-Service -Name "{disableServiceJob.Name}"`
+                                 -StartupType "Automatic"
                      Start-Service -Name "{disableServiceJob.Name}"
                      ```
 
@@ -105,13 +107,19 @@ public class DocsTests
                      Command to manually apply:
 
                      ```ps
-                     Set-ItemProperty -Path "Registry::{key}" -Name "{name}" -Type "{kind}" -Value "{applyValue}"
+                     Set-ItemProperty -Path "Registry::{key}"`
+                                      -Name "{name}"`
+                                      -Type "{kind}"`
+                                      -Value "{applyValue}"
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Set-ItemProperty -Path "Registry::{key}" -Name "{name}" -Type "{kind}" -Value "{revertValue}"
+                     Set-ItemProperty -Path "Registry::{key}"`
+                                      -Name "{name}"`
+                                      -Type "{kind}"`
+                                      -Value "{revertValue}"
                      ```
 
                      """);

@@ -8,13 +8,19 @@ Id to exclude: `AdvertiserId`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 Notes:
@@ -42,13 +48,19 @@ Id to exclude: `Chat`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarMn" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "TaskbarMn"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarMn" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "TaskbarMn"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -85,13 +97,19 @@ Id to exclude: `EdgeDesktopSearchBar`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Name "WebWidgetAllowed" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "WebWidgetAllowed"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Name "WebWidgetAllowed" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "WebWidgetAllowed"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -115,13 +133,19 @@ Id to exclude: `FileExtensions`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "HideFileExt"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "HideFileExt"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -160,13 +184,19 @@ Id to exclude: `LockScreenAds`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "RotatingLockScreenOverlayEnabled" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "RotatingLockScreenOverlayEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "RotatingLockScreenOverlayEnabled" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "RotatingLockScreenOverlayEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -175,13 +205,19 @@ Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\C
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338387Enabled" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-338387Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338387Enabled" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-338387Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -349,13 +385,19 @@ Id to exclude: `PowerShellUnrestricted`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell" -Name "ExecutionPolicy" -Type "String" -Value "Unrestricted"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"`
+                 -Name "ExecutionPolicy"`
+                 -Type "String"`
+                 -Value "Unrestricted"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell" -Name "ExecutionPolicy" -Type "String" -Value "Restricted"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"`
+                 -Name "ExecutionPolicy"`
+                 -Type "String"`
+                 -Value "Restricted"
 ```
 
 
@@ -379,13 +421,19 @@ Id to exclude: `Startupboost`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "StartupBoostEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "StartupBoostEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 Notes:
@@ -400,13 +448,19 @@ Id to exclude: `StartMenuRecommendations`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "HideRecommendedSection" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
+                 -Name "HideRecommendedSection"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "HideRecommendedSection" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
+                 -Name "HideRecommendedSection"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Notes:
@@ -434,13 +488,19 @@ Id to exclude: `TaskBarSearch`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search"`
+                 -Name "SearchboxTaskbarMode"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search"`
+                 -Name "SearchboxTaskbarMode"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -451,13 +511,19 @@ Id to exclude: `TaskView`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "ShowTaskViewButton"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "ShowTaskViewButton"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -481,13 +547,19 @@ Id to exclude: `Telemetry`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "Allow Telemetry" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
+                 -Name "Allow Telemetry"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "Allow Telemetry" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
+                 -Name "Allow Telemetry"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -550,13 +622,19 @@ Id to exclude: `StartMenuWebSearch`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
+                 -Name "DisableSearchBoxSuggestions"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "DisableSearchBoxSuggestions" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
+                 -Name "DisableSearchBoxSuggestions"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 
@@ -580,13 +658,19 @@ Id to exclude: `Widgets`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "TaskbarDa"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "TaskbarDa"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 
@@ -693,13 +777,19 @@ Id to include: `DeveloperMode`
 Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "1"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx"`
+                 -Name "AllowDevelopmentWithoutDevLicense"`
+                 -Type "DWord"`
+                 -Value "1"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx" -Name "AllowDevelopmentWithoutDevLicense" -Type "DWord" -Value "0"
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx"`
+                 -Name "AllowDevelopmentWithoutDevLicense"`
+                 -Type "DWord"`
+                 -Value "0"
 ```
 
 Notes:
@@ -761,13 +851,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "HpTouchpointAnalyticsService"
-Set-Service -Name "HpTouchpointAnalyticsService" -StartupType "Disabled"
+Set-Service -Name "HpTouchpointAnalyticsService"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "HpTouchpointAnalyticsService" -StartupType "Automatic"
+Set-Service -Name "HpTouchpointAnalyticsService"`
+            -StartupType "Automatic"
 Start-Service -Name "HpTouchpointAnalyticsService"
 ```
 
@@ -778,13 +870,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPAppHelperCap"
-Set-Service -Name "HPAppHelperCap" -StartupType "Disabled"
+Set-Service -Name "HPAppHelperCap"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "HPAppHelperCap" -StartupType "Automatic"
+Set-Service -Name "HPAppHelperCap"`
+            -StartupType "Automatic"
 Start-Service -Name "HPAppHelperCap"
 ```
 
@@ -795,13 +889,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPDiagsCap"
-Set-Service -Name "HPDiagsCap" -StartupType "Disabled"
+Set-Service -Name "HPDiagsCap"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "HPDiagsCap" -StartupType "Automatic"
+Set-Service -Name "HPDiagsCap"`
+            -StartupType "Automatic"
 Start-Service -Name "HPDiagsCap"
 ```
 
@@ -812,13 +908,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPSysInfoCap"
-Set-Service -Name "HPSysInfoCap" -StartupType "Disabled"
+Set-Service -Name "HPSysInfoCap"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "HPSysInfoCap" -StartupType "Automatic"
+Set-Service -Name "HPSysInfoCap"`
+            -StartupType "Automatic"
 Start-Service -Name "HPSysInfoCap"
 ```
 
@@ -829,13 +927,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "hpsvcsscan"
-Set-Service -Name "hpsvcsscan" -StartupType "Disabled"
+Set-Service -Name "hpsvcsscan"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "hpsvcsscan" -StartupType "Automatic"
+Set-Service -Name "hpsvcsscan"`
+            -StartupType "Automatic"
 Start-Service -Name "hpsvcsscan"
 ```
 
@@ -846,13 +946,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "HotKeyServiceDSU"
-Set-Service -Name "HotKeyServiceDSU" -StartupType "Disabled"
+Set-Service -Name "HotKeyServiceDSU"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "HotKeyServiceDSU" -StartupType "Automatic"
+Set-Service -Name "HotKeyServiceDSU"`
+            -StartupType "Automatic"
 Start-Service -Name "HotKeyServiceDSU"
 ```
 
@@ -893,13 +995,15 @@ Command to manually apply:
 
 ```ps
 Stop-Service -Name "Spooler"
-Set-Service -Name "Spooler" -StartupType "Disabled"
+Set-Service -Name "Spooler"`
+            -StartupType "Disabled"
 ```
 
 Command to manually revert:
 
 ```ps
-Set-Service -Name "Spooler" -StartupType "Automatic"
+Set-Service -Name "Spooler"`
+            -StartupType "Automatic"
 Start-Service -Name "Spooler"
 ```
 
