@@ -21,6 +21,7 @@
                 "TaskbarMn",
                 0,
                 1)),
+        new("Clock", false, new UninstallJob("Windows Clock")),
         new("Clipchamp", true, new UninstallJob("Clipchamp")),
         new("Cortana", true, new UninstallJob("Cortana")),
         new(
