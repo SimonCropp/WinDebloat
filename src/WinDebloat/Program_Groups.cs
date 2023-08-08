@@ -11,6 +11,7 @@
                 0,
                 1,
                 Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
+        new("Calculator", false, new UninstallJob("Windows Calculator")),
         new("Camera", true, new UninstallJob("Windows Camera")),
         new(
             "Chat",
@@ -20,6 +21,7 @@
                 "TaskbarMn",
                 0,
                 1)),
+        new("Clock", false, new UninstallJob("Windows Clock")),
         new("Clipchamp", true, new UninstallJob("Clipchamp")),
         new("Cortana", true, new UninstallJob("Cortana")),
         new(
@@ -114,6 +116,7 @@
                 "Restricted",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
+        new("Print 3D", true, new UninstallJob("Print 3D")),
         new("Skype", true, new UninstallJob("Skype")),
         new(
             "Startup boost",
