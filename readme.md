@@ -386,6 +386,19 @@ winget uninstall --name "Paint 3D" --exact
 ```
 
 
+### Print 3D
+
+Id to exclude: `Print3D`
+
+Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Print 3D" --exact
+```
+
+
 ### Pay
 
 Id to exclude: `Pay`

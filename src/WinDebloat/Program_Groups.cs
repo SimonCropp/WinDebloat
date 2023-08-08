@@ -114,6 +114,7 @@
                 "Restricted",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
+        new("Print 3D", true, new UninstallJob("Print 3D")),
         new("Skype", true, new UninstallJob("Skype")),
         new(
             "Startup boost",
