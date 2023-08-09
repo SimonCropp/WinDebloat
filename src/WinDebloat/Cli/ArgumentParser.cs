@@ -6,12 +6,13 @@ public static class ArgumentParser
 {
     public static async Task<int> Invoke(string[] args, InvokeAction invoke, List<Group> groups)
     {
+        bool FindGroup(string id, [NotNullWhen(true)] out Group? group) =>
+            TryFindGroup(id, groups, out group);
+
         var excludeOptions = new Option<string[]>(
             name: "--exclude",
             description: "Ids of items to exclude.",
-            parseArgument: result => ParseExcludes(
-                result,
-                (string id, out Group? group) => TryFindGroup(id, groups, out group)))
+            parseArgument: result => ParseExcludes(result, FindGroup))
         {
             AllowMultipleArgumentsPerToken = true
         };
@@ -19,9 +20,7 @@ public static class ArgumentParser
         var includeOptions = new Option<string[]>(
             name: "--include",
             description: "Ids of optional items to include.",
-            parseArgument: result => ParseIncludes(
-                result,
-                (string id, out Group? group) => TryFindGroup(id, groups, out group)))
+            parseArgument: result => ParseIncludes(result, FindGroup))
         {
             AllowMultipleArgumentsPerToken = true
         };
@@ -30,7 +29,10 @@ public static class ArgumentParser
         command.AddOption(excludeOptions);
         command.AddOption(includeOptions);
 
-        command.SetHandler(async (excludes, includes) => await invoke(excludes, includes), excludeOptions, includeOptions);
+        command.SetHandler(
+            async (excludes, includes) => await invoke(excludes, includes),
+            excludeOptions,
+            includeOptions);
 
         return await command.InvokeAsync(args);
     }

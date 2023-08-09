@@ -82,4 +82,41 @@ public class ArgumentParserTests
         group = null;
         return false;
     }
+
+    [Test]
+    public void StringParsing(string args, )
+    {
+        Task Invoke(string[] excludes, string[] includes)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+        ArgumentParser.Invoke(
+            args.Split(' ').ToArray(),
+            Invoke,
+            new()
+            {
+                new Group("group", )
+            })
+    }
+
+    public static IEnumerable<object[]> GetStringParsingData()
+    {
+        foreach (var arg in new[]
+                 {
+                     "--include theInclude --exclude theExclude"
+                 })
+        {
+            foreach (var findGroup in new FindGroup[]
+                     {
+                         FoundDefault,
+                         FoundNonDefault,
+                         NotFound
+                     })
+            {
+                yield return new object[] {arg, findGroup};
+            }
+        }
+    }
 }
