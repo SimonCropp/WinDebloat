@@ -158,11 +158,15 @@
         new(
             "Telemetry",
             true,
-            new RegistryJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
-                "Allow Telemetry",
-                0,
-                1)),
+            new IJob[]
+            {
+                new RegistryJob(
+                    @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                    "Allow Telemetry",
+                    0,
+                    1),
+                new DisableServiceJob("DiagTrack")
+            }),
         new("Tips", true, new UninstallJob("Microsoft Tips")),
         new("To Do", true, new UninstallJob("Microsoft To Do")),
         new("Weather", true, new UninstallJob("MSN Weather")),
