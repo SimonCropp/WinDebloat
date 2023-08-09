@@ -1,6 +1,5 @@
 ﻿#if DEBUG
 [TestFixture]
-[NonParallelizable]
 public class WinGetTests
 {
     string name = "GitHub CLI";

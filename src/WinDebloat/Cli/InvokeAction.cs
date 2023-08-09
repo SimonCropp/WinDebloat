@@ -1,0 +1,1 @@
+﻿public delegate Task InvokeAction(string[] excludes, string[] includes);
