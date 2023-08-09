@@ -54,6 +54,7 @@
                 1)),
         new("Games", true, new UninstallJob("Solitaire & Casual Games")),
         new("Get Help", true, new UninstallJob("Get Help")),
+        new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
         new(
             "HP",
             false,

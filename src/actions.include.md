@@ -175,6 +175,19 @@ winget uninstall --name "Get Help" --exact
 ```
 
 
+### Internet Connection Sharing
+
+Id to exclude: `InternetConnectionSharing`
+
+Uninstalls `SharedAccess` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "SharedAccess" --exact
+```
+
+
 ### Lock Screen Ads
 
 Id to exclude: `LockScreenAds`
