@@ -114,31 +114,17 @@ public class CliTests
         await using var stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
         Console.SetError(stringWriter);
-        try
-        {
-            await ArgumentParser.Invoke(
-                args,
-                Invoke,
-                groups);
-        }
-        catch (Exception exception)
-        {
-            await Verify(
-                new
-                {
-                    exception,
-                    consoleL = stringWriter.GetStringBuilder().ToString()
-                },
-                settings);
-            return;
-        }
+        await ArgumentParser.Invoke(
+            args,
+            Invoke,
+            groups);
 
         await Verify(
             new
             {
                 receivedExcludes,
                 receivedIncludes,
-                console = stringWriter.GetStringBuilder().ToString()
+                console = stringWriter.GetStringBuilder().ToString().Split("Description:").First()
             },
             settings);
     }
