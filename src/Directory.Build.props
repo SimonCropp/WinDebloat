@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <Version>0.7.0</Version>
+    <Version>0.8.0</Version>
     <PackageTags>Windows, Debloat</PackageTags>
     <Description>A utility to debloat Windows</Description>
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
