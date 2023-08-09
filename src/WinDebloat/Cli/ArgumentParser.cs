@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 public static class ArgumentParser
 {
-    public static async Task<int> Invoke(string[] args, InvokeAction invoke, List<Group> groups)
+    public static async Task<int> Invoke(string[] args, InvokeAction invoke, IReadOnlyCollection<Group> groups)
     {
         bool FindGroup(string id, [NotNullWhen(true)] out Group? group) =>
             TryFindGroup(id, groups, out group);

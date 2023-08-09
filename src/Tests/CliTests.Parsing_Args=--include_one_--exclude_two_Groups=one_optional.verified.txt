@@ -1,0 +1,18 @@
+﻿{
+  console:
+No item found for exclude: two
+
+Description:
+
+Usage:
+  ReSharperTestRunner [options]
+
+Options:
+  --exclude <exclude>  Ids of items to exclude.
+  --include <include>  Ids of optional items to include.
+  --version            Show version information
+  -?, -h, --help       Show help and usage information
+
+
+
+}
