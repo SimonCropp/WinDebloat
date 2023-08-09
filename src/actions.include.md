@@ -239,6 +239,8 @@ winget uninstall --name "Mail and Calendar" --exact
 
 Id to exclude: `Maps`
 
+#### Windows Maps
+
 Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
@@ -246,6 +248,26 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Windows Maps" --exact
 ```
+
+
+#### MapsBroker
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "MapsBroker"
+Set-Service -Name "MapsBroker"`
+            -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "MapsBroker"`
+            -StartupType "Automatic"
+Start-Service -Name "MapsBroker"
+```
+
 
 
 ### Media Player

@@ -87,7 +87,13 @@
                     1),
             }),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
-        new("Maps", true, new UninstallJob("Windows Maps")),
+        new("Maps",
+            true,
+            new IJob[]
+            {
+                new UninstallJob("Windows Maps"),
+                new DisableServiceJob("MapsBroker")
+            }),
         new("Media Player", true, new UninstallJob("Windows Media Player")),
         new("Mixed Reality Portal", true, new UninstallJob("Mixed Reality Portal")),
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
