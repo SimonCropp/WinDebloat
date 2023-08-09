@@ -39,8 +39,7 @@ public class ArgumentParserTests
                 {
                     excludes,
                     argument.ErrorMessage
-                })
-            .UseTextForParameters(findGroup.Method.Name);
+                });
     }
 
     [TestCaseSource(nameof(GetData))]
