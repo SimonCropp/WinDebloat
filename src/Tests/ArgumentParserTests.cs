@@ -27,7 +27,6 @@ public class ArgumentParserTests
         };
     }
 
-
     [TestCaseSource(nameof(GetData))]
     public Task Exclude(FindGroup findGroup)
     {

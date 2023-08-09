@@ -1,6 +1,4 @@
-﻿using System.CommandLine;
-using System.Diagnostics.CodeAnalysis;
-using System.Management;
+﻿using System.Management;
 using System.ServiceProcess;
 
 public static partial class Program
@@ -12,30 +10,7 @@ public static partial class Program
         var stopwatch = Stopwatch.StartNew();
         try
         {
-            var excludeOptions = new Option<string[]>(
-                name: "--exclude",
-                description: "Ids of items to exclude.",
-                parseArgument: result => ArgumentParser.ParseExcludes(result, TryFindGroup))
-            {
-                AllowMultipleArgumentsPerToken = true
-            };
-            var includeOptions = new Option<string[]>(
-                name: "--include",
-                description: "Ids of optional items to include.",
-                parseArgument: result => ArgumentParser.ParseIncludes(result, TryFindGroup))
-            {
-                AllowMultipleArgumentsPerToken = true
-            };
-
-            var command = new RootCommand();
-            command.AddOption(excludeOptions);
-            command.AddOption(includeOptions);
-
-            command.SetHandler(
-                async (excludes, includes) => await Inner(excludes, includes),
-                excludeOptions, includeOptions);
-
-            return await command.InvokeAsync(args);
+            return await ArgumentParser.Invoke(args, async (excludes, includes) => await Inner(excludes, includes), Groups);
         }
         catch (Exception exception)
         {
@@ -48,13 +23,7 @@ public static partial class Program
         }
     }
 
-    static bool TryFindGroup(string id, [NotNullWhen(true)] out Group? group)
-    {
-        group = Groups.SingleOrDefault(_ => _.IsMatch(id));
-        return group != null;
-    }
-
-    public static async Task Inner(string[] excludes,string[] includes)
+    public static async Task Inner(string[] excludes, string[] includes)
     {
         LogExcludes(excludes);
         LogIncludes(includes);
@@ -123,7 +92,7 @@ public static partial class Program
         }
     }
 
-    private static async Task HandleJob(IJob job)
+    static async Task HandleJob(IJob job)
     {
         switch (job)
         {

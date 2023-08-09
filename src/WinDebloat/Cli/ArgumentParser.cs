@@ -1,10 +1,46 @@
-﻿using System.CommandLine.Parsing;
+﻿using System.CommandLine;
+using System.CommandLine.Parsing;
 using System.Diagnostics.CodeAnalysis;
-
-public delegate bool FindGroup(string id, [NotNullWhen(true)] out Group? group);
 
 public static class ArgumentParser
 {
+    public static async Task<int> Invoke(string[] args, InvokeAction invoke, List<Group> groups)
+    {
+        var excludeOptions = new Option<string[]>(
+            name: "--exclude",
+            description: "Ids of items to exclude.",
+            parseArgument: result => ParseExcludes(
+                result,
+                (string id, out Group? group) => TryFindGroup(id, groups, out group)))
+        {
+            AllowMultipleArgumentsPerToken = true
+        };
+
+        var includeOptions = new Option<string[]>(
+            name: "--include",
+            description: "Ids of optional items to include.",
+            parseArgument: result => ParseIncludes(
+                result,
+                (string id, out Group? group) => TryFindGroup(id, groups, out group)))
+        {
+            AllowMultipleArgumentsPerToken = true
+        };
+
+        var command = new RootCommand();
+        command.AddOption(excludeOptions);
+        command.AddOption(includeOptions);
+
+        command.SetHandler(async (excludes, includes) => await invoke(excludes, includes), excludeOptions, includeOptions);
+
+        return await command.InvokeAsync(args);
+    }
+
+    static bool TryFindGroup(string id, IEnumerable<Group> groups, [NotNullWhen(true)] out Group? group)
+    {
+        group = groups.SingleOrDefault(_ => _.IsMatch(id));
+        return group != null;
+    }
+
     public static string[] ParseExcludes(ArgumentResult result, FindGroup findGroup)
     {
         var values = result.Values();
@@ -61,7 +97,7 @@ public static class ArgumentParser
         return includes;
     }
 
-    private static void SetErrorMessage(ArgumentResult result, List<string> errors)
+    static void SetErrorMessage(ArgumentResult result, List<string> errors)
     {
         if (errors.Any())
         {
