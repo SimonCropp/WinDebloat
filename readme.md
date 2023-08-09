@@ -299,6 +299,8 @@ winget uninstall --name "Mail and Calendar" --exact
 
 Id to exclude: `Maps`
 
+#### Windows Maps
+
 Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
@@ -306,6 +308,26 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Windows Maps" --exact
 ```
+
+
+#### MapsBroker
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "MapsBroker"
+Set-Service -Name "MapsBroker"`
+            -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "MapsBroker"`
+            -StartupType "Automatic"
+Start-Service -Name "MapsBroker"
+```
+
 
 
 ### Media Player
@@ -617,6 +639,8 @@ winget uninstall --name "Teams Machine-Wide Installer" --exact
 
 Id to exclude: `Telemetry`
 
+#### Allow Telemetry
+
 Command to manually apply:
 
 ```ps
@@ -634,6 +658,26 @@ Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft
                  -Type "DWord"`
                  -Value "1"
 ```
+
+
+#### DiagTrack
+
+Command to manually apply:
+
+```ps
+Stop-Service -Name "DiagTrack"
+Set-Service -Name "DiagTrack"`
+            -StartupType "Disabled"
+```
+
+Command to manually revert:
+
+```ps
+Set-Service -Name "DiagTrack"`
+            -StartupType "Automatic"
+Start-Service -Name "DiagTrack"
+```
+
 
 
 ### Tips
