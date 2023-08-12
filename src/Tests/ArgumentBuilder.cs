@@ -3,14 +3,14 @@ using System.CommandLine.Parsing;
 
 public static class ArgumentBuilder
 {
-    static Func<string[], ArgumentResult> constructArgument;
+    static Func<string[], ArgumentResult> construct;
 
     static ArgumentBuilder()
     {
         var tokensField = typeof(ArgumentResult).GetField("_tokens", BindingFlags.NonPublic | BindingFlags.Instance)!;
         var constructor = typeof(ArgumentResult).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
             .Single();
-        constructArgument = inputs =>
+        construct = inputs =>
         {
             var invoke = constructor.Invoke(
                 new object?[]
@@ -26,5 +26,5 @@ public static class ArgumentBuilder
     }
 
     public static ArgumentResult Build(params string[] values) =>
-        constructArgument(values);
+        construct(values);
 }
