@@ -1,3 +1,55 @@
+## Items that can be manipulated
+
+ * Advertiser Id
+ * Calculator (optional)
+ * Camera
+ * Chat
+ * Clock (optional)
+ * Clipchamp
+ * Cortana
+ * Developer Mode (optional)
+ * Edge Desktop Search Bar
+ * Feedback Hub
+ * FileExtensions
+ * Games
+ * Get Help
+ * Internet Connection Sharing
+ * HP (optional)
+ * Lock Screen Ads
+ * Mail and Calendar
+ * Maps
+ * Media Player
+ * Mixed Reality Portal
+ * Movies and TV
+ * News
+ * OneNote
+ * Paint (optional)
+ * Paint 3D
+ * Pay
+ * People
+ * Photos
+ * Power Automate
+ * PowerShell Unrestricted
+ * Printer (optional)
+ * Print 3D
+ * Skype
+ * Startup boost
+ * Start Menu Recommendations
+ * Sticky Notes
+ * TaskBar Search
+ * Task View
+ * Teams
+ * Telemetry
+ * Tips
+ * To Do
+ * Weather
+ * Web Experience Pack
+ * Start Menu Web Search
+ * Whiteboard
+ * Widgets
+ * Xbox
+
+
 ## Default Items Removed / Disabled
 
 

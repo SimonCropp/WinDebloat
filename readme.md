@@ -62,7 +62,58 @@ WinDebloat --exclude AdvertiserId Xbox
 ```
 
 
-## Default Items Removed / Disabled<!-- include: actions. path: /src/actions.include.md -->
+## Items that can be manipulated<!-- include: actions. path: /src/actions.include.md -->
+
+ * Advertiser Id
+ * Calculator
+ * Camera
+ * Chat
+ * Clock
+ * Clipchamp
+ * Cortana
+ * Developer Mode
+ * Edge Desktop Search Bar
+ * Feedback Hub
+ * FileExtensions
+ * Games
+ * Get Help
+ * Internet Connection Sharing
+ * HP
+ * Lock Screen Ads
+ * Mail and Calendar
+ * Maps
+ * Media Player
+ * Mixed Reality Portal
+ * Movies and TV
+ * News
+ * OneNote
+ * Paint
+ * Paint 3D
+ * Pay
+ * People
+ * Photos
+ * Power Automate
+ * PowerShell Unrestricted
+ * Printer
+ * Print 3D
+ * Skype
+ * Startup boost
+ * Start Menu Recommendations
+ * Sticky Notes
+ * TaskBar Search
+ * Task View
+ * Teams
+ * Telemetry
+ * Tips
+ * To Do
+ * Weather
+ * Web Experience Pack
+ * Start Menu Web Search
+ * Whiteboard
+ * Widgets
+ * Xbox
+
+## Default Items Removed / Disabled
 
 
 ### Advertiser Id

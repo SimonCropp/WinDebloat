@@ -11,6 +11,26 @@ public class DocsTests
 
         writer.WriteLine(
             """
+            ## Items are manipulated
+
+            """);
+
+        foreach (var group in Program.Groups)
+        {
+            if (group.IsDefault)
+            {
+                writer.WriteLine($" * {group.Name}");
+            }
+            else
+            {
+                writer.WriteLine($" * {group.Name} (optional)");
+            }
+        }
+
+        writer.WriteLine(
+            """
+
+            
             ## Default Items Removed / Disabled
 
 
