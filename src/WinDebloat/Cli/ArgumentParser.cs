@@ -25,9 +25,11 @@ public static class ArgumentParser
             AllowMultipleArgumentsPerToken = true
         };
 
-        var command = new RootCommand();
-        command.AddOption(excludeOptions);
-        command.AddOption(includeOptions);
+        var command = new RootCommand
+        {
+            excludeOptions,
+            includeOptions
+        };
 
         command.SetHandler(
             async (excludes, includes) => await invoke(excludes, includes),
