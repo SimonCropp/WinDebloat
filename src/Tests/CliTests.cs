@@ -1,37 +1,13 @@
-﻿using System.CommandLine;
-using System.CommandLine.Parsing;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 [TestFixture]
 [NonParallelizable]
 public class CliTests
 {
-    static Func<string[], ArgumentResult> constructArgument;
-
-    static CliTests()
-    {
-        var tokensField = typeof(ArgumentResult).GetField("_tokens", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        var constructor = typeof(ArgumentResult).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
-            .Single();
-        constructArgument = inputs =>
-        {
-            var invoke = constructor.Invoke(
-                new object?[]
-                {
-                    new Argument<string[]>(_ => inputs),
-                    null
-                })!;
-            var result = (ArgumentResult) invoke;
-            var tokens = (List<Token>) tokensField.GetValue(result)!;
-            tokens.AddRange(inputs.Select(_ => new Token(_, TokenType.Argument, null!)));
-            return result;
-        };
-    }
-
     [TestCaseSource(nameof(GetData))]
     public Task Exclude(FindGroup findGroup)
     {
-        var argument = constructArgument(new[] {"id"});
+        var argument = ArgumentBuilder.Build("id");
         var excludes = ArgumentParser.ParseExcludes(argument, findGroup);
 
         return Verify(
@@ -45,7 +21,7 @@ public class CliTests
     [TestCaseSource(nameof(GetData))]
     public Task Include(FindGroup findGroup)
     {
-        var argument = constructArgument(new[] {"id"});
+        var argument = ArgumentBuilder.Build("id");
         var includes = ArgumentParser.ParseIncludes(argument, findGroup);
 
         return Verify(

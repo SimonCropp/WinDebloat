@@ -1,0 +1,6 @@
+﻿{
+  receivedExcludes: [
+    one
+  ],
+  console: 
+}
