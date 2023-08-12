@@ -1,4 +1,4 @@
-## Items that can be manipulated
+## Items DeBloated
 
  * Advertiser Id
  * Calculator (optional)
@@ -14,7 +14,7 @@
  * Games
  * Get Help
  * Internet Connection Sharing
- * HP (optional)
+ * HP Vendorware (optional)
  * Lock Screen Ads
  * Mail and Calendar
  * Maps
@@ -945,7 +945,7 @@ Notes:
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
 
-### HP
+### HP Vendorware
 
 Id to include: `HP`
 

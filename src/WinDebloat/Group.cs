@@ -1,11 +1,17 @@
-﻿public record Group(string Name, bool IsDefault, IReadOnlyList<IJob> Jobs)
+﻿public record Group(string Name, string Id, bool IsDefault, IReadOnlyList<IJob> Jobs)
 {
-    public Group(string name, bool isDefault, IJob job) :
-        this(name, isDefault, new[] {job})
+    public Group(string name, string id, bool isDefault, IJob job) :
+        this(name, id, isDefault, new[] {job})
     {
     }
-
-    public string Id => Name.Replace(" ", "");
+    public Group(string name, bool isDefault, IReadOnlyList<IJob> jobs) :
+        this(name, name.Replace(" ", ""), isDefault, jobs)
+    {
+    }
+    public Group(string name, bool isDefault, IJob job) :
+        this(name, name.Replace(" ", ""), isDefault, new[] {job})
+    {
+    }
 
     public bool IsMatch(string exclude) =>
         Id.Equals(exclude, StringComparison.OrdinalIgnoreCase);

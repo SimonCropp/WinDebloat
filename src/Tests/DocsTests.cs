@@ -11,7 +11,7 @@ public class DocsTests
 
         writer.WriteLine(
             """
-            ## Items are manipulated
+            ## Items DeBloated
 
             """);
 

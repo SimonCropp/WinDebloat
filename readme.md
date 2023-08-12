@@ -62,23 +62,23 @@ WinDebloat --exclude AdvertiserId Xbox
 ```
 
 
-## Items that can be manipulated<!-- include: actions. path: /src/actions.include.md -->
+## Items DeBloated<!-- include: actions. path: /src/actions.include.md -->
 
  * Advertiser Id
- * Calculator
+ * Calculator (optional)
  * Camera
  * Chat
- * Clock
+ * Clock (optional)
  * Clipchamp
  * Cortana
- * Developer Mode
+ * Developer Mode (optional)
  * Edge Desktop Search Bar
  * Feedback Hub
  * FileExtensions
  * Games
  * Get Help
  * Internet Connection Sharing
- * HP
+ * HP Vendorware (optional)
  * Lock Screen Ads
  * Mail and Calendar
  * Maps
@@ -87,14 +87,14 @@ WinDebloat --exclude AdvertiserId Xbox
  * Movies and TV
  * News
  * OneNote
- * Paint
+ * Paint (optional)
  * Paint 3D
  * Pay
  * People
  * Photos
  * Power Automate
  * PowerShell Unrestricted
- * Printer
+ * Printer (optional)
  * Print 3D
  * Skype
  * Startup boost
@@ -112,6 +112,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Whiteboard
  * Widgets
  * Xbox
+
 
 ## Default Items Removed / Disabled
 
@@ -1008,7 +1009,7 @@ Notes:
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
 
-### HP
+### HP Vendorware
 
 Id to include: `HP`
 

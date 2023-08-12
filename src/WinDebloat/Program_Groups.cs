@@ -56,6 +56,7 @@
         new("Get Help", true, new UninstallJob("Get Help")),
         new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
         new(
+            "HP Vendorware",
             "HP",
             false,
             new IJob[]
