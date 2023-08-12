@@ -17,6 +17,9 @@ public static class ArgumentParser
             AllowMultipleArgumentsPerToken = true
         };
 
+        var defaults = groups.Where(_ => _.IsDefault).Select(_ => _.Id).ToArray();
+        excludeOptions.AddCompletions(defaults);
+
         var includeOptions = new Option<string[]>(
             name: "--include",
             description: "Ids of optional items to include.",
@@ -24,6 +27,8 @@ public static class ArgumentParser
         {
             AllowMultipleArgumentsPerToken = true
         };
+        var optionals = groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray();
+        includeOptions.AddCompletions(optionals);
 
         var command = new RootCommand
         {
