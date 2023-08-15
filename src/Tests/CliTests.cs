@@ -87,9 +87,9 @@ public class CliTests
             return Task.CompletedTask;
         }
 
-        await using var stringWriter = new StringWriter();
-        Console.SetOut(stringWriter);
-        Console.SetError(stringWriter);
+        await using var writer = new StringWriter();
+        Console.SetOut(writer);
+        Console.SetError(writer);
         await ArgumentParser.Invoke(
             args,
             Invoke,
@@ -100,14 +100,48 @@ public class CliTests
             {
                 receivedExcludes,
                 receivedIncludes,
-                console = stringWriter.GetStringBuilder().ToString().Split("Description:").First()
+                console = writer.GetStringBuilder().ToString().Split("Description:").First()
             },
             settings);
     }
 
+    [Test]
+    public async Task IncludeAll()
+    {
+        string[]? receivedExcludes = null;
+        string[]? receivedIncludes = null;
+
+        Task Invoke(string[] excludes, string[] includes)
+        {
+            receivedExcludes = excludes;
+            receivedIncludes = includes;
+            return Task.CompletedTask;
+        }
+
+        await using var writer = new StringWriter();
+        Console.SetOut(writer);
+        Console.SetError(writer);
+        await ArgumentParser.Invoke(
+            new []{"--include-all"},
+            Invoke,
+            new Group[]
+            {
+                new("one", true, jobs),
+                new("two", false, jobs),
+            });
+
+        await Verify(
+            new
+            {
+                receivedExcludes,
+                receivedIncludes,
+                console = writer.GetStringBuilder().ToString().Split("Description:").First()
+            });
+    }
+
+    static InstallJob[] jobs = {new("job")};
     public static IEnumerable<object[]> GetStringParsingData()
     {
-        var jobs = new[] {new InstallJob("job")};
         foreach (var arg in new[]
                  {
                      "--include one --exclude two",
