@@ -53,6 +53,13 @@ WinDebloat --include Paint
 See [Optional Items Removed / Disabled](#optional-items-removed--disabled)
 
 
+#### Including all Optional items
+
+```ps
+WinDebloat --include-all
+```
+
+
 ### Excluding items
 
 Items can be excluded by using the `--exclude` argument:

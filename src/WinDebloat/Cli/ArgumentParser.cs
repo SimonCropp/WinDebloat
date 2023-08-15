@@ -30,16 +30,31 @@ public static class ArgumentParser
         var optionals = groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray();
         includeOptions.AddCompletions(optionals);
 
+        var includeAllOptions = new Option<bool>(
+            name: "--include-all",
+            description: "include all optional items.");
+
         var command = new RootCommand
         {
             excludeOptions,
-            includeOptions
+            includeOptions,
+            includeAllOptions
         };
 
         command.SetHandler(
-            async (excludes, includes) => await invoke(excludes, includes),
+            (excludes, includes, includeAll) =>
+            {
+                if (includeAll)
+                {
+                    return invoke(
+                        Array.Empty<string>(),
+                        groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray());
+                }
+
+                return invoke(excludes, includes);
+            },
             excludeOptions,
-            includeOptions);
+            includeOptions, includeAllOptions);
 
         return await command.InvokeAsync(args);
     }
