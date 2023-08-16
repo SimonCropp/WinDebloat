@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WinDebloat": {
+      "commandName": "Project",
+      "commandLineArgs": "--include-all"
+    }
+  }
+}

@@ -54,7 +54,8 @@ public static class ArgumentParser
                 return invoke(excludes, includes);
             },
             excludeOptions,
-            includeOptions, includeAllOptions);
+            includeOptions,
+            includeAllOptions);
 
         return await command.InvokeAsync(args);
     }
