@@ -527,7 +527,7 @@ winget uninstall --name "Skype" --exact
 
 Notes:
 
- * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364
+ * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)
 
 
 ### Startup boost
@@ -598,7 +598,7 @@ winget uninstall --name "Microsoft Sticky Notes" --exact
 
 Notes:
 
- * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW
+ * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)
 
 
 ### TaskBar Search

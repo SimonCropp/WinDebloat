@@ -151,7 +151,7 @@
             true,
             new UninstallJob(
                 "Skype",
-                Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364")),
+                Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)")),
         new(
             "Startup boost",
             true,
@@ -176,7 +176,7 @@
             true,
             new UninstallJob(
                 "Microsoft Sticky Notes",
-                Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW")),
+                Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)")),
         new(
             "TaskBar Search",
             true,

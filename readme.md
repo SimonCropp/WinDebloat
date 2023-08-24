@@ -598,7 +598,7 @@ winget uninstall --name "Skype" --exact
 
 Notes:
 
- * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364
+ * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)
 
 
 ### Startup boost
