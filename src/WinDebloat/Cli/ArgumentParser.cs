@@ -1,6 +1,5 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Parsing;
-using System.Diagnostics.CodeAnalysis;
 
 public static class ArgumentParser
 {

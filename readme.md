@@ -163,6 +163,10 @@ Command to manually apply:
 winget uninstall --name "Windows Camera" --exact
 ```
 
+Notes:
+
+ * [AppStore: Windows Camera](https://apps.microsoft.com/store/detail/windows-camera/9WZDNCRFJBBG)
+
 
 ### Chat
 
@@ -186,6 +190,10 @@ Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\C
                  -Value "1"
 ```
 
+Notes:
+
+ * [Managing the Teams Chat icon on Windows 11](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/managing-teams-chat-icon-windows-11)
+
 
 ### Clipchamp
 
@@ -198,6 +206,10 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Clipchamp" --exact
 ```
+
+Notes:
+
+ * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)
 
 
 ### Cortana
@@ -584,6 +596,10 @@ Command to manually apply:
 winget uninstall --name "Skype" --exact
 ```
 
+Notes:
+
+ * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364
+
 
 ### Startup boost
 
@@ -650,6 +666,10 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Microsoft Sticky Notes" --exact
 ```
+
+Notes:
+
+ * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW
 
 
 ### TaskBar Search
@@ -780,6 +800,10 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Microsoft To Do" --exact
 ```
+
+Notes:
+
+ * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558
 
 
 ### Weather
@@ -975,6 +999,10 @@ Command to manually apply:
 winget uninstall --name "Windows Calculator" --exact
 ```
 
+Notes:
+
+ * [AppStore: Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5)
+
 
 ### Clock
 
@@ -987,6 +1015,10 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Windows Clock" --exact
 ```
+
+Notes:
+
+ * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)
 
 
 ### Developer Mode

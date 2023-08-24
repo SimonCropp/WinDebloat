@@ -11,8 +11,18 @@
                 0,
                 1,
                 Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
-        new("Calculator", false, new UninstallJob("Windows Calculator")),
-        new("Camera", true, new UninstallJob("Windows Camera")),
+        new(
+            "Calculator",
+            false,
+            new UninstallJob(
+                "Windows Calculator",
+                Notes: " * [AppStore: Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5)")),
+        new(
+            "Camera",
+            true,
+            new UninstallJob(
+                "Windows Camera",
+                Notes: " * [AppStore: Windows Camera](https://apps.microsoft.com/store/detail/windows-camera/9WZDNCRFJBBG)")),
         new(
             "Chat",
             true,
@@ -20,9 +30,20 @@
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarMn",
                 0,
-                1)),
-        new("Clock", false, new UninstallJob("Windows Clock")),
-        new("Clipchamp", true, new UninstallJob("Clipchamp")),
+                1,
+                Notes: " * [Managing the Teams Chat icon on Windows 11](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/managing-teams-chat-icon-windows-11)")),
+        new(
+            "Clock",
+            false,
+            new UninstallJob(
+                "Windows Clock",
+                Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)")),
+        new(
+            "Clipchamp",
+            true,
+            new UninstallJob(
+                "Clipchamp",
+                Notes: " * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)")),
         new("Cortana", true, new UninstallJob("Cortana")),
         new(
             "Developer Mode",
@@ -125,7 +146,12 @@
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
         new("Print 3D", true, new UninstallJob("Print 3D")),
-        new("Skype", true, new UninstallJob("Skype")),
+        new(
+            "Skype",
+            true,
+            new UninstallJob(
+                "Skype",
+                Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364")),
         new(
             "Startup boost",
             true,
@@ -145,7 +171,12 @@
                 1,
                 0,
                 Notes: @" * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist")),
-        new("Sticky Notes", true, new UninstallJob("Microsoft Sticky Notes")),
+        new(
+            "Sticky Notes",
+            true,
+            new UninstallJob(
+                "Microsoft Sticky Notes",
+                Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW")),
         new(
             "TaskBar Search",
             true,
@@ -175,8 +206,15 @@
                     1),
                 new DisableServiceJob("DiagTrack")
             }),
-        new("Tips", true, new UninstallJob("Microsoft Tips")),
-        new("To Do", true, new UninstallJob("Microsoft To Do")),
+        new(
+            "Tips",
+            true,
+            new UninstallJob("Microsoft Tips")),
+        new("To Do",
+            true,
+            new UninstallJob(
+                "Microsoft To Do",
+                Notes: " * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558")),
         new("Weather", true, new UninstallJob("MSN Weather")),
         new("Web Experience Pack", true, new UninstallJob("Windows Web Experience Pack")),
         new(
