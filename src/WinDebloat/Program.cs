@@ -15,6 +15,11 @@ public static partial class Program
         catch (Exception exception)
         {
             Log.Fatal(exception, "Failed at startup");
+
+            if (Environment.UserInteractive)
+            {
+                Console.ReadLine();
+            }
             throw;
         }
         finally
@@ -25,6 +30,7 @@ public static partial class Program
 
     public static async Task Inner(string[] excludes, string[] includes)
     {
+        WinGet.EnsureInstalled();
         LogExcludes(excludes);
         LogIncludes(includes);
 
@@ -191,4 +197,8 @@ public static partial class Program
 
     static List<string> installed = null!;
     static ServiceController[] services = null!;
+}
+
+public class WingetNotInstalledException:Exception
+{
 }

@@ -41,17 +41,37 @@ public static class ArgumentParser
             includeAllOptions
         };
 
-        command.SetHandler(
-            (excludes, includes, includeAll) =>
+        command.SetHandler(async (excludes, includes, includeAll) =>
             {
-                if (includeAll)
+                try
                 {
-                    return invoke(
-                        Array.Empty<string>(),
-                        groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray());
-                }
+                    if (includeAll)
+                    {
+                        await invoke(
+                            Array.Empty<string>(),
+                            groups.Where(_ => !_.IsDefault)
+                                .Select(_ => _.Id)
+                                .ToArray());
+                        return;
+                    }
 
-                return invoke(excludes, includes);
+                    await invoke(excludes, includes);
+                }
+                catch (WingetNotInstalledException)
+                {
+                    Log.Fatal($"Winget not installed. Expected path: {WinGet.ExpectedPath}. To install: https://www.microsoft.com/p/app-installer/9nblggh4nns1");
+
+                    if (Environment.UserInteractive)
+                    {
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+                    }
+                }
+                catch (Exception exception)
+                {
+                    Log.Fatal(exception, "Failed invoking command");
+                    throw;
+                }
             },
             excludeOptions,
             includeOptions,

@@ -1,5 +1,17 @@
 public static class WinGet
 {
+    public static string ExpectedPath = Path.Combine(Environment.GetEnvironmentVariable("LOCALAPPDATA")!, @"Microsoft\WindowsApps\winget.exe");
+
+    public static void EnsureInstalled()
+    {
+        if (File.Exists(ExpectedPath))
+        {
+            return;
+        }
+
+        throw new WingetNotInstalledException();
+    }
+
     public static async Task Install(string name)
     {
         var arguments = GetInstallArguments(name);
