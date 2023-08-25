@@ -194,6 +194,12 @@
                 0,
                 1)),
         new(
+            "Teams",
+            false,
+            new UninstallJob(
+                "Microsoft Teams",
+                Notes:" * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)")),
+        new(
             "Teams Installer",
             true,
             new UninstallJob(
