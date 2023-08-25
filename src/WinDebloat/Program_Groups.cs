@@ -193,7 +193,12 @@
                 "ShowTaskViewButton",
                 0,
                 1)),
-        new("Teams Installer", true, new UninstallJob("Teams Machine-Wide Installer")),
+        new(
+            "Teams Installer",
+            true,
+            new UninstallJob(
+                "Teams Machine-Wide Installer",
+                Notes:" * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)")),
         new(
             "Telemetry",
             true,

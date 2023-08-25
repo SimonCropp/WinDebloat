@@ -730,6 +730,10 @@ Command to manually apply:
 winget uninstall --name "Teams Machine-Wide Installer" --exact
 ```
 
+Notes:
+
+ * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)
+
 
 ### Telemetry
 
