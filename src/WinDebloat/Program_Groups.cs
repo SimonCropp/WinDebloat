@@ -237,6 +237,7 @@
             new UninstallJob(
                 "Microsoft To Do",
                 Notes: " * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558")),
+        new("Voice Recorder", false, new UninstallJob("Windows Voice Recorder")),
         new("Weather", true, new UninstallJob("MSN Weather")),
         new("Web Experience Pack", true, new UninstallJob("Windows Web Experience Pack")),
         new(
