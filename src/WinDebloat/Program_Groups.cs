@@ -158,6 +158,12 @@
         new("Printer", false, new DisableServiceJob("Spooler")),
         new("Print 3D", true, new UninstallJob("Print 3D")),
         new(
+            "Quick Assist",
+            false,
+            new UninstallJob(
+                "Quick Assist",
+                Notes:" * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
+        new(
             "Skype",
             true,
             new UninstallJob(

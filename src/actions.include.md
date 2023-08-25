@@ -34,6 +34,7 @@
  * PowerShell Unrestricted
  * Printer (optional)
  * Print 3D
+ * Quick Assist (optional)
  * Skype
  * Startup boost
  * Start Menu Recommendations
@@ -1228,6 +1229,23 @@ Set-Service -Name "Spooler"`
             -StartupType "Automatic"
 Start-Service -Name "Spooler"
 ```
+
+
+### Quick Assist
+
+Id to include: `QuickAssist`
+
+Uninstalls `Quick Assist` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Quick Assist" --exact
+```
+
+Notes:
+
+ * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
 
 
 ### Teams
