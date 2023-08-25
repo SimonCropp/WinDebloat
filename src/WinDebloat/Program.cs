@@ -20,6 +20,7 @@ public static partial class Program
             {
                 Console.ReadLine();
             }
+
             throw;
         }
         finally
@@ -197,6 +198,7 @@ public static partial class Program
 
         Registry.SetValue(key, name, applyValue, kind);
     }
+
     static void HandleRegistry(RegistryKeyJob job)
     {
         Log.Information($"Registry: {job.Name}");
