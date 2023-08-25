@@ -38,6 +38,7 @@
  * Sticky Notes
  * TaskBar Search
  * Task View
+ * Teams (optional)
  * Teams Installer
  * Telemetry
  * Tips
@@ -1190,5 +1191,22 @@ Set-Service -Name "Spooler"`
             -StartupType "Automatic"
 Start-Service -Name "Spooler"
 ```
+
+
+### Teams
+
+Id to include: `Teams`
+
+Uninstalls `Microsoft Teams` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft Teams" --exact
+```
+
+Notes:
+
+ * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
 
 
