@@ -3,6 +3,12 @@
     public static List<Group> Groups = new()
     {
         new(
+            "3D Viewer",
+            true,
+            new UninstallJob(
+                "3D Viewer",
+                Notes: " * [AppStore: 3D Viewer](https://apps.microsoft.com/store/detail/3d-viewer/9NBLGGH42THS)")),
+        new(
             "Advertiser Id",
             true,
             new RegistryJob(

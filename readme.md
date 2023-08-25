@@ -71,6 +71,7 @@ WinDebloat --exclude AdvertiserId Xbox
 
 ## Items DeBloated<!-- include: actions. path: /src/actions.include.md -->
 
+ * 3D Viewer
  * Advertiser Id
  * Calculator (optional)
  * Camera
@@ -127,6 +128,23 @@ WinDebloat --exclude AdvertiserId Xbox
 
 
 ## Default Items Removed / Disabled
+
+
+### 3D Viewer
+
+Id to exclude: `3DViewer`
+
+Uninstalls `3D Viewer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "3D Viewer" --exact
+```
+
+Notes:
+
+ * [AppStore: 3D Viewer](https://apps.microsoft.com/store/detail/3d-viewer/9NBLGGH42THS)
 
 
 ### Advertiser Id
