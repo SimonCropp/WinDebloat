@@ -122,6 +122,12 @@
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
         new("News", true, new UninstallJob("News")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
+        new(
+            "OneDrive",
+            false,
+            new UninstallJob("Microsoft OneDrive",
+                Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
+        ),
         new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new(
             "Paint",
