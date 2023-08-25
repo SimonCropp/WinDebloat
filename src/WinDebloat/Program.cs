@@ -198,7 +198,3 @@ public static partial class Program
     static List<string> installed = null!;
     static ServiceController[] services = null!;
 }
-
-public class WingetNotInstalledException:Exception
-{
-}
