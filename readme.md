@@ -96,6 +96,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Movies and TV
  * News
  * OneNote
+ * OneDrive (optional)
  * Paint 3D
  * Paint (optional)
  * Pay
@@ -1253,6 +1254,23 @@ Set-Service -Name "HotKeyServiceDSU"`
 Start-Service -Name "HotKeyServiceDSU"
 ```
 
+
+
+### OneDrive
+
+Id to include: `OneDrive`
+
+Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft OneDrive" --exact
+```
+
+Notes:
+
+ * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
 
 
 ### Paint
