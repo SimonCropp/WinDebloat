@@ -122,6 +122,7 @@
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
         new("News", true, new UninstallJob("News")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
+        new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new(
             "Paint",
             false,
@@ -130,7 +131,6 @@
                 new UninstallJob("Paint"),
                 new InstallJob("paint.net"),
             }),
-        new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new("Pay", true, new UninstallJob("Microsoft Pay")),
         new("People", true, new UninstallJob("Microsoft People")),
         new("Photos", true, new UninstallJob("Microsoft Photos")),

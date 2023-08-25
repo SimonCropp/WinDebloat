@@ -94,8 +94,8 @@ WinDebloat --exclude AdvertiserId Xbox
  * Movies and TV
  * News
  * OneNote
- * Paint (optional)
  * Paint 3D
+ * Paint (optional)
  * Pay
  * People
  * Photos
@@ -669,7 +669,7 @@ winget uninstall --name "Microsoft Sticky Notes" --exact
 
 Notes:
 
- * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW
+ * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)
 
 
 ### TaskBar Search

@@ -23,8 +23,8 @@
  * Movies and TV
  * News
  * OneNote
- * Paint (optional)
  * Paint 3D
+ * Paint (optional)
  * Pay
  * People
  * Photos
