@@ -144,6 +144,23 @@ public class DocsTests
 
                      """);
                 break;
+            case RegistryKeyJob registryJob:
+                writer.WriteLine(
+                    $"""
+                     Command to manually apply:
+
+                     ```ps
+                     New-Item -Path -Path "Registry::{registryJob.ShortKey}"`-Value ""
+                     ```
+
+                     Command to manually revert:
+
+                     ```ps
+                     Remove-Item -Path "Registry::{registryJob.ShortKey}"`
+                     ```
+
+                     """);
+                break;
             case InstallJob installJob:
                 writer.WriteLine(
                     $"""
