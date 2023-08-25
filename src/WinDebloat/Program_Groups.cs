@@ -68,6 +68,11 @@
                 "WebWidgetAllowed",
                 0,
                 1)),
+        new(
+            "Explorer Classic Menu",
+            false,
+            new RegistryKeyJob(
+                @"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
         new("Feedback Hub",
             true,
             new UninstallJob("Feedback Hub")),

@@ -20,6 +20,7 @@ public static partial class Program
             {
                 Console.ReadLine();
             }
+
             throw;
         }
         finally
@@ -103,6 +104,9 @@ public static partial class Program
         switch (job)
         {
             case RegistryValueJob registry:
+                HandleRegistry(registry);
+                return;
+            case RegistryKeyJob registry:
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
@@ -193,6 +197,14 @@ public static partial class Program
         }
 
         Registry.SetValue(key, name, applyValue, kind);
+    }
+
+    static void HandleRegistry(RegistryKeyJob job)
+    {
+        Log.Information($"Registry: {job.Name}");
+        Log.Information($"{job.Key}");
+
+        Registry.SetValue(job.Key, null, "", RegistryValueKind.String);
     }
 
     static List<string> installed = null!;
