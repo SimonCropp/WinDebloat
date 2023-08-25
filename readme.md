@@ -98,6 +98,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * News
  * Notepad (optional)
  * OneNote
+ * Office 365 (optional)
  * OneDrive (optional)
  * Paint 3D
  * Paint (optional)
@@ -1299,6 +1300,19 @@ Command to manually apply:
 
 ```ps
 winget uninstall --name "Notepad" --exact
+```
+
+
+### Office 365
+
+Id to include: `Office365`
+
+Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft 365 (Office)" --exact
 ```
 
 
