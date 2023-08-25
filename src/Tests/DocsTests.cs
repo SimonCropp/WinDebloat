@@ -150,13 +150,13 @@ public class DocsTests
                      Command to manually apply:
 
                      ```ps
-                     New-Item -Path -Path "Registry::{registryJob.ShortKey}"`-Value ""
+                     New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Remove-Item -Path "Registry::{registryJob.ShortKey}"`
+                     Remove-Item -Path "Registry::{registryJob.ShortKey}"
                      ```
 
                      """);

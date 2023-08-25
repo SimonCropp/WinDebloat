@@ -20,7 +20,6 @@
 
 public record RegistryKeyJob(
     string Key,
-    string Name,
     string? Notes = null) :
     IJob
 {
@@ -31,4 +30,6 @@ public record RegistryKeyJob(
             .Replace("HKEY_CLASSES_ROOT", "HKCR")
             .Replace("HKEY_CURRENT_USER", "HKCU")
             .Replace("HKEY_USERS", "HKU");
+
+    public string Name => Key.Split('\\').Last();
 }

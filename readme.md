@@ -81,6 +81,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Cortana
  * Developer Mode (optional)
  * Edge Desktop Search Bar
+ * Explorer Classic Menu (optional)
  * Feedback Hub
  * FileExtensions
  * Games
@@ -1089,6 +1090,23 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"
 Notes:
 
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
+
+
+### Explorer Classic Menu
+
+Id to include: `ExplorerClassicMenu`
+
+Command to manually apply:
+
+```ps
+New-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Value ""
+```
+
+Command to manually revert:
+
+```ps
+Remove-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
+```
 
 
 ### Health Check

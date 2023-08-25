@@ -105,6 +105,9 @@ public static partial class Program
             case RegistryValueJob registry:
                 HandleRegistry(registry);
                 return;
+            case RegistryKeyJob registry:
+                HandleRegistry(registry);
+                return;
             case InstallJob installJob:
                 await HandleInstall(installJob);
                 return;
@@ -196,17 +199,10 @@ public static partial class Program
     }
     static void HandleRegistry(RegistryKeyJob job)
     {
-        var (key, name, applyValue, _, kind, _) = job;
-        Log.Information($"Registry: {name}");
-        Log.Information($"{job.Path} to {applyValue}");
-        var currentValue = Registry.GetValue(key, name, null);
-        if (applyValue.Equals(currentValue))
-        {
-            Log.Information($"Skipped registry entry {job.Path} since value already correct");
-            return;
-        }
+        Log.Information($"Registry: {job.Name}");
+        Log.Information($"{job.Key}");
 
-        Registry.SetValue(key, name, applyValue, kind);
+        Registry.SetValue(job.Key, null, "", RegistryValueKind.String);
     }
 
     static List<string> installed = null!;
