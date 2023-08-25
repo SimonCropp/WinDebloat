@@ -75,6 +75,11 @@
                 1)),
         new("Games", true, new UninstallJob("Solitaire & Casual Games")),
         new("Get Help", true, new UninstallJob("Get Help")),
+        new(
+            "Health Check", false,
+            new UninstallJob(
+                "Windows PC Health Check",
+                Notes:" * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),
         new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
         new(
             "HP Vendorware",

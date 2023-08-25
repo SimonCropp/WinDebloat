@@ -13,6 +13,7 @@
  * FileExtensions
  * Games
  * Get Help
+ * Health Check (optional)
  * Internet Connection Sharing
  * HP Vendorware (optional)
  * Lock Screen Ads
@@ -981,6 +982,23 @@ Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft
 Notes:
 
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
+
+
+### Health Check
+
+Id to include: `HealthCheck`
+
+Uninstalls `Windows PC Health Check` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Windows PC Health Check" --exact
+```
+
+Notes:
+
+ * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)
 
 
 ### HP Vendorware
