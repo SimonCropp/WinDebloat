@@ -85,7 +85,7 @@
             "Health Check", false,
             new UninstallJob(
                 "Windows PC Health Check",
-                Notes:" * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),
+                Notes: " * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),
         new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
         new(
             "HP Vendorware",
@@ -131,7 +131,14 @@
         new("Media Player", true, new UninstallJob("Windows Media Player")),
         new("Mixed Reality Portal", true, new UninstallJob("Mixed Reality Portal")),
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
-        new("News", true, new UninstallJob("News")),
+        new(
+            "News",
+            true,
+            new[]
+            {
+                new UninstallJob("Microsoft News"),
+                new UninstallJob("News")
+            }),
         new("Notepad", false, new UninstallJob("Notepad")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
         new(
@@ -157,7 +164,7 @@
             false,
             new UninstallJob(
                 "Phone Link",
-            Notes:" * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)")),
+                Notes: " * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)")),
         new("Photos", true, new UninstallJob("Microsoft Photos")),
         new("Power Automate", true, new UninstallJob("Power Automate")),
         new(
@@ -176,7 +183,7 @@
             false,
             new UninstallJob(
                 "Quick Assist",
-                Notes:" * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
+                Notes: " * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
         new(
             "Skype",
             true,
@@ -229,13 +236,13 @@
             false,
             new UninstallJob(
                 "Microsoft Teams",
-                Notes:" * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)")),
+                Notes: " * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)")),
         new(
             "Teams Installer",
             true,
             new UninstallJob(
                 "Teams Machine-Wide Installer",
-                Notes:" * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)")),
+                Notes: " * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)")),
         new(
             "Telemetry",
             true,
