@@ -132,6 +132,7 @@
         new("Mixed Reality Portal", true, new UninstallJob("Mixed Reality Portal")),
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
         new("News", true, new UninstallJob("News")),
+        new("Notepad", false, new UninstallJob("Notepad")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
         new(
             "OneDrive",
