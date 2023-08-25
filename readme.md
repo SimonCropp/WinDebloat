@@ -98,6 +98,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Paint (optional)
  * Pay
  * People
+ * Phone Link (optional)
  * Photos
  * Power Automate
  * PowerShell Unrestricted
@@ -1240,6 +1241,23 @@ Command to manually apply:
 winget install --name "paint.net" --exact
 ```
 
+
+
+### Phone Link
+
+Id to include: `PhoneLink`
+
+Uninstalls `Phone Link` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Phone Link" --exact
+```
+
+Notes:
+
+ * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)
 
 
 ### Printer

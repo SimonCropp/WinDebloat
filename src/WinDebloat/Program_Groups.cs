@@ -133,6 +133,12 @@
             }),
         new("Pay", true, new UninstallJob("Microsoft Pay")),
         new("People", true, new UninstallJob("Microsoft People")),
+        new(
+            "Phone Link",
+            false,
+            new UninstallJob(
+                "Phone Link",
+            Notes:" * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)")),
         new("Photos", true, new UninstallJob("Microsoft Photos")),
         new("Power Automate", true, new UninstallJob("Power Automate")),
         new(
