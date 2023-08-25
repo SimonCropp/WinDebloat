@@ -145,6 +145,7 @@
             }),
         new("Notepad", false, new UninstallJob("Notepad")),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
+        new("Office 365", false, new UninstallJob("Microsoft 365 (Office)")),
         new(
             "OneDrive",
             false,
