@@ -44,6 +44,7 @@
  * Telemetry
  * Tips
  * To Do
+ * Voice Recorder (optional)
  * Weather
  * Web Experience Pack
  * Start Menu Web Search
@@ -1226,5 +1227,18 @@ winget uninstall --name "Microsoft Teams" --exact
 Notes:
 
  * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
+
+
+### Voice Recorder
+
+Id to include: `VoiceRecorder`
+
+Uninstalls `Windows Voice Recorder` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Voice Recorder" --exact
+```
 
 
