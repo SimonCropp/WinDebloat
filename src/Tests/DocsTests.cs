@@ -121,25 +121,25 @@ public class DocsTests
 
                      """);
                 break;
-            case RegistryJob(var key, var name, var applyValue, var revertValue, var kind, _):
+            case RegistryJob registryJob:
                 writer.WriteLine(
                     $"""
                      Command to manually apply:
 
                      ```ps
-                     Set-ItemProperty -Path "Registry::{key}"`
-                                      -Name "{name}"`
-                                      -Type "{kind}"`
-                                      -Value "{applyValue}"
+                     Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
+                                      -Name "{registryJob.Name}"`
+                                      -Type "{registryJob.Kind}"`
+                                      -Value "{registryJob.ApplyValue}"
                      ```
 
                      Command to manually revert:
 
                      ```ps
-                     Set-ItemProperty -Path "Registry::{key}"`
-                                      -Name "{name}"`
-                                      -Type "{kind}"`
-                                      -Value "{revertValue}"
+                     Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
+                                      -Name "{registryJob.Name}"`
+                                      -Type "{registryJob.Kind}"`
+                                      -Value "{registryJob.RevertValue}"
                      ```
 
                      """);
