@@ -13,7 +13,7 @@ public class ProgramTests
         {
             foreach (var job in group.Jobs)
             {
-                if (job is RegistryJob registryJob)
+                if (job is RegistryValueJob registryJob)
                 {
                     var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
 

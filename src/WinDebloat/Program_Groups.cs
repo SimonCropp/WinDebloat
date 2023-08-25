@@ -11,7 +11,7 @@
         new(
             "Advertiser Id",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
                 "Enabled",
                 0,
@@ -32,7 +32,7 @@
         new(
             "Chat",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarMn",
                 0,
@@ -54,7 +54,7 @@
         new(
             "Developer Mode",
             false,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
                 "AllowDevelopmentWithoutDevLicense",
                 1,
@@ -63,7 +63,7 @@
         new(
             "Edge Desktop Search Bar",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
                 "WebWidgetAllowed",
                 0,
@@ -74,7 +74,7 @@
         new(
             "FileExtensions",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "HideFileExt",
                 0,
@@ -109,12 +109,12 @@
             true,
             new[]
             {
-                new RegistryJob(
+                new RegistryValueJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "RotatingLockScreenOverlayEnabled",
                     0,
                     1),
-                new RegistryJob(
+                new RegistryValueJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "SubscribedContent-338387Enabled",
                     0,
@@ -170,7 +170,7 @@
         new(
             "PowerShell Unrestricted",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
                 "ExecutionPolicy",
                 "Unrestricted",
@@ -193,7 +193,7 @@
         new(
             "Startup boost",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
                 "StartupBoostEnabled",
                 0,
@@ -203,7 +203,7 @@
         new(
             "Start Menu Recommendations",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "HideRecommendedSection",
                 1,
@@ -218,7 +218,7 @@
         new(
             "TaskBar Search",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
                 "SearchboxTaskbarMode",
                 0,
@@ -226,7 +226,7 @@
         new(
             "Task View",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "ShowTaskViewButton",
                 0,
@@ -248,7 +248,7 @@
             true,
             new IJob[]
             {
-                new RegistryJob(
+                new RegistryValueJob(
                     @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
                     "Allow Telemetry",
                     0,
@@ -270,7 +270,7 @@
         new(
             "Start Menu Web Search",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "DisableSearchBoxSuggestions",
                 1,
@@ -279,7 +279,7 @@
         new(
             "Widgets",
             true,
-            new RegistryJob(
+            new RegistryValueJob(
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarDa",
                 0,

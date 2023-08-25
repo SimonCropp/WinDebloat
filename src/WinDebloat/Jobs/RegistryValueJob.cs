@@ -1,4 +1,4 @@
-﻿public record RegistryJob(
+﻿public record RegistryValueJob(
     string Key,
     string Name,
     object ApplyValue,

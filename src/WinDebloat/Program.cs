@@ -102,7 +102,7 @@ public static partial class Program
     {
         switch (job)
         {
-            case RegistryJob registry:
+            case RegistryValueJob registry:
                 HandleRegistry(registry);
                 return;
             case InstallJob installJob:
@@ -180,7 +180,7 @@ public static partial class Program
     static bool IsInstalled(string package) =>
         installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
 
-    static void HandleRegistry(RegistryJob job)
+    static void HandleRegistry(RegistryValueJob job)
     {
         var (key, name, applyValue, _, kind, _) = job;
         Log.Information($"Registry: {name}");

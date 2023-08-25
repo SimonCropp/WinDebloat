@@ -121,7 +121,7 @@ public class DocsTests
 
                      """);
                 break;
-            case RegistryJob registryJob:
+            case RegistryValueJob registryJob:
                 writer.WriteLine(
                     $"""
                      Command to manually apply:
