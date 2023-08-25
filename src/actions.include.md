@@ -415,6 +415,19 @@ winget uninstall --name "Movies & TV" --exact
 
 Id to exclude: `News`
 
+#### Microsoft News
+
+Uninstalls `Microsoft News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft News" --exact
+```
+
+
+#### News
+
 Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 Command to manually apply:
@@ -422,6 +435,7 @@ Command to manually apply:
 ```ps
 winget uninstall --name "News" --exact
 ```
+
 
 
 ### OneNote
