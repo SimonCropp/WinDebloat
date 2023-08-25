@@ -16,8 +16,8 @@
  * Games
  * Get Help
  * Health Check (optional)
- * Internet Connection Sharing
  * HP Vendorware (optional)
+ * Internet Connection Sharing
  * Lock Screen Ads
  * Mail and Calendar
  * Maps
