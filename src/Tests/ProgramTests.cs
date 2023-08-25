@@ -5,7 +5,9 @@ public class ProgramTests
     [Test]
     public async Task Full()
     {
-        await Program.Inner(Array.Empty<string>(),Array.Empty<string>());
+        await Program.Inner(
+            Array.Empty<string>(),
+            Program.Groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray());
         foreach (var group in Program.Groups)
         {
             foreach (var job in group.Jobs)
