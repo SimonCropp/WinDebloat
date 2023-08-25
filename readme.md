@@ -109,7 +109,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Sticky Notes
  * TaskBar Search
  * Task View
- * Teams
+ * Teams Installer
  * Telemetry
  * Tips
  * To Do
@@ -718,9 +718,9 @@ Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\C
 ```
 
 
-### Teams
+### Teams Installer
 
-Id to exclude: `Teams`
+Id to exclude: `TeamsInstaller`
 
 Uninstalls `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
