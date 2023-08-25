@@ -193,7 +193,7 @@
                 "ShowTaskViewButton",
                 0,
                 1)),
-        new("Teams", true, new UninstallJob("Teams Machine-Wide Installer")),
+        new("Teams Installer", true, new UninstallJob("Teams Machine-Wide Installer")),
         new(
             "Telemetry",
             true,
