@@ -79,7 +79,7 @@
                 1,
                 Notes:"""
                       * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
-                      * Disables SwitchToBingInChrome<br><img src="/src/SwitchToBingInChrome.png" height="100px">
+                      * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
                       """)),
         new(
             "Explorer Classic Menu",
