@@ -70,6 +70,18 @@
                 1,
                 Notes:" * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
+            "EdgeRecommendations    ",
+            true,
+            new RegistryValueJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "ShowRecommendationsEnabled",
+                0,
+                1,
+                Notes:"""
+                      * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
+                      * Disables SwitchToBingInChrome<br><img src="/src/SwitchToBingInChrome.png" height="100px">
+                      """)),
+        new(
             "Explorer Classic Menu",
             false,
             new RegistryKeyJob(
