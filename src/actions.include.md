@@ -25,7 +25,6 @@
  * Mixed Reality Portal
  * Movies and TV
  * News
- * Notepad (optional)
  * OneNote
  * Office 365 (optional)
  * OneDrive (optional)
@@ -1217,19 +1216,6 @@ Set-Service -Name "HotKeyServiceDSU"`
 Start-Service -Name "HotKeyServiceDSU"
 ```
 
-
-
-### Notepad
-
-Id to include: `Notepad`
-
-Uninstalls `Notepad` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-Command to manually apply:
-
-```ps
-winget uninstall --name "Notepad" --exact
-```
 
 
 ### Office 365
