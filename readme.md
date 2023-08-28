@@ -273,6 +273,10 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "1"
 ```
 
+Notes:
+
+ * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)
+
 
 ### Feedback Hub
 
@@ -372,6 +376,10 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Type "DWord"`
                  -Value "1"
 ```
+
+Notes:
+
+ * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)
 
 
 #### SubscribedContent-338387Enabled
@@ -693,6 +701,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explo
 Notes:
 
  * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
+ * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
 
 
 ### Sticky Notes

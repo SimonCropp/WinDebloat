@@ -67,7 +67,8 @@
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
                 "WebWidgetAllowed",
                 0,
-                1)),
+                1,
+                Notes:" * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
             "Explorer Classic Menu",
             false,
@@ -117,7 +118,8 @@
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "RotatingLockScreenOverlayEnabled",
                     0,
-                    1),
+                    1,
+                    Notes: " * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)"),
                 new RegistryValueJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "SubscribedContent-338387Enabled",
@@ -212,7 +214,10 @@
                 "HideRecommendedSection",
                 1,
                 0,
-                Notes: @" * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist")),
+                Notes: """
+                        * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
+                        * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
+                       """)),
         new(
             "Sticky Notes",
             true,
