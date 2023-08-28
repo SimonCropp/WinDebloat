@@ -81,6 +81,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Cortana
  * Developer Mode (optional)
  * Edge Desktop Search Bar
+ * EdgeRecommendations    
  * Explorer Classic Menu (optional)
  * Feedback Hub
  * FileExtensions
@@ -276,6 +277,34 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
 Notes:
 
  * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)
+
+
+### EdgeRecommendations    
+
+Id to exclude: `EdgeRecommendations`
+
+Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "ShowRecommendationsEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "ShowRecommendationsEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+Notes:
+
+* [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
+* Disables SwitchToBingInChrome<br><img src="/src/SwitchToBingInChrome.png" height="100px">
 
 
 ### Feedback Hub

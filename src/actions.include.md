@@ -10,7 +10,7 @@
  * Cortana
  * Developer Mode (optional)
  * Edge Desktop Search Bar
- * ShowRecommendationsEnabled
+ * EdgeRecommendations    
  * Explorer Classic Menu (optional)
  * Feedback Hub
  * FileExtensions
@@ -208,9 +208,9 @@ Notes:
  * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)
 
 
-### ShowRecommendationsEnabled
+### EdgeRecommendations    
 
-Id to exclude: `ShowRecommendationsEnabled`
+Id to exclude: `EdgeRecommendations`
 
 Command to manually apply:
 

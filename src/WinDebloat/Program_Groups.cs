@@ -70,7 +70,7 @@
                 1,
                 Notes:" * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
-            "ShowRecommendationsEnabled",
+            "EdgeRecommendations    ",
             true,
             new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
