@@ -9,7 +9,7 @@
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
  * [Developer Mode](#developer-mode) (optional)
- * [EdgeBingSideBar](#edgebingsidebar) (optional)
+ * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [EdgeRecommendations](#edgerecommendations)
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
@@ -1060,7 +1060,7 @@ Notes:
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
 
-### EdgeBingSideBar
+### Edge Bing SideBar
 
 Id to include: `EdgeBingSideBar`
 

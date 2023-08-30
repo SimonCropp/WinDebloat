@@ -61,7 +61,7 @@
                 0,
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
-            "EdgeBingSideBar",
+            "Edge Bing SideBar",
             false,
             new RegistryValueJob(
                 @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
