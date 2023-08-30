@@ -61,6 +61,18 @@
                 0,
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
+            "EdgeBingSideBar",
+            false,
+            new RegistryValueJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "HubsSidebarEnabled",
+                0,
+                1,
+                Notes: """
+                       * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
+                       * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
+                       """)),
+        new(
             "Edge Desktop Search Bar",
             true,
             new RegistryValueJob(
