@@ -80,7 +80,7 @@ public class DocsTests
 
         if (group.Jobs.Count == 1)
         {
-            HandleJob(group.Jobs[0], writer);
+            HandleJob(group.Jobs[0], writer, "####");
             return;
         }
 
@@ -91,20 +91,20 @@ public class DocsTests
                  #### {job.Name}
 
                  """);
-            HandleJob(job, writer);
+            HandleJob(job, writer, "#####");
         }
 
         writer.WriteLine();
     }
 
-    static void HandleJob(IJob job, TextWriter writer)
+    static void HandleJob(IJob job, TextWriter writer, string headingLevel)
     {
         switch (job)
         {
             case DisableServiceJob disableServiceJob:
                 writer.WriteLine(
                     $"""
-                     Command to manually apply:
+                     {headingLevel} Command to manually apply:
 
                      ```ps
                      Stop-Service -Name "{disableServiceJob.Name}"
@@ -112,7 +112,7 @@ public class DocsTests
                                  -StartupType "Disabled"
                      ```
 
-                     Command to manually revert:
+                     {headingLevel} Command to manually revert:
 
                      ```ps
                      Set-Service -Name "{disableServiceJob.Name}"`
@@ -125,7 +125,7 @@ public class DocsTests
             case RegistryValueJob registryJob:
                 writer.WriteLine(
                     $"""
-                     Command to manually apply:
+                     {headingLevel} Command to manually apply:
 
                      ```ps
                      Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
@@ -134,7 +134,7 @@ public class DocsTests
                                       -Value "{registryJob.ApplyValue}"
                      ```
 
-                     Command to manually revert:
+                     {headingLevel} Command to manually revert:
 
                      ```ps
                      Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
@@ -148,13 +148,13 @@ public class DocsTests
             case RegistryKeyJob registryJob:
                 writer.WriteLine(
                     $"""
-                     Command to manually apply:
+                     {headingLevel} Command to manually apply:
 
                      ```ps
                      New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
                      ```
 
-                     Command to manually revert:
+                     {headingLevel} Command to manually revert:
 
                      ```ps
                      Remove-Item -Path "Registry::{registryJob.ShortKey}"
@@ -167,7 +167,7 @@ public class DocsTests
                     $"""
                      Installs `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-                     Command to manually apply:
+                     {headingLevel} Command to manually apply:
 
                      ```ps
                      winget install --name "{installJob.Name}" --exact
@@ -180,7 +180,7 @@ public class DocsTests
                     $"""
                      Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-                     Command to manually apply:
+                     {headingLevel} Command to manually apply:
 
                      ```ps
                      winget uninstall --name "{uninstallJob.Name}" --exact
@@ -194,7 +194,7 @@ public class DocsTests
         {
             writer.WriteLine(
                 $"""
-                 Notes:
+                 {headingLevel} Notes:
 
                  {job.Notes}
                 

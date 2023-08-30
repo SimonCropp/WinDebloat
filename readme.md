@@ -142,13 +142,13 @@ Id to exclude: `3DViewer`
 
 Uninstalls `3D Viewer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "3D Viewer" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: 3D Viewer](https://apps.microsoft.com/store/detail/3d-viewer/9NBLGGH42THS)
 
@@ -157,7 +157,7 @@ Notes:
 
 Id to exclude: `AdvertiserId`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"`
@@ -166,7 +166,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"`
@@ -175,7 +175,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
  * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)
 
@@ -186,13 +186,13 @@ Id to exclude: `Camera`
 
 Uninstalls `Windows Camera` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Camera" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Windows Camera](https://apps.microsoft.com/store/detail/windows-camera/9WZDNCRFJBBG)
 
@@ -201,7 +201,7 @@ Notes:
 
 Id to exclude: `Chat`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -210,7 +210,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -219,7 +219,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
  * [Managing the Teams Chat icon on Windows 11](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/managing-teams-chat-icon-windows-11)
 
@@ -230,13 +230,13 @@ Id to exclude: `Clipchamp`
 
 Uninstalls `Clipchamp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Clipchamp" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)
 
@@ -247,7 +247,7 @@ Id to exclude: `Cortana`
 
 Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Cortana" --exact
@@ -258,7 +258,7 @@ winget uninstall --name "Cortana" --exact
 
 Id to exclude: `EdgeDesktopSearchBar`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -267,7 +267,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -276,7 +276,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
  * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)
 
@@ -285,7 +285,7 @@ Notes:
 
 Id to exclude: `EdgeRecommendations`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -294,7 +294,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -303,7 +303,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
 * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
 * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
@@ -315,7 +315,7 @@ Id to exclude: `FeedbackHub`
 
 Uninstalls `Feedback Hub` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Feedback Hub" --exact
@@ -326,7 +326,7 @@ winget uninstall --name "Feedback Hub" --exact
 
 Id to exclude: `FileExtensions`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -335,7 +335,7 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -351,7 +351,7 @@ Id to exclude: `Games`
 
 Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Solitaire & Casual Games" --exact
@@ -364,7 +364,7 @@ Id to exclude: `GetHelp`
 
 Uninstalls `Get Help` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Get Help" --exact
@@ -377,7 +377,7 @@ Id to exclude: `InternetConnectionSharing`
 
 Uninstalls `SharedAccess` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "SharedAccess" --exact
@@ -390,7 +390,7 @@ Id to exclude: `LockScreenAds`
 
 #### RotatingLockScreenOverlayEnabled
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
@@ -399,7 +399,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
@@ -408,14 +408,14 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "1"
 ```
 
-Notes:
+##### Notes:
 
  * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)
 
 
 #### SubscribedContent-338387Enabled
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
@@ -424,7 +424,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
@@ -441,7 +441,7 @@ Id to exclude: `MailandCalendar`
 
 Uninstalls `Mail and Calendar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Mail and Calendar" --exact
@@ -456,7 +456,7 @@ Id to exclude: `Maps`
 
 Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Maps" --exact
@@ -465,7 +465,7 @@ winget uninstall --name "Windows Maps" --exact
 
 #### MapsBroker
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "MapsBroker"
@@ -473,7 +473,7 @@ Set-Service -Name "MapsBroker"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "MapsBroker"`
@@ -489,7 +489,7 @@ Id to exclude: `MediaPlayer`
 
 Uninstalls `Windows Media Player` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Media Player" --exact
@@ -502,7 +502,7 @@ Id to exclude: `MixedRealityPortal`
 
 Uninstalls `Mixed Reality Portal` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Mixed Reality Portal" --exact
@@ -515,7 +515,7 @@ Id to exclude: `MoviesandTV`
 
 Uninstalls `Movies & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Movies & TV" --exact
@@ -530,7 +530,7 @@ Id to exclude: `News`
 
 Uninstalls `Microsoft News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft News" --exact
@@ -541,7 +541,7 @@ winget uninstall --name "Microsoft News" --exact
 
 Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "News" --exact
@@ -555,7 +555,7 @@ Id to exclude: `OneNote`
 
 Uninstalls `OneNote for Windows 10` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "OneNote for Windows 10" --exact
@@ -568,7 +568,7 @@ Id to exclude: `Paint3D`
 
 Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Paint 3D" --exact
@@ -581,7 +581,7 @@ Id to exclude: `Pay`
 
 Uninstalls `Microsoft Pay` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Pay" --exact
@@ -594,7 +594,7 @@ Id to exclude: `People`
 
 Uninstalls `Microsoft People` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft People" --exact
@@ -607,7 +607,7 @@ Id to exclude: `Photos`
 
 Uninstalls `Microsoft Photos` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Photos" --exact
@@ -620,7 +620,7 @@ Id to exclude: `PowerAutomate`
 
 Uninstalls `Power Automate` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Power Automate" --exact
@@ -631,7 +631,7 @@ winget uninstall --name "Power Automate" --exact
 
 Id to exclude: `PowerShellUnrestricted`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"`
@@ -640,7 +640,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\PowerShell\1\ShellIds\
                  -Value "Unrestricted"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"`
@@ -656,7 +656,7 @@ Id to exclude: `Print3D`
 
 Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Print 3D" --exact
@@ -669,13 +669,13 @@ Id to exclude: `Skype`
 
 Uninstalls `Skype` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Skype" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)
 
@@ -684,7 +684,7 @@ Notes:
 
 Id to exclude: `Startupboost`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -693,7 +693,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -702,7 +702,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
  * [Microsoft Edge Startup boost](https://www.microsoft.com/en-us/edge/features/startup-boost)
 
@@ -711,7 +711,7 @@ Notes:
 
 Id to exclude: `StartMenuRecommendations`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
@@ -720,7 +720,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explo
                  -Value "1"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
@@ -729,7 +729,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explo
                  -Value "0"
 ```
 
-Notes:
+#### Notes:
 
  * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
  * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
@@ -741,13 +741,13 @@ Id to exclude: `StickyNotes`
 
 Uninstalls `Microsoft Sticky Notes` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Sticky Notes" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)
 
@@ -756,7 +756,7 @@ Notes:
 
 Id to exclude: `TaskBarSearch`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Search"`
@@ -765,7 +765,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Search"`
@@ -779,7 +779,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to exclude: `TaskView`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -788,7 +788,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -804,13 +804,13 @@ Id to exclude: `TeamsInstaller`
 
 Uninstalls `Teams Machine-Wide Installer` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Teams Machine-Wide Installer" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)
 
@@ -821,7 +821,7 @@ Id to exclude: `Telemetry`
 
 #### Allow Telemetry
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
@@ -830,7 +830,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataC
                  -Value "0"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
@@ -842,7 +842,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataC
 
 #### DiagTrack
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "DiagTrack"
@@ -850,7 +850,7 @@ Set-Service -Name "DiagTrack"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "DiagTrack"`
@@ -866,7 +866,7 @@ Id to exclude: `Tips`
 
 Uninstalls `Microsoft Tips` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Tips" --exact
@@ -879,13 +879,13 @@ Id to exclude: `ToDo`
 
 Uninstalls `Microsoft To Do` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft To Do" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558
 
@@ -896,7 +896,7 @@ Id to exclude: `Weather`
 
 Uninstalls `MSN Weather` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "MSN Weather" --exact
@@ -909,7 +909,7 @@ Id to exclude: `WebExperiencePack`
 
 Uninstalls `Windows Web Experience Pack` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Web Experience Pack" --exact
@@ -920,7 +920,7 @@ winget uninstall --name "Windows Web Experience Pack" --exact
 
 Id to exclude: `StartMenuWebSearch`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
@@ -929,7 +929,7 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Windows\Explo
                  -Value "1"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer"`
@@ -945,7 +945,7 @@ Id to exclude: `Whiteboard`
 
 Uninstalls `Microsoft Whiteboard` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Whiteboard" --exact
@@ -956,7 +956,7 @@ winget uninstall --name "Microsoft Whiteboard" --exact
 
 Id to exclude: `Widgets`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -965,7 +965,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
@@ -983,7 +983,7 @@ Id to exclude: `Xbox`
 
 Uninstalls `Xbox TCUI` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox TCUI" --exact
@@ -994,7 +994,7 @@ winget uninstall --name "Xbox TCUI" --exact
 
 Uninstalls `Xbox Console Companion` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Console Companion" --exact
@@ -1005,7 +1005,7 @@ winget uninstall --name "Xbox Console Companion" --exact
 
 Uninstalls `Xbox Game Bar Plugin` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Game Bar Plugin" --exact
@@ -1016,7 +1016,7 @@ winget uninstall --name "Xbox Game Bar Plugin" --exact
 
 Uninstalls `Xbox Identity Provider` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Identity Provider" --exact
@@ -1027,7 +1027,7 @@ winget uninstall --name "Xbox Identity Provider" --exact
 
 Uninstalls `Xbox Game Speech Window` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Game Speech Window" --exact
@@ -1038,7 +1038,7 @@ winget uninstall --name "Xbox Game Speech Window" --exact
 
 Uninstalls `Xbox Game Bar` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Game Bar" --exact
@@ -1049,7 +1049,7 @@ winget uninstall --name "Xbox Game Bar" --exact
 
 Uninstalls `Xbox Accessories` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox Accessories" --exact
@@ -1060,7 +1060,7 @@ winget uninstall --name "Xbox Accessories" --exact
 
 Uninstalls `Xbox` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Xbox" --exact
@@ -1077,13 +1077,13 @@ Id to include: `Calculator`
 
 Uninstalls `Windows Calculator` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Calculator" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5)
 
@@ -1094,13 +1094,13 @@ Id to include: `Clock`
 
 Uninstalls `Windows Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Clock" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)
 
@@ -1109,7 +1109,7 @@ Notes:
 
 Id to include: `DeveloperMode`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"`
@@ -1118,7 +1118,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"
                  -Value "1"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"`
@@ -1127,7 +1127,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"
                  -Value "0"
 ```
 
-Notes:
+#### Notes:
 
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
 
@@ -1136,7 +1136,7 @@ Notes:
 
 Id to include: `EdgeBingSideBar`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -1145,7 +1145,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
@@ -1154,7 +1154,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
 * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
 * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
@@ -1164,13 +1164,13 @@ Notes:
 
 Id to include: `ExplorerClassicMenu`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 New-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Value ""
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Remove-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
@@ -1183,13 +1183,13 @@ Id to include: `HealthCheck`
 
 Uninstalls `Windows PC Health Check` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows PC Health Check" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)
 
@@ -1202,7 +1202,7 @@ Id to include: `HP`
 
 Uninstalls `HP Desktop Support Utilities` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "HP Desktop Support Utilities" --exact
@@ -1213,7 +1213,7 @@ winget uninstall --name "HP Desktop Support Utilities" --exact
 
 Uninstalls `HP Documentation` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "HP Documentation" --exact
@@ -1224,7 +1224,7 @@ winget uninstall --name "HP Documentation" --exact
 
 Uninstalls `HP Notifications` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "HP Notifications" --exact
@@ -1235,7 +1235,7 @@ winget uninstall --name "HP Notifications" --exact
 
 Uninstalls `HPHelp` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "HPHelp" --exact
@@ -1244,7 +1244,7 @@ winget uninstall --name "HPHelp" --exact
 
 #### HpTouchpointAnalyticsService
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "HpTouchpointAnalyticsService"
@@ -1252,7 +1252,7 @@ Set-Service -Name "HpTouchpointAnalyticsService"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "HpTouchpointAnalyticsService"`
@@ -1263,7 +1263,7 @@ Start-Service -Name "HpTouchpointAnalyticsService"
 
 #### HPAppHelperCap
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPAppHelperCap"
@@ -1271,7 +1271,7 @@ Set-Service -Name "HPAppHelperCap"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "HPAppHelperCap"`
@@ -1282,7 +1282,7 @@ Start-Service -Name "HPAppHelperCap"
 
 #### HPDiagsCap
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPDiagsCap"
@@ -1290,7 +1290,7 @@ Set-Service -Name "HPDiagsCap"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "HPDiagsCap"`
@@ -1301,7 +1301,7 @@ Start-Service -Name "HPDiagsCap"
 
 #### HPSysInfoCap
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "HPSysInfoCap"
@@ -1309,7 +1309,7 @@ Set-Service -Name "HPSysInfoCap"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "HPSysInfoCap"`
@@ -1320,7 +1320,7 @@ Start-Service -Name "HPSysInfoCap"
 
 #### hpsvcsscan
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "hpsvcsscan"
@@ -1328,7 +1328,7 @@ Set-Service -Name "hpsvcsscan"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "hpsvcsscan"`
@@ -1339,7 +1339,7 @@ Start-Service -Name "hpsvcsscan"
 
 #### HotKeyServiceDSU
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 Stop-Service -Name "HotKeyServiceDSU"
@@ -1347,7 +1347,7 @@ Set-Service -Name "HotKeyServiceDSU"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-Service -Name "HotKeyServiceDSU"`
@@ -1363,7 +1363,7 @@ Id to include: `Office365`
 
 Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft 365 (Office)" --exact
@@ -1374,7 +1374,7 @@ winget uninstall --name "Microsoft 365 (Office)" --exact
 
 Id to include: `OfficeCloudFiles`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer"`
@@ -1383,7 +1383,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "0"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer"`
@@ -1392,7 +1392,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "1"
 ```
 
-Notes:
+#### Notes:
 
 * Disables Office cloud files in explorer<br>
   <img src="/src/OfficeExplorer.png" height="200px"><br>
@@ -1406,13 +1406,13 @@ Id to include: `OneDrive`
 
 Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft OneDrive" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
 
@@ -1425,7 +1425,7 @@ Id to include: `Paint`
 
 Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Paint" --exact
@@ -1436,7 +1436,7 @@ winget uninstall --name "Paint" --exact
 
 Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget install --name "paint.net" --exact
@@ -1450,13 +1450,13 @@ Id to include: `PhoneLink`
 
 Uninstalls `Phone Link` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Phone Link" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)
 
@@ -1465,7 +1465,7 @@ Notes:
 
 Id to include: `Printer`
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 Stop-Service -Name "Spooler"
@@ -1473,7 +1473,7 @@ Set-Service -Name "Spooler"`
             -StartupType "Disabled"
 ```
 
-Command to manually revert:
+#### Command to manually revert:
 
 ```ps
 Set-Service -Name "Spooler"`
@@ -1488,13 +1488,13 @@ Id to include: `QuickAssist`
 
 Uninstalls `Quick Assist` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Quick Assist" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
 
@@ -1505,13 +1505,13 @@ Id to include: `Teams`
 
 Uninstalls `Microsoft Teams` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Microsoft Teams" --exact
 ```
 
-Notes:
+#### Notes:
 
  * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
 
@@ -1522,7 +1522,7 @@ Id to include: `VoiceRecorder`
 
 Uninstalls `Windows Voice Recorder` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Command to manually apply:
+#### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Voice Recorder" --exact
