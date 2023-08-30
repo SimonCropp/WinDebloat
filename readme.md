@@ -71,65 +71,65 @@ WinDebloat --exclude AdvertiserId Xbox
 
 ## Items DeBloated<!-- include: actions. path: /src/actions.include.md -->
 
- * 3D Viewer
- * Advertiser Id
- * Calculator (optional)
- * Camera
- * Chat
- * Clock (optional)
- * Clipchamp
- * Cortana
- * Developer Mode (optional)
- * EdgeBingSideBar (optional)
- * Edge Desktop Search Bar
- * EdgeRecommendations
- * Explorer Classic Menu (optional)
- * Feedback Hub
- * FileExtensions
- * Games
- * Get Help
- * Health Check (optional)
- * HP Vendorware (optional)
- * Internet Connection Sharing
- * Lock Screen Ads
- * Mail and Calendar
- * Maps
- * Media Player
- * Mixed Reality Portal
- * Movies and TV
- * News
- * OneNote
- * Office 365 (optional)
- * OneDrive (optional)
- * Paint 3D
- * Paint (optional)
- * Pay
- * People
- * Phone Link (optional)
- * Photos
- * Power Automate
- * PowerShell Unrestricted
- * Printer (optional)
- * Print 3D
- * Quick Assist (optional)
- * Skype
- * Startup boost
- * Start Menu Recommendations
- * Sticky Notes
- * TaskBar Search
- * Task View
- * Teams (optional)
- * Teams Installer
- * Telemetry
- * Tips
- * To Do
- * Voice Recorder (optional)
- * Weather
- * Web Experience Pack
- * Start Menu Web Search
- * Whiteboard
- * Widgets
- * Xbox
+ * [3D Viewer](#3d-viewer)
+ * [Advertiser Id](#advertiser-id)
+ * [Calculator](#calculator) (optional)
+ * [Camera](#camera)
+ * [Chat](#chat)
+ * [Clock](#clock) (optional)
+ * [Clipchamp](#clipchamp)
+ * [Cortana](#cortana)
+ * [Developer Mode](#developer-mode) (optional)
+ * [EdgeBingSideBar](#edgebingsidebar) (optional)
+ * [Edge Desktop Search Bar](#edge-desktop-search-bar)
+ * [EdgeRecommendations](#edgerecommendations)
+ * [Explorer Classic Menu](#explorer-classic-menu) (optional)
+ * [Feedback Hub](#feedback-hub)
+ * [FileExtensions](#fileextensions)
+ * [Games](#games)
+ * [Get Help](#get-help)
+ * [Health Check](#health-check) (optional)
+ * [HP Vendorware](#hp-vendorware) (optional)
+ * [Internet Connection Sharing](#internet-connection-sharing)
+ * [Lock Screen Ads](#lock-screen-ads)
+ * [Mail and Calendar](#mail-and-calendar)
+ * [Maps](#maps)
+ * [Media Player](#media-player)
+ * [Mixed Reality Portal](#mixed-reality-portal)
+ * [Movies and TV](#movies-and-tv)
+ * [News](#news)
+ * [OneNote](#onenote)
+ * [Office 365](#office-365) (optional)
+ * [OneDrive](#onedrive) (optional)
+ * [Paint 3D](#paint-3d)
+ * [Paint](#paint) (optional)
+ * [Pay](#pay)
+ * [People](#people)
+ * [Phone Link](#phone-link) (optional)
+ * [Photos](#photos)
+ * [Power Automate](#power-automate)
+ * [PowerShell Unrestricted](#powershell-unrestricted)
+ * [Printer](#printer) (optional)
+ * [Print 3D](#print-3d)
+ * [Quick Assist](#quick-assist) (optional)
+ * [Skype](#skype)
+ * [Startup boost](#startup-boost)
+ * [Start Menu Recommendations](#start-menu-recommendations)
+ * [Sticky Notes](#sticky-notes)
+ * [TaskBar Search](#taskbar-search)
+ * [Task View](#task-view)
+ * [Teams](#teams) (optional)
+ * [Teams Installer](#teams-installer)
+ * [Telemetry](#telemetry)
+ * [Tips](#tips)
+ * [To Do](#to-do)
+ * [Voice Recorder](#voice-recorder) (optional)
+ * [Weather](#weather)
+ * [Web Experience Pack](#web-experience-pack)
+ * [Start Menu Web Search](#start-menu-web-search)
+ * [Whiteboard](#whiteboard)
+ * [Widgets](#widgets)
+ * [Xbox](#xbox)
 
 
 ## Default Items Removed / Disabled
