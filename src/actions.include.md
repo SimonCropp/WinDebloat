@@ -1323,7 +1323,9 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Notes:
 
-* Disables Office cloud files in explorer <br><img src="/src/OfficeExplorer.png" height="200px"> <img src="/src/OfficeExplorerDialog.png" height="200px"> <img src="/src/OfficeExplorerOptions.png" height="200px">
+* Disables Office cloud files in explorer <br><img src="/src/OfficeExplorer.png" height="150px">
+  <img src="/src/OfficeExplorerDialog.png" height="200px">
+  <img src="/src/OfficeExplorerOptions.png" height="250px">
 
 
 ### OneDrive
