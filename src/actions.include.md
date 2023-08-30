@@ -29,6 +29,7 @@
  * [News](#news)
  * [OneNote](#onenote)
  * [Office 365](#office-365) (optional)
+ * [Office Cloud Files](#office-cloud-files) (optional)
  * [OneDrive](#onedrive) (optional)
  * [Paint 3D](#paint-3d)
  * [Paint](#paint) (optional)
@@ -1296,6 +1297,33 @@ Command to manually apply:
 ```ps
 winget uninstall --name "Microsoft 365 (Office)" --exact
 ```
+
+
+### Office Cloud Files
+
+Id to include: `OfficeCloudFiles`
+
+Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer"`
+                 -Name "ShowCloudFilesInQuickAccess"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer"`
+                 -Name "ShowCloudFilesInQuickAccess"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+Notes:
+
+* Disables Office cloud files in explorer <br><img src="/src/OfficeExplorer.png" height="200px"> <img src="/src/OfficeExplorerDialog.png" height="200px"> <img src="/src/OfficeExplorerOptions.png" height="200px">
 
 
 ### OneDrive
