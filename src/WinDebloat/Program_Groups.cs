@@ -173,6 +173,17 @@
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
         new("Office 365", false, new UninstallJob("Microsoft 365 (Office)")),
         new(
+            "Office Cloud Files",
+            false,
+            new RegistryValueJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer",
+                "ShowCloudFilesInQuickAccess",
+                0,
+                1,
+                Notes: """
+                       * Disables Office cloud files in explorer <br><img src="/src/OfficeExplorer.png" height="200px"> <img src="/src/OfficeExplorerDialog.png" height="200px"> <img src="/src/OfficeExplorerOptions.png" height="200px">
+                       """)),
+        new(
             "OneDrive",
             false,
             new UninstallJob(
