@@ -80,6 +80,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * Clipchamp
  * Cortana
  * Developer Mode (optional)
+ * EdgeBingSideBar (optional)
  * Edge Desktop Search Bar
  * EdgeRecommendations
  * Explorer Classic Menu (optional)
@@ -1128,6 +1129,34 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx"
 Notes:
 
  * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)
+
+
+### EdgeBingSideBar
+
+Id to include: `EdgeBingSideBar`
+
+Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "HubsSidebarEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "HubsSidebarEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+Notes:
+
+* [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
+* Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
 
 
 ### Explorer Classic Menu

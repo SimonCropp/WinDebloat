@@ -61,6 +61,18 @@
                 0,
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
+            "EdgeBingSideBar",
+            false,
+            new RegistryValueJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                "HubsSidebarEnabled",
+                0,
+                1,
+                Notes: """
+                       * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
+                       * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
+                       """)),
+        new(
             "Edge Desktop Search Bar",
             true,
             new RegistryValueJob(
@@ -68,7 +80,7 @@
                 "WebWidgetAllowed",
                 0,
                 1,
-                Notes:" * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
+                Notes: " * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
             "EdgeRecommendations",
             true,
@@ -77,10 +89,10 @@
                 "ShowRecommendationsEnabled",
                 0,
                 1,
-                Notes:"""
-                      * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
-                      * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
-                      """)),
+                Notes: """
+                       * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
+                       * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
+                       """)),
         new(
             "Explorer Classic Menu",
             false,
@@ -103,7 +115,8 @@
             "Health Check", false,
             new UninstallJob(
                 "Windows PC Health Check",
-                Notes: " * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),        new(
+                Notes: " * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),
+        new(
             "HP Vendorware",
             "HP",
             false,
