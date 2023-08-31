@@ -887,7 +887,7 @@ winget uninstall --name "Microsoft To Do" --exact
 
 #### Notes:
 
- * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558
+ * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558)
 
 
 ### Weather
