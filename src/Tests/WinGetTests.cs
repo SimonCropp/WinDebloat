@@ -38,5 +38,12 @@ public class WinGetTests
         // This should not throw
         await WinGet.List();
     }
+
+    [Test]
+    public async Task GetVersion()
+    {
+        var version = await WinGet.GetVersion();
+        Assert.Greater(3, version.Major);
+    }
 }
 #endif

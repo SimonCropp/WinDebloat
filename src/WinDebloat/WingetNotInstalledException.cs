@@ -1,4 +1,4 @@
-﻿public class WingetNotInstalledException :
+﻿public class WinGetNotInstalledException :
     Exception
 {
 }

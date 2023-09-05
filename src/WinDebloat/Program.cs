@@ -32,6 +32,7 @@ public static partial class Program
     public static async Task Inner(string[] excludes, string[] includes)
     {
         WinGet.EnsureInstalled();
+        await WinGet.EnsureVersion();
         LogExcludes(excludes);
         LogIncludes(includes);
 
