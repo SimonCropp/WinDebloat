@@ -1,6 +1,10 @@
 public static class WinGet
 {
-    public static string ExpectedPath = Path.Combine(Environment.GetEnvironmentVariable("LOCALAPPDATA")!, @"Microsoft\WindowsApps\winget.exe");
+    public static string ExpectedPath = Path.Combine(
+        Environment.GetEnvironmentVariable("LOCALAPPDATA")!,
+        @"Microsoft\WindowsApps\winget.exe");
+
+    public static Version MinVersion { get; } = new(1, 5, 2201);
 
     public static void EnsureInstalled()
     {
@@ -9,7 +13,19 @@ public static class WinGet
             return;
         }
 
-        throw new WingetNotInstalledException();
+        throw new WinGetNotInstalledException();
+    }
+
+    public static async Task EnsureVersion()
+    {
+        var version = await GetVersion();
+
+        if (version >= MinVersion)
+        {
+            return;
+        }
+
+        throw new WinGetVersionNotMetException(version);
     }
 
     public static async Task Install(string name)
@@ -83,6 +99,20 @@ public static class WinGet
         }
     }
 
+    public static async Task<Version> GetVersion()
+    {
+        var arguments = "--version";
+        var result = await Run(arguments);
+
+        if (result.ExitCode != 0)
+        {
+            Throw(arguments, result);
+        }
+
+        return Version.Parse(result.Output[0][1..]);
+    }
+
+    [DoesNotReturn]
     static void Throw(string arguments, RunResult result) =>
         throw new(
             $"""
@@ -111,7 +141,7 @@ public static class WinGet
     static void AppendLine(List<string> list, string line)
     {
         var data = line.Trim();
-        if (data is {Length: > 1})
+        if (data.Length > 1)
         {
             list.Add(data);
         }

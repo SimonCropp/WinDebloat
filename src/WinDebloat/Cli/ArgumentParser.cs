@@ -56,9 +56,19 @@ public static class ArgumentParser
 
                     await invoke(excludes, includes);
                 }
-                catch (WingetNotInstalledException)
+                catch (WinGetNotInstalledException)
                 {
-                    Log.Fatal($"Winget not installed. Expected path: {WinGet.ExpectedPath}. To install: https://www.microsoft.com/p/app-installer/9nblggh4nns1");
+                    Log.Fatal($"WinGet not installed. Expected path: {WinGet.ExpectedPath}. To install: https://www.microsoft.com/p/app-installer/9nblggh4nns1");
+
+                    if (Environment.UserInteractive)
+                    {
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+                    }
+                }
+                catch (WinGetVersionNotMetException exception)
+                {
+                    Log.Fatal($"WinGet version is incorrect. Minimum: {WinGet.MinVersion}. Installed: {exception.InstalledVersion}. Releases: https://github.com/microsoft/winget-cli/releases");
 
                     if (Environment.UserInteractive)
                     {
