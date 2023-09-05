@@ -53,7 +53,7 @@ public static partial class Program
             {
                 if (!includes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
                 {
-                    Log.Information($"Skipping '{group.Name}' since it is not included by default an has not been explicitly included");
+                    Log.Information($"Skipping '{group.Name}' since it is not included by default and has not been explicitly included");
                     continue;
                 }
             }
