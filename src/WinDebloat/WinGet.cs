@@ -83,8 +83,7 @@ public static class WinGet
         }
     }
 
-    static void Throw(string arguments, RunResult result)
-    {
+    static void Throw(string arguments, RunResult result) =>
         throw new(
             $"""
              Error. Command line: winget {arguments}.
@@ -92,7 +91,6 @@ public static class WinGet
                Output: {string.Join('\n', result.Output)}
                Error: {string.Join('\n', result.Error)}
              """);
-    }
 
     static async Task<RunResult> Run(string arguments)
     {
