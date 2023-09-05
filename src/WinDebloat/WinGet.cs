@@ -112,6 +112,7 @@ public static class WinGet
         return Version.Parse(result.Output[0][1..]);
     }
 
+    [DoesNotReturn]
     static void Throw(string arguments, RunResult result) =>
         throw new(
             $"""
