@@ -10,19 +10,20 @@ A dotnet tool that removes the bloat in Windows 11
 > This tool makes changes to the Registry. Consider doing a backup before using.
 
 
-## Installation
+## Requirements
 
-Ensure [dotnet CLI is installed](https://docs.microsoft.com/en-us/dotnet/core/tools/).
+ * [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/). At least version 7.
+ * [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/). At least version 1.5.2201. See [winget-cli/releases](https://github.com/microsoft/winget-cli/releases) to install a specific version.
 
 
-### Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
+## Install [WinDebloat](https://nuget.org/packages/WinDebloat/)
 
 ```ps
 dotnet tool install -g WinDebloat
 ```
 
 
-#### Update
+### Update
 
 ```ps
 dotnet tool update -g WinDebloat
