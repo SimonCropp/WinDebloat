@@ -52,6 +52,17 @@
                 Notes: " * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)")),
         new("Cortana", true, new UninstallJob("Cortana")),
         new(
+            "Customize This Folder",
+            false,
+            new RegistryValueJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer",
+                "NoCustomizeThisFolder",
+                1,
+                0,
+                Notes: """
+                       * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
+                       """)),
+        new(
             "Developer Mode",
             false,
             new RegistryValueJob(

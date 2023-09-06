@@ -8,6 +8,7 @@
  * [Clock](#clock) (optional)
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
+ * [Customize This Folder](#customize-this-folder) (optional)
  * [Developer Mode](#developer-mode) (optional)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
@@ -1033,6 +1034,33 @@ winget uninstall --name "Windows Clock" --exact
 #### Notes:
 
  * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)
+
+
+### Customize This Folder
+
+Id to include: `CustomizeThisFolder`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"`
+                 -Name "NoCustomizeThisFolder"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"`
+                 -Name "NoCustomizeThisFolder"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
 
 
 ### Developer Mode
