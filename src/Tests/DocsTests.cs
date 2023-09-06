@@ -31,7 +31,7 @@ public class DocsTests
         writer.WriteLine(
             """
 
-            
+
             ## Default Items Removed / Disabled
 
 
@@ -59,7 +59,7 @@ public class DocsTests
         writer.WriteLine(
             $"""
              ### {group.Name}
-             
+
              """);
         if (group.IsDefault)
         {
@@ -136,16 +136,35 @@ public class DocsTests
 
                      {headingLevel} Command to manually revert:
 
-                     ```ps
-                     Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
-                                      -Name "{registryJob.Name}"`
-                                      -Type "{registryJob.Kind}"`
-                                      -Value "{registryJob.RevertValue}"
-                     ```
-
                      """);
+                if (registryJob.RevertValue is null)
+                {
+                    writer.WriteLine(
+                        $"""
+                         ```ps
+                         Remove-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
+                                             -Name "{registryJob.Name}"
+                         ```
+
+                         """);
+                }
+                else
+                {
+                    writer.WriteLine(
+                        $"""
+                         ```ps
+                         Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
+                                          -Name "{registryJob.Name}"`
+                                          -Type "{registryJob.Kind}"`
+                                          -Value "{registryJob.RevertValue}"
+                         ```
+
+                         """);
+                }
+
                 break;
             case RegistryKeyJob registryJob:
+            {
                 writer.WriteLine(
                     $"""
                      {headingLevel} Command to manually apply:
@@ -161,6 +180,7 @@ public class DocsTests
                      ```
 
                      """);
+            }
                 break;
             case InstallJob installJob:
                 writer.WriteLine(
@@ -197,7 +217,7 @@ public class DocsTests
                  {headingLevel} Notes:
 
                  {job.Notes}
-                
+
                  """);
         }
 
