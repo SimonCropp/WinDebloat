@@ -13,6 +13,7 @@
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [EdgeRecommendations](#edgerecommendations)
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
+ * [Explorer Give access to](#explorer-give-access-to) (optional)
  * [Feedback Hub](#feedback-hub)
  * [FileExtensions](#fileextensions)
  * [Games](#games)
@@ -1103,6 +1104,27 @@ New-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-5
 
 ```ps
 Remove-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
+```
+
+
+### Explorer Give access to
+
+Id to include: `ExplorerGiveaccessto`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                 -Name "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}"`
+                 -Type "String"`
+                 -Value ""
+```
+
+#### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                    -Name "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}"`
 ```
 
 
