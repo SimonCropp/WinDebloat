@@ -13,11 +13,11 @@
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [EdgeRecommendations](#edgerecommendations)
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
- * [Explorer Give access to](#explorer-give-access-to) (optional)
  * [Feedback Hub](#feedback-hub)
  * [FileExtensions](#fileextensions)
  * [Games](#games)
  * [Get Help](#get-help)
+ * [Give Access To](#give-access-to) (optional)
  * [Health Check](#health-check) (optional)
  * [HP Vendorware](#hp-vendorware) (optional)
  * [Internet Connection Sharing](#internet-connection-sharing)
@@ -1107,9 +1107,9 @@ Remove-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a50
 ```
 
 
-### Explorer Give access to
+### Give Access To
 
-Id to include: `ExplorerGiveaccessto`
+Id to include: `GiveAccessTo`
 
 #### Command to manually apply:
 
@@ -1124,8 +1124,12 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion
 
 ```ps
 Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
-                    -Name "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}"`
+                    -Name "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}"
 ```
+
+#### Notes:
+
+* Removes Explorer "Give access to" context menu
 
 
 ### Health Check

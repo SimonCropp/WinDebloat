@@ -98,15 +98,6 @@
             false,
             new RegistryKeyJob(
                 @"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
-        new(
-            "Explorer Give access to",
-            false,
-            new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
-                "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}",
-                "",
-                null,
-                RegistryValueKind.String)),
         new("Feedback Hub",
             true,
             new UninstallJob("Feedback Hub")),
@@ -120,6 +111,18 @@
                 1)),
         new("Games", true, new UninstallJob("Solitaire & Casual Games")),
         new("Get Help", true, new UninstallJob("Get Help")),
+        new(
+            "Give Access To",
+            false,
+            new RegistryValueJob(
+                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
+                "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}",
+                "",
+                null,
+                RegistryValueKind.String,
+                Notes: """
+                       * Removes Explorer "Give access to" context menu
+                       """)),
         new(
             "Health Check", false,
             new UninstallJob(
