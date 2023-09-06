@@ -1129,7 +1129,7 @@ Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVers
 
 #### Notes:
 
-* Removes Explorer "Give access to" context menu
+* Removes Explorer "Give access to" functionality. Both from the context menu and from the properties tab.
 
 
 ### Health Check
