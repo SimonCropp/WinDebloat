@@ -8,22 +8,27 @@ public class ProgramTests
     {
         await Program.Inner(
             Array.Empty<string>(),
-            Program.Groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray());
+            Program.Groups.Where(_ => !_.IsDefault)
+            .Select(_ => _.Id)
+            .ToArray());
+
         foreach (var group in Program.Groups)
         {
             foreach (var job in group.Jobs)
             {
-                if (job is RegistryValueJob registryJob)
+                if (job is not RegistryValueJob registryJob)
                 {
-                    var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
-
-                    if (registryJob.ApplyValue.Equals(actual))
-                    {
-                        return;
-                    }
-
-                    throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.ApplyValue}");
+                    continue;
                 }
+
+                var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
+
+                if (registryJob.ApplyValue.Equals(actual))
+                {
+                    return;
+                }
+
+                throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.ApplyValue}");
             }
         }
     }
