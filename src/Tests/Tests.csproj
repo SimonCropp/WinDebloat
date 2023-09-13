@@ -3,12 +3,12 @@
         <TargetFramework>net7.0-windows</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ProjectDefaults" Version="1.0.96" PrivateAssets="all" />
+        <PackageReference Include="ProjectDefaults" Version="1.0.97" PrivateAssets="all" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
         <PackageReference Include="NUnit" Version="3.13.3" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
         <PackageReference Include="Verify.DiffPlex" Version="2.2.1" />
-        <PackageReference Include="Verify.Nunit" Version="21.1.1" />
+        <PackageReference Include="Verify.Nunit" Version="21.1.2" />
         <PackageReference Include="MarkdownSnippets.MsBuild" Version="25.1.0" PrivateAssets="all" />
       <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
     </ItemGroup>
