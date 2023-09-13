@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <Version>1.2.0</Version>
+    <LangVersion>preview</LangVersion>
     <PackageTags>Windows, Debloat</PackageTags>
     <Description>A utility to debloat Windows</Description>
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
