@@ -197,7 +197,11 @@ public static partial class Program
             return;
         }
 
-        Registry.SetValue(key, name, applyValue, kind);
+        if (key.Contains("ms-officeapp"))
+        {
+            if(name == "(Default)")
+            Registry.SetValue(key, name, applyValue, kind);
+        }
     }
 
     static void HandleRegistry(RegistryKeyJob job)

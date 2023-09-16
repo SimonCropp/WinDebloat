@@ -210,6 +210,16 @@
                          <img src="/src/OfficeExplorerOptions.png" height="300px">
                        """)),
         new(
+            "Office Hyper keys",
+            true,
+            new RegistryValueJob(
+                @"HKEY_CURRENT_USER\Software\Classes\ms-officeapp\Shell\Open\Command",
+                "(Default)",
+                "rundll32",
+                null,
+                RegistryValueKind.String,
+                Notes: "* [Disabling the Office hotkey in Windows 10](https://answers.microsoft.com/en-us/windows/forum/all/disabling-the-office-hotkey-in-windows-10/58e2f30f-8556-4f73-bf0c-56544697218d)")),
+        new(
             "OneDrive",
             false,
             new UninstallJob(
