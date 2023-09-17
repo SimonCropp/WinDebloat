@@ -197,7 +197,14 @@ public static partial class Program
             return;
         }
 
-        Registry.SetValue(key, name, applyValue, kind);
+        if (name == "(Default)")
+        {
+            Registry.SetValue(key, null, applyValue, kind);
+        }
+        else
+        {
+            Registry.SetValue(key, name, applyValue, kind);
+        }
     }
 
     static void HandleRegistry(RegistryKeyJob job)
