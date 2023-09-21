@@ -10,6 +10,8 @@ A dotnet tool that removes the bloat in Windows 11
 > This tool makes changes to the Registry. Consider doing a backup before using.
 
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 ## Requirements
 
  * [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/). At least version 7.
