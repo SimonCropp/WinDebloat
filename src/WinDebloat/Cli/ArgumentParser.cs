@@ -3,7 +3,7 @@ using System.CommandLine.Parsing;
 
 public static class ArgumentParser
 {
-    public static async Task<int> Invoke(string[] args, InvokeAction invoke, IReadOnlyCollection<Group> groups)
+    public static Task<int> Invoke(string[] args, InvokeAction invoke, IReadOnlyCollection<Group> groups)
     {
         bool FindGroup(string id, [NotNullWhen(true)] out Group? group) =>
             TryFindGroup(id, groups, out group);
@@ -86,7 +86,7 @@ public static class ArgumentParser
             includeOptions,
             includeAllOptions);
 
-        return await command.InvokeAsync(args);
+        return command.InvokeAsync(args);
     }
 
     static bool TryFindGroup(string id, IEnumerable<Group> groups, [NotNullWhen(true)] out Group? group)

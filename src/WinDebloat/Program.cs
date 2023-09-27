@@ -10,7 +10,7 @@ public static partial class Program
         var stopwatch = Stopwatch.StartNew();
         try
         {
-            return await ArgumentParser.Invoke(args, async (excludes, includes) => await Inner(excludes, includes), Groups);
+            return await ArgumentParser.Invoke(args, Inner, Groups);
         }
         catch (Exception exception)
         {
@@ -100,26 +100,26 @@ public static partial class Program
         }
     }
 
-    static async Task HandleJob(IJob job)
+    static Task HandleJob(IJob job)
     {
         switch (job)
         {
             case RegistryValueJob registry:
                 HandleRegistry(registry);
-                return;
+                return Task.CompletedTask;
             case RegistryKeyJob registry:
                 HandleRegistry(registry);
-                return;
+                return Task.CompletedTask;
             case InstallJob installJob:
-                await HandleInstall(installJob);
-                return;
+                return HandleInstall(installJob);
             case UninstallJob uninstallJob:
-                await HandleUninstall(uninstallJob);
-                return;
+                return HandleUninstall(uninstallJob);
             case DisableServiceJob disableServiceJob:
                 HandleDisableService(disableServiceJob);
-                return;
+                return Task.CompletedTask;
         }
+
+        return Task.CompletedTask;
     }
 
     static void HandleDisableService(DisableServiceJob job)
