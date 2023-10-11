@@ -49,9 +49,18 @@ public static class WinGet
     public static string GetInstallArguments(string name) =>
         $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
 
-    public static async Task Uninstall(string name)
+    public static async Task Uninstall(string name, bool partialMatch)
     {
-        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
+        string arguments;
+        if (partialMatch)
+        {
+            arguments = $"uninstall \"{name}\" --disable-interactivity --silent --accept-source-agreements";
+        }
+        else
+        {
+            arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
+        }
+
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)

@@ -158,9 +158,9 @@ public static partial class Program
     {
         var name = job.Name;
         Log.Information($"Uninstall: {name}");
-        if (IsInstalled(name))
+        if (IsInstalled(name, job.PartialMatch))
         {
-            await WinGet.Uninstall(name);
+            await WinGet.Uninstall(name, job.PartialMatch);
             Log.Information($"Uninstalled {name}");
             return;
         }
@@ -172,7 +172,7 @@ public static partial class Program
     {
         var name = job.Name;
         Log.Information($"Install: {name}");
-        if (IsInstalled(name))
+        if (IsInstalled(name, false))
         {
             Log.Information($"Skipped install of {name} since installed");
             return;
@@ -182,8 +182,31 @@ public static partial class Program
         Log.Information($"Installed {name}");
     }
 
-    static bool IsInstalled(string package) =>
-        installed.Any(_ => string.Equals(_, package, StringComparison.OrdinalIgnoreCase));
+    static bool IsInstalled(string package, bool partialMatch) =>
+        installed.Any(_ =>
+        {
+            if (string.Equals(_, package, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            if (!partialMatch)
+            {
+                return false;
+            }
+
+            if (_.Contains(package, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            if (_.Replace(" ","").Contains(package, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            return false;
+        });
 
     static void HandleRegistry(RegistryValueJob job)
     {

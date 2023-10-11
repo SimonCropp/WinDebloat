@@ -196,6 +196,20 @@ public class DocsTests
                      """);
                 break;
             case UninstallJob uninstallJob:
+
+                string command;
+
+                if (uninstallJob.PartialMatch)
+                {
+                    command = $"""
+                               winget uninstall "{uninstallJob.Name}"
+                               """;
+                }
+                else
+                {
+                    command = $"""winget uninstall --name "{uninstallJob.Name}" --exact""";
+                }
+
                 writer.WriteLine(
                     $"""
                      Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
@@ -203,7 +217,7 @@ public class DocsTests
                      {headingLevel} Command to manually apply:
 
                      ```ps
-                     winget uninstall --name "{uninstallJob.Name}" --exact
+                     {command}
                      ```
 
                      """);

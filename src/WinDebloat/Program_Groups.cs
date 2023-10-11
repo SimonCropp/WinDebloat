@@ -64,7 +64,7 @@
                        """)),
         new(
             "DevHome",
-            true,
+            false,
             new UninstallJob(
                 "DevHome",
                 Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
