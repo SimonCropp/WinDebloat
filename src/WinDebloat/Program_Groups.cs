@@ -63,6 +63,13 @@
                        * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
                        """)),
         new(
+            "DevHome",
+            false,
+            new UninstallJob(
+                "DevHome",
+                Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
+                PartialMatch: true)),
+        new(
             "Developer Mode",
             false,
             new RegistryValueJob(

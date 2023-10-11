@@ -9,6 +9,7 @@
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
  * [Customize This Folder](#customize-this-folder) (optional)
+ * [DevHome](#devhome) (optional)
  * [Developer Mode](#developer-mode) (optional)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
@@ -1061,6 +1062,23 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 #### Notes:
 
 * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
+
+
+### DevHome
+
+Id to include: `DevHome`
+
+Uninstalls `DevHome` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall "DevHome"
+```
+
+#### Notes:
+
+ * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)
 
 
 ### Developer Mode
