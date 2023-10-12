@@ -118,7 +118,7 @@ public static class WinGet
             Throw(arguments, result);
         }
 
-        return Version.Parse(result.Output[0][1..]);
+        return SafeVersion.Parse(result.Output[0]);
     }
 
     [DoesNotReturn]
