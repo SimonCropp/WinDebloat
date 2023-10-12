@@ -1,8 +1,6 @@
-﻿namespace Tests;
-
-public class VersionExtensionsTests
+﻿public class VersionExtensionsTests
 {
-    private static IEnumerable<TestCaseData> GetVersionTestData()
+    static IEnumerable<TestCaseData> GetVersionTestData()
     {
         yield return new("v1.2.3", new Version(1, 2, 3));
         yield return new("v1.2.3.4", new Version(1, 2, 3, 4));
