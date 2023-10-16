@@ -6,5 +6,6 @@
     <PackageTags>Windows, Debloat</PackageTags>
     <Description>A utility to debloat Windows</Description>
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
+    <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
 </Project>
