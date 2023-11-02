@@ -91,6 +91,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
  * [Feedback Hub](#feedback-hub)
  * [FileExtensions](#fileextensions)
+ * [FilmsAndTV](#filmsandtv)
  * [Games](#games)
  * [Get Help](#get-help)
  * [Give Access To](#give-access-to) (optional)
@@ -348,6 +349,19 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion
                  -Name "HideFileExt"`
                  -Type "DWord"`
                  -Value "1"
+```
+
+
+### FilmsAndTV
+
+Id to exclude: `FilmsAndTV`
+
+Uninstalls `Films & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall --name "Films & TV" --exact
 ```
 
 
