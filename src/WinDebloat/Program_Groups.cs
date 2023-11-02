@@ -220,8 +220,9 @@
             "OneDrive",
             false,
             new UninstallJob(
-                "Microsoft OneDrive",
-                Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
+                "OneDrive",
+                Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)",
+                true)
         ),
         new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new(
