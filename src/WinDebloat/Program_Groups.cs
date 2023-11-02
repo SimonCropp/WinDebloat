@@ -284,6 +284,10 @@
                 "Skype",
                 Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)")),
         new(
+            "Spotify",
+            true,
+            new UninstallJob("Spotify Music")),
+        new(
             "Startup boost",
             true,
             new RegistryValueJob(

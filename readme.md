@@ -121,6 +121,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Print 3D](#print-3d)
  * [Quick Assist](#quick-assist) (optional)
  * [Skype](#skype)
+ * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
  * [Start Menu Recommendations](#start-menu-recommendations)
  * [Sticky Notes](#sticky-notes)
@@ -712,6 +713,19 @@ winget uninstall --name "Skype" --exact
 #### Notes:
 
  * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)
+
+
+### Spotify
+
+Id to exclude: `Spotify`
+
+Uninstalls `Spotify Music` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall --name "Spotify Music" --exact
+```
 
 
 ### Startup boost
