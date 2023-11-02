@@ -1479,12 +1479,12 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `OneDrive`
 
-Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft OneDrive" --exact
+winget uninstall "OneDrive"
 ```
 
 #### Notes:
