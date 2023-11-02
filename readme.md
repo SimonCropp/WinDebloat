@@ -1619,4 +1619,5 @@ winget uninstall --name "Windows Voice Recorder" --exact
 [Elephant](https://thenounproject.com/icon/elephant-face-1557798/) designed by [Icons Producer](https://thenounproject.com/iconsproducer/) from [The Noun Project](https://thenounproject.com).
 
 ## Testing
+
 Unit tests should be run with elevated privileges
