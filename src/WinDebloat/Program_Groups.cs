@@ -41,9 +41,13 @@
         new(
             "Clock",
             false,
-            new UninstallJob(
-                "Windows Clock",
-                Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)")),
+            new IJob[]
+            {
+                new UninstallJob(
+                    "Windows Clock",
+                    Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)"),
+                new UninstallJob("Windows Alarms & Clock"),
+            }),
         new(
             "Clipchamp",
             true,
