@@ -133,6 +133,10 @@
                 0,
                 1)),
         new(
+            "FilmsAndTV",
+            true,
+            new UninstallJob("Films & TV")),
+        new(
             "Games",
             true,
             new IJob[]
