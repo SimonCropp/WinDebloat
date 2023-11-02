@@ -1024,17 +1024,31 @@ winget uninstall --name "Windows Calculator" --exact
 
 Id to include: `Clock`
 
+#### Windows Clock
+
 Uninstalls `Windows Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Clock" --exact
 ```
 
-#### Notes:
+##### Notes:
 
  * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)
+
+
+#### Windows Alarms & Clock
+
+Uninstalls `Windows Alarms & Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Alarms & Clock" --exact
+```
+
 
 
 ### Customize This Folder
