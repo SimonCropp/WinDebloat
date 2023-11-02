@@ -355,13 +355,27 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion
 
 Id to exclude: `Games`
 
+#### Solitaire & Casual Games
+
 Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Solitaire & Casual Games" --exact
 ```
+
+
+#### Microsoft Solitaire Collection
+
+Uninstalls `Microsoft Solitaire Collection` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft Solitaire Collection" --exact
+```
+
 
 
 ### Get Help

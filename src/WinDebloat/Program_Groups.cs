@@ -120,7 +120,8 @@
             false,
             new RegistryKeyJob(
                 @"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
-        new("Feedback Hub",
+        new(
+            "Feedback Hub",
             true,
             new UninstallJob("Feedback Hub")),
         new(
@@ -131,7 +132,14 @@
                 "HideFileExt",
                 0,
                 1)),
-        new("Games", true, new UninstallJob("Solitaire & Casual Games")),
+        new(
+            "Games",
+            true,
+            new IJob[]
+            {
+                new UninstallJob("Solitaire & Casual Games"),
+                new UninstallJob("Microsoft Solitaire Collection")
+            }),
         new("Get Help", true, new UninstallJob("Get Help")),
         new(
             "Give Access To",
@@ -186,7 +194,8 @@
                     1),
             }),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
-        new("Maps",
+        new(
+            "Maps",
             true,
             new IJob[]
             {
