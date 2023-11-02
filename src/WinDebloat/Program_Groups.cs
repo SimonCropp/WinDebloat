@@ -41,9 +41,13 @@
         new(
             "Clock",
             false,
-            new UninstallJob(
-                "Windows Clock",
-                Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)")),
+            new IJob[]
+            {
+                new UninstallJob(
+                    "Windows Clock",
+                    Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)"),
+                new UninstallJob("Windows Alarms & Clock"),
+            }),
         new(
             "Clipchamp",
             true,
@@ -116,7 +120,8 @@
             false,
             new RegistryKeyJob(
                 @"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
-        new("Feedback Hub",
+        new(
+            "Feedback Hub",
             true,
             new UninstallJob("Feedback Hub")),
         new(
@@ -127,7 +132,18 @@
                 "HideFileExt",
                 0,
                 1)),
-        new("Games", true, new UninstallJob("Solitaire & Casual Games")),
+        new(
+            "FilmsAndTV",
+            true,
+            new UninstallJob("Films & TV")),
+        new(
+            "Games",
+            true,
+            new IJob[]
+            {
+                new UninstallJob("Solitaire & Casual Games"),
+                new UninstallJob("Microsoft Solitaire Collection")
+            }),
         new("Get Help", true, new UninstallJob("Get Help")),
         new(
             "Give Access To",
@@ -182,7 +198,8 @@
                     1),
             }),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
-        new("Maps",
+        new(
+            "Maps",
             true,
             new IJob[]
             {
@@ -220,8 +237,9 @@
             "OneDrive",
             false,
             new UninstallJob(
-                "Microsoft OneDrive",
-                Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
+                "OneDrive",
+                Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)",
+                true)
         ),
         new("Paint 3D", true, new UninstallJob("Paint 3D")),
         new(
@@ -265,6 +283,10 @@
             new UninstallJob(
                 "Skype",
                 Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)")),
+        new(
+            "Spotify",
+            true,
+            new UninstallJob("Spotify Music")),
         new(
             "Startup boost",
             true,

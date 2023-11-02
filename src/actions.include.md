@@ -17,6 +17,7 @@
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
  * [Feedback Hub](#feedback-hub)
  * [FileExtensions](#fileextensions)
+ * [FilmsAndTV](#filmsandtv)
  * [Games](#games)
  * [Get Help](#get-help)
  * [Give Access To](#give-access-to) (optional)
@@ -46,6 +47,7 @@
  * [Print 3D](#print-3d)
  * [Quick Assist](#quick-assist) (optional)
  * [Skype](#skype)
+ * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
  * [Start Menu Recommendations](#start-menu-recommendations)
  * [Sticky Notes](#sticky-notes)
@@ -277,17 +279,44 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion
 ```
 
 
-### Games
+### FilmsAndTV
 
-Id to exclude: `Games`
+Id to exclude: `FilmsAndTV`
 
-Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `Films & TV` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 #### Command to manually apply:
 
 ```ps
+winget uninstall --name "Films & TV" --exact
+```
+
+
+### Games
+
+Id to exclude: `Games`
+
+#### Solitaire & Casual Games
+
+Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
 winget uninstall --name "Solitaire & Casual Games" --exact
 ```
+
+
+#### Microsoft Solitaire Collection
+
+Uninstalls `Microsoft Solitaire Collection` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft Solitaire Collection" --exact
+```
+
 
 
 ### Get Help
@@ -612,6 +641,19 @@ winget uninstall --name "Skype" --exact
  * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)
 
 
+### Spotify
+
+Id to exclude: `Spotify`
+
+Uninstalls `Spotify Music` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall --name "Spotify Music" --exact
+```
+
+
 ### Startup boost
 
 Id to exclude: `Startupboost`
@@ -663,7 +705,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Explo
 
 #### Notes:
 
- * When manually applying the parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn't exist
+ * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
  * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
 
 
@@ -1024,17 +1066,31 @@ winget uninstall --name "Windows Calculator" --exact
 
 Id to include: `Clock`
 
+#### Windows Clock
+
 Uninstalls `Windows Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Windows Clock" --exact
 ```
 
-#### Notes:
+##### Notes:
 
  * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)
+
+
+#### Windows Alarms & Clock
+
+Uninstalls `Windows Alarms & Clock` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Windows Alarms & Clock" --exact
+```
+
 
 
 ### Customize This Folder
@@ -1405,12 +1461,12 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `OneDrive`
 
-Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft OneDrive" --exact
+winget uninstall "OneDrive"
 ```
 
 #### Notes:
