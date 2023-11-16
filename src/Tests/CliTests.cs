@@ -122,13 +122,12 @@ public class CliTests
         Console.SetOut(writer);
         Console.SetError(writer);
         await ArgumentParser.Invoke(
-            new []{"--include-all"},
+            ["--include-all"],
             Invoke,
-            new Group[]
-            {
+            [
                 new("one", true, jobs),
                 new("two", false, jobs),
-            });
+            ]);
 
         await Verify(
             new
@@ -152,24 +151,24 @@ public class CliTests
         {
             var args = arg.Split(' ').ToArray();
 
-            yield return new object[]
-            {
+            yield return
+            [
                 args,
                 new Group[]
                 {
                     new("one", true, jobs),
                     new("two", false, jobs),
                 }
-            };
-            yield return new object[]
-            {
+            ];
+            yield return
+            [
                 args,
                 new Group[]
                 {
                     new("one", false, jobs),
                     new("two", true, jobs),
                 }
-            };
+            ];
             foreach (var groupNames in new[]
                      {
                          "one two",
@@ -178,20 +177,20 @@ public class CliTests
                      })
             {
                 var groupIds = groupNames.Split(' ');
-                yield return new object[]
-                {
+                yield return
+                [
                     args,
                     groupIds
                         .Select(_ => new Group(_, true, jobs))
                         .ToArray()
-                };
-                yield return new object[]
-                {
+                ];
+                yield return
+                [
                     args,
                     groupIds
                         .Select(_ => new Group(_, false, jobs))
                         .ToArray()
-                };
+                ];
             }
         }
     }

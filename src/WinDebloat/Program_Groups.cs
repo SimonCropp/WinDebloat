@@ -1,7 +1,7 @@
 ﻿public static partial class Program
 {
-    public static List<Group> Groups = new()
-    {
+    public static List<Group> Groups =
+    [
         new(
             "3D Viewer",
             true,
@@ -41,13 +41,12 @@
         new(
             "Clock",
             false,
-            new IJob[]
-            {
+            [
                 new UninstallJob(
                     "Windows Clock",
                     Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)"),
                 new UninstallJob("Windows Alarms & Clock"),
-            }),
+            ]),
         new(
             "Clipchamp",
             true,
@@ -139,11 +138,10 @@
         new(
             "Games",
             true,
-            new IJob[]
-            {
+            [
                 new UninstallJob("Solitaire & Casual Games"),
                 new UninstallJob("Microsoft Solitaire Collection")
-            }),
+            ]),
         new("Get Help", true, new UninstallJob("Get Help")),
         new(
             "Give Access To",
@@ -166,8 +164,7 @@
             "HP Vendorware",
             "HP",
             false,
-            new IJob[]
-            {
+            [
                 new UninstallJob("HP Desktop Support Utilities"),
                 new UninstallJob("HP Documentation"),
                 new UninstallJob("HP Notifications"),
@@ -178,13 +175,12 @@
                 new DisableServiceJob("HPSysInfoCap"),
                 new DisableServiceJob("hpsvcsscan"),
                 new DisableServiceJob("HotKeyServiceDSU")
-            }),
+            ]),
         new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
         new(
             "Lock Screen Ads",
             true,
-            new[]
-            {
+            [
                 new RegistryValueJob(
                     @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "RotatingLockScreenOverlayEnabled",
@@ -196,27 +192,25 @@
                     "SubscribedContent-338387Enabled",
                     0,
                     1),
-            }),
+            ]),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
         new(
             "Maps",
             true,
-            new IJob[]
-            {
+            [
                 new UninstallJob("Windows Maps"),
                 new DisableServiceJob("MapsBroker")
-            }),
+            ]),
         new("Media Player", true, new UninstallJob("Windows Media Player")),
         new("Mixed Reality Portal", true, new UninstallJob("Mixed Reality Portal")),
         new("Movies and TV", true, new UninstallJob("Movies & TV")),
         new(
             "News",
             true,
-            new[]
-            {
+            [
                 new UninstallJob("Microsoft News"),
                 new UninstallJob("News")
-            }),
+            ]),
         new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
         new("Office 365", false, new UninstallJob("Microsoft 365 (Office)")),
         new(
@@ -245,11 +239,10 @@
         new(
             "Paint",
             false,
-            new IJob[]
-            {
+            [
                 new UninstallJob("Paint"),
                 new InstallJob("paint.net"),
-            }),
+            ]),
         new("Pay", true, new UninstallJob("Microsoft Pay")),
         new("People", true, new UninstallJob("Microsoft People")),
         new(
@@ -346,15 +339,14 @@
         new(
             "Telemetry",
             true,
-            new IJob[]
-            {
+            [
                 new RegistryValueJob(
                     @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
                     "Allow Telemetry",
                     0,
                     1),
                 new DisableServiceJob("DiagTrack")
-            }),
+            ]),
         new(
             "Tips",
             true,
@@ -387,8 +379,7 @@
         new(
             "Xbox",
             true,
-            new[]
-            {
+            [
                 new UninstallJob("Xbox TCUI"),
                 new UninstallJob("Xbox Console Companion"),
                 new UninstallJob("Xbox Game Bar Plugin"),
@@ -397,6 +388,6 @@
                 new UninstallJob("Xbox Game Bar"),
                 new UninstallJob("Xbox Accessories"),
                 new UninstallJob("Xbox"),
-            }),
-    };
+            ]),
+    ];
 }
