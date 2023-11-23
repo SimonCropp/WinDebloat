@@ -47,7 +47,7 @@ public static class ArgumentParser
                     if (includeAll)
                     {
                         await invoke(
-                            Array.Empty<string>(),
+                            [],
                             groups.Where(_ => !_.IsDefault)
                                 .Select(_ => _.Id)
                                 .ToArray());

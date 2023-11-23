@@ -7,7 +7,7 @@ public class ProgramTests
     public async Task Full()
     {
         await Program.Inner(
-            Array.Empty<string>(),
+            [],
             Program.Groups.Where(_ => !_.IsDefault)
             .Select(_ => _.Id)
             .ToArray());
