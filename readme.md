@@ -392,7 +392,6 @@ winget uninstall --name "Microsoft Solitaire Collection" --exact
 ```
 
 
-
 ### Get Help
 
 Id to exclude: `GetHelp`
@@ -469,7 +468,6 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 ```
 
 
-
 ### Mail and Calendar
 
 Id to exclude: `MailandCalendar`
@@ -515,7 +513,6 @@ Set-Service -Name "MapsBroker"`
             -StartupType "Automatic"
 Start-Service -Name "MapsBroker"
 ```
-
 
 
 ### Media Player
@@ -581,7 +578,6 @@ Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/packa
 ```ps
 winget uninstall --name "News" --exact
 ```
-
 
 
 ### OneNote
@@ -905,7 +901,6 @@ Set-Service -Name "DiagTrack"`
             -StartupType "Automatic"
 Start-Service -Name "DiagTrack"
 ```
-
 
 
 ### Tips
