@@ -23,11 +23,11 @@ public class WinGetTests
     {
         await WinGet.Install(name);
         var list = await WinGet.List();
-        Assert.IsTrue(list.Any(_ => _ == name));
+        IsTrue(list.Any(_ => _ == name));
 
         await WinGet.Uninstall(name, false);
         list = await WinGet.List();
-        Assert.IsFalse(list.Any(_ => _ == name));
+        IsFalse(list.Any(_ => _ == name));
     }
 
     [Test]
@@ -43,7 +43,7 @@ public class WinGetTests
     public async Task GetVersion()
     {
         var version = await WinGet.GetVersion();
-        Assert.Greater(3, version.Major);
+        Greater(3, version.Major);
     }
 }
 #endif

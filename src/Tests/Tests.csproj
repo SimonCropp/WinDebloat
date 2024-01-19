@@ -10,6 +10,8 @@
         <PackageReference Include="Verify.DiffPlex" Version="2.3.0" />
         <PackageReference Include="Verify.Nunit" Version="22.8.0" />
         <PackageReference Include="MarkdownSnippets.MsBuild" Version="26.0.0" PrivateAssets="all" />
-      <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
+        <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
+        <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
+        <Using Include="NUnit.Framework.Assert" Static="True" />
     </ItemGroup>
 </Project>

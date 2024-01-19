@@ -149,9 +149,7 @@ public static partial class Program
         }
 
         using var managementObject = new ManagementObject($"Win32_Service.Name=\"{name}\"");
-        managementObject.InvokeMethod(
-            "ChangeStartMode",
-            new object[] {"Disabled"});
+        managementObject.InvokeMethod("ChangeStartMode", ["Disabled"]);
     }
 
     static async Task HandleUninstall(UninstallJob job)

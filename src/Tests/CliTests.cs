@@ -36,7 +36,7 @@ public class CliTests
     {
         foreach (var findGroup in new FindGroup[] {FoundDefault, FoundNonDefault, NotFound})
         {
-            yield return new object[] {findGroup};
+            yield return [findGroup];
         }
     }
 
@@ -138,7 +138,7 @@ public class CliTests
             });
     }
 
-    static InstallJob[] jobs = {new("job")};
+    static InstallJob[] jobs = [new("job")];
     public static IEnumerable<object[]> GetStringParsingData()
     {
         foreach (var arg in new[]

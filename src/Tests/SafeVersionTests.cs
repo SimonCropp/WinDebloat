@@ -12,6 +12,6 @@
     public void VersionParse(string input, Version expected)
     {
         var actual = SafeVersion.Parse(input);
-        Assert.AreEqual(expected, actual);
+        AreEqual(expected, actual);
     }
 }

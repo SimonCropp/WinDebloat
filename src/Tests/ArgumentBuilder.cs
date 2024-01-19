@@ -13,11 +13,10 @@ public static class ArgumentBuilder
         construct = inputs =>
         {
             var invoke = constructor.Invoke(
-                new object?[]
-                {
-                    new Argument<string[]>(_ => inputs),
+            [
+                new Argument<string[]>(_ => inputs),
                     null
-                });
+            ]);
             var result = (ArgumentResult) invoke;
             var tokens = (List<Token>) tokensField.GetValue(result)!;
             tokens.AddRange(inputs.Select(_ => new Token(_, TokenType.Argument, null!)));
