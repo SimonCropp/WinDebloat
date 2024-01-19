@@ -197,6 +197,19 @@ public class DocsTests
 
                      """);
                 break;
+            case DeleteTaskJob deleteTaskJob:
+                writer.WriteLine(
+                    $"""
+                     Deletes the scheduled task `{deleteTaskJob.Name}`.
+
+                     {headingLevel} Command to manually apply:
+
+                     ```ps
+                     Unregister-ScheduledTask -TaskPath "\{deleteTaskJob.Path}\" -TaskName "{deleteTaskJob.Name}" -Confirm:$false
+                     ```
+
+                     """);
+                break;
             case UninstallJob uninstallJob:
 
                 string command;
