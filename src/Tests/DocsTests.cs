@@ -17,7 +17,9 @@ public class DocsTests
 
         foreach (var group in Program.Groups)
         {
-            var id = group.Name.ToLower().Replace(' ','-');
+            var id = group
+                .Name.ToLower()
+                .Replace(' ', '-');
             if (group.IsDefault)
             {
                 writer.WriteLine($" * [{group.Name}](#{id})");
