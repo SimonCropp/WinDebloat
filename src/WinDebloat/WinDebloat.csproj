@@ -11,7 +11,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="CliWrap" Version="3.6.6" />
-        <PackageReference Include="ProjectDefaults" Version="1.0.110" PrivateAssets="all" />
+        <PackageReference Include="ProjectDefaults" Version="1.0.111" PrivateAssets="all" />
         <PackageReference Include="Serilog" Version="3.1.1" />
         <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
         <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
