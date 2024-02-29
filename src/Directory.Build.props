@@ -7,5 +7,6 @@
     <Description>A utility to debloat Windows</Description>
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
+    <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
 </Project>
