@@ -8,5 +8,8 @@
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
     <NoWarn>CA1416</NoWarn>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 </Project>
