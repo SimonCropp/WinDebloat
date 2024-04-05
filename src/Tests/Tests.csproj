@@ -3,7 +3,7 @@
         <TargetFramework>net8.0-windows</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ProjectDefaults" Version="1.0.118" PrivateAssets="all" />
+        <PackageReference Include="ProjectDefaults" Version="1.0.126" PrivateAssets="all" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
         <PackageReference Include="NUnit" Version="4.1.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
