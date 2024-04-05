@@ -153,7 +153,7 @@ public static class ArgumentParser
 
     static void SetErrorMessage(ArgumentResult result, List<string> errors)
     {
-        if (errors.Any())
+        if (errors.Count != 0)
         {
             result.ErrorMessage = string.Join('\n', errors);
         }

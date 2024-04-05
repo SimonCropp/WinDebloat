@@ -74,7 +74,7 @@ public static partial class Program
 
     static void LogIncludes(string[] includes)
     {
-        if (!includes.Any())
+        if (includes.Length == 0)
         {
             return;
         }
