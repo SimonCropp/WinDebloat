@@ -88,7 +88,7 @@ public static partial class Program
 
     static void LogExcludes(string[] excludes)
     {
-        if (!excludes.Any())
+        if (excludes.Length == 0)
         {
             return;
         }
