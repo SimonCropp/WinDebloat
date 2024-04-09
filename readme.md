@@ -25,13 +25,6 @@ dotnet tool install -g WinDebloat
 ```
 
 
-### Update
-
-```ps
-dotnet tool update -g WinDebloat
-```
-
-
 ## Usage
 
 ```ps
