@@ -3,11 +3,11 @@
         <TargetFramework>net8.0-windows</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ProjectDefaults" Version="1.0.126" PrivateAssets="all" />
+        <PackageReference Include="ProjectDefaults" Version="1.0.127" PrivateAssets="all" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
         <PackageReference Include="NUnit" Version="4.1.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-        <PackageReference Include="Verify.DiffPlex" Version="2.3.0" />
+        <PackageReference Include="Verify.DiffPlex" Version="3.0.0" />
         <PackageReference Include="Verify.Nunit" Version="24.1.0" />
         <PackageReference Include="MarkdownSnippets.MsBuild" Version="27.0.2" PrivateAssets="all" />
         <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
