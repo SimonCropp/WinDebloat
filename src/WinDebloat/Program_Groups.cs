@@ -103,6 +103,25 @@
                 1,
                 Notes: " * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
+            "Edge Default Location To Blank",
+            false,
+            [
+                new RegistryValueJob(
+                    @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge",
+                    "HomepageLocation",
+                    "about:blank",
+                    null,
+                    RegistryValueKind.String,
+                    Notes: " * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)"),
+                new RegistryValueJob(
+                    @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge",
+                    "NewTabPageLocation",
+                    "about:blank",
+                    null,
+                    RegistryValueKind.String,
+                    Notes: " * [Set new tab to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagelocation)")
+            ]),
+        new(
             "EdgeRecommendations",
             true,
             new RegistryValueJob(

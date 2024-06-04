@@ -80,6 +80,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Developer Mode](#developer-mode) (optional)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
+ * [Edge Default Location To Blank](#edge-default-location-to-blank) (optional)
  * [EdgeRecommendations](#edgerecommendations)
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
  * [Feedback Hub](#feedback-hub)
@@ -1257,6 +1258,57 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
 
 * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
 * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
+
+
+### Edge Default Location To Blank
+
+Id to include: `EdgeDefaultLocationToBlank`
+
+#### HomepageLocation
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "HomepageLocation"`
+                 -Type "String"`
+                 -Value "about:blank"
+```
+
+##### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
+                    -Name "HomepageLocation"
+```
+
+##### Notes:
+
+ * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)
+
+
+#### NewTabPageLocation
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "NewTabPageLocation"`
+                 -Type "String"`
+                 -Value "about:blank"
+```
+
+##### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
+                    -Name "NewTabPageLocation"
+```
+
+##### Notes:
+
+ * [Set new tab to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagelocation)
+
 
 
 ### Explorer Classic Menu
