@@ -1284,7 +1284,7 @@ Remove-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
 
 ##### Notes:
 
- * Set home page to blank
+ * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)
 
 
 #### NewTabPageLocation
@@ -1307,7 +1307,7 @@ Remove-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Edge"`
 
 ##### Notes:
 
- * Set new tab to blank
+ * [Set new tab to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagelocation)
 
 
 

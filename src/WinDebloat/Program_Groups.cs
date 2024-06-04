@@ -112,14 +112,14 @@
                     "about:blank",
                     null,
                     RegistryValueKind.String,
-                    Notes: " * Set home page to blank"),
+                    Notes: " * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)"),
                 new RegistryValueJob(
                     @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge",
                     "NewTabPageLocation",
                     "about:blank",
                     null,
                     RegistryValueKind.String,
-                    Notes: " * Set new tab to blank")
+                    Notes: " * [Set new tab to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagelocation)")
             ]),
         new(
             "EdgeRecommendations",
