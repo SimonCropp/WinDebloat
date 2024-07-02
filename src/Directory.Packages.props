@@ -17,6 +17,6 @@
     <PackageVersion Include="System.Management" Version="8.0.0" />
     <PackageVersion Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.0.0" />
-    <PackageVersion Include="Verify.NUnit" Version="25.1.1" />
+    <PackageVersion Include="Verify.NUnit" Version="25.2.0" />
   </ItemGroup>
 </Project>
