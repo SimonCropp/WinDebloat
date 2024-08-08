@@ -9,7 +9,7 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
     <PackageVersion Include="NUnit" Version="4.1.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="4.5.0" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.133" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.134" />
     <PackageVersion Include="Serilog" Version="4.0.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
