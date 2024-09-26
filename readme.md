@@ -69,7 +69,6 @@ WinDebloat --exclude AdvertiserId Xbox
 
  * [3D Viewer](#3d-viewer)
  * [Advertiser Id](#advertiser-id)
- * [Calculator](#calculator) (optional)
  * [Camera](#camera)
  * [Chat](#chat)
  * [Clock](#clock) (optional)
@@ -1111,23 +1110,6 @@ winget uninstall --name "Xbox" --exact
 
 
 ## Optional Items Removed / Disabled
-
-
-### Calculator
-
-Id to include: `Calculator`
-
-Uninstalls `Windows Calculator` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-#### Command to manually apply:
-
-```ps
-winget uninstall --name "Windows Calculator" --exact
-```
-
-#### Notes:
-
- * [AppStore: Windows Calculator](https://apps.microsoft.com/store/detail/windows-calculator/9WZDNCRFHVN5)
 
 
 ### Clock
