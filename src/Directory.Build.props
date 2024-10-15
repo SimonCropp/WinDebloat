@@ -8,9 +8,8 @@
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
     <NoWarn>CA1416</NoWarn>
-    <NuGetAuditMode>all</NuGetAuditMode>
-    <NuGetAuditLevel>low</NuGetAuditLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
   </PropertyGroup>
 </Project>
