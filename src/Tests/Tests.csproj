@@ -15,6 +15,6 @@
         <Using Include="NUnit.Framework.Assert" Static="True" />
     </ItemGroup>
     <ItemGroup>
-      <PackageVersion Update="Verify.Nunit" Version="26.6.0" />
+      <PackageVersion Update="Verify.Nunit" Version="27.0.1" />
     </ItemGroup>
 </Project>
