@@ -14,7 +14,7 @@ A dotnet tool that removes the bloat in Windows 11
 
 ## Requirements
 
- * [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/). At least version 7.
+ * [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/). At least version 8.
  * [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/). At least version 1.5.2201. See [winget-cli/releases](https://github.com/microsoft/winget-cli/releases) to install a specific version.
 
 
