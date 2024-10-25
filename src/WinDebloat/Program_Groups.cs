@@ -206,6 +206,18 @@
                     0,
                     1),
             ]),
+        new(
+            "Learn about this image",
+            true,
+            new RegistryValueJob(
+                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel",
+                "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}",
+                1,
+                null,
+                Notes: """
+                       * Removes "Learn about this image" from the desktop <br><img src="/src/actions.include.md" height="200px">
+                       * [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
+                       """)),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
         new(
             "Maps",
