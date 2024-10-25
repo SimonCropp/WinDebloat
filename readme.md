@@ -92,6 +92,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [HP Vendorware](#hp-vendorware) (optional)
  * [Internet Connection Sharing](#internet-connection-sharing)
  * [Lock Screen Ads](#lock-screen-ads)
+ * [Learn about this image](#learn-about-this-image)
  * [Mail and Calendar](#mail-and-calendar)
  * [Maps](#maps)
  * [Media Player](#media-player)
@@ -461,6 +462,32 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
                  -Value "1"
 ```
 
+
+
+### Learn about this image
+
+Id to exclude: `Learnaboutthisimage`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel"`
+                 -Name "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel"`
+                    -Name "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}"
+```
+
+#### Notes:
+
+* Removes Learn about this image <br><img src="/src/actions.include.md" height="200px">
+* [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
 
 
 ### Mail and Calendar
