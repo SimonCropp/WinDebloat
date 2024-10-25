@@ -1,7 +1,4 @@
-﻿using System.Management;
-using System.ServiceProcess;
-
-public static partial class Program
+﻿public static partial class Program
 {
     static async Task<int> Main(string[] args)
     {

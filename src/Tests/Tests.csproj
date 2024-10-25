@@ -14,7 +14,4 @@
         <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
         <Using Include="NUnit.Framework.Assert" Static="True" />
     </ItemGroup>
-    <ItemGroup>
-      <PackageVersion Update="Verify.Nunit" Version="27.0.1" />
-    </ItemGroup>
 </Project>
