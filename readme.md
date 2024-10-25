@@ -486,7 +486,7 @@ Remove-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVers
 
 #### Notes:
 
-* Removes Learn about this image <br><img src="/src/actions.include.md" height="200px">
+* Removes "Learn about this image" from the desktop <br><img src="/src/LearnAboutThisImage.png" height="200px">
 * [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
 
 
