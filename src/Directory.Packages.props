@@ -4,7 +4,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="CliWrap" Version="3.6.7" />
+    <PackageVersion Include="CliWrap" Version="3.7.0" />
     <PackageVersion Include="MarkdownSnippets.MsBuild" Version="27.0.2" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="NUnit" Version="4.2.2" />
@@ -17,6 +17,6 @@
     <PackageVersion Include="System.Management" Version="9.0.0" />
     <PackageVersion Include="System.ServiceProcess.ServiceController" Version="9.0.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
-    <PackageVersion Include="Verify.Nunit" Version="28.4.0" />
+    <PackageVersion Include="Verify.Nunit" Version="28.5.0" />
   </ItemGroup>
 </Project>
