@@ -67,7 +67,7 @@
                 Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
                 PartialMatch: true)),
         new(
-            ".NET",
+            "dotnet",
             false,
             new EnvironmentVariableJob(
                 "dotnetTelemetry",
