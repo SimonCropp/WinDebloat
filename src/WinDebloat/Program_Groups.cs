@@ -67,6 +67,14 @@
                 Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
                 PartialMatch: true)),
         new(
+            ".NET",
+            false,
+            new EnvironmentVariableJob(
+                "dotnetTelemetry",
+                "DOTNET_CLI_TELEMETRY_OPTOUT",
+                "true",
+                Notes: " * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)")),
+        new(
             "Developer Mode",
             false,
             new RegistryValueJob(

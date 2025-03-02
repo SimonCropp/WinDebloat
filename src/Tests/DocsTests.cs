@@ -224,6 +224,20 @@ public class DocsTests
 
                      """);
                 break;
+            case EnvironmentVariableJob environmentVariableJob:
+
+                writer.WriteLine(
+                    $"""
+                      Sets environment variable `{environmentVariableJob.Key}` to `{environmentVariableJob.Value}`.
+
+                      {headingLevel} Command to manually apply:
+
+                      ```ps
+                      $env:{environmentVariableJob.Key} = "{environmentVariableJob.Value}";
+                      ```
+
+                      """);
+                break;
         }
 
         if (job.Notes != null)
