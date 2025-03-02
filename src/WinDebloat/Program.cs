@@ -112,7 +112,8 @@
             case UninstallJob uninstallJob:
                 return HandleUninstall(uninstallJob);
             case EnvironmentVariableJob environmentVariableJob:
-                return HandleUninstall(environmentVariableJob);
+                HandleUninstall(environmentVariableJob);
+                return Task.CompletedTask;
             case DisableServiceJob disableServiceJob:
                 HandleDisableService(disableServiceJob);
                 return Task.CompletedTask;
@@ -165,7 +166,7 @@
         Log.Information($"Skipped uninstall of {name} since not installed");
     }
 
-    static async Task HandleUninstall(EnvironmentVariableJob job)
+    static void HandleUninstall(EnvironmentVariableJob job)
     {
         var name = job.Name;
         Log.Information($"Setting environment variable: {job.Key} to {job.Value}");
