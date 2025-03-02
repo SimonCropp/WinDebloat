@@ -11,6 +11,7 @@
         <PackageReference Include="Verify.Nunit" />
         <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
         <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
+        <PackageReference Include="System.ServiceProcess.ServiceController" />
         <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
         <Using Include="NUnit.Framework.Assert" Static="True" />
     </ItemGroup>
