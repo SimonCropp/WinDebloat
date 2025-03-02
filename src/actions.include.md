@@ -9,6 +9,7 @@
  * [Cortana](#cortana)
  * [Customize This Folder](#customize-this-folder) (optional)
  * [DevHome](#devhome) (optional)
+ * [dotnet](#dotnet) (optional)
  * [Developer Mode](#developer-mode) (optional)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
@@ -1145,6 +1146,23 @@ winget uninstall "DevHome"
 #### Notes:
 
  * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)
+
+
+### dotnet
+
+Id to include: `dotnet`
+
+Sets environment variable `DOTNET_CLI_TELEMETRY_OPTOUT` to `true`.
+
+#### Command to manually apply:
+
+```ps
+$env:DOTNET_CLI_TELEMETRY_OPTOUT = "true";
+```
+
+#### Notes:
+
+ * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)
 
 
 ### Developer Mode
