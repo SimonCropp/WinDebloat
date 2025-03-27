@@ -4,7 +4,7 @@ public static class WinGet
         Environment.GetEnvironmentVariable("LOCALAPPDATA")!,
         @"Microsoft\WindowsApps\winget.exe");
 
-    public static Version MinVersion { get; } = new(1, 5, 2201);
+    public static Version MinVersion { get; } = new(1, 10, 340);
 
     public static void EnsureInstalled()
     {

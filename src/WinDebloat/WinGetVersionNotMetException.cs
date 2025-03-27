@@ -1,8 +1,5 @@
-﻿public class WinGetVersionNotMetException :
+﻿public class WinGetVersionNotMetException(Version installedVersion) :
     Exception
 {
-    public Version InstalledVersion { get; }
-
-    public WinGetVersionNotMetException(Version installedVersion) =>
-        InstalledVersion = installedVersion;
+    public Version InstalledVersion { get; } = installedVersion;
 }
