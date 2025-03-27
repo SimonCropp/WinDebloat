@@ -298,6 +298,10 @@
         new("Printer", false, new DisableServiceJob("Spooler")),
         new("Print 3D", true, new UninstallJob("Print 3D")),
         new(
+            "Program Compatibility Assistant",
+            false,
+            new DisableServiceJob("PcaSvc")),
+        new(
             "Quick Assist",
             false,
             new UninstallJob(

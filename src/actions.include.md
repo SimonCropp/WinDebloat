@@ -47,6 +47,7 @@
  * [PowerShell Unrestricted](#powershell-unrestricted)
  * [Printer](#printer) (optional)
  * [Print 3D](#print-3d)
+ * [Program Compatibility Assistant](#program-compatibility-assistant) (optional)
  * [Quick Assist](#quick-assist) (optional)
  * [Skype](#skype)
  * [Spotify](#spotify)
@@ -1615,6 +1616,27 @@ Set-Service -Name "Spooler"`
 Set-Service -Name "Spooler"`
             -StartupType "Automatic"
 Start-Service -Name "Spooler"
+```
+
+
+### Program Compatibility Assistant
+
+Id to include: `ProgramCompatibilityAssistant`
+
+#### Command to manually apply:
+
+```ps
+Stop-Service -Name "PcaSvc"
+Set-Service -Name "PcaSvc"`
+            -StartupType "Disabled"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-Service -Name "PcaSvc"`
+            -StartupType "Automatic"
+Start-Service -Name "PcaSvc"
 ```
 
 
