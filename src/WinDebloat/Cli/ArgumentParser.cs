@@ -58,7 +58,7 @@ public static class ArgumentParser
                 }
                 catch (WinGetNotInstalledException)
                 {
-                    Log.Fatal($"WinGet not installed. Expected path: {WinGet.ExpectedPath}. To install: https://www.microsoft.com/p/app-installer/9nblggh4nns1");
+                    Log.Fatal("WinGet not installed. Expected path: {ExpectedPath}. To install: https://www.microsoft.com/p/app-installer/9nblggh4nns1", WinGet.ExpectedPath);
 
                     if (Environment.UserInteractive)
                     {
@@ -68,7 +68,7 @@ public static class ArgumentParser
                 }
                 catch (WinGetVersionNotMetException exception)
                 {
-                    Log.Fatal($"WinGet version is incorrect. Minimum: {WinGet.MinVersion}. Installed: {exception.InstalledVersion}. Releases: https://github.com/microsoft/winget-cli/releases");
+                    Log.Fatal("WinGet version is incorrect. Minimum: {MinVersion}. Installed: {ExceptionInstalledVersion}. Releases: https://github.com/microsoft/winget-cli/releases", WinGet.MinVersion, exception.InstalledVersion);
 
                     if (Environment.UserInteractive)
                     {

@@ -22,7 +22,7 @@
         }
         finally
         {
-            Log.Information($"Time: {stopwatch.ElapsedMilliseconds}ms");
+            Log.Information("Time: {ElapsedMilliseconds}ms", stopwatch.ElapsedMilliseconds);
         }
     }
 
@@ -42,7 +42,7 @@
             {
                 if (excludes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
                 {
-                    Log.Information($"Skipping '{group.Name}' since it is excluded");
+                    Log.Information("Skipping '{GroupName}' since it is excluded", group.Name);
                     continue;
                 }
             }
@@ -50,7 +50,7 @@
             {
                 if (!includes.Contains(group.Id, StringComparer.OrdinalIgnoreCase))
                 {
-                    Log.Information($"Skipping '{group.Name}' since it is not included by default and has not been explicitly included");
+                    Log.Information("Skipping '{GroupName}' since it is not included by default and has not been explicitly included", group.Name);
                     continue;
                 }
             }
@@ -61,7 +61,7 @@
                 continue;
             }
 
-            Log.Information($"Group: {group.Name}");
+            Log.Information("Group: {GroupName}", group.Name);
             foreach (var job in group.Jobs)
             {
                 await HandleJob(job);
@@ -79,7 +79,7 @@
         Log.Information("Includes:");
         foreach (var include in includes)
         {
-            Log.Information($" * {include}");
+            Log.Information(" * {Include}", include);
         }
     }
 
@@ -93,7 +93,7 @@
         Log.Information("Excludes:");
         foreach (var exclude in excludes)
         {
-            Log.Information($" * {exclude}");
+            Log.Information(" * {Exclude}", exclude);
         }
     }
 
@@ -125,11 +125,11 @@
     static void HandleDisableService(DisableServiceJob job)
     {
         var name = job.Name;
-        Log.Information($"DisableService: {name}");
+        Log.Information("DisableService: {Name}", name);
         var service = services.SingleOrDefault(_ => string.Equals(_.ServiceName, name, StringComparison.OrdinalIgnoreCase));
         if (service == null)
         {
-            Log.Information($"Skipped disabling service {name} since not installed");
+            Log.Information("Skipped disabling service {Name} since not installed", name);
             return;
         }
 
@@ -139,12 +139,12 @@
         }
         else
         {
-            Log.Information($"Skipped stopping service {name} since not running");
+            Log.Information("Skipped stopping service {Name} since not running", name);
         }
 
         if (service.StartType == ServiceStartMode.Disabled)
         {
-            Log.Information($"Skipped disabling service {name} since already disabled");
+            Log.Information("Skipped disabling service {Name} since already disabled", name);
             return;
         }
 
@@ -155,37 +155,37 @@
     static async Task HandleUninstall(UninstallJob job)
     {
         var name = job.Name;
-        Log.Information($"Uninstall: {name}");
+        Log.Information("Uninstall: {Name}", name);
         if (IsInstalled(name, job.PartialMatch))
         {
             await WinGet.Uninstall(name, job.PartialMatch);
-            Log.Information($"Uninstalled {name}");
+            Log.Information("Uninstalled {Name}", name);
             return;
         }
 
-        Log.Information($"Skipped uninstall of {name} since not installed");
+        Log.Information("Skipped uninstall of {Name} since not installed", name);
     }
 
     static void HandleUninstall(EnvironmentVariableJob job)
     {
         var name = job.Name;
-        Log.Information($"Setting environment variable: {job.Key} to {job.Value}");
+        Log.Information("Setting environment variable: {JobKey} to {JobValue}", job.Key, job.Value);
         Environment.SetEnvironmentVariable(job.Key, job.Value, EnvironmentVariableTarget.Machine);
-        Log.Information($"Uninstall: {name}");
+        Log.Information("Uninstall: {Name}", name);
     }
 
     static async Task HandleInstall(InstallJob job)
     {
         var name = job.Name;
-        Log.Information($"Install: {name}");
+        Log.Information("Install: {Name}", name);
         if (IsInstalled(name, false))
         {
-            Log.Information($"Skipped install of {name} since installed");
+            Log.Information("Skipped install of {Name} since installed", name);
             return;
         }
 
         await WinGet.Install(name);
-        Log.Information($"Installed {name}");
+        Log.Information("Installed {Name}", name);
     }
 
     static bool IsInstalled(string package, bool partialMatch) =>
@@ -217,12 +217,12 @@
     static void HandleRegistry(RegistryValueJob job)
     {
         var (key, name, applyValue, _, kind, _) = job;
-        Log.Information($"Registry: {name}");
-        Log.Information($"{job.Path} to {applyValue}");
+        Log.Information("Registry: {Name}", name);
+        Log.Information("{JobPath} to {ApplyValue}", job.Path, applyValue);
         var currentValue = Registry.GetValue(key, name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information($"Skipped registry entry {job.Path} since value already correct");
+            Log.Information("Skipped registry entry {JobPath} since value already correct", job.Path);
             return;
         }
 
@@ -238,8 +238,8 @@
 
     static void HandleRegistry(RegistryKeyJob job)
     {
-        Log.Information($"Registry: {job.Name}");
-        Log.Information($"{job.Key}");
+        Log.Information("Registry: {JobName}", job.Name);
+        Log.Information("{JobKey}", job.Key);
 
         Registry.SetValue(job.Key, null, "", RegistryValueKind.String);
     }

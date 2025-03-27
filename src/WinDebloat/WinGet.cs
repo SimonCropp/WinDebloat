@@ -133,7 +133,7 @@ public static class WinGet
 
     static async Task<RunResult> Run(string arguments)
     {
-        Log.Debug($"Executing: winget {arguments}");
+        Log.Debug("Executing: winget {Arguments}", arguments);
         var error = new List<string>();
         var output = new List<string>();
 
