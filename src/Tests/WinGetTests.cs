@@ -36,11 +36,7 @@ public class WinGetTests
         await WinGet.ResetSources();
 
         // This should not throw
-        var list = await WinGet.List();
-        foreach (var item in list)
-        {
-            Console.WriteLine(item);
-        }
+        await WinGet.List();
     }
 
     [Test]

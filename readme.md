@@ -1607,17 +1607,31 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `OneDrive`
 
+#### Microsoft OneDrive
+
+Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall "Microsoft OneDrive"
+```
+
+##### Notes:
+
+ * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
+
+
+#### OneDrive
+
 Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall "OneDrive"
 ```
 
-#### Notes:
-
- * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
 
 
 ### Paint
