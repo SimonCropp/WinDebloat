@@ -73,6 +73,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Clock](#clock) (optional)
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
+ * [Copilot](#copilot) (optional)
  * [Customize This Folder](#customize-this-folder) (optional)
  * [DevHome](#devhome) (optional)
  * [dotnet](#dotnet) (optional)
@@ -1169,6 +1170,19 @@ Uninstalls `Windows Alarms & Clock` using [winget](https://learn.microsoft.com/e
 winget uninstall --name "Windows Alarms & Clock" --exact
 ```
 
+
+
+### Copilot
+
+Id to include: `Copilot`
+
+Uninstalls `Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall --name "Copilot" --exact
+```
 
 
 ### Customize This Folder
