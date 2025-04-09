@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
+    <NoWarn>CA1416;NU1608;NU1109</NoWarn>
     <Version>1.9.0</Version>
     <LangVersion>preview</LangVersion>
     <PackageTags>Windows, Debloat</PackageTags>
     <Description>A utility to debloat Windows</Description>
     <ContinuousIntegrationBuild>false</ContinuousIntegrationBuild>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
-    <NoWarn>CA1416</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
