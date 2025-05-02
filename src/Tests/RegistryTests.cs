@@ -21,7 +21,7 @@ public class RegistryTests
         }
         finally
         {
-          //  Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
+            Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
         }
     }
 }
