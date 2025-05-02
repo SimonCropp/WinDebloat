@@ -12,7 +12,8 @@
             "Advertiser Id",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo",
                 "Enabled",
                 0,
                 1,
@@ -27,7 +28,8 @@
             "Chat",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarMn",
                 0,
                 1,
@@ -53,7 +55,8 @@
             "Customize This Folder",
             false,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer",
                 "NoCustomizeThisFolder",
                 1,
                 0,
@@ -79,7 +82,8 @@
             "Developer Mode",
             false,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Appx",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\Appx",
                 "AllowDevelopmentWithoutDevLicense",
                 1,
                 0,
@@ -88,7 +92,8 @@
             "Edge Bing SideBar",
             false,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Edge",
                 "HubsSidebarEnabled",
                 0,
                 1,
@@ -100,7 +105,8 @@
             "Edge Desktop Search Bar",
             true,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Edge",
                 "WebWidgetAllowed",
                 0,
                 1,
@@ -110,14 +116,16 @@
             false,
             [
                 new RegistryValueJob(
-                    @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge",
+                    RegistryHive.CurrentUser,
+                    @"SOFTWARE\Policies\Microsoft\Edge",
                     "HomepageLocation",
                     "about:blank",
                     null,
                     RegistryValueKind.String,
                     Notes: " * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)"),
                 new RegistryValueJob(
-                    @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge",
+                    RegistryHive.CurrentUser,
+                    @"SOFTWARE\Policies\Microsoft\Edge",
                     "NewTabPageLocation",
                     "about:blank",
                     null,
@@ -128,7 +136,8 @@
             "EdgeRecommendations",
             true,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Edge",
                 "ShowRecommendationsEnabled",
                 0,
                 1,
@@ -140,7 +149,8 @@
             "Explorer Classic Menu",
             false,
             new RegistryKeyJob(
-                @"HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
+                RegistryHive.CurrentUser,
+                @"Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32")),
         new(
             "Feedback Hub",
             true,
@@ -149,7 +159,8 @@
             "FileExtensions",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                RegistryHive.CurrentUser,
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "HideFileExt",
                 0,
                 1)),
@@ -169,7 +180,8 @@
             "Give Access To",
             false,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
                 "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}",
                 "",
                 null,
@@ -204,13 +216,15 @@
             true,
             [
                 new RegistryValueJob(
-                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "RotatingLockScreenOverlayEnabled",
                     0,
                     1,
                     Notes: " * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)"),
                 new RegistryValueJob(
-                    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "SubscribedContent-338387Enabled",
                     0,
                     1),
@@ -219,7 +233,8 @@
             "Learn about this image",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel",
                 "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}",
                 1,
                 null,
@@ -251,7 +266,8 @@
             "Office Cloud Files",
             false,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer",
                 "ShowCloudFilesInQuickAccess",
                 0,
                 1,
@@ -297,7 +313,8 @@
             "PowerShell Unrestricted",
             true,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell",
                 "ExecutionPolicy",
                 "Unrestricted",
                 "Restricted",
@@ -328,7 +345,8 @@
             "Startup boost",
             true,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Edge",
                 "StartupBoostEnabled",
                 0,
                 1,
@@ -338,7 +356,8 @@
             "Start Menu Recommendations",
             true,
             new RegistryValueJob(
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "HideRecommendedSection",
                 1,
                 0,
@@ -356,7 +375,8 @@
             "TaskBar Search",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Search",
                 "SearchboxTaskbarMode",
                 0,
                 1)),
@@ -364,7 +384,8 @@
             "Task View",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "ShowTaskViewButton",
                 0,
                 1)),
@@ -385,7 +406,8 @@
             true,
             [
                 new RegistryValueJob(
-                    @"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\DataCollection",
                     "Allow Telemetry",
                     0,
                     1),
@@ -407,7 +429,8 @@
             "Start Menu Web Search",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer",
+                RegistryHive.CurrentUser,
+                @"SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "DisableSearchBoxSuggestions",
                 1,
                 0)),
@@ -416,7 +439,8 @@
             "Widgets",
             true,
             new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarDa",
                 0,
                 1)),

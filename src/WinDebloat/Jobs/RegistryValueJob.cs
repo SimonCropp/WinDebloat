@@ -1,4 +1,5 @@
 ﻿public record RegistryValueJob(
+    RegistryHive Hive,
     string Key,
     string Name,
     object ApplyValue,
@@ -7,13 +8,14 @@
     string? Notes = null) :
     IJob
 {
-    public string Path => @$"{ShortKey}\{Name}";
-
     public string ShortKey =>
-        Key
-            .Replace("HKEY_LOCAL_MACHINE", "HKLM")
-            .Replace("HKEY_CURRENT_CONFIG", "HKCC")
-            .Replace("HKEY_CLASSES_ROOT", "HKCR")
-            .Replace("HKEY_CURRENT_USER", "HKCU")
-            .Replace("HKEY_USERS", "HKU");
+        Hive switch
+        {
+            RegistryHive.ClassesRoot => $@"HKCR\{Key}",
+            RegistryHive.CurrentUser => $@"HKCU\{Key}",
+            RegistryHive.LocalMachine => $@"HKLM\{Key}",
+            RegistryHive.Users => $@"HKU\{Key}",
+            RegistryHive.CurrentConfig => $@"HKCC\{Key}",
+            _ => throw new ArgumentOutOfRangeException()
+        };
 }

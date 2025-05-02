@@ -9,7 +9,8 @@ public class RegistryTests
         try
         {
             var registryJob = new RegistryValueJob(
-                @"HKEY_CURRENT_USER\Software\WinDebloat\Child",
+                RegistryHive.CurrentUser,
+                @"Software\WinDebloat\Child",
                 "TaskbarDa",
                 0,
                 1);
