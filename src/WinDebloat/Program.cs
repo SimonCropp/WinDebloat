@@ -216,23 +216,25 @@
 
     public static void HandleRegistry(RegistryValueJob job)
     {
-        var (key, name, applyValue, _, kind, _) = job;
+        var (hive, key, name, applyValue, _, kind, _) = job;
         Log.Information("Registry: {Name}", name);
-        Log.Information("{JobPath} to {ApplyValue}", job.Path, applyValue);
-        var currentValue = Registry.GetValue(key, name, null);
+        Log.Information("{JobHive} {JobPath} to {ApplyValue}", hive, key, applyValue);
+        using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
+        using var subKey = baseKey.CreateSubKey(key, RegistryKeyPermissionCheck.ReadWriteSubTree);
+        var currentValue = subKey.GetValue(name, null);
         if (applyValue.Equals(currentValue))
         {
-            Log.Information("Skipped registry entry {JobPath} since value already correct", job.Path);
+            Log.Information("Skipped registry entry {JobHive} {JobPath} since value already correct", hive, key);
             return;
         }
 
         if (name == "(Default)")
         {
-            Registry.SetValue(key, null, applyValue, kind);
+            subKey.SetValue(null, applyValue, kind);
         }
         else
         {
-            Registry.SetValue(key, name, applyValue, kind);
+            subKey.SetValue(name, applyValue, kind);
         }
     }
 
@@ -241,7 +243,9 @@
         Log.Information("Registry: {JobName}", job.Name);
         Log.Information("{JobKey}", job.Key);
 
-        Registry.SetValue(job.Key, null, "", RegistryValueKind.String);
+        using var baseKey = RegistryKey.OpenBaseKey(job.Hive, RegistryView.Default);
+        using var subKey = baseKey.CreateSubKey(job.Key, RegistryKeyPermissionCheck.ReadWriteSubTree);
+        subKey.SetValue(null, "", RegistryValueKind.String);
     }
 
     static List<string> installed = null!;

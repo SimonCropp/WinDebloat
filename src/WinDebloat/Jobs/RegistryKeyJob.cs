@@ -1,15 +1,19 @@
 public record RegistryKeyJob(
+    RegistryHive Hive,
     string Key,
     string? Notes = null) :
     IJob
 {
     public string ShortKey =>
-        Key
-            .Replace("HKEY_LOCAL_MACHINE", "HKLM")
-            .Replace("HKEY_CURRENT_CONFIG", "HKCC")
-            .Replace("HKEY_CLASSES_ROOT", "HKCR")
-            .Replace("HKEY_CURRENT_USER", "HKCU")
-            .Replace("HKEY_USERS", "HKU");
+        Hive switch
+        {
+            RegistryHive.ClassesRoot => $@"HKCR\{Key}",
+            RegistryHive.CurrentUser => $@"HKCU\{Key}",
+            RegistryHive.LocalMachine => $@"HKLM\{Key}",
+            RegistryHive.Users => $@"HKU\{Key}",
+            RegistryHive.CurrentConfig => $@"HKCC\{Key}",
+            _ => throw new ArgumentOutOfRangeException()
+        };
 
     public string Name => Key.Split('\\').Last();
 }
