@@ -214,7 +214,7 @@
             return false;
         });
 
-    static void HandleRegistry(RegistryValueJob job)
+    public static void HandleRegistry(RegistryValueJob job)
     {
         var (key, name, applyValue, _, kind, _) = job;
         Log.Information("Registry: {Name}", name);
