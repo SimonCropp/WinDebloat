@@ -146,6 +146,14 @@
                        * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
                        """)),
         new(
+            "Explorer 3D Objects",
+            true,
+            new RegistryKeyJob(
+                RegistryHive.LocalMachine,
+                @"Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
+                Invert: true)
+            ),
+        new(
             "Explorer Classic Menu",
             false,
             new RegistryKeyJob(

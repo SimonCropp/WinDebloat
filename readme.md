@@ -82,6 +82,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [Edge Default Location To Blank](#edge-default-location-to-blank) (optional)
  * [EdgeRecommendations](#edgerecommendations)
+ * [Explorer 3D Objects](#explorer-3d-objects)
  * [Explorer Classic Menu](#explorer-classic-menu) (optional)
  * [Feedback Hub](#feedback-hub)
  * [FileExtensions](#fileextensions)
@@ -311,6 +312,23 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
 
 * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
 * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
+
+
+### Explorer 3D Objects
+
+Id to exclude: `Explorer3DObjects`
+
+#### Command to manually apply:
+
+```ps
+Remove-Item -Path "Registry::HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}"
+```
+
+#### Command to manually revert:
+
+```ps
+New-Item -Path "Registry::HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" -Value ""
+````
 
 
 ### Feedback Hub
@@ -1360,7 +1378,7 @@ Id to include: `ExplorerClassicMenu`
 
 ```ps
 New-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Value ""
-```
+````
 
 #### Command to manually revert:
 

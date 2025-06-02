@@ -1,7 +1,8 @@
 public record RegistryKeyJob(
     RegistryHive Hive,
     string Key,
-    string? Notes = null) :
+    string? Notes = null,
+    bool Invert = false) :
     IJob
 {
     public string ShortKey =>
