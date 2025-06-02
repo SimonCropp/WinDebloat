@@ -167,21 +167,42 @@ public class DocsTests
                 break;
             case RegistryKeyJob registryJob:
             {
-                writer.WriteLine(
-                    $"""
-                     {headingLevel} Command to manually apply:
+                if (registryJob.Invert)
+                {
+                    writer.WriteLine(
+                        $"""
+                         {headingLevel} Command to manually apply:
+                         
+                         ```ps
+                         Remove-Item -Path "Registry::{registryJob.ShortKey}"
+                         ```
 
-                     ```ps
-                     New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
-                     ```
+                         {headingLevel} Command to manually revert:
+                         
+                         ```ps
+                         New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
+                         ````
 
-                     {headingLevel} Command to manually revert:
+                         """);
+                }
+                else
+                {
+                    writer.WriteLine(
+                        $"""
+                         {headingLevel} Command to manually apply:
 
-                     ```ps
-                     Remove-Item -Path "Registry::{registryJob.ShortKey}"
-                     ```
+                         ```ps
+                         New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
+                         ````
 
-                     """);
+                         {headingLevel} Command to manually revert:
+
+                         ```ps
+                         Remove-Item -Path "Registry::{registryJob.ShortKey}"
+                         ```
+
+                         """);
+                }
             }
                 break;
             case InstallJob installJob:

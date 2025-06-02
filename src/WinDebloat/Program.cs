@@ -241,11 +241,21 @@
     static void HandleRegistry(RegistryKeyJob job)
     {
         Log.Information("Registry: {JobName}", job.Name);
-        Log.Information("{JobKey}", job.Key);
+        if (job.Invert)
+        {
+            Log.Information("Remove {JobKey}", job.Key);
 
-        using var baseKey = RegistryKey.OpenBaseKey(job.Hive, RegistryView.Default);
-        using var subKey = baseKey.CreateSubKey(job.Key, RegistryKeyPermissionCheck.ReadWriteSubTree);
-        subKey.SetValue(null, "", RegistryValueKind.String);
+            using var baseKey = RegistryKey.OpenBaseKey(job.Hive, RegistryView.Default);
+            baseKey.DeleteSubKey(job.Key, false);
+        }
+        else
+        {
+            Log.Information("Add {JobKey}", job.Key);
+
+            using var baseKey = RegistryKey.OpenBaseKey(job.Hive, RegistryView.Default);
+            using var subKey = baseKey.CreateSubKey(job.Key, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            subKey.SetValue(null, "", RegistryValueKind.String);
+        }
     }
 
     static List<string> installed = null!;
