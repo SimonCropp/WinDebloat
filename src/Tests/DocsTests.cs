@@ -225,12 +225,12 @@ public class DocsTests
                 if (uninstallJob.PartialMatch)
                 {
                     command = $"""
-                               winget uninstall "{uninstallJob.Name}"
+                               winget uninstall "{uninstallJob.Name} --all-versions"
                                """;
                 }
                 else
                 {
-                    command = $"""winget uninstall --name "{uninstallJob.Name}" --exact""";
+                    command = $"""winget uninstall --name "{uninstallJob.Name}" --exact --all-versions""";
                 }
 
                 writer.WriteLine(
