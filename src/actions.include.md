@@ -1129,13 +1129,27 @@ winget uninstall --name "Windows Alarms & Clock" --exact
 
 Id to include: `Copilot`
 
-Uninstalls `Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+#### Microsoft Copilot
 
-#### Command to manually apply:
+Uninstalls `Microsoft Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Copilot" --exact
+winget uninstall --name "Microsoft Copilot" --exact
 ```
+
+
+#### Microsoft 365 Copilot
+
+Uninstalls `Microsoft 365 Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft 365 Copilot" --exact
+```
+
 
 
 ### Customize This Folder
