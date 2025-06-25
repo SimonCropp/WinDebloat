@@ -1245,7 +1245,7 @@ Uninstalls `DevHome` using [winget](https://learn.microsoft.com/en-us/windows/pa
 #### Command to manually apply:
 
 ```ps
-winget uninstall "DevHome --all-versions"
+winget uninstall "DevHome" --all-versions
 ```
 
 #### Notes:
@@ -1652,7 +1652,7 @@ Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us
 ##### Command to manually apply:
 
 ```ps
-winget uninstall "Microsoft OneDrive --all-versions"
+winget uninstall "Microsoft OneDrive" --all-versions
 ```
 
 ##### Notes:
@@ -1667,7 +1667,7 @@ Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/p
 ##### Command to manually apply:
 
 ```ps
-winget uninstall "OneDrive --all-versions"
+winget uninstall "OneDrive" --all-versions
 ```
 
 
