@@ -1812,7 +1812,7 @@ Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/wi
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft.Teams" --exact --all-versions
+winget uninstall "Microsoft.Teams" --all-versions
 ```
 
 
