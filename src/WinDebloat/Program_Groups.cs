@@ -60,27 +60,28 @@
                 "NoCustomizeThisFolder",
                 1,
                 0,
-                Notes: """
-                       * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
-                       """)),
+                Notes:
+                """
+                * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
+                """)),
         new(
             "Default Browser Prompt",
-            true,
+            false,
             [
-            new RegistryValueJob(
-                RegistryHive.CurrentUser,
-                @"Software\Policies\Google\Chrome",
-                "DefaultBrowserSettingEnabled",
-                0,
-                1,
-                Notes: " * Disables the prompt to set chrome as the default browser"),
-            new RegistryValueJob(
-                RegistryHive.CurrentUser,
-                @"Software\Policies\Microsoft\Edge",
-                "DefaultBrowserSettingEnabled",
-                0,
-                1,
-                Notes: " * Disables the prompt to set edge as the default browser"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Policies\Google\Chrome",
+                    "DefaultBrowserSettingEnabled",
+                    0,
+                    1,
+                    Notes: " * Disables the prompt to set chrome as the default browser"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Policies\Microsoft\Edge",
+                    "DefaultBrowserSettingEnabled",
+                    0,
+                    1,
+                    Notes: " * Disables the prompt to set edge as the default browser"),
             ]),
         new(
             "DevHome",
@@ -116,10 +117,11 @@
                 "HubsSidebarEnabled",
                 0,
                 1,
-                Notes: """
-                       * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
-                       * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
-                       """)),
+                Notes:
+                """
+                * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
+                * Disables the Edge Bing Sidebar <br><img src="/src/edgeBingIcon.png" height="200px">
+                """)),
         new(
             "Edge Desktop Search Bar",
             true,
@@ -160,10 +162,11 @@
                 "ShowRecommendationsEnabled",
                 0,
                 1,
-                Notes: """
-                       * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
-                       * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
-                       """)),
+                Notes:
+                """
+                * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
+                * Disables "Switch default search engine Microsoft Bing in Chrome" <br><img src="/src/SwitchToBingInChrome.png" height="200px">
+                """)),
         new(
             "Explorer 3D Objects",
             true,
@@ -171,7 +174,7 @@
                 RegistryHive.LocalMachine,
                 @"Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
                 Invert: true)
-            ),
+        ),
         new(
             "Explorer Classic Menu",
             false,
@@ -213,9 +216,10 @@
                 "",
                 null,
                 RegistryValueKind.String,
-                Notes: """
-                       * Removes Explorer "Give access to" functionality. Both from the context menu and from the properties tab.
-                       """)),
+                Notes:
+                """
+                * Removes Explorer "Give access to" functionality. Both from the context menu and from the properties tab.
+                """)),
         new(
             "Health Check", false,
             new UninstallJob(
@@ -265,10 +269,11 @@
                 "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}",
                 1,
                 null,
-                Notes: """
-                       * Removes "Learn about this image" from the desktop <br><img src="/src/LearnAboutThisImage.png" height="200px">
-                       * [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
-                       """)),
+                Notes:
+                """
+                * Removes "Learn about this image" from the desktop <br><img src="/src/LearnAboutThisImage.png" height="200px">
+                * [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
+                """)),
         new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
         new(
             "Maps",
@@ -298,12 +303,13 @@
                 "ShowCloudFilesInQuickAccess",
                 0,
                 1,
-                Notes: """
-                       * Disables Office cloud files in explorer<br>
-                         <img src="/src/OfficeExplorer.png" height="200px"><br>
-                         <img src="/src/OfficeExplorerDialog.png" height="150px"><br>
-                         <img src="/src/OfficeExplorerOptions.png" height="300px">
-                       """)),
+                Notes:
+                """
+                * Disables Office cloud files in explorer<br>
+                  <img src="/src/OfficeExplorer.png" height="200px"><br>
+                  <img src="/src/OfficeExplorerDialog.png" height="150px"><br>
+                  <img src="/src/OfficeExplorerOptions.png" height="300px">
+                """)),
         new(
             "OneDrive",
             false,
@@ -388,10 +394,11 @@
                 "HideRecommendedSection",
                 1,
                 0,
-                Notes: """
-                        * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
-                        * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
-                       """)),
+                Notes:
+                """
+                 * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
+                 * [Policy CSP - Start / hiderecommendedsection](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-start#hiderecommendedsection)
+                """)),
         new(
             "Sticky Notes",
             true,
