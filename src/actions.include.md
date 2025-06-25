@@ -1191,7 +1191,8 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Google\Chrome"`
 
 ##### Notes:
 
- * Disables the prompt to set chrome as the default browser
+* Disables the prompt to set chrome as the default browser
+* Use [Change Default Apps in Windows](https://support.microsoft.com/en-au/windows/change-default-apps-in-windows-e5d82cad-17d1-c53b-3505-f10a32e1894d) to manually control the default browser
 
 
 #### DefaultBrowserSettingEnabled
@@ -1216,7 +1217,8 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Microsoft\Edge"`
 
 ##### Notes:
 
- * Disables the prompt to set edge as the default browser
+* Disables the prompt to set edge as the default browser
+* Use [Change Default Apps in Windows](https://support.microsoft.com/en-au/windows/change-default-apps-in-windows-e5d82cad-17d1-c53b-3505-f10a32e1894d) to manually control the default browser
 
 
 
