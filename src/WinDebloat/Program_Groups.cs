@@ -445,8 +445,7 @@
                     "Microsoft.Teams.Classic",
                     Notes: " * [Microsoft Teams](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)"),
                 new UninstallJob("Microsoft Teams (personal)"),
-                new UninstallJob("XP8BT8DW290MPQ"),
-                new UninstallJob("Microsoft Teams"),
+                new UninstallJob("Microsoft.Teams"),
             ]),
         new(
             "Teams Installer",
