@@ -85,7 +85,7 @@ Uninstalls `3D Viewer` using [winget](https://learn.microsoft.com/en-us/windows/
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "3D Viewer" --exact
+winget uninstall --name "3D Viewer" --exact --all-versions
 ```
 
 #### Notes:
@@ -129,7 +129,7 @@ Uninstalls `Windows Camera` using [winget](https://learn.microsoft.com/en-us/win
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Camera" --exact
+winget uninstall --name "Windows Camera" --exact --all-versions
 ```
 
 #### Notes:
@@ -173,7 +173,7 @@ Uninstalls `Clipchamp` using [winget](https://learn.microsoft.com/en-us/windows/
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Clipchamp" --exact
+winget uninstall --name "Clipchamp" --exact --all-versions
 ```
 
 #### Notes:
@@ -190,7 +190,7 @@ Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/pa
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Cortana" --exact
+winget uninstall --name "Cortana" --exact --all-versions
 ```
 
 
@@ -275,7 +275,7 @@ Uninstalls `Feedback Hub` using [winget](https://learn.microsoft.com/en-us/windo
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Feedback Hub" --exact
+winget uninstall --name "Feedback Hub" --exact --all-versions
 ```
 
 
@@ -311,7 +311,7 @@ Uninstalls `Films & TV` using [winget](https://learn.microsoft.com/en-us/windows
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Films & TV" --exact
+winget uninstall --name "Films & TV" --exact --all-versions
 ```
 
 
@@ -326,7 +326,7 @@ Uninstalls `Solitaire & Casual Games` using [winget](https://learn.microsoft.com
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Solitaire & Casual Games" --exact
+winget uninstall --name "Solitaire & Casual Games" --exact --all-versions
 ```
 
 
@@ -337,7 +337,7 @@ Uninstalls `Microsoft Solitaire Collection` using [winget](https://learn.microso
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Solitaire Collection" --exact
+winget uninstall --name "Microsoft Solitaire Collection" --exact --all-versions
 ```
 
 
@@ -351,7 +351,7 @@ Uninstalls `Get Help` using [winget](https://learn.microsoft.com/en-us/windows/p
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Get Help" --exact
+winget uninstall --name "Get Help" --exact --all-versions
 ```
 
 
@@ -364,7 +364,7 @@ Uninstalls `SharedAccess` using [winget](https://learn.microsoft.com/en-us/windo
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "SharedAccess" --exact
+winget uninstall --name "SharedAccess" --exact --all-versions
 ```
 
 
@@ -454,7 +454,7 @@ Uninstalls `Mail and Calendar` using [winget](https://learn.microsoft.com/en-us/
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Mail and Calendar" --exact
+winget uninstall --name "Mail and Calendar" --exact --all-versions
 ```
 
 
@@ -469,7 +469,7 @@ Uninstalls `Windows Maps` using [winget](https://learn.microsoft.com/en-us/windo
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Maps" --exact
+winget uninstall --name "Windows Maps" --exact --all-versions
 ```
 
 
@@ -502,7 +502,7 @@ Uninstalls `Windows Media Player` using [winget](https://learn.microsoft.com/en-
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Media Player" --exact
+winget uninstall --name "Windows Media Player" --exact --all-versions
 ```
 
 
@@ -515,7 +515,7 @@ Uninstalls `Mixed Reality Portal` using [winget](https://learn.microsoft.com/en-
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Mixed Reality Portal" --exact
+winget uninstall --name "Mixed Reality Portal" --exact --all-versions
 ```
 
 
@@ -528,7 +528,7 @@ Uninstalls `Movies & TV` using [winget](https://learn.microsoft.com/en-us/window
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Movies & TV" --exact
+winget uninstall --name "Movies & TV" --exact --all-versions
 ```
 
 
@@ -543,7 +543,7 @@ Uninstalls `Microsoft News` using [winget](https://learn.microsoft.com/en-us/win
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft News" --exact
+winget uninstall --name "Microsoft News" --exact --all-versions
 ```
 
 
@@ -554,7 +554,7 @@ Uninstalls `News` using [winget](https://learn.microsoft.com/en-us/windows/packa
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "News" --exact
+winget uninstall --name "News" --exact --all-versions
 ```
 
 
@@ -568,7 +568,7 @@ Uninstalls `OneNote for Windows 10` using [winget](https://learn.microsoft.com/e
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "OneNote for Windows 10" --exact
+winget uninstall --name "OneNote for Windows 10" --exact --all-versions
 ```
 
 
@@ -581,7 +581,7 @@ Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/p
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Paint 3D" --exact
+winget uninstall --name "Paint 3D" --exact --all-versions
 ```
 
 
@@ -594,7 +594,7 @@ Uninstalls `Microsoft Pay` using [winget](https://learn.microsoft.com/en-us/wind
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Pay" --exact
+winget uninstall --name "Microsoft Pay" --exact --all-versions
 ```
 
 
@@ -607,7 +607,7 @@ Uninstalls `Microsoft People` using [winget](https://learn.microsoft.com/en-us/w
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft People" --exact
+winget uninstall --name "Microsoft People" --exact --all-versions
 ```
 
 
@@ -620,7 +620,7 @@ Uninstalls `Microsoft Photos` using [winget](https://learn.microsoft.com/en-us/w
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Photos" --exact
+winget uninstall --name "Microsoft Photos" --exact --all-versions
 ```
 
 
@@ -633,7 +633,7 @@ Uninstalls `Power Automate` using [winget](https://learn.microsoft.com/en-us/win
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Power Automate" --exact
+winget uninstall --name "Power Automate" --exact --all-versions
 ```
 
 
@@ -669,7 +669,7 @@ Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/p
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Print 3D" --exact
+winget uninstall --name "Print 3D" --exact --all-versions
 ```
 
 
@@ -682,7 +682,7 @@ Uninstalls `Skype` using [winget](https://learn.microsoft.com/en-us/windows/pack
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Skype" --exact
+winget uninstall --name "Skype" --exact --all-versions
 ```
 
 #### Notes:
@@ -699,7 +699,7 @@ Uninstalls `Spotify Music` using [winget](https://learn.microsoft.com/en-us/wind
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Spotify Music" --exact
+winget uninstall --name "Spotify Music" --exact --all-versions
 ```
 
 
@@ -767,7 +767,7 @@ Uninstalls `Microsoft Sticky Notes` using [winget](https://learn.microsoft.com/e
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Sticky Notes" --exact
+winget uninstall --name "Microsoft Sticky Notes" --exact --all-versions
 ```
 
 #### Notes:
@@ -830,7 +830,7 @@ Uninstalls `Teams Machine-Wide Installer` using [winget](https://learn.microsoft
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Teams Machine-Wide Installer" --exact
+winget uninstall --name "Teams Machine-Wide Installer" --exact --all-versions
 ```
 
 #### Notes:
@@ -892,7 +892,7 @@ Uninstalls `Microsoft Tips` using [winget](https://learn.microsoft.com/en-us/win
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Tips" --exact
+winget uninstall --name "Microsoft Tips" --exact --all-versions
 ```
 
 
@@ -905,7 +905,7 @@ Uninstalls `Microsoft To Do` using [winget](https://learn.microsoft.com/en-us/wi
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft To Do" --exact
+winget uninstall --name "Microsoft To Do" --exact --all-versions
 ```
 
 #### Notes:
@@ -922,7 +922,7 @@ Uninstalls `MSN Weather` using [winget](https://learn.microsoft.com/en-us/window
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "MSN Weather" --exact
+winget uninstall --name "MSN Weather" --exact --all-versions
 ```
 
 
@@ -935,7 +935,7 @@ Uninstalls `Windows Web Experience Pack` using [winget](https://learn.microsoft.
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Web Experience Pack" --exact
+winget uninstall --name "Windows Web Experience Pack" --exact --all-versions
 ```
 
 
@@ -971,7 +971,7 @@ Uninstalls `Microsoft Whiteboard` using [winget](https://learn.microsoft.com/en-
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Whiteboard" --exact
+winget uninstall --name "Microsoft Whiteboard" --exact --all-versions
 ```
 
 
@@ -1009,7 +1009,7 @@ Uninstalls `Xbox TCUI` using [winget](https://learn.microsoft.com/en-us/windows/
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox TCUI" --exact
+winget uninstall --name "Xbox TCUI" --exact --all-versions
 ```
 
 
@@ -1020,7 +1020,7 @@ Uninstalls `Xbox Console Companion` using [winget](https://learn.microsoft.com/e
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Console Companion" --exact
+winget uninstall --name "Xbox Console Companion" --exact --all-versions
 ```
 
 
@@ -1031,7 +1031,7 @@ Uninstalls `Xbox Game Bar Plugin` using [winget](https://learn.microsoft.com/en-
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Game Bar Plugin" --exact
+winget uninstall --name "Xbox Game Bar Plugin" --exact --all-versions
 ```
 
 
@@ -1042,7 +1042,7 @@ Uninstalls `Xbox Identity Provider` using [winget](https://learn.microsoft.com/e
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Identity Provider" --exact
+winget uninstall --name "Xbox Identity Provider" --exact --all-versions
 ```
 
 
@@ -1053,7 +1053,7 @@ Uninstalls `Xbox Game Speech Window` using [winget](https://learn.microsoft.com/
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Game Speech Window" --exact
+winget uninstall --name "Xbox Game Speech Window" --exact --all-versions
 ```
 
 
@@ -1064,7 +1064,7 @@ Uninstalls `Xbox Game Bar` using [winget](https://learn.microsoft.com/en-us/wind
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Game Bar" --exact
+winget uninstall --name "Xbox Game Bar" --exact --all-versions
 ```
 
 
@@ -1075,7 +1075,7 @@ Uninstalls `Xbox Accessories` using [winget](https://learn.microsoft.com/en-us/w
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox Accessories" --exact
+winget uninstall --name "Xbox Accessories" --exact --all-versions
 ```
 
 
@@ -1086,7 +1086,7 @@ Uninstalls `Xbox` using [winget](https://learn.microsoft.com/en-us/windows/packa
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Xbox" --exact
+winget uninstall --name "Xbox" --exact --all-versions
 ```
 
 
@@ -1105,7 +1105,7 @@ Uninstalls `Windows Clock` using [winget](https://learn.microsoft.com/en-us/wind
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Clock" --exact
+winget uninstall --name "Windows Clock" --exact --all-versions
 ```
 
 ##### Notes:
@@ -1120,7 +1120,7 @@ Uninstalls `Windows Alarms & Clock` using [winget](https://learn.microsoft.com/e
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Alarms & Clock" --exact
+winget uninstall --name "Windows Alarms & Clock" --exact --all-versions
 ```
 
 
@@ -1136,7 +1136,7 @@ Uninstalls `Microsoft Copilot` using [winget](https://learn.microsoft.com/en-us/
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Copilot" --exact
+winget uninstall --name "Microsoft Copilot" --exact --all-versions
 ```
 
 
@@ -1147,7 +1147,7 @@ Uninstalls `Microsoft 365 Copilot` using [winget](https://learn.microsoft.com/en
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft 365 Copilot" --exact
+winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
 ```
 
 
@@ -1245,7 +1245,7 @@ Uninstalls `DevHome` using [winget](https://learn.microsoft.com/en-us/windows/pa
 #### Command to manually apply:
 
 ```ps
-winget uninstall "DevHome"
+winget uninstall "DevHome --all-versions"
 ```
 
 #### Notes:
@@ -1427,7 +1427,7 @@ Uninstalls `Windows PC Health Check` using [winget](https://learn.microsoft.com/
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows PC Health Check" --exact
+winget uninstall --name "Windows PC Health Check" --exact --all-versions
 ```
 
 #### Notes:
@@ -1446,7 +1446,7 @@ Uninstalls `HP Desktop Support Utilities` using [winget](https://learn.microsoft
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "HP Desktop Support Utilities" --exact
+winget uninstall --name "HP Desktop Support Utilities" --exact --all-versions
 ```
 
 
@@ -1457,7 +1457,7 @@ Uninstalls `HP Documentation` using [winget](https://learn.microsoft.com/en-us/w
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "HP Documentation" --exact
+winget uninstall --name "HP Documentation" --exact --all-versions
 ```
 
 
@@ -1468,7 +1468,7 @@ Uninstalls `HP Notifications` using [winget](https://learn.microsoft.com/en-us/w
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "HP Notifications" --exact
+winget uninstall --name "HP Notifications" --exact --all-versions
 ```
 
 
@@ -1479,7 +1479,7 @@ Uninstalls `HPHelp` using [winget](https://learn.microsoft.com/en-us/windows/pac
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "HPHelp" --exact
+winget uninstall --name "HPHelp" --exact --all-versions
 ```
 
 
@@ -1607,7 +1607,7 @@ Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/e
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft 365 (Office)" --exact
+winget uninstall --name "Microsoft 365 (Office)" --exact --all-versions
 ```
 
 
@@ -1652,7 +1652,7 @@ Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us
 ##### Command to manually apply:
 
 ```ps
-winget uninstall "Microsoft OneDrive"
+winget uninstall "Microsoft OneDrive --all-versions"
 ```
 
 ##### Notes:
@@ -1667,7 +1667,7 @@ Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/p
 ##### Command to manually apply:
 
 ```ps
-winget uninstall "OneDrive"
+winget uninstall "OneDrive --all-versions"
 ```
 
 
@@ -1683,7 +1683,7 @@ Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/pack
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Paint" --exact
+winget uninstall --name "Paint" --exact --all-versions
 ```
 
 
@@ -1708,7 +1708,7 @@ Uninstalls `Phone Link` using [winget](https://learn.microsoft.com/en-us/windows
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Phone Link" --exact
+winget uninstall --name "Phone Link" --exact --all-versions
 ```
 
 #### Notes:
@@ -1767,7 +1767,7 @@ Uninstalls `Quick Assist` using [winget](https://learn.microsoft.com/en-us/windo
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Quick Assist" --exact
+winget uninstall --name "Quick Assist" --exact --all-versions
 ```
 
 #### Notes:
@@ -1784,7 +1784,7 @@ Uninstalls `Microsoft Teams` using [winget](https://learn.microsoft.com/en-us/wi
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Teams" --exact
+winget uninstall --name "Microsoft Teams" --exact --all-versions
 ```
 
 #### Notes:
@@ -1801,7 +1801,7 @@ Uninstalls `Windows Voice Recorder` using [winget](https://learn.microsoft.com/e
 #### Command to manually apply:
 
 ```ps
-winget uninstall --name "Windows Voice Recorder" --exact
+winget uninstall --name "Windows Voice Recorder" --exact --all-versions
 ```
 
 

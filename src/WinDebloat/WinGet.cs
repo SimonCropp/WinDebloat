@@ -54,11 +54,11 @@ public static class WinGet
         string arguments;
         if (partialMatch)
         {
-            arguments = $"uninstall \"{name}\" --disable-interactivity --silent --accept-source-agreements";
+            arguments = $"uninstall \"{name}\" --disable-interactivity --silent --accept-source-agreements --all-versions";
         }
         else
         {
-            arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements";
+            arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
         }
 
         var result = await Run(arguments);
