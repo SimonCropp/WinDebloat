@@ -75,6 +75,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Cortana](#cortana)
  * [Copilot](#copilot) (optional)
  * [Customize This Folder](#customize-this-folder) (optional)
+ * [Default Browser Prompt](#default-browser-prompt)
  * [DevHome](#devhome) (optional)
  * [dotnet](#dotnet) (optional)
  * [Developer Mode](#developer-mode) (optional)
@@ -257,6 +258,61 @@ Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/pa
 ```ps
 winget uninstall --name "Cortana" --exact
 ```
+
+
+### Default Browser Prompt
+
+Id to exclude: `DefaultBrowserPrompt`
+
+#### DefaultBrowserSettingEnabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Google\Chrome"`
+                 -Name "DefaultBrowserSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Google\Chrome"`
+                 -Name "DefaultBrowserSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+ * Disables the prompt to set chrome as the default browser
+
+
+#### DefaultBrowserSettingEnabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Microsoft\Edge"`
+                 -Name "DefaultBrowserSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Microsoft\Edge"`
+                 -Name "DefaultBrowserSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+ * Disables the prompt to set edge as the default browser
+
 
 
 ### Edge Desktop Search Bar

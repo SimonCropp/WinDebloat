@@ -64,6 +64,25 @@
                        * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
                        """)),
         new(
+            "Default Browser Prompt",
+            true,
+            [
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Policies\Google\Chrome",
+                "DefaultBrowserSettingEnabled",
+                0,
+                1,
+                Notes: " * Disables the prompt to set chrome as the default browser"),
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Policies\Microsoft\Edge",
+                "DefaultBrowserSettingEnabled",
+                0,
+                1,
+                Notes: " * Disables the prompt to set edge as the default browser"),
+            ]),
+        new(
             "DevHome",
             false,
             new UninstallJob(
