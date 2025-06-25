@@ -50,7 +50,13 @@
                 "Clipchamp",
                 Notes: " * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)")),
         new("Cortana", true, new UninstallJob("Cortana")),
-        new("Copilot", false, new UninstallJob("Copilot")),
+        new(
+            "Copilot",
+            false,
+            [
+                new UninstallJob("Microsoft Copilot"),
+                new UninstallJob("Microsoft 365 Copilot")
+            ]),
         new(
             "Customize This Folder",
             false,
