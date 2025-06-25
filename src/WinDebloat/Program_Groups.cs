@@ -440,9 +440,14 @@
         new(
             "Teams",
             false,
-            new UninstallJob(
-                "Microsoft Teams",
-                Notes: " * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)")),
+            [
+                new UninstallJob(
+                    "Microsoft.Teams.Classic",
+                    Notes: " * [Microsoft Teams](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)"),
+                new UninstallJob("Microsoft Teams (personal)"),
+                new UninstallJob("XP8BT8DW290MPQ"),
+                new UninstallJob("Microsoft Teams"),
+            ]),
         new(
             "Teams Installer",
             true,
