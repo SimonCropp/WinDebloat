@@ -227,21 +227,14 @@ public class DocsTests
                      {headingLevel} Command to manually apply:
 
                      ```ps
-                     winget install --id "{installByIdJob.Name}"
+                     winget install --id "{installByIdJob.Name}" --exact
                      ```
 
                      """);
                 break;
             case UninstallByNameJob uninstallJob:
 
-                if (uninstallJob.PartialMatch)
-                {
-                    command = $"""winget uninstall "{uninstallJob.Name}" --all-versions""";
-                }
-                else
-                {
-                    command = $"""winget uninstall --name "{uninstallJob.Name}" --exact --all-versions""";
-                }
+                command = $"""winget uninstall --name "{uninstallJob.Name}" --exact --all-versions""";
 
                 writer.WriteLine(
                     $"""
@@ -257,7 +250,7 @@ public class DocsTests
                 break;
             case UninstallByIdJob uninstallByIdJob:
 
-                command = $"""winget uninstall --id "{uninstallByIdJob.Name}" --all-versions""";
+                command = $"""winget uninstall --id "{uninstallByIdJob.Name}" --all-versions --exact""";
 
                 writer.WriteLine(
                     $"""

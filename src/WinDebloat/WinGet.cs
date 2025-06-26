@@ -57,18 +57,9 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static Task UninstallByName(string name, bool partialMatch)
+    public static Task UninstallByName(string name)
     {
-        string arguments;
-        if (partialMatch)
-        {
-            arguments = $"uninstall \"{name}\" --disable-interactivity --silent --accept-source-agreements --all-versions";
-        }
-        else
-        {
-            arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
-        }
-
+        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
         return InnerUninstall(arguments);
     }
 

@@ -1240,12 +1240,12 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Microsoft\Edge"`
 
 Id to include: `DevHome`
 
-Uninstalls `DevHome` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `Microsoft.DevHome` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 #### Command to manually apply:
 
 ```ps
-winget uninstall "DevHome" --all-versions
+winget uninstall --id "Microsoft.DevHome" --all-versions --exact
 ```
 
 #### Notes:
@@ -1645,31 +1645,17 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `OneDrive`
 
-#### Microsoft OneDrive
+Uninstalls `Microsoft.OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
+#### Command to manually apply:
 
 ```ps
-winget uninstall "Microsoft OneDrive" --all-versions
+winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
 ```
 
-##### Notes:
+#### Notes:
 
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
-
-
-#### OneDrive
-
-Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget uninstall "OneDrive" --all-versions
-```
-
 
 
 ### Paint

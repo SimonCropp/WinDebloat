@@ -22,8 +22,8 @@ public class WinGetTests
     [Test]
     public async Task AlreadyUninstalledName()
     {
-        await WinGet.UninstallByName(name, false);
-        await WinGet.UninstallByName(name, false);
+        await WinGet.UninstallByName(name);
+        await WinGet.UninstallByName(name);
     }
 
     [Test]
@@ -41,7 +41,7 @@ public class WinGetTests
         IsTrue(list.Any(_ => _.name == name));
         IsTrue(list.Any(_ => _.id == id));
 
-        await WinGet.UninstallByName(name, false);
+        await WinGet.UninstallByName(name);
         list = await WinGet.List();
         IsFalse(list.Any(_ => _.name == name));
         IsFalse(list.Any(_ => _.id == id));

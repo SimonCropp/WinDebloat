@@ -160,9 +160,9 @@
     {
         var name = job.Name;
         Log.Information("Uninstall: {Name}", name);
-        if (IsInstalledByName(name, job.PartialMatch))
+        if (IsInstalledByName(name))
         {
-            await WinGet.UninstallByName(name, job.PartialMatch);
+            await WinGet.UninstallByName(name);
             Log.Information("Uninstalled {Name}", name);
             return;
         }
@@ -195,7 +195,7 @@
     {
         var name = job.Name;
         Log.Information("Install: {Name}", name);
-        if (IsInstalledByName(name, false))
+        if (IsInstalledByName(name))
         {
             Log.Information("Skipped install of {Name} since installed", name);
             return;
@@ -219,31 +219,8 @@
         Log.Information("Installed {Name}", name);
     }
 
-    static bool IsInstalledByName(string package, bool partialMatch) =>
-        installed.Any(_ =>
-        {
-            if (string.Equals(_.name, package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            if (!partialMatch)
-            {
-                return false;
-            }
-
-            if (_.name.Contains(package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            if (_.name.Replace(" ","").Contains(package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            return false;
-        });
+    static bool IsInstalledByName(string package) =>
+        installed.Any(_ => string.Equals(_.name, package, StringComparison.OrdinalIgnoreCase));
 
     static bool IsInstalledById(string package) =>
         installed.Any(_ => string.Equals(_.id, package, StringComparison.OrdinalIgnoreCase));

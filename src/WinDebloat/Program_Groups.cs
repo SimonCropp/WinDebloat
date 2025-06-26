@@ -100,10 +100,9 @@
         new(
             "DevHome",
             false,
-            new UninstallByNameJob(
-                "DevHome",
-                Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
-                PartialMatch: true)),
+            new UninstallByIdJob(
+                "Microsoft.DevHome",
+                Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)")),
         new(
             "dotnet",
             false,
@@ -327,16 +326,9 @@
         new(
             "OneDrive",
             false,
-            [
-                new UninstallByNameJob(
-                    "Microsoft OneDrive",
-                    Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)",
-                    true),
-                new UninstallByNameJob(
-                    "OneDrive",
-                    Notes: null,
-                    true),
-            ]
+                new UninstallByIdJob(
+                    "Microsoft.OneDrive",
+                    Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
         ),
         new("Paint 3D", true, new UninstallByNameJob("Paint 3D")),
         new(
