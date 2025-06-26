@@ -101,6 +101,7 @@ public class DocsTests
 
     static void HandleJob(IJob job, TextWriter writer, string headingLevel)
     {
+        string command;
         switch (job)
         {
             case DisableServiceJob disableServiceJob:
@@ -205,7 +206,7 @@ public class DocsTests
                 }
             }
                 break;
-            case InstallJob installJob:
+            case InstallByNameJob installJob:
                 writer.WriteLine(
                     $"""
                      Installs `{installJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
@@ -218,24 +219,42 @@ public class DocsTests
 
                      """);
                 break;
-            case UninstallJob uninstallJob:
+            case InstallByIdJob installByIdJob:
+                writer.WriteLine(
+                    $"""
+                     Installs `{installByIdJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-                string command;
+                     {headingLevel} Command to manually apply:
 
-                if (uninstallJob.PartialMatch)
-                {
-                    command = $"""
-                               winget uninstall "{uninstallJob.Name}" --all-versions
-                               """;
-                }
-                else
-                {
-                    command = $"""winget uninstall --name "{uninstallJob.Name}" --exact --all-versions""";
-                }
+                     ```ps
+                     winget install --id "{installByIdJob.Name}" --exact
+                     ```
+
+                     """);
+                break;
+            case UninstallByNameJob uninstallJob:
+
+                command = $"""winget uninstall --name "{uninstallJob.Name}" --exact --all-versions""";
 
                 writer.WriteLine(
                     $"""
                      Uninstalls `{uninstallJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+                     {headingLevel} Command to manually apply:
+
+                     ```ps
+                     {command}
+                     ```
+
+                     """);
+                break;
+            case UninstallByIdJob uninstallByIdJob:
+
+                command = $"""winget uninstall --id "{uninstallByIdJob.Name}" --all-versions --exact""";
+
+                writer.WriteLine(
+                    $"""
+                     Uninstalls `{uninstallByIdJob.Name}` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
                      {headingLevel} Command to manually apply:
 

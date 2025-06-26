@@ -3,31 +3,62 @@
 public class WinGetTests
 {
     string name = "GitHub CLI";
+    string id = "GitHub.cli";
 
     [Test]
-    public async Task AlreadyInstalled()
+    public async Task AlreadyInstalledName()
     {
-        await WinGet.Install(name);
-        await WinGet.Install(name);
+        await WinGet.InstallByName(name);
+        await WinGet.InstallByName(name);
     }
 
     [Test]
-    public async Task AlreadyUninstalled()
+    public async Task AlreadyInstalledId()
     {
-        await WinGet.Uninstall(name, false);
-        await WinGet.Uninstall(name, false);
+        await WinGet.InstallById(id);
+        await WinGet.InstallById(id);
     }
 
     [Test]
-    public async Task Install()
+    public async Task AlreadyUninstalledName()
     {
-        await WinGet.Install(name);
+        await WinGet.UninstallByName(name);
+        await WinGet.UninstallByName(name);
+    }
+
+    [Test]
+    public async Task AlreadyUninstalledId()
+    {
+        await WinGet.UninstallById(id);
+        await WinGet.UninstallById(id);
+    }
+
+    [Test]
+    public async Task InstallName()
+    {
+        await WinGet.InstallByName(name);
         var list = await WinGet.List();
-        IsTrue(list.Any(_ => _ == name));
+        IsTrue(list.Any(_ => _.name == name));
+        IsTrue(list.Any(_ => _.id == id));
 
-        await WinGet.Uninstall(name, false);
+        await WinGet.UninstallByName(name);
         list = await WinGet.List();
-        IsFalse(list.Any(_ => _ == name));
+        IsFalse(list.Any(_ => _.name == name));
+        IsFalse(list.Any(_ => _.id == id));
+    }
+
+    [Test]
+    public async Task InstallId()
+    {
+        await WinGet.InstallById(id);
+        var list = await WinGet.List();
+        IsTrue(list.Any(_ => _.name == name));
+        IsTrue(list.Any(_ => _.id == id));
+
+        await WinGet.UninstallById(id);
+        list = await WinGet.List();
+        IsFalse(list.Any(_ => _.name == name));
+        IsFalse(list.Any(_ => _.id == id));
     }
 
     [Test]

@@ -28,9 +28,20 @@ public static class WinGet
         throw new WinGetVersionNotMetException(version);
     }
 
-    public static async Task Install(string name)
+    public static Task InstallByName(string name)
     {
-        var arguments = GetInstallArguments(name);
+        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        return InnerInstall(arguments);
+    }
+
+    public static Task InstallById(string id)
+    {
+        var arguments = $"install --id \"{id}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        return InnerInstall(arguments);
+    }
+
+    static async Task InnerInstall(string arguments)
+    {
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -46,21 +57,20 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static string GetInstallArguments(string name) =>
-        $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
-
-    public static async Task Uninstall(string name, bool partialMatch)
+    public static Task UninstallByName(string name)
     {
-        string arguments;
-        if (partialMatch)
-        {
-            arguments = $"uninstall \"{name}\" --disable-interactivity --silent --accept-source-agreements --all-versions";
-        }
-        else
-        {
-            arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
-        }
+        var arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
+        return InnerUninstall(arguments);
+    }
 
+    public static Task UninstallById(string id)
+    {
+        var arguments = $"uninstall --id \"{id}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
+        return InnerUninstall(arguments);
+    }
+
+    static async Task InnerUninstall(string arguments)
+    {
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -76,7 +86,7 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static async Task<List<string>> List()
+    public static async Task<List<(string name, string id)>> List()
     {
         var result = await Run("list --accept-source-agreements");
 
@@ -85,12 +95,14 @@ public static class WinGet
             Throw("list", result);
         }
 
-        var list = new List<string>();
+        var list = new List<(string name, string id)>();
         foreach (var line in result.Output.Skip(2))
         {
-            if (line.Length > 35)
+            if (line.Length >= 81)
             {
-                list.Add(line[..35].Trim());
+                var name = line[..39].Trim();
+                var id = line[40..81].Trim();
+                list.Add((name, id));
             }
         }
 

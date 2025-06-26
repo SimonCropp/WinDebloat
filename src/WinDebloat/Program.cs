@@ -103,20 +103,24 @@
         {
             case RegistryValueJob registry:
                 HandleRegistry(registry);
-                return Task.CompletedTask;
+                break;
             case RegistryKeyJob registry:
                 HandleRegistry(registry);
-                return Task.CompletedTask;
-            case InstallJob installJob:
-                return HandleInstall(installJob);
-            case UninstallJob uninstallJob:
-                return HandleUninstall(uninstallJob);
+                break;
+            case InstallByNameJob installByNameJob:
+                return HandleInstall(installByNameJob);
+            case InstallByIdJob installByIdJob:
+                return HandleInstall(installByIdJob);
+            case UninstallByNameJob uninstallByNameJob:
+                return HandleUninstall(uninstallByNameJob);
+            case UninstallByIdJob uninstallByIdJob:
+                return HandleUninstall(uninstallByIdJob);
             case EnvironmentVariableJob environmentVariableJob:
                 HandleUninstall(environmentVariableJob);
-                return Task.CompletedTask;
+                break;
             case DisableServiceJob disableServiceJob:
                 HandleDisableService(disableServiceJob);
-                return Task.CompletedTask;
+                break;
         }
 
         return Task.CompletedTask;
@@ -152,13 +156,26 @@
         managementObject.InvokeMethod("ChangeStartMode", ["Disabled"]);
     }
 
-    static async Task HandleUninstall(UninstallJob job)
+    static async Task HandleUninstall(UninstallByNameJob job)
     {
         var name = job.Name;
         Log.Information("Uninstall: {Name}", name);
-        if (IsInstalled(name, job.PartialMatch))
+        if (IsInstalledByName(name))
         {
-            await WinGet.Uninstall(name, job.PartialMatch);
+            await WinGet.UninstallByName(name);
+            Log.Information("Uninstalled {Name}", name);
+            return;
+        }
+
+        Log.Information("Skipped uninstall of {Name} since not installed", name);
+    }
+    static async Task HandleUninstall(UninstallByIdJob job)
+    {
+        var name = job.Name;
+        Log.Information("Uninstall: {Name}", name);
+        if (IsInstalledById(name))
+        {
+            await WinGet.UninstallById(name);
             Log.Information("Uninstalled {Name}", name);
             return;
         }
@@ -174,45 +191,39 @@
         Log.Information("Uninstall: {Name}", name);
     }
 
-    static async Task HandleInstall(InstallJob job)
+    static async Task HandleInstall(InstallByNameJob job)
     {
         var name = job.Name;
         Log.Information("Install: {Name}", name);
-        if (IsInstalled(name, false))
+        if (IsInstalledByName(name))
         {
             Log.Information("Skipped install of {Name} since installed", name);
             return;
         }
 
-        await WinGet.Install(name);
+        await WinGet.InstallByName(name);
         Log.Information("Installed {Name}", name);
     }
 
-    static bool IsInstalled(string package, bool partialMatch) =>
-        installed.Any(_ =>
+    static async Task HandleInstall(InstallByIdJob job)
+    {
+        var name = job.Name;
+        Log.Information("Install: {Name}", name);
+        if (IsInstalledById(name))
         {
-            if (string.Equals(_, package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
+            Log.Information("Skipped install of {Name} since installed", name);
+            return;
+        }
 
-            if (!partialMatch)
-            {
-                return false;
-            }
+        await WinGet.InstallById(name);
+        Log.Information("Installed {Name}", name);
+    }
 
-            if (_.Contains(package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
+    static bool IsInstalledByName(string package) =>
+        installed.Any(_ => string.Equals(_.name, package, StringComparison.OrdinalIgnoreCase));
 
-            if (_.Replace(" ","").Contains(package, StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            return false;
-        });
+    static bool IsInstalledById(string package) =>
+        installed.Any(_ => string.Equals(_.id, package, StringComparison.OrdinalIgnoreCase));
 
     public static void HandleRegistry(RegistryValueJob job)
     {
@@ -258,6 +269,6 @@
         }
     }
 
-    static List<string> installed = null!;
+    static List<(string name, string id)> installed = null!;
     static ServiceController[] services = null!;
 }
