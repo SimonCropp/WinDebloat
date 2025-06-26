@@ -1306,12 +1306,12 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Microsoft\Edge"`
 
 Id to include: `DevHome`
 
-Uninstalls `DevHome` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `Microsoft.DevHome` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 #### Command to manually apply:
 
 ```ps
-winget uninstall "DevHome" --all-versions
+winget uninstall --id "Microsoft.DevHome" --all-versions --exact
 ```
 
 #### Notes:
@@ -1711,31 +1711,17 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `OneDrive`
 
-#### Microsoft OneDrive
+Uninstalls `Microsoft.OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-Uninstalls `Microsoft OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
+#### Command to manually apply:
 
 ```ps
-winget uninstall "Microsoft OneDrive" --all-versions
+winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
 ```
 
-##### Notes:
+#### Notes:
 
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
-
-
-#### OneDrive
-
-Uninstalls `OneDrive` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget uninstall "OneDrive" --all-versions
-```
-
 
 
 ### Paint
@@ -1852,7 +1838,7 @@ Uninstalls `Microsoft.Teams.Classic` using [winget](https://learn.microsoft.com/
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft.Teams.Classic" --exact --all-versions
+winget uninstall --id "Microsoft.Teams.Classic" --all-versions --exact
 ```
 
 ##### Notes:
@@ -1860,14 +1846,14 @@ winget uninstall --name "Microsoft.Teams.Classic" --exact --all-versions
  * [Microsoft Teams](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
 
 
-#### Microsoft Teams (personal)
+#### Microsoft.Teams.Free
 
-Uninstalls `Microsoft Teams (personal)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `Microsoft.Teams.Free` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Teams (personal)" --exact --all-versions
+winget uninstall --id "Microsoft.Teams.Free" --all-versions --exact
 ```
 
 
@@ -1878,7 +1864,7 @@ Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/wi
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft.Teams" --exact --all-versions
+winget uninstall --id "Microsoft.Teams" --all-versions --exact
 ```
 
 
