@@ -1765,17 +1765,42 @@ winget uninstall --name "Quick Assist" --exact --all-versions
 
 Id to include: `Teams`
 
-Uninstalls `Microsoft Teams` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+#### Microsoft.Teams.Classic
 
-#### Command to manually apply:
+Uninstalls `Microsoft.Teams.Classic` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Teams" --exact --all-versions
+winget uninstall --id "Microsoft.Teams.Classic" --all-versions --exact
 ```
 
-#### Notes:
+##### Notes:
 
- * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
+ * [Microsoft Teams](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
+
+
+#### Microsoft.Teams.Free
+
+Uninstalls `Microsoft.Teams.Free` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --id "Microsoft.Teams.Free" --all-versions --exact
+```
+
+
+#### Microsoft.Teams
+
+Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --id "Microsoft.Teams" --all-versions --exact
+```
+
 
 
 ### Voice Recorder
