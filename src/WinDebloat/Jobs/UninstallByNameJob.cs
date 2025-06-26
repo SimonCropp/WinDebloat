@@ -1,4 +1,4 @@
-﻿public record UninstallJob(
+﻿public record UninstallByNameJob(
     string Name,
     string? Notes = null,
     bool PartialMatch = false):

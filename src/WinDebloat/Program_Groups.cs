@@ -5,7 +5,7 @@
         new(
             "3D Viewer",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "3D Viewer",
                 Notes: " * [AppStore: 3D Viewer](https://apps.microsoft.com/store/detail/3d-viewer/9NBLGGH42THS)")),
         new(
@@ -21,7 +21,7 @@
         new(
             "Camera",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Windows Camera",
                 Notes: " * [AppStore: Windows Camera](https://apps.microsoft.com/store/detail/windows-camera/9WZDNCRFJBBG)")),
         new(
@@ -38,24 +38,24 @@
             "Clock",
             false,
             [
-                new UninstallJob(
+                new UninstallByNameJob(
                     "Windows Clock",
                     Notes: " * [AppStore: Windows Clock](https://apps.microsoft.com/store/detail/windows-clock/9WZDNCRFJ3PR)"),
-                new UninstallJob("Windows Alarms & Clock"),
+                new UninstallByNameJob("Windows Alarms & Clock"),
             ]),
         new(
             "Clipchamp",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Clipchamp",
                 Notes: " * [AppStore: Clipchamp](https://apps.microsoft.com/store/detail/microsoft-clipchamp/9P1J8S7CCWWT)")),
-        new("Cortana", true, new UninstallJob("Cortana")),
+        new("Cortana", true, new UninstallByNameJob("Cortana")),
         new(
             "Copilot",
             false,
             [
-                new UninstallJob("Microsoft Copilot"),
-                new UninstallJob("Microsoft 365 Copilot")
+                new UninstallByNameJob("Microsoft Copilot"),
+                new UninstallByNameJob("Microsoft 365 Copilot")
             ]),
         new(
             "Customize This Folder",
@@ -100,7 +100,7 @@
         new(
             "DevHome",
             false,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "DevHome",
                 Notes: " * [Dev Home](https://learn.microsoft.com/en-us/windows/dev-home/)",
                 PartialMatch: true)),
@@ -198,7 +198,7 @@
         new(
             "Feedback Hub",
             true,
-            new UninstallJob("Feedback Hub")),
+            new UninstallByNameJob("Feedback Hub")),
         new(
             "FileExtensions",
             true,
@@ -211,15 +211,15 @@
         new(
             "FilmsAndTV",
             true,
-            new UninstallJob("Films & TV")),
+            new UninstallByNameJob("Films & TV")),
         new(
             "Games",
             true,
             [
-                new UninstallJob("Solitaire & Casual Games"),
-                new UninstallJob("Microsoft Solitaire Collection")
+                new UninstallByNameJob("Solitaire & Casual Games"),
+                new UninstallByNameJob("Microsoft Solitaire Collection")
             ]),
-        new("Get Help", true, new UninstallJob("Get Help")),
+        new("Get Help", true, new UninstallByNameJob("Get Help")),
         new(
             "Give Access To",
             false,
@@ -236,7 +236,7 @@
                 """)),
         new(
             "Health Check", false,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Windows PC Health Check",
                 Notes: " * [How to use the PC Health Check app](https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844)")),
         new(
@@ -244,10 +244,10 @@
             "HP",
             false,
             [
-                new UninstallJob("HP Desktop Support Utilities"),
-                new UninstallJob("HP Documentation"),
-                new UninstallJob("HP Notifications"),
-                new UninstallJob("HPHelp"),
+                new UninstallByNameJob("HP Desktop Support Utilities"),
+                new UninstallByNameJob("HP Documentation"),
+                new UninstallByNameJob("HP Notifications"),
+                new UninstallByNameJob("HPHelp"),
                 new DisableServiceJob("HpTouchpointAnalyticsService"),
                 new DisableServiceJob("HPAppHelperCap"),
                 new DisableServiceJob("HPDiagsCap"),
@@ -255,7 +255,7 @@
                 new DisableServiceJob("hpsvcsscan"),
                 new DisableServiceJob("HotKeyServiceDSU")
             ]),
-        new("Internet Connection Sharing", true, new UninstallJob("SharedAccess")),
+        new("Internet Connection Sharing", true, new UninstallByNameJob("SharedAccess")),
         new(
             "Lock Screen Ads",
             true,
@@ -288,26 +288,26 @@
                 * Removes "Learn about this image" from the desktop <br><img src="/src/LearnAboutThisImage.png" height="200px">
                 * [How to Remove the ‘Learn More About this Picture’ Icon in Windows 11](https://www.digitbin.com/remove-learn-about-this-picture-icon-windows-11/).
                 """)),
-        new("Mail and Calendar", true, new UninstallJob("Mail and Calendar")),
+        new("Mail and Calendar", true, new UninstallByNameJob("Mail and Calendar")),
         new(
             "Maps",
             true,
             [
-                new UninstallJob("Windows Maps"),
+                new UninstallByNameJob("Windows Maps"),
                 new DisableServiceJob("MapsBroker")
             ]),
-        new("Media Player", true, new UninstallJob("Windows Media Player")),
-        new("Mixed Reality Portal", true, new UninstallJob("Mixed Reality Portal")),
-        new("Movies and TV", true, new UninstallJob("Movies & TV")),
+        new("Media Player", true, new UninstallByNameJob("Windows Media Player")),
+        new("Mixed Reality Portal", true, new UninstallByNameJob("Mixed Reality Portal")),
+        new("Movies and TV", true, new UninstallByNameJob("Movies & TV")),
         new(
             "News",
             true,
             [
-                new UninstallJob("Microsoft News"),
-                new UninstallJob("News")
+                new UninstallByNameJob("Microsoft News"),
+                new UninstallByNameJob("News")
             ]),
-        new("OneNote", true, new UninstallJob("OneNote for Windows 10")),
-        new("Office 365", false, new UninstallJob("Microsoft 365 (Office)")),
+        new("OneNote", true, new UninstallByNameJob("OneNote for Windows 10")),
+        new("Office 365", false, new UninstallByNameJob("Microsoft 365 (Office)")),
         new(
             "Office Cloud Files",
             false,
@@ -328,34 +328,34 @@
             "OneDrive",
             false,
             [
-                new UninstallJob(
+                new UninstallByNameJob(
                     "Microsoft OneDrive",
                     Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)",
                     true),
-                new UninstallJob(
+                new UninstallByNameJob(
                     "OneDrive",
                     Notes: null,
                     true),
             ]
         ),
-        new("Paint 3D", true, new UninstallJob("Paint 3D")),
+        new("Paint 3D", true, new UninstallByNameJob("Paint 3D")),
         new(
             "Paint",
             false,
             [
-                new UninstallJob("Paint"),
-                new InstallJob("paint.net"),
+                new UninstallByNameJob("Paint"),
+                new InstallByNameJob("paint.net"),
             ]),
-        new("Pay", true, new UninstallJob("Microsoft Pay")),
-        new("People", true, new UninstallJob("Microsoft People")),
+        new("Pay", true, new UninstallByNameJob("Microsoft Pay")),
+        new("People", true, new UninstallByNameJob("Microsoft People")),
         new(
             "Phone Link",
             false,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Phone Link",
                 Notes: " * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)")),
-        new("Photos", true, new UninstallJob("Microsoft Photos")),
-        new("Power Automate", true, new UninstallJob("Power Automate")),
+        new("Photos", true, new UninstallByNameJob("Microsoft Photos")),
+        new("Power Automate", true, new UninstallByNameJob("Power Automate")),
         new(
             "PowerShell Unrestricted",
             true,
@@ -367,7 +367,7 @@
                 "Restricted",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
-        new("Print 3D", true, new UninstallJob("Print 3D")),
+        new("Print 3D", true, new UninstallByNameJob("Print 3D")),
         new(
             "Program Compatibility Assistant",
             false,
@@ -375,19 +375,19 @@
         new(
             "Quick Assist",
             false,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Quick Assist",
                 Notes: " * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
         new(
             "Skype",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Skype",
                 Notes: " * [AppStore: Skype](https://apps.microsoft.com/store/detail/skype/9WZDNCRFJ364)")),
         new(
             "Spotify",
             true,
-            new UninstallJob("Spotify Music")),
+            new UninstallByNameJob("Spotify Music")),
         new(
             "Startup boost",
             true,
@@ -416,7 +416,7 @@
         new(
             "Sticky Notes",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Microsoft Sticky Notes",
                 Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)")),
         new(
@@ -440,13 +440,13 @@
         new(
             "Teams",
             false,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Microsoft Teams",
                 Notes: " * [Microsoft Teams ](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)")),
         new(
             "Teams Installer",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Teams Machine-Wide Installer",
                 Notes: " * [Bulk install Teams using Windows Installer](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment)")),
         new(
@@ -464,15 +464,15 @@
         new(
             "Tips",
             true,
-            new UninstallJob("Microsoft Tips")),
+            new UninstallByNameJob("Microsoft Tips")),
         new("To Do",
             true,
-            new UninstallJob(
+            new UninstallByNameJob(
                 "Microsoft To Do",
                 Notes: " * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558)")),
-        new("Voice Recorder", false, new UninstallJob("Windows Voice Recorder")),
-        new("Weather", true, new UninstallJob("MSN Weather")),
-        new("Web Experience Pack", true, new UninstallJob("Windows Web Experience Pack")),
+        new("Voice Recorder", false, new UninstallByNameJob("Windows Voice Recorder")),
+        new("Weather", true, new UninstallByNameJob("MSN Weather")),
+        new("Web Experience Pack", true, new UninstallByNameJob("Windows Web Experience Pack")),
         new(
             "Start Menu Web Search",
             true,
@@ -482,7 +482,7 @@
                 "DisableSearchBoxSuggestions",
                 1,
                 0)),
-        new("Whiteboard", true, new UninstallJob("Microsoft Whiteboard")),
+        new("Whiteboard", true, new UninstallByNameJob("Microsoft Whiteboard")),
         new(
             "Widgets",
             true,
@@ -496,14 +496,14 @@
             "Xbox",
             true,
             [
-                new UninstallJob("Xbox TCUI"),
-                new UninstallJob("Xbox Console Companion"),
-                new UninstallJob("Xbox Game Bar Plugin"),
-                new UninstallJob("Xbox Identity Provider"),
-                new UninstallJob("Xbox Game Speech Window"),
-                new UninstallJob("Xbox Game Bar"),
-                new UninstallJob("Xbox Accessories"),
-                new UninstallJob("Xbox"),
+                new UninstallByNameJob("Xbox TCUI"),
+                new UninstallByNameJob("Xbox Console Companion"),
+                new UninstallByNameJob("Xbox Game Bar Plugin"),
+                new UninstallByNameJob("Xbox Identity Provider"),
+                new UninstallByNameJob("Xbox Game Speech Window"),
+                new UninstallByNameJob("Xbox Game Bar"),
+                new UninstallByNameJob("Xbox Accessories"),
+                new UninstallByNameJob("Xbox"),
             ]),
     ];
 }

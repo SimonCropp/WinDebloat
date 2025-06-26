@@ -42,13 +42,13 @@ public class CliTests
 
     static bool FoundDefault(string id, [NotNullWhen(true)] out Group? group)
     {
-        group = new("goodId", true, new UninstallJob("app"));
+        group = new("goodId", true, new UninstallByNameJob("app"));
         return true;
     }
 
     static bool FoundNonDefault(string id, [NotNullWhen(true)] out Group? group)
     {
-        group = new("goodId", false, new UninstallJob("app"));
+        group = new("goodId", false, new UninstallByNameJob("app"));
         return true;
     }
 
@@ -138,7 +138,7 @@ public class CliTests
             });
     }
 
-    static InstallJob[] jobs = [new("job")];
+    static InstallByNameJob[] jobs = [new("job")];
     public static IEnumerable<object[]> GetStringParsingData()
     {
         foreach (var arg in new[]

@@ -103,20 +103,24 @@
         {
             case RegistryValueJob registry:
                 HandleRegistry(registry);
-                return Task.CompletedTask;
+                break;
             case RegistryKeyJob registry:
                 HandleRegistry(registry);
-                return Task.CompletedTask;
-            case InstallJob installJob:
-                return HandleInstall(installJob);
-            case UninstallJob uninstallJob:
-                return HandleUninstall(uninstallJob);
+                break;
+            case InstallByNameJob installByNameJob:
+                return HandleInstall(installByNameJob);
+            case InstallByIdJob installByIdJob:
+                return HandleInstall(installByIdJob);
+            case UninstallByNameJob uninstallByNameJob:
+                return HandleUninstall(uninstallByNameJob);
+            case UninstallByIdJob uninstallByIdJob:
+                return HandleUninstall(uninstallByIdJob);
             case EnvironmentVariableJob environmentVariableJob:
                 HandleUninstall(environmentVariableJob);
-                return Task.CompletedTask;
+                break;
             case DisableServiceJob disableServiceJob:
                 HandleDisableService(disableServiceJob);
-                return Task.CompletedTask;
+                break;
         }
 
         return Task.CompletedTask;
@@ -152,13 +156,26 @@
         managementObject.InvokeMethod("ChangeStartMode", ["Disabled"]);
     }
 
-    static async Task HandleUninstall(UninstallJob job)
+    static async Task HandleUninstall(UninstallByNameJob job)
     {
         var name = job.Name;
         Log.Information("Uninstall: {Name}", name);
         if (IsInstalledByName(name, job.PartialMatch))
         {
             await WinGet.UninstallByName(name, job.PartialMatch);
+            Log.Information("Uninstalled {Name}", name);
+            return;
+        }
+
+        Log.Information("Skipped uninstall of {Name} since not installed", name);
+    }
+    static async Task HandleUninstall(UninstallByIdJob job)
+    {
+        var name = job.Name;
+        Log.Information("Uninstall: {Name}", name);
+        if (IsInstalledById(name))
+        {
+            await WinGet.UninstallById(name);
             Log.Information("Uninstalled {Name}", name);
             return;
         }
@@ -174,7 +191,7 @@
         Log.Information("Uninstall: {Name}", name);
     }
 
-    static async Task HandleInstall(InstallJob job)
+    static async Task HandleInstall(InstallByNameJob job)
     {
         var name = job.Name;
         Log.Information("Install: {Name}", name);
@@ -185,6 +202,20 @@
         }
 
         await WinGet.InstallByName(name);
+        Log.Information("Installed {Name}", name);
+    }
+
+    static async Task HandleInstall(InstallByIdJob job)
+    {
+        var name = job.Name;
+        Log.Information("Install: {Name}", name);
+        if (IsInstalledById(name))
+        {
+            Log.Information("Skipped install of {Name} since installed", name);
+            return;
+        }
+
+        await WinGet.InstallById(name);
         Log.Information("Installed {Name}", name);
     }
 
