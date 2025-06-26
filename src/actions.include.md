@@ -1772,7 +1772,7 @@ Uninstalls `Microsoft.Teams.Classic` using [winget](https://learn.microsoft.com/
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft.Teams.Classic" --exact --all-versions
+winget uninstall --id "Microsoft.Teams.Classic" --all-versions --exact
 ```
 
 ##### Notes:
@@ -1780,14 +1780,14 @@ winget uninstall --name "Microsoft.Teams.Classic" --exact --all-versions
  * [Microsoft Teams](https://www.microsoft.com/en-au/microsoft-teams/group-chat-software)
 
 
-#### Microsoft Teams (personal)
+#### Microsoft.Teams.Free
 
-Uninstalls `Microsoft Teams (personal)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+Uninstalls `Microsoft.Teams.Free` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
 ##### Command to manually apply:
 
 ```ps
-winget uninstall --name "Microsoft Teams (personal)" --exact --all-versions
+winget uninstall --id "Microsoft.Teams.Free" --all-versions --exact
 ```
 
 
@@ -1798,7 +1798,7 @@ Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/wi
 ##### Command to manually apply:
 
 ```ps
-winget uninstall "Microsoft.Teams" --all-versions
+winget uninstall --id "Microsoft.Teams" --all-versions --exact
 ```
 
 
