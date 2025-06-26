@@ -156,9 +156,9 @@
     {
         var name = job.Name;
         Log.Information("Uninstall: {Name}", name);
-        if (IsInstalled(name, job.PartialMatch))
+        if (IsInstalledByName(name, job.PartialMatch))
         {
-            await WinGet.Uninstall(name, job.PartialMatch);
+            await WinGet.UninstallByName(name, job.PartialMatch);
             Log.Information("Uninstalled {Name}", name);
             return;
         }
@@ -178,17 +178,17 @@
     {
         var name = job.Name;
         Log.Information("Install: {Name}", name);
-        if (IsInstalled(name, false))
+        if (IsInstalledByName(name, false))
         {
             Log.Information("Skipped install of {Name} since installed", name);
             return;
         }
 
-        await WinGet.Install(name);
+        await WinGet.InstallByName(name);
         Log.Information("Installed {Name}", name);
     }
 
-    static bool IsInstalled(string package, bool partialMatch) =>
+    static bool IsInstalledByName(string package, bool partialMatch) =>
         installed.Any(_ =>
         {
             if (string.Equals(_.name, package, StringComparison.OrdinalIgnoreCase))
@@ -213,6 +213,9 @@
 
             return false;
         });
+
+    static bool IsInstalledById(string package) =>
+        installed.Any(_ => string.Equals(_.id, package, StringComparison.OrdinalIgnoreCase));
 
     public static void HandleRegistry(RegistryValueJob job)
     {

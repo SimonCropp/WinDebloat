@@ -28,9 +28,20 @@ public static class WinGet
         throw new WinGetVersionNotMetException(version);
     }
 
-    public static async Task Install(string name)
+    public static Task InstallByName(string name)
     {
-        var arguments = GetInstallArguments(name);
+        var arguments = $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        return InnerInstall(arguments);
+    }
+
+    public static Task InstallById(string id)
+    {
+        var arguments = $"install --id \"{id}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
+        return InnerInstall(arguments);
+    }
+
+    static async Task InnerInstall(string arguments)
+    {
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
@@ -46,10 +57,7 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static string GetInstallArguments(string name) =>
-        $"install --name \"{name}\" --disable-interactivity --exact --no-upgrade --silent --accept-source-agreements --accept-package-agreements";
-
-    public static async Task Uninstall(string name, bool partialMatch)
+    public static Task UninstallByName(string name, bool partialMatch)
     {
         string arguments;
         if (partialMatch)
@@ -61,6 +69,17 @@ public static class WinGet
             arguments = $"uninstall --name \"{name}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
         }
 
+        return InnerUninstall(arguments);
+    }
+
+    public static Task UninstallById(string id)
+    {
+        var arguments = $"uninstall --id \"{id}\" --disable-interactivity --exact --silent --accept-source-agreements --all-versions";
+        return InnerUninstall(arguments);
+    }
+
+    static async Task InnerUninstall(string arguments)
+    {
         var result = await Run(arguments);
 
         if (result.ExitCode == 0)
