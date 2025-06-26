@@ -3,6 +3,7 @@
 public class WinGetTests
 {
     string name = "GitHub CLI";
+    string id = "GitHub.cli";
 
     [Test]
     public async Task AlreadyInstalled()
@@ -23,11 +24,13 @@ public class WinGetTests
     {
         await WinGet.Install(name);
         var list = await WinGet.List();
-        IsTrue(list.Any(_ => _ == name));
+        IsTrue(list.Any(_ => _.name == name));
+        IsTrue(list.Any(_ => _.id == id));
 
         await WinGet.Uninstall(name, false);
         list = await WinGet.List();
-        IsFalse(list.Any(_ => _ == name));
+        IsFalse(list.Any(_ => _.name == name));
+        IsFalse(list.Any(_ => _.id == id));
     }
 
     [Test]

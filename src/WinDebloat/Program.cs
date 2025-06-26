@@ -191,7 +191,7 @@
     static bool IsInstalled(string package, bool partialMatch) =>
         installed.Any(_ =>
         {
-            if (string.Equals(_, package, StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(_.name, package, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
@@ -201,12 +201,12 @@
                 return false;
             }
 
-            if (_.Contains(package, StringComparison.OrdinalIgnoreCase))
+            if (_.name.Contains(package, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
 
-            if (_.Replace(" ","").Contains(package, StringComparison.OrdinalIgnoreCase))
+            if (_.name.Replace(" ","").Contains(package, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
@@ -258,6 +258,6 @@
         }
     }
 
-    static List<string> installed = null!;
+    static List<(string name, string id)> installed = null!;
     static ServiceController[] services = null!;
 }

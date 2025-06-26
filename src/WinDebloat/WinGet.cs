@@ -76,7 +76,7 @@ public static class WinGet
         Throw(arguments, result);
     }
 
-    public static async Task<List<string>> List()
+    public static async Task<List<(string name, string id)>> List()
     {
         var result = await Run("list --accept-source-agreements");
 
@@ -85,12 +85,14 @@ public static class WinGet
             Throw("list", result);
         }
 
-        var list = new List<string>();
+        var list = new List<(string name, string id)>();
         foreach (var line in result.Output.Skip(2))
         {
-            if (line.Length > 35)
+            if (line.Length >= 81)
             {
-                list.Add(line[..35].Trim());
+                var name = line[..39].Trim();
+                var id = line[40..81].Trim();
+                list.Add((name, id));
             }
         }
 
