@@ -227,25 +227,25 @@
 
     public static void HandleRegistry(RegistryValueJob job)
     {
-        var (hive, key, name, applyValue, _, kind, _) = job;
+        var (hive, key, keyName, applyValue, _, name, kind, _) = job;
         Log.Information("Registry: {Name}", name);
         Log.Information("{JobHive} {JobPath} to {ApplyValue}", hive, key, applyValue);
         using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
         using var subKey = baseKey.CreateSubKey(key, RegistryKeyPermissionCheck.ReadWriteSubTree);
-        var currentValue = subKey.GetValue(name, null);
+        var currentValue = subKey.GetValue(keyName, null);
         if (applyValue.Equals(currentValue))
         {
             Log.Information("Skipped registry entry {JobHive} {JobPath} since value already correct", hive, key);
             return;
         }
 
-        if (name == "(Default)")
+        if (keyName == "(Default)")
         {
             subKey.SetValue(null, applyValue, kind);
         }
         else
         {
-            subKey.SetValue(name, applyValue, kind);
+            subKey.SetValue(keyName, applyValue, kind);
         }
     }
 

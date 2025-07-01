@@ -1,9 +1,10 @@
 ﻿public record RegistryValueJob(
     RegistryHive Hive,
     string Key,
-    string Name,
+    string KeyName,
     object ApplyValue,
     object? RevertValue,
+    string Name,
     RegistryValueKind Kind = RegistryValueKind.DWord,
     string? Notes = null) :
     IJob

@@ -132,7 +132,7 @@ public class DocsTests
 
                      ```ps
                      Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
-                                      -Name "{registryJob.Name}"`
+                                      -Name "{registryJob.KeyName}"`
                                       -Type "{registryJob.Kind}"`
                                       -Value "{registryJob.ApplyValue}"
                      ```
@@ -146,7 +146,7 @@ public class DocsTests
                         $"""
                          ```ps
                          Remove-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
-                                             -Name "{registryJob.Name}"
+                                             -Name "{registryJob.KeyName}"
                          ```
 
                          """);
@@ -157,7 +157,7 @@ public class DocsTests
                         $"""
                          ```ps
                          Set-ItemProperty -Path "Registry::{registryJob.ShortKey}"`
-                                          -Name "{registryJob.Name}"`
+                                          -Name "{registryJob.KeyName}"`
                                           -Type "{registryJob.Kind}"`
                                           -Value "{registryJob.RevertValue}"
                          ```
@@ -173,13 +173,13 @@ public class DocsTests
                     writer.WriteLine(
                         $"""
                          {headingLevel} Command to manually apply:
-                         
+
                          ```ps
                          Remove-Item -Path "Registry::{registryJob.ShortKey}"
                          ```
 
                          {headingLevel} Command to manually revert:
-                         
+
                          ```ps
                          New-Item -Path "Registry::{registryJob.ShortKey}" -Value ""
                          ````
