@@ -21,14 +21,14 @@ public class ProgramTests
                     continue;
                 }
 
-                var actual = Registry.GetValue(registryJob.Key, registryJob.Name, null);
+                var actual = Registry.GetValue(registryJob.Key, registryJob.KeyName, null);
 
                 if (registryJob.ApplyValue.Equals(actual))
                 {
                     return;
                 }
 
-                throw new($@"{registryJob.Key}\{registryJob.Name} is {actual} when it should be {registryJob.ApplyValue}");
+                throw new($@"{registryJob.Key}\{registryJob.KeyName} is {actual} when it should be {registryJob.ApplyValue}");
             }
         }
     }

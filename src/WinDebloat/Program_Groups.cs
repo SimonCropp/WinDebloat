@@ -17,6 +17,7 @@
                 "Enabled",
                 0,
                 1,
+                "AdvertisingInfo",
                 Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
         new(
             "Camera",
@@ -33,6 +34,7 @@
                 "TaskbarMn",
                 0,
                 1,
+                "TaskbarMn",
                 Notes: " * [Managing the Teams Chat icon on Windows 11](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/managing-teams-chat-icon-windows-11)")),
         new(
             "Clock",
@@ -75,6 +77,7 @@
                 "NoCustomizeThisFolder",
                 1,
                 0,
+                "NoCustomizeThisFolder",
                 Notes:
                 """
                 * Removes Explorer "Customize this folder" functionality. Both from the context menu and from the properties tab.
@@ -89,6 +92,7 @@
                     "DefaultBrowserSettingEnabled",
                     0,
                     1,
+                    "Chrome DefaultBrowserSettingEnabled",
                     Notes:
                     """
                     * Disables the prompt to set chrome as the default browser
@@ -100,6 +104,7 @@
                     "DefaultBrowserSettingEnabled",
                     0,
                     1,
+                    "Edge DefaultBrowserSettingEnabled",
                     Notes:
                     """
                     * Disables the prompt to set edge as the default browser
@@ -129,6 +134,7 @@
                 "AllowDevelopmentWithoutDevLicense",
                 1,
                 0,
+                "AllowDevelopmentWithoutDevLicense",
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
             "Edge Bing SideBar",
@@ -139,6 +145,7 @@
                 "HubsSidebarEnabled",
                 0,
                 1,
+                "HubsSidebarEnabled",
                 Notes:
                 """
                 * [Microsoft Edge now has a Bing AI chatbot sidebar](https://www.theverge.com/2023/3/14/23639375/microsoft-edge-bing-ai-sidebar-chatbot-feature)
@@ -153,6 +160,7 @@
                 "WebWidgetAllowed",
                 0,
                 1,
+                "WebWidgetAllowed",
                 Notes: " * [Enable the Search bar ](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webwidgetallowed)")),
         new(
             "Edge Default Location To Blank",
@@ -164,6 +172,7 @@
                     "HomepageLocation",
                     "about:blank",
                     null,
+                    "HomepageLocation",
                     RegistryValueKind.String,
                     Notes: " * [Set home page to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#homepagelocation)"),
                 new RegistryValueJob(
@@ -172,6 +181,7 @@
                     "NewTabPageLocation",
                     "about:blank",
                     null,
+                    "NewTabPageLocation",
                     RegistryValueKind.String,
                     Notes: " * [Set new tab to blank](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#newtabpagelocation)")
             ]),
@@ -184,6 +194,7 @@
                 "ShowRecommendationsEnabled",
                 0,
                 1,
+                "ShowRecommendationsEnabled",
                 Notes:
                 """
                 * [Allow feature recommendations and browser assistance notifications from Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#showrecommendationsenabled)
@@ -215,7 +226,8 @@
                 @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "HideFileExt",
                 0,
-                1)),
+                1,
+                "HideFileExt")),
         new(
             "FilmsAndTV",
             true,
@@ -237,6 +249,7 @@
                 "{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}",
                 "",
                 null,
+                "Block `Give Access To`",
                 RegistryValueKind.String,
                 Notes:
                 """
@@ -274,13 +287,15 @@
                     "RotatingLockScreenOverlayEnabled",
                     0,
                     1,
+                    "RotatingLockScreenOverlayEnabled",
                     Notes: " * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)"),
                 new RegistryValueJob(
                     RegistryHive.CurrentUser,
                     @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
                     "SubscribedContent-338387Enabled",
                     0,
-                    1),
+                    1,
+                    "SubscribedContent"),
             ]),
         new(
             "Learn about this image",
@@ -291,6 +306,7 @@
                 "{2cc5ca98-6485-489a-920e-b3e88a6ccce3}",
                 1,
                 null,
+                "NewStartPanel",
                 Notes:
                 """
                 * Removes "Learn about this image" from the desktop <br><img src="/src/LearnAboutThisImage.png" height="200px">
@@ -325,6 +341,7 @@
                 "ShowCloudFilesInQuickAccess",
                 0,
                 1,
+                "ShowCloudFilesInQuickAccess",
                 Notes:
                 """
                 * Disables Office cloud files in explorer<br>
@@ -366,6 +383,7 @@
                 "ExecutionPolicy",
                 "Unrestricted",
                 "Restricted",
+                "ExecutionPolicy",
                 RegistryValueKind.String)),
         new("Printer", false, new DisableServiceJob("Spooler")),
         new("Print 3D", true, new UninstallByNameJob("Print 3D")),
@@ -398,6 +416,7 @@
                 "StartupBoostEnabled",
                 0,
                 1,
+                "StartupBoostEnabled",
                 Notes: " * [Microsoft Edge Startup boost](https://www.microsoft.com/en-us/edge/features/startup-boost)")
         ),
         new(
@@ -409,6 +428,7 @@
                 "HideRecommendedSection",
                 1,
                 0,
+                "HideRecommendedSection",
                 Notes:
                 """
                  * The parent path `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer` may need to be created if it doesn;t exist
@@ -428,7 +448,8 @@
                 @"Software\Microsoft\Windows\CurrentVersion\Search",
                 "SearchboxTaskbarMode",
                 0,
-                1)),
+                1,
+                "SearchboxTaskbarMode")),
         new(
             "Task View",
             true,
@@ -437,7 +458,8 @@
                 @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "ShowTaskViewButton",
                 0,
-                1)),
+                1,
+                "ShowTaskViewButton")),
         new(
             "Teams",
             false,
@@ -463,7 +485,8 @@
                     @"SOFTWARE\Policies\Microsoft\Windows\DataCollection",
                     "Allow Telemetry",
                     0,
-                    1),
+                    1,
+                    "Allow Telemetry"),
                 new DisableServiceJob("DiagTrack")
             ]),
         new(
@@ -486,7 +509,8 @@
                 @"SOFTWARE\Policies\Microsoft\Windows\Explorer",
                 "DisableSearchBoxSuggestions",
                 1,
-                0)),
+                0,
+                "DisableSearchBoxSuggestions")),
         new("Whiteboard", true, new UninstallByNameJob("Microsoft Whiteboard")),
         new(
             "Widgets",
@@ -496,7 +520,8 @@
                 @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
                 "TaskbarDa",
                 0,
-                1)),
+                1,
+                "TaskbarDa")),
         new(
             "Xbox",
             true,

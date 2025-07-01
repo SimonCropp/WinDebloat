@@ -397,7 +397,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
  * [Configure Windows Spotlight on the lock screen](https://learn.microsoft.com/en-us/windows/configuration/windows-spotlight)
 
 
-#### SubscribedContent-338387Enabled
+#### SubscribedContent
 
 ##### Command to manually apply:
 
@@ -1206,7 +1206,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 Id to include: `DefaultBrowserPrompt`
 
-#### DefaultBrowserSettingEnabled
+#### Chrome DefaultBrowserSettingEnabled
 
 ##### Command to manually apply:
 
@@ -1232,7 +1232,7 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Policies\Google\Chrome"`
 * Use [Change Default Apps in Windows](https://support.microsoft.com/en-au/windows/change-default-apps-in-windows-e5d82cad-17d1-c53b-3505-f10a32e1894d) to manually control the default browser
 
 
-#### DefaultBrowserSettingEnabled
+#### Edge DefaultBrowserSettingEnabled
 
 ##### Command to manually apply:
 

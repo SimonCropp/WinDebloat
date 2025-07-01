@@ -13,7 +13,8 @@ public class RegistryTests
                 @"Software\WinDebloat\Child",
                 "TaskbarDa",
                 0,
-                1);
+                1,
+                "TaskbarDa");
             Program.HandleRegistry(registryJob);
 
             using var key = Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")!;
