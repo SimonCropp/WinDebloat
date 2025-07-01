@@ -64,9 +64,9 @@
                     "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}",
                     "",
                     null,
+                    "Ask Copilot",
                     RegistryValueKind.String,
-                    Notes:
-                    " * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.")
+                    Notes: " * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.")
             ]),
         new(
             "Customize This Folder",
