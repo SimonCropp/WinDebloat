@@ -34,7 +34,12 @@ public class CliTests
 
     public static IEnumerable<object[]> GetData()
     {
-        foreach (var findGroup in new FindGroup[] {FoundDefault, FoundNonDefault, NotFound})
+        foreach (var findGroup in new FindGroup[]
+                 {
+                     FoundDefault,
+                     FoundNonDefault,
+                     NotFound
+                 })
         {
             yield return [findGroup];
         }
@@ -139,6 +144,7 @@ public class CliTests
     }
 
     static InstallByNameJob[] jobs = [new("job")];
+
     public static IEnumerable<object[]> GetStringParsingData()
     {
         foreach (var arg in new[]
@@ -149,7 +155,7 @@ public class CliTests
                      "--exclude one",
                  })
         {
-            var args = arg.Split(' ').ToArray();
+            var args = arg.Split(' ');
 
             yield return
             [
