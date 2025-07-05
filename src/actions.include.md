@@ -1151,6 +1151,29 @@ winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
 ```
 
 
+#### Ask Copilot
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                 -Name "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}"`
+                 -Type "String"`
+                 -Value ""
+```
+
+##### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                    -Name "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}"
+```
+
+##### Notes:
+
+ * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.
+
+
 
 ### Customize This Folder
 

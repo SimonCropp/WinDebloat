@@ -57,7 +57,16 @@
             false,
             [
                 new UninstallByNameJob("Microsoft Copilot"),
-                new UninstallByNameJob("Microsoft 365 Copilot")
+                new UninstallByNameJob("Microsoft 365 Copilot"),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
+                    "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}",
+                    "",
+                    null,
+                    "Ask Copilot",
+                    RegistryValueKind.String,
+                    Notes: " * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.")
             ]),
         new(
             "Customize This Folder",
