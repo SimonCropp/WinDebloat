@@ -1,4 +1,4 @@
-# <img src="/src/icon.png" height="30px"> WinDebloat
+# <img src="/src/icon.png" height="30px" width="30px"> WinDebloat
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0kb6mmg47arsjw3x/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/WinDebloat)
 [![NuGet Status](https://img.shields.io/nuget/v/WinDebloat.svg)](https://www.nuget.org/packages/WinDebloat/)
