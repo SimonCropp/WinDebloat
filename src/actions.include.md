@@ -1151,7 +1151,7 @@ winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
 ```
 
 
-#### Ask Copilot
+#### Explorer: Ask Copilot
 
 ##### Command to manually apply:
 
@@ -1172,6 +1172,27 @@ Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVers
 ##### Notes:
 
  * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.
+
+
+#### Copilot Notepad
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\WindowsNotepad"`
+                 -Name "DisableAIFeatures"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\WindowsNotepad"`
+                 -Name "DisableAIFeatures"`
+                 -Type "DWord"`
+                 -Value "0"
+```
 
 
 
