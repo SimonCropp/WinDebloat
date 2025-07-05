@@ -64,9 +64,16 @@
                     "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}",
                     "",
                     null,
-                    "Ask Copilot",
+                    "Explorer: Ask Copilot",
                     RegistryValueKind.String,
-                    Notes: " * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.")
+                    Notes: " * Remove 'Ask Copilot' from Right-Click Menu in File Explorer."),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\WindowsNotepad",
+                    "DisableAIFeatures",
+                    1,
+                    0,
+                    "Copilot Notepad"),
             ]),
         new(
             "Customize This Folder",
