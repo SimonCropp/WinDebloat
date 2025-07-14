@@ -58,6 +58,7 @@
             [
                 new UninstallByNameJob("Microsoft Copilot"),
                 new UninstallByNameJob("Microsoft 365 Copilot"),
+                new UninstallByNameJob("Copilot"),
                 new RegistryValueJob(
                     RegistryHive.LocalMachine,
                     @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
