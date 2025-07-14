@@ -2,7 +2,7 @@
 <Project>
   <PropertyGroup>
     <NoWarn>CA1416;NU1608;NU1109</NoWarn>
-    <Version>1.11.0</Version>
+    <Version>1.12.0</Version>
     <LangVersion>preview</LangVersion>
     <PackageTags>Windows, Debloat</PackageTags>
     <Description>A utility to debloat Windows</Description>

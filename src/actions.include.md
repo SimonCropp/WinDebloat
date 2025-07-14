@@ -23,6 +23,7 @@
  * [FileExtensions](#fileextensions)
  * [FilmsAndTV](#filmsandtv)
  * [Games](#games)
+ * [Game Assist](#game-assist) (optional)
  * [Get Help](#get-help)
  * [Give Access To](#give-access-to) (optional)
  * [Health Check](#health-check) (optional)
@@ -1434,6 +1435,19 @@ New-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-5
 
 ```ps
 Remove-Item -Path "Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"
+```
+
+
+### Game Assist
+
+Id to include: `GameAssist`
+
+Uninstalls `Microsoft Edge Game Assist` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+#### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft Edge Game Assist" --exact --all-versions
 ```
 
 
