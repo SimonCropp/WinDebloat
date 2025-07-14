@@ -246,6 +246,7 @@
                 new UninstallByNameJob("Solitaire & Casual Games"),
                 new UninstallByNameJob("Microsoft Solitaire Collection")
             ]),
+        new("Game Assist", false, new UninstallByNameJob("Microsoft Edge Game Assist")),
         new("Get Help", true, new UninstallByNameJob("Get Help")),
         new(
             "Give Access To",
