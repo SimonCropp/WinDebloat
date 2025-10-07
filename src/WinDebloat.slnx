@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../readme.md" />
+    <File Path=".editorconfig" />
+    <File Path="appveyor.yml" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+  <Project Path="Tests/Tests.csproj" />
+  <Project Path="WinDebloat/WinDebloat.csproj" />
+</Solution>
