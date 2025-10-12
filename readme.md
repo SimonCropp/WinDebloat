@@ -212,7 +212,8 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 
 #### Notes:
 
-* Disables the "Visual search to find similar images" <br><img src="/src/VisualSearchToFindSimilarImages"/>
+* Disables the Bing "Visual search to find similar images" on the desktop <br><img src="/src/VisualSearchToFindSimilarImages"/>
+* Prevents launching a browser with Bing search when the desktop is clicked
 * [Learn Microsoft - How to turn off or move the new Visual Search desktop icon](https://learn.microsoft.com/en-us/answers/questions/5575751/how-to-turn-off-or-move-the-new-visual-search-desk)
 
 
