@@ -20,6 +20,23 @@
                 "AdvertisingInfo",
                 Notes: " * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)")),
         new(
+            "Bing Desktop Visual Search",
+            true,
+            [
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                    "ShowVisualSearchDesktopIcon",
+                    0,
+                    1,
+                    "ShowVisualSearchDesktopIcon",
+                    Notes:  """
+                            * Disables the Bing "Visual search to find similar images" on the desktop <br><img src="/src/VisualSearchToFindSimilarImages"/>
+                            * Prevents launching a browser with Bing search when the desktop is clicked
+                            * [Learn Microsoft - How to turn off or move the new Visual Search desktop icon](https://learn.microsoft.com/en-us/answers/questions/5575751/how-to-turn-off-or-move-the-new-visual-search-desk)
+                            """)
+            ]),
+        new(
             "Camera",
             true,
             new UninstallByNameJob(
