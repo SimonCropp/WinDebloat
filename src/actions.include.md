@@ -2,6 +2,7 @@
 
  * [3D Viewer](#3d-viewer)
  * [Advertiser Id](#advertiser-id)
+ * [Bing Desktop Visual Search](#bing-desktop-visual-search)
  * [Camera](#camera)
  * [Chat](#chat)
  * [Clock](#clock) (optional)
@@ -119,6 +120,35 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 #### Notes:
 
  * [General privacy settings in Windows](https://support.microsoft.com/en-us/windows/general-privacy-settings-in-windows-7c7f6a09-cebd-5589-c376-7f505e5bf65a)
+
+
+### Bing Desktop Visual Search
+
+Id to exclude: `BingDesktopVisualSearch`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "ShowVisualSearchDesktopIcon"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "ShowVisualSearchDesktopIcon"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* Disables the Bing "Visual search to find similar images" on the desktop <br><img src="/src/VisualSearchToFindSimilarImages.png"/>
+* Prevents launching a browser with Bing search when the desktop is clicked
+* [Learn Microsoft - How to turn off or move the new Visual Search desktop icon](https://learn.microsoft.com/en-us/answers/questions/5575751/how-to-turn-off-or-move-the-new-visual-search-desk)
 
 
 ### Camera
