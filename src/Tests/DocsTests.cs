@@ -4,7 +4,7 @@ public class DocsTests
     [Test]
     public void Full()
     {
-        var md = Path.Combine(AttributeReader.GetSolutionDirectory(), "actions.include.md");
+        var md = Path.Combine(ProjectFiles.SolutionDirectory, "actions.include.md");
         File.Delete(md);
 
         using var writer = File.CreateText(md);
