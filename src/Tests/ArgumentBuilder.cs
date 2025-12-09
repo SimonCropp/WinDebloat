@@ -12,7 +12,11 @@ public static class ArgumentBuilder
             .Single();
         construct = inputs =>
         {
-            var invoke = constructor.Invoke([new Argument<string[]>(_ => inputs), null]);
+            var argument = new Argument<string[]>("test")
+            {
+                CustomParser = _ => inputs
+            };
+            var invoke = constructor.Invoke([argument, null]);
             var result = (ArgumentResult) invoke;
             var tokens = (List<Token>) tokensField.GetValue(result)!;
             tokens.AddRange(inputs.Select(_ => new Token(_, TokenType.Argument, null!)));

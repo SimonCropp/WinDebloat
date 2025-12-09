@@ -8,30 +8,31 @@ public static class ArgumentParser
         bool FindGroup(string id, [NotNullWhen(true)] out Group? group) =>
             TryFindGroup(id, groups, out group);
 
-        var excludeOptions = new Option<string[]>(
-            name: "--exclude",
-            description: "Ids of items to exclude.",
-            parseArgument: result => ParseExcludes(result, FindGroup))
+        var excludeOptions = new Option<string[]>("--exclude")
         {
-            AllowMultipleArgumentsPerToken = true
+            Description = "Ids of items to exclude.",
+            AllowMultipleArgumentsPerToken = true,
+            Arity = ArgumentArity.ZeroOrMore,
+            CustomParser = result => ParseExcludes(result, FindGroup)
         };
 
         var defaults = groups.Where(_ => _.IsDefault).Select(_ => _.Id).ToArray();
-        excludeOptions.AddCompletions(defaults);
+        excludeOptions.CompletionSources.Add(defaults);
 
-        var includeOptions = new Option<string[]>(
-            name: "--include",
-            description: "Ids of optional items to include.",
-            parseArgument: result => ParseIncludes(result, FindGroup))
+        var includeOptions = new Option<string[]>("--include")
         {
-            AllowMultipleArgumentsPerToken = true
+            Description = "Ids of optional items to include.",
+            AllowMultipleArgumentsPerToken = true,
+            Arity = ArgumentArity.ZeroOrMore,
+            CustomParser = result => ParseIncludes(result, FindGroup)
         };
         var optionals = groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray();
-        includeOptions.AddCompletions(optionals);
+        includeOptions.CompletionSources.Add(optionals);
 
-        var includeAllOptions = new Option<bool>(
-            name: "--include-all",
-            description: "include all optional items.");
+        var includeAllOptions = new Option<bool>("--include-all")
+        {
+            Description = "include all optional items."
+        };
 
         var command = new RootCommand
         {
@@ -40,8 +41,12 @@ public static class ArgumentParser
             includeAllOptions
         };
 
-        command.SetHandler(async (excludes, includes, includeAll) =>
+        command.SetAction(async (parseResult, cancellationToken) =>
             {
+                var excludes = parseResult.GetValue(excludeOptions) ?? [];
+                var includes = parseResult.GetValue(includeOptions) ?? [];
+                var includeAll = parseResult.GetValue(includeAllOptions);
+
                 try
                 {
                     if (includeAll)
@@ -51,10 +56,11 @@ public static class ArgumentParser
                             groups.Where(_ => !_.IsDefault)
                                 .Select(_ => _.Id)
                                 .ToArray());
-                        return;
+                        return 0;
                     }
 
                     await invoke(excludes, includes);
+                    return 0;
                 }
                 catch (WinGetNotInstalledException)
                 {
@@ -65,6 +71,7 @@ public static class ArgumentParser
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
                     }
+                    return 1;
                 }
                 catch (WinGetVersionNotMetException exception)
                 {
@@ -75,18 +82,17 @@ public static class ArgumentParser
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
                     }
+                    return 1;
                 }
                 catch (Exception exception)
                 {
                     Log.Fatal(exception, "Failed invoking command");
-                    throw;
+                    return 1;
                 }
-            },
-            excludeOptions,
-            includeOptions,
-            includeAllOptions);
+            });
 
-        return command.InvokeAsync(args);
+        var parseResult = command.Parse(args);
+        return parseResult.InvokeAsync();
     }
 
     static bool TryFindGroup(string id, IEnumerable<Group> groups, [NotNullWhen(true)] out Group? group)
@@ -153,9 +159,9 @@ public static class ArgumentParser
 
     static void SetErrorMessage(ArgumentResult result, List<string> errors)
     {
-        if (errors.Count != 0)
+        foreach (var error in errors)
         {
-            result.ErrorMessage = string.Join('\n', errors);
+            result.AddError(error);
         }
     }
 

@@ -14,7 +14,7 @@ public class CliTests
             new
             {
                 excludes,
-                argument.ErrorMessage
+                ErrorMessage = string.Join('\n', argument.Errors.Select(e => e.Message))
             });
     }
 
@@ -28,7 +28,7 @@ public class CliTests
             new
             {
                 includes,
-                argument.ErrorMessage
+                ErrorMessage = string.Join('\n', argument.Errors.Select(e => e.Message))
             });
     }
 
