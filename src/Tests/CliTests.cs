@@ -14,7 +14,7 @@ public class CliTests
             new
             {
                 excludes,
-                argument.ErrorMessage
+                errors = argument.Errors.Select(e => e.Message).ToArray()
             });
     }
 
@@ -28,7 +28,7 @@ public class CliTests
             new
             {
                 includes,
-                argument.ErrorMessage
+                errors = argument.Errors.Select(e => e.Message).ToArray()
             });
     }
 

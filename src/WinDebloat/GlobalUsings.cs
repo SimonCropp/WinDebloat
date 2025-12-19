@@ -1,4 +1,6 @@
-﻿global using System.Diagnostics;
+﻿global using System.CommandLine;
+global using System.CommandLine.Parsing;
+global using System.Diagnostics;
 global using System.Diagnostics.CodeAnalysis;
 global using System.Management;
 global using System.ServiceProcess;

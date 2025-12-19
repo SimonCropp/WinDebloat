@@ -3,23 +3,12 @@ using System.CommandLine.Parsing;
 
 public static class ArgumentBuilder
 {
-    static Func<string[], ArgumentResult> construct;
-
-    static ArgumentBuilder()
+    public static ArgumentResult Build(params string[] values)
     {
-        var tokensField = typeof(ArgumentResult).GetField("_tokens", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        var constructor = typeof(ArgumentResult).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
-            .Single();
-        construct = inputs =>
-        {
-            var invoke = constructor.Invoke([new Argument<string[]>(_ => inputs), null]);
-            var result = (ArgumentResult) invoke;
-            var tokens = (List<Token>) tokensField.GetValue(result)!;
-            tokens.AddRange(inputs.Select(_ => new Token(_, TokenType.Argument, null!)));
-            return result;
-        };
-    }
+        var argument = new Argument<string[]>("test");
+        var command = new RootCommand { argument };
 
-    public static ArgumentResult Build(params string[] values) =>
-        construct(values);
+        var parseResult = command.Parse(values);
+        return parseResult.GetResult(argument)!;
+    }
 }

@@ -1,37 +1,33 @@
-﻿using System.CommandLine;
-using System.CommandLine.Parsing;
-
-public static class ArgumentParser
+﻿public static class ArgumentParser
 {
     public static Task<int> Invoke(string[] args, InvokeAction invoke, IReadOnlyCollection<Group> groups)
     {
         bool FindGroup(string id, [NotNullWhen(true)] out Group? group) =>
             TryFindGroup(id, groups, out group);
 
-        var excludeOptions = new Option<string[]>(
-            name: "--exclude",
-            description: "Ids of items to exclude.",
-            parseArgument: result => ParseExcludes(result, FindGroup))
+        var excludeOptions = new Option<string[]>("--exclude")
         {
+            Description = "Ids of items to exclude.",
+            CustomParser = result => ParseExcludes(result, FindGroup),
             AllowMultipleArgumentsPerToken = true
         };
 
         var defaults = groups.Where(_ => _.IsDefault).Select(_ => _.Id).ToArray();
-        excludeOptions.AddCompletions(defaults);
+        excludeOptions.CompletionSources.Add(defaults);
 
-        var includeOptions = new Option<string[]>(
-            name: "--include",
-            description: "Ids of optional items to include.",
-            parseArgument: result => ParseIncludes(result, FindGroup))
+        var includeOptions = new Option<string[]>("--include")
         {
+            Description = "Ids of optional items to include.",
+            CustomParser = result => ParseIncludes(result, FindGroup),
             AllowMultipleArgumentsPerToken = true
         };
         var optionals = groups.Where(_ => !_.IsDefault).Select(_ => _.Id).ToArray();
-        includeOptions.AddCompletions(optionals);
+        includeOptions.CompletionSources.Add(optionals);
 
-        var includeAllOptions = new Option<bool>(
-            name: "--include-all",
-            description: "include all optional items.");
+        var includeAllOptions = new Option<bool>("--include-all")
+        {
+            Description = "include all optional items."
+        };
 
         var command = new RootCommand
         {
@@ -40,10 +36,14 @@ public static class ArgumentParser
             includeAllOptions
         };
 
-        command.SetHandler(async (excludes, includes, includeAll) =>
+        command.SetAction(async (parseResult, token) =>
             {
                 try
                 {
+                    var excludes = parseResult.GetValue(excludeOptions) ?? [];
+                    var includes = parseResult.GetValue(includeOptions) ?? [];
+                    var includeAll = parseResult.GetValue(includeAllOptions);
+
                     if (includeAll)
                     {
                         await invoke(
@@ -81,12 +81,9 @@ public static class ArgumentParser
                     Log.Fatal(exception, "Failed invoking command");
                     throw;
                 }
-            },
-            excludeOptions,
-            includeOptions,
-            includeAllOptions);
+            });
 
-        return command.InvokeAsync(args);
+        return command.Parse(args).InvokeAsync();
     }
 
     static bool TryFindGroup(string id, IEnumerable<Group> groups, [NotNullWhen(true)] out Group? group)
@@ -153,9 +150,9 @@ public static class ArgumentParser
 
     static void SetErrorMessage(ArgumentResult result, List<string> errors)
     {
-        if (errors.Count != 0)
+        foreach (var error in errors)
         {
-            result.ErrorMessage = string.Join('\n', errors);
+            result.AddError(error);
         }
     }
 
