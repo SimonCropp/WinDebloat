@@ -37,6 +37,29 @@
                             """)
             ]),
         new(
+            "Bing Wallpaper Context Menu",
+            true,
+            [
+                new RegistryKeyJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Classes\DesktopBackground\Shell\.SpotlightLearnMore",
+                    Notes:
+                    """
+                    * Removes "Explore background" or "Learn about this background" from desktop right-click context menu
+                    * This context menu item opens Microsoft Bing's spotlight page
+                    * [Eleven Forum: Remove Explore Background](https://www.elevenforum.com/t/add-or-remove-learn-about-this-background-desktop-context-menu-in-windows-11.40663/)
+                    """),
+                new RegistryKeyJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Classes\DesktopBackground\Shell\.SpotlightNextImage",
+                    Notes:
+                    """
+                    * Removes "Next desktop background" or "Next background" from desktop right-click context menu
+                    * This context menu item allows switching between Bing daily images
+                    * [Eleven Forum: Remove Next Background](https://www.elevenforum.com/t/add-or-remove-next-desktop-background-desktop-context-menu-in-windows-11.40665/)
+                    """)
+            ]),
+        new(
             "Camera",
             true,
             new UninstallByNameJob(
