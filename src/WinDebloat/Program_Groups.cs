@@ -40,23 +40,19 @@
             "Bing Wallpaper Context Menu",
             true,
             [
-                new RegistryKeyJob(
-                    RegistryHive.CurrentUser,
-                    @"Software\Classes\DesktopBackground\Shell\.SpotlightLearnMore",
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked",
+                    "{15589FA6-768B-4826-97B8-D12DE265B3BB}",
+                    "",
+                    null,
+                    "Desktop: Bing Wallpaper Context Menu",
+                    RegistryValueKind.String,
                     Notes:
                     """
-                    * Removes "Explore background" or "Learn about this background" from desktop right-click context menu
-                    * This context menu item opens Microsoft Bing's spotlight page
-                    * [Eleven Forum: Remove Explore Background](https://www.elevenforum.com/t/add-or-remove-learn-about-this-background-desktop-context-menu-in-windows-11.40663/)
-                    """),
-                new RegistryKeyJob(
-                    RegistryHive.CurrentUser,
-                    @"Software\Classes\DesktopBackground\Shell\.SpotlightNextImage",
-                    Notes:
-                    """
-                    * Removes "Next desktop background" or "Next background" from desktop right-click context menu
-                    * This context menu item allows switching between Bing daily images
-                    * [Eleven Forum: Remove Next Background](https://www.elevenforum.com/t/add-or-remove-next-desktop-background-desktop-context-menu-in-windows-11.40665/)
+                    * Removes "Bing Wallpaper" submenu from desktop right-click context menu
+                    * This submenu contains: Learn more about this picture, Show previous/next picture, Take daily quiz, Feedback
+                    * Blocks the COM shell extension CLSID from the Bing Wallpaper app
                     """)
             ]),
         new(
