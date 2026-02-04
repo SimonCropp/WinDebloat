@@ -18,6 +18,6 @@
         <PackageReference Include="System.CommandLine" />
         <PackageReference Include="System.Management" />
         <PackageReference Include="System.ServiceProcess.ServiceController" />
-        <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="$(Configuration)=='Release'" />
+        <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="'$(CI)' == 'true'" />
     </ItemGroup>
 </Project>
