@@ -10,6 +10,11 @@
         <PackageReference Include="ProjectFiles" />
         <PackageReference Include="Verify.DiffPlex" />
         <PackageReference Include="Verify.Nunit" />
+        <PackageReference Include="Argon" />
+        <PackageReference Include="DiffEngine" />
+        <PackageReference Include="EmptyFiles" />
+        <PackageReference Include="SimpleInfoName" />
+        <PackageReference Include="Verify" />
         <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
         <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
         <PackageReference Include="System.ServiceProcess.ServiceController" />

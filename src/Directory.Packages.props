@@ -11,7 +11,7 @@
     <PackageVersion Include="NUnit3TestAdapter" Version="6.1.0" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.172" />
     <PackageVersion Include="ProjectFiles" Version="0.5.0" />
-    <PackageVersion Include="Serilog" Version="4.3.0" />
+    <PackageVersion Include="Serilog" Version="4.3.1" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0" />
     <PackageVersion Include="System.CommandLine" Version="2.0.3" />
@@ -19,6 +19,11 @@
     <PackageVersion Include="System.ServiceProcess.ServiceController" Version="10.0.3" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="4.1.5" />
-    <PackageVersion Include="Verify.NUnit" Version="31.12.4" />
+    <PackageVersion Include="Verify.NUnit" Version="31.12.5" />
+    <PackageVersion Include="Argon" Version="0.33.5" />
+    <PackageVersion Include="DiffEngine" Version="18.4.1" />
+    <PackageVersion Include="EmptyFiles" Version="8.17.2" />
+    <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
+    <PackageVersion Include="Verify" Version="31.12.5" />
   </ItemGroup>
 </Project>
