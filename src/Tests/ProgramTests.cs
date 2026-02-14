@@ -20,8 +20,9 @@ public class ProgramTests
                 {
                     continue;
                 }
-
-                var actual = Registry.GetValue(registryJob.Key, registryJob.KeyName, null);
+                using var baseKey = RegistryKey.OpenBaseKey(registryJob.Hive, RegistryView.Default);
+                using var subKey = baseKey.OpenSubKey(registryJob.Key);
+                var actual = subKey?.GetValue(registryJob.KeyName);
 
                 if (registryJob.ApplyValue.Equals(actual))
                 {
