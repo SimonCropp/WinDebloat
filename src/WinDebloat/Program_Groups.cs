@@ -345,6 +345,27 @@
                     0,
                     1,
                     "SubscribedContent"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-338389Enabled",
+                    0,
+                    1,
+                    "SubscribedContent-338389Enabled"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-353696Enabled",
+                    0,
+                    1,
+                    "SubscribedContent-353696Enabled"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-353698Enabled",
+                    0,
+                    1,
+                    "SubscribedContent-353698Enabled"),
             ]),
         new(
             "Learn about this image",

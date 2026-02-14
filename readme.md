@@ -69,6 +69,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [3D Viewer](#3d-viewer)
  * [Advertiser Id](#advertiser-id)
  * [Bing Desktop Visual Search](#bing-desktop-visual-search)
+ * [Bing Wallpaper Context Menu](#bing-wallpaper-context-menu)
  * [Camera](#camera)
  * [Chat](#chat)
  * [Clock](#clock) (optional)
@@ -215,6 +216,53 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 * Disables the Bing "Visual search to find similar images" on the desktop <br><img src="/src/VisualSearchToFindSimilarImages.png"/>
 * Prevents launching a browser with Bing search when the desktop is clicked
 * [Learn Microsoft - How to turn off or move the new Visual Search desktop icon](https://learn.microsoft.com/en-us/answers/questions/5575751/how-to-turn-off-or-move-the-new-visual-search-desk)
+
+
+### Bing Wallpaper Context Menu
+
+Id to exclude: `BingWallpaperContextMenu`
+
+#### .SpotlightLearnMore
+
+##### Command to manually apply:
+
+```ps
+New-Item -Path "Registry::HKCU\Software\Classes\DesktopBackground\Shell\.SpotlightLearnMore" -Value ""
+````
+
+##### Command to manually revert:
+
+```ps
+Remove-Item -Path "Registry::HKCU\Software\Classes\DesktopBackground\Shell\.SpotlightLearnMore"
+```
+
+##### Notes:
+
+* Removes "Explore background" or "Learn about this background" from desktop right-click context menu
+* This context menu item opens Microsoft Bing's spotlight page
+* [Eleven Forum: Remove Explore Background](https://www.elevenforum.com/t/add-or-remove-learn-about-this-background-desktop-context-menu-in-windows-11.40663/)
+
+
+#### .SpotlightNextImage
+
+##### Command to manually apply:
+
+```ps
+New-Item -Path "Registry::HKCU\Software\Classes\DesktopBackground\Shell\.SpotlightNextImage" -Value ""
+````
+
+##### Command to manually revert:
+
+```ps
+Remove-Item -Path "Registry::HKCU\Software\Classes\DesktopBackground\Shell\.SpotlightNextImage"
+```
+
+##### Notes:
+
+* Removes "Next desktop background" or "Next background" from desktop right-click context menu
+* This context menu item allows switching between Bing daily images
+* [Eleven Forum: Remove Next Background](https://www.elevenforum.com/t/add-or-remove-next-desktop-background-desktop-context-menu-in-windows-11.40665/)
+
 
 
 ### Camera
@@ -510,6 +558,69 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 ```ps
 Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
                  -Name "SubscribedContent-338387Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+
+#### SubscribedContent-338389Enabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-338389Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-338389Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+
+#### SubscribedContent-353696Enabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-353696Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-353696Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+
+#### SubscribedContent-353698Enabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-353698Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-353698Enabled"`
                  -Type "DWord"`
                  -Value "1"
 ```
