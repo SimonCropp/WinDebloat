@@ -1370,7 +1370,7 @@ winget uninstall --name "Copilot" --exact --all-versions
 ```
 
 
-#### Explorer: Ask Copilot
+#### Explorer: Ask Copilot (HKLM)
 
 ##### Command to manually apply:
 
@@ -1391,6 +1391,29 @@ Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVers
 ##### Notes:
 
  * Remove 'Ask Copilot' from Right-Click Menu in File Explorer.
+
+
+#### Explorer: Ask Copilot (HKCU)
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                 -Name "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}"`
+                 -Type "String"`
+                 -Value ""
+```
+
+##### Command to manually revert:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked"`
+                    -Name "{CB3B0003-8088-4EDE-8769-8B354AB2FF8C}"
+```
+
+##### Notes:
+
+ * Remove 'Ask Copilot' from Right-Click Menu in File Explorer (per-user hive — required on recent Windows 11 builds). Restart Explorer to take effect.
 
 
 #### Copilot Notepad
