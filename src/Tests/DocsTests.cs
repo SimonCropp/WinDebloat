@@ -264,6 +264,22 @@ public class DocsTests
 
                      """);
                 break;
+            case DeleteDirectoryJob deleteDirectoryJob:
+
+                var psPath = Regex.Replace(deleteDirectoryJob.Path, "%(\\w+)%", "$$env:$1");
+
+                writer.WriteLine(
+                    $"""
+                     Deletes the directory `{deleteDirectoryJob.Path}`.
+
+                     {headingLevel} Command to manually apply:
+
+                     ```ps
+                     Remove-Item -Path "{psPath}" -Recurse -Force
+                     ```
+
+                     """);
+                break;
             case EnvironmentVariableJob environmentVariableJob:
 
                 writer.WriteLine(

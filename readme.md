@@ -133,6 +133,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Telemetry](#telemetry)
  * [Tips](#tips)
  * [To Do](#to-do)
+ * [Visual Studio Telemetry](#visual-studio-telemetry) (optional)
  * [Voice Recorder](#voice-recorder) (optional)
  * [Weather](#weather)
  * [Web Experience Pack](#web-experience-pack)
@@ -2099,6 +2100,67 @@ Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/wi
 ```ps
 winget uninstall --id "Microsoft.Teams" --all-versions --exact
 ```
+
+
+
+### Visual Studio Telemetry
+
+Id to include: `VisualStudioTelemetry`
+
+#### OptIn
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\SQM"`
+                 -Name "OptIn"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\SQM"`
+                 -Name "OptIn"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+* Opts out of the Visual Studio Customer Experience Improvement Program (VSCEIP), which is the source of the Visual Studio telemetry data
+* [Visual Studio Customer Experience Improvement Program](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-experience-improvement-program)
+
+
+#### VSTelem
+
+Deletes the directory `%LocalAppData%\Temp\VSTelem`.
+
+##### Command to manually apply:
+
+```ps
+Remove-Item -Path "$env:LocalAppData\Temp\VSTelem" -Recurse -Force
+```
+
+##### Notes:
+
+ * Deletes the cached VSCEIP telemetry data
+
+
+#### VSTelem.Out
+
+Deletes the directory `%LocalAppData%\Temp\VSTelem.Out`.
+
+##### Command to manually apply:
+
+```ps
+Remove-Item -Path "$env:LocalAppData\Temp\VSTelem.Out" -Recurse -Force
+```
+
+##### Notes:
+
+ * Deletes the cached VSCEIP telemetry output data
 
 
 

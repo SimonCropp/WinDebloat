@@ -577,6 +577,31 @@
             new UninstallByNameJob(
                 "Microsoft To Do",
                 Notes: " * [AppStore: To Do](https://apps.microsoft.com/store/detail/microsoft-to-do-lists-tasks-reminders/9NBLGGH5R558)")),
+        new(
+            "Visual Studio Telemetry",
+            false,
+            [
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\VisualStudio\SQM",
+                    "OptIn",
+                    0,
+                    1,
+                    "OptIn",
+                    Notes:
+                    """
+                    * Opts out of the Visual Studio Customer Experience Improvement Program (VSCEIP), which is the source of the Visual Studio telemetry data
+                    * [Visual Studio Customer Experience Improvement Program](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-experience-improvement-program)
+                    """),
+                new DeleteDirectoryJob(
+                    @"%LocalAppData%\Temp\VSTelem",
+                    "VSTelem",
+                    Notes: " * Deletes the cached VSCEIP telemetry data"),
+                new DeleteDirectoryJob(
+                    @"%LocalAppData%\Temp\VSTelem.Out",
+                    "VSTelem.Out",
+                    Notes: " * Deletes the cached VSCEIP telemetry output data"),
+            ]),
         new("Voice Recorder", false, new UninstallByNameJob("Windows Voice Recorder")),
         new("Weather", true, new UninstallByNameJob("MSN Weather")),
         new("Web Experience Pack", true, new UninstallByNameJob("Windows Web Experience Pack")),

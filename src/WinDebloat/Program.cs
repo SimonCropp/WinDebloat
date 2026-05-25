@@ -121,9 +121,26 @@
             case DisableServiceJob disableServiceJob:
                 HandleDisableService(disableServiceJob);
                 break;
+            case DeleteDirectoryJob deleteDirectoryJob:
+                HandleDeleteDirectory(deleteDirectoryJob);
+                break;
         }
 
         return Task.CompletedTask;
+    }
+
+    static void HandleDeleteDirectory(DeleteDirectoryJob job)
+    {
+        var path = job.ExpandedPath;
+        Log.Information("DeleteDirectory: {Name}", job.Name);
+        if (!Directory.Exists(path))
+        {
+            Log.Information("Skipped delete of {Path} since it does not exist", path);
+            return;
+        }
+
+        Directory.Delete(path, true);
+        Log.Information("Deleted {Path}", path);
     }
 
     static void HandleDisableService(DisableServiceJob job)
