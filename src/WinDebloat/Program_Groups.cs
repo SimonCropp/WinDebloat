@@ -126,6 +126,22 @@
                     "Copilot Notepad"),
             ]),
         new(
+            "Consumer Features",
+            false,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\CloudContent",
+                "DisableWindowsConsumerFeatures",
+                1,
+                0,
+                "DisableWindowsConsumerFeatures",
+                Notes:
+                """
+                * Stops Windows silently installing promoted and suggested apps (e.g. Candy Crush, TikTok)
+                * Fully effective on Pro/Enterprise/Education editions; the effect on Home is limited in recent builds
+                * [admx.help: DisableWindowsConsumerFeatures](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.CloudContent::DisableWindowsConsumerFeatures)
+                """)),
+        new(
             "Customize This Folder",
             false,
             new RegistryValueJob(
