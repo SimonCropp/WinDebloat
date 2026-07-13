@@ -10,6 +10,7 @@
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
  * [Copilot](#copilot) (optional)
+ * [Consumer Features](#consumer-features) (optional)
  * [Customize This Folder](#customize-this-folder) (optional)
  * [Default Browser Prompt](#default-browser-prompt) (optional)
  * [DevHome](#devhome) (optional)
@@ -1366,6 +1367,35 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\WindowsNotepad"`
                  -Value "0"
 ```
 
+
+
+### Consumer Features
+
+Id to include: `ConsumerFeatures`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent"`
+                 -Name "DisableWindowsConsumerFeatures"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent"`
+                 -Name "DisableWindowsConsumerFeatures"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Stops Windows silently installing promoted and suggested apps (e.g. Candy Crush, TikTok)
+* Fully effective on Pro/Enterprise/Education editions; the effect on Home is limited in recent builds
+* [admx.help: DisableWindowsConsumerFeatures](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.CloudContent::DisableWindowsConsumerFeatures)
 
 
 ### Customize This Folder
