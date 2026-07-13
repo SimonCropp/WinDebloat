@@ -43,8 +43,6 @@
  * [Office 365](#office-365) (optional)
  * [Office Cloud Files](#office-cloud-files) (optional)
  * [OneDrive](#onedrive) (optional)
- * [Paint 3D](#paint-3d)
- * [Paint](#paint) (optional)
  * [Pay](#pay)
  * [People](#people)
  * [Phone Link](#phone-link) (optional)
@@ -711,19 +709,6 @@ Uninstalls `OneNote for Windows 10` using [winget](https://learn.microsoft.com/e
 
 ```ps
 winget uninstall --name "OneNote for Windows 10" --exact --all-versions
-```
-
-
-### Paint 3D
-
-Id to exclude: `Paint3D`
-
-Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-#### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint 3D" --exact --all-versions
 ```
 
 
@@ -1889,33 +1874,6 @@ winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
 #### Notes:
 
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
-
-
-### Paint
-
-Id to include: `Paint`
-
-#### Paint
-
-Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint" --exact --all-versions
-```
-
-
-#### paint.net
-
-Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget install --name "paint.net" --exact
-```
-
 
 
 ### Phone Link
