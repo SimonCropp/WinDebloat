@@ -2150,6 +2150,7 @@ winget uninstall --name "Windows Voice Recorder" --exact --all-versions
  * [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
  * https://winget.run. An online registry of winget packages.
  * [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher). A helpful to use in conjunction with this project to make Windows more usable.
+ * [Start11](https://www.stardock.com/products/start11/). A third-party Start menu replacement. Removes the "Store" section (suggested apps and games) from Start menu search — content that cannot be disabled via registry, policy, or firewall on Windows 11 24H2 and later.
  * [Setting a single registry entry using PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries#setting-a-single-registry-entry)
 
 
