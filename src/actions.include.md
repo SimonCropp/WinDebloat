@@ -1278,6 +1278,17 @@ winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
 ```
 
 
+#### Microsoft 365 (Office)
+
+Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft 365 (Office)" --exact --all-versions
+```
+
+
 #### Copilot
 
 Uninstalls `Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).

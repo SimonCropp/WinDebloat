@@ -98,6 +98,7 @@
             [
                 new UninstallByNameJob("Microsoft Copilot"),
                 new UninstallByNameJob("Microsoft 365 Copilot"),
+                new UninstallByNameJob("Microsoft 365 (Office)"),
                 new UninstallByNameJob("Copilot"),
                 new RegistryValueJob(
                     RegistryHive.LocalMachine,
