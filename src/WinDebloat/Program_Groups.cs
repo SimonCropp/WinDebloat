@@ -605,6 +605,21 @@
         new("Weather", true, new UninstallByNameJob("MSN Weather")),
         new("Web Experience Pack", true, new UninstallByNameJob("Windows Web Experience Pack")),
         new(
+            "Start Menu Store Search",
+            true,
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\SearchSettings",
+                "IsStoreSuggestionsEnabled",
+                0,
+                1,
+                "IsStoreSuggestionsEnabled",
+                Notes:
+                """
+                * Removes the "Store" section (suggested Microsoft Store apps and games) from Start menu / Windows Search results <br><img src="/src/StartMenuStoreSearch.png" height="200px">
+                * Equivalent to Settings > Privacy & security > Search > Show suggested search results > Microsoft Store > Off
+                """)),
+        new(
             "Start Menu Web Search",
             true,
             new RegistryValueJob(

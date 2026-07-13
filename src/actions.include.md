@@ -70,6 +70,7 @@
  * [Voice Recorder](#voice-recorder) (optional)
  * [Weather](#weather)
  * [Web Experience Pack](#web-experience-pack)
+ * [Start Menu Store Search](#start-menu-store-search)
  * [Start Menu Web Search](#start-menu-web-search)
  * [Whiteboard](#whiteboard)
  * [Widgets](#widgets)
@@ -1066,6 +1067,34 @@ Uninstalls `Windows Web Experience Pack` using [winget](https://learn.microsoft.
 ```ps
 winget uninstall --name "Windows Web Experience Pack" --exact --all-versions
 ```
+
+
+### Start Menu Store Search
+
+Id to exclude: `StartMenuStoreSearch`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings"`
+                 -Name "IsStoreSuggestionsEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings"`
+                 -Name "IsStoreSuggestionsEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* Removes the "Store" section (suggested Microsoft Store apps and games) from Start menu / Windows Search results <br><img src="/src/StartMenuStoreSearch.png" height="200px">
+* Equivalent to Settings > Privacy & security > Search > Show suggested search results > Microsoft Store > Off
 
 
 ### Start Menu Web Search
