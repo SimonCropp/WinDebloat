@@ -125,6 +125,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Startup boost](#startup-boost)
  * [Start Menu Recommendations](#start-menu-recommendations)
  * [Sticky Notes](#sticky-notes)
+ * [Store Notifications](#store-notifications) (optional)
  * [TaskBar Search](#taskbar-search)
  * [Task View](#task-view)
  * [Teams](#teams) (optional)
@@ -2057,6 +2058,34 @@ winget uninstall --name "Quick Assist" --exact --all-versions
 #### Notes:
 
  * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
+
+
+### Store Notifications
+
+Id to include: `StoreNotifications`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* Disables toast notifications from the Microsoft Store, such as the "PC Game Pass is included" promotional popup offering a free 3 months of Game Pass <br><img src="/src/StoreNotifications.png" height="200px">
+* Equivalent to Settings > Notifications > Microsoft Store > Off
 
 
 ### Teams
