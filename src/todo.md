@@ -43,7 +43,10 @@ new(
         """)),
 ```
 
-### 2. Disable Recall (AI snapshot analysis)  *(most topical; not covered today)*
+### 2. Disable Recall (AI snapshot analysis) — ✅ DONE (opt-in)
+Implemented as opt-in group `Recall` (Id `Recall`, `IsDefault = false`) in Program_Groups.cs.
+Non-default for consistency with the existing `Copilot` group — see the open question below, now resolved.
+
 - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI`
 - Value: `DisableAIDataAnalysis` = `1` (DWORD), revert `0`
 - Source: https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis
@@ -111,11 +114,19 @@ new RegistryValueJob(
 
 ## Tier 2 — reasonable, extends existing groups
 
-### 4. Disable Click to Do (Recall-adjacent AI)
+### 4. Disable Click to Do (Recall-adjacent AI) — ✅ DONE (opt-in)
+Implemented as opt-in group `Click to Do` (Id `ClickToDo`, `IsDefault = false`) in Program_Groups.cs.
+Kept as its own group rather than folded into `Recall`: Click to Do is a separate Windows feature with its
+own Settings toggle and works independently of Recall, so bundling would remove the ability to pick one.
+
 - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI`
 - Value: `DisableClickToDo` = `1` (DWORD), revert `0`
 - Source: https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo
-- Pairs naturally with Recall/Copilot.
+- ⚠️ Unlike `DisableAIDataAnalysis` (GA on 24H2 + KB5055627), MS Learn lists `DisableClickToDo` applicability
+  as **Windows Insider Preview only**, under the page-level "under development / subject to change" banner.
+  Shipped anyway — the value is inert on builds that don't honour it, and forward-compatible when they do.
+  Worth re-checking the page later to see if applicability has widened to retail; if so, drop the caveat
+  from the group's Notes.
 
 ### 5. Suggested content in the Settings app
 Extends the existing `Lock Screen Ads` group's ContentDeliveryManager usage.
@@ -143,6 +154,9 @@ Extends the existing `Lock Screen Ads` group's ContentDeliveryManager usage.
 - Consumer Features + Telemetry additions → clean defaults (pure anti-bloat/telemetry).
 - Recall + Click to Do (AI) → `Copilot` is currently **non-default**; for consistency these AI items are
   probably non-default too. Decide before wiring in.
+
+**Resolved for AI items:** `Recall` shipped as **non-default** (opt-in), matching `Copilot`. Apply the same
+to `Click to Do` (#4) when wired in.
 
 ---
 

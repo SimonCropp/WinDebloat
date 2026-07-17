@@ -77,6 +77,23 @@
                 "TaskbarMn",
                 Notes: " * [Managing the Teams Chat icon on Windows 11](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/managing-teams-chat-icon-windows-11)")),
         new(
+            "Click to Do",
+            "ClickToDo",
+            false,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                "DisableClickToDo",
+                1,
+                0,
+                "DisableClickToDo",
+                Notes:
+                """
+                * Removes the Click to Do component and its entry points. Click to Do screenshots the screen and analyses it locally to offer actions on what is on it
+                * Microsoft currently documents this policy as applicable to Windows Insider Preview builds only, so it may have no effect until the policy ships to retail builds. The value is inert until then
+                * [Microsoft Learn: WindowsAI Policy CSP - DisableClickToDo](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo)
+                """)),
+        new(
             "Clock",
             false,
             [
@@ -485,6 +502,22 @@
             new UninstallByNameJob(
                 "Quick Assist",
                 Notes: " * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
+        new(
+            "Recall",
+            false,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                "DisableAIDataAnalysis",
+                1,
+                0,
+                "DisableAIDataAnalysis",
+                Notes:
+                """
+                * Stops Windows Recall saving snapshots of the screen
+                * Requires Windows 11 24H2 or later (build 26100.3915+)
+                * [Microsoft Learn: WindowsAI Policy CSP - DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
+                """)),
         new(
             "Skype",
             true,

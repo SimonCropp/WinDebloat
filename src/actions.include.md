@@ -6,6 +6,7 @@
  * [Bing Wallpaper Context Menu](#bing-wallpaper-context-menu)
  * [Camera](#camera)
  * [Chat](#chat)
+ * [Click to Do](#click-to-do) (optional)
  * [Clock](#clock) (optional)
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
@@ -54,6 +55,7 @@
  * [Print 3D](#print-3d)
  * [Program Compatibility Assistant](#program-compatibility-assistant) (optional)
  * [Quick Assist](#quick-assist) (optional)
+ * [Recall](#recall) (optional)
  * [Skype](#skype)
  * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
@@ -1223,6 +1225,35 @@ winget uninstall --name "Xbox" --exact --all-versions
 ## Optional Items Removed / Disabled
 
 
+### Click to Do
+
+Id to include: `ClickToDo`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableClickToDo"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableClickToDo"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Removes the Click to Do component and its entry points. Click to Do screenshots the screen and analyses it locally to offer actions on what is on it
+* Microsoft currently documents this policy as applicable to Windows Insider Preview builds only, so it may have no effect until the policy ships to retail builds. The value is inert until then
+* [Microsoft Learn: WindowsAI Policy CSP - DisableClickToDo](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo)
+
+
 ### Clock
 
 Id to include: `Clock`
@@ -1992,6 +2023,35 @@ winget uninstall --name "Quick Assist" --exact --all-versions
 #### Notes:
 
  * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
+
+
+### Recall
+
+Id to include: `Recall`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableAIDataAnalysis"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableAIDataAnalysis"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Stops Windows Recall saving snapshots of the screen
+* Requires Windows 11 24H2 or later (build 26100.3915+)
+* [Microsoft Learn: WindowsAI Policy CSP - DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
 
 
 ### Store Notifications
