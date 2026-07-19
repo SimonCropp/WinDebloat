@@ -107,6 +107,9 @@
             case RegistryKeyJob registry:
                 HandleRegistry(registry);
                 break;
+            case DeleteRegistryValueJob deleteRegistryValue:
+                HandleRegistry(deleteRegistryValue);
+                break;
             case InstallByNameJob installByNameJob:
                 return HandleInstall(installByNameJob);
             case InstallByIdJob installByIdJob:
@@ -267,6 +270,22 @@
             using var subKey = baseKey.CreateSubKey(job.Key, RegistryKeyPermissionCheck.ReadWriteSubTree);
             subKey.SetValue(null, "", RegistryValueKind.String);
         }
+    }
+
+    public static void HandleRegistry(DeleteRegistryValueJob job)
+    {
+        var (hive, key, keyName, name, _) = job;
+        Log.Information("Registry: {Name}", name);
+        using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
+        using var subKey = baseKey.OpenSubKey(key, true);
+        if (subKey?.GetValue(keyName) == null)
+        {
+            Log.Information("Skipped removing {JobHive} {JobPath} {KeyName} since it does not exist", hive, key, keyName);
+            return;
+        }
+
+        Log.Information("Remove {JobHive} {JobPath} {KeyName}", hive, key, keyName);
+        subKey.DeleteValue(keyName, false);
     }
 
     static List<(string name, string id)> installed = null!;

@@ -166,6 +166,18 @@ public class DocsTests
                 }
 
                 break;
+            case DeleteRegistryValueJob deleteRegistryValueJob:
+                writer.WriteLine(
+                    $"""
+                     {headingLevel} Command to manually apply:
+
+                     ```ps
+                     Remove-ItemProperty -Path "Registry::{deleteRegistryValueJob.ShortKey}"`
+                                         -Name "{deleteRegistryValueJob.KeyName}"
+                     ```
+
+                     """);
+                break;
             case RegistryKeyJob registryJob:
             {
                 if (registryJob.Invert)
