@@ -43,7 +43,8 @@ new(
         """)),
 ```
 
-### 2. Disable Recall (AI snapshot analysis)  *(most topical; not covered today)*
+### 2. Disable Recall (AI snapshot analysis)  *(most topical; not covered today)* — ✅ DONE (opt-in)
+Implemented as opt-in group `Recall` (Id `Recall`, `IsDefault = false`), matching the non-default `Copilot` convention.
 - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI`
 - Value: `DisableAIDataAnalysis` = `1` (DWORD), revert `0`
 - Source: https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis
@@ -71,8 +72,13 @@ new(
         """)),
 ```
 
-### 3. Strengthen the existing `Telemetry` group
-Today `Telemetry` is only `AllowTelemetry` + DiagTrack service. Add three well-sourced jobs to the existing group:
+### 3. Strengthen the existing `Telemetry` group — ✅ DONE (default)
+All five jobs added to the existing `Telemetry` group (which is `IsDefault = true`, so they run by default).
+Every key/value below was verified against Microsoft's own ADMX shipped in `C:\Windows\PolicyDefinitions`
+(`OSPolicy.admx`, `FeedbackNotifications.admx`) — enabled=`1` / disabled=`0` confirmed.
+
+> Found while doing this: the pre-existing `Allow Telemetry` job wrote value name `"Allow Telemetry"` (with a
+> space) and was a silent no-op. Now fixed, along with a cleanup job — see "Fixed bugs" at the bottom.
 
 **Activity History / Timeline** — `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`
 - `EnableActivityFeed` = `0` (revert `1`)
@@ -145,6 +151,32 @@ Extends the existing `Lock Screen Ads` group's ContentDeliveryManager usage.
   probably non-default too. Decide before wiring in.
 
 ---
+
+## Fixed bugs
+
+- **`Allow Telemetry` value name had a stray space.** — ✅ FIXED
+  The `Telemetry` group wrote registry value `"Allow Telemetry"` (with a space) under
+  `HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection`, but `DataCollection.admx` declares it as
+  `<enum id="AllowTelemetry" valueName="AllowTelemetry">` — no space. Windows only ever reads the exact
+  declared name, so **the group's headline action silently did nothing**. `DiagTrack` was still disabled, so
+  it wasn't a total no-op, but the `AllowTelemetry` policy never applied.
+
+  **Shipped in 21 of 22 tags — `0.3.0` (2023-08-03, commit `4a46bb2`) through `1.14.0`**, i.e. ~2 years and
+  including the current released version. Verified by inspecting `1.14.0:src/WinDebloat/Program_Groups.cs`.
+
+  Fix applied:
+  - `KeyName` changed to `AllowTelemetry`. The display `Name` stays `"Allow Telemetry"` (human-readable) since
+    it is only used for console output and docs headings.
+  - Added a `DeleteRegistryValueJob` type (`Jobs/DeleteRegistryValueJob.cs`), wired into `Program.HandleJob` /
+    `Program.HandleRegistry` and `DocsTests.HandleJob`, plus a job in the `Telemetry` group that removes the
+    stale `Allow Telemetry` value left behind on machines that ran 0.3.0–1.14.0. The handler uses `OpenSubKey`
+    (never `CreateSubKey`) so it cannot create the key as a side effect, and is a no-op when already absent.
+  - Covered by `RegistryTests.DeleteValue` and `RegistryTests.DeleteValueWithNonExistingParent`.
+
+  > ⚠️ **STILL TODO: call this out in the release notes.** Users cannot discover this themselves — anyone who
+  > ran 0.3.0–1.14.0 believed telemetry was disabled when it was not. Suggested wording: *"Fixed: the Telemetry
+  > group wrote an incorrect registry value name and never actually disabled telemetry (affects 0.3.0–1.14.0).
+  > Re-run WinDebloat to apply the fix; the stale value is cleaned up automatically."*
 
 ## Investigated & rejected
 
