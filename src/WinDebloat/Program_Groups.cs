@@ -98,6 +98,7 @@
             [
                 new UninstallByNameJob("Microsoft Copilot"),
                 new UninstallByNameJob("Microsoft 365 Copilot"),
+                new UninstallByNameJob("Microsoft 365 (Office)"),
                 new UninstallByNameJob("Copilot"),
                 new RegistryValueJob(
                     RegistryHive.LocalMachine,
@@ -125,6 +126,22 @@
                     0,
                     "Copilot Notepad"),
             ]),
+        new(
+            "Consumer Features",
+            false,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\CloudContent",
+                "DisableWindowsConsumerFeatures",
+                1,
+                0,
+                "DisableWindowsConsumerFeatures",
+                Notes:
+                """
+                * Stops Windows silently installing promoted and suggested apps (e.g. Candy Crush, TikTok)
+                * Fully effective on Pro/Enterprise/Education editions; the effect on Home is limited in recent builds
+                * [admx.help: DisableWindowsConsumerFeatures](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.CloudContent::DisableWindowsConsumerFeatures)
+                """)),
         new(
             "Customize This Folder",
             false,
@@ -435,14 +452,6 @@
                 "Microsoft.OneDrive",
                 Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
         ),
-        new("Paint 3D", true, new UninstallByNameJob("Paint 3D")),
-        new(
-            "Paint",
-            false,
-            [
-                new UninstallByNameJob("Paint"),
-                new InstallByNameJob("paint.net"),
-            ]),
         new("Pay", true, new UninstallByNameJob("Microsoft Pay")),
         new("People", true, new UninstallByNameJob("Microsoft People")),
         new(
@@ -476,6 +485,22 @@
             new UninstallByNameJob(
                 "Quick Assist",
                 Notes: " * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)")),
+        new(
+            "Recall",
+            false,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                "DisableAIDataAnalysis",
+                1,
+                0,
+                "DisableAIDataAnalysis",
+                Notes:
+                """
+                * Stops Windows saving screen snapshots for Recall (AI screen capture and analysis)
+                * Requires Windows 11 24H2 or later. Note the policy key is `WindowsAI`, not `WindowsCopilot`
+                * [Policy CSP - WindowsAI / DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
+                """)),
         new(
             "Skype",
             true,
@@ -520,6 +545,21 @@
                 "Microsoft Sticky Notes",
                 Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)")),
         new(
+            "Store Notifications",
+            false,
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App",
+                "Enabled",
+                0,
+                1,
+                "Microsoft Store Notifications",
+                Notes:
+                """
+                * Disables toast notifications from the Microsoft Store, such as the "PC Game Pass is included" promotional popup offering a free 3 months of Game Pass <br><img src="/src/StoreNotifications.png" height="200px">
+                * Equivalent to Settings > Notifications > Microsoft Store > Off
+                """)),
+        new(
             "TaskBar Search",
             true,
             new RegistryValueJob(
@@ -562,10 +602,76 @@
                 new RegistryValueJob(
                     RegistryHive.LocalMachine,
                     @"SOFTWARE\Policies\Microsoft\Windows\DataCollection",
-                    "Allow Telemetry",
+                    "AllowTelemetry",
                     0,
                     1,
                     "Allow Telemetry"),
+                new DeleteRegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                    "Allow Telemetry",
+                    "Legacy Allow Telemetry value",
+                    Notes:
+                    """
+                    * Removes the stale `Allow Telemetry` value (note the space) written by WinDebloat 0.3.0 to 1.14.0
+                    * Windows only reads `AllowTelemetry`, so the stale value never had any effect and is safe to remove
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\System",
+                    "EnableActivityFeed",
+                    0,
+                    1,
+                    "EnableActivityFeed",
+                    Notes:
+                    """
+                    * Disables the Activity Feed (Timeline)
+                    * [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\System",
+                    "PublishUserActivities",
+                    0,
+                    1,
+                    "PublishUserActivities",
+                    Notes:
+                    """
+                    * Stops Windows publishing user activities to the Activity Feed
+                    * [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\System",
+                    "UploadUserActivities",
+                    0,
+                    1,
+                    "UploadUserActivities",
+                    Notes:
+                    """
+                    * Stops Windows uploading user activities to the cloud
+                    * [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\DataCollection",
+                    "DoNotShowFeedbackNotifications",
+                    1,
+                    0,
+                    "DoNotShowFeedbackNotifications",
+                    Notes:
+                    """
+                    * Stops Windows prompting for feedback
+                    * [Manage connections from Windows to Microsoft services - Feedback & diagnostics](https://learn.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services#1816-feedback--diagnostics)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+                    "Start_TrackProgs",
+                    0,
+                    1,
+                    "Start_TrackProgs",
+                    Notes: " * Stops tracking app launches used for `Most used` in the Start menu and search"),
                 new DisableServiceJob("DiagTrack")
             ]),
         new(

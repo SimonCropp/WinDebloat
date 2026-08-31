@@ -10,6 +10,7 @@
  * [Clipchamp](#clipchamp)
  * [Cortana](#cortana)
  * [Copilot](#copilot) (optional)
+ * [Consumer Features](#consumer-features) (optional)
  * [Customize This Folder](#customize-this-folder) (optional)
  * [Default Browser Prompt](#default-browser-prompt) (optional)
  * [DevHome](#devhome) (optional)
@@ -43,8 +44,6 @@
  * [Office 365](#office-365) (optional)
  * [Office Cloud Files](#office-cloud-files) (optional)
  * [OneDrive](#onedrive) (optional)
- * [Paint 3D](#paint-3d)
- * [Paint](#paint) (optional)
  * [Pay](#pay)
  * [People](#people)
  * [Phone Link](#phone-link) (optional)
@@ -55,11 +54,13 @@
  * [Print 3D](#print-3d)
  * [Program Compatibility Assistant](#program-compatibility-assistant) (optional)
  * [Quick Assist](#quick-assist) (optional)
+ * [Recall](#recall) (optional)
  * [Skype](#skype)
  * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
  * [Start Menu Recommendations](#start-menu-recommendations)
  * [Sticky Notes](#sticky-notes)
+ * [Store Notifications](#store-notifications) (optional)
  * [TaskBar Search](#taskbar-search)
  * [Task View](#task-view)
  * [Teams](#teams) (optional)
@@ -715,19 +716,6 @@ winget uninstall --name "OneNote for Windows 10" --exact --all-versions
 ```
 
 
-### Paint 3D
-
-Id to exclude: `Paint3D`
-
-Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-#### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint 3D" --exact --all-versions
-```
-
-
 ### Pay
 
 Id to exclude: `Pay`
@@ -991,7 +979,7 @@ Id to exclude: `Telemetry`
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
-                 -Name "Allow Telemetry"`
+                 -Name "AllowTelemetry"`
                  -Type "DWord"`
                  -Value "0"
 ```
@@ -1000,10 +988,154 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataC
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
-                 -Name "Allow Telemetry"`
+                 -Name "AllowTelemetry"`
                  -Type "DWord"`
                  -Value "1"
 ```
+
+
+#### Legacy Allow Telemetry value
+
+##### Command to manually apply:
+
+```ps
+Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
+                    -Name "Allow Telemetry"
+```
+
+##### Notes:
+
+* Removes the stale `Allow Telemetry` value (note the space) written by WinDebloat 0.3.0 to 1.14.0
+* Windows only reads `AllowTelemetry`, so the stale value never had any effect and is safe to remove
+
+
+#### EnableActivityFeed
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "EnableActivityFeed"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "EnableActivityFeed"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+* Disables the Activity Feed (Timeline)
+* [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+
+
+#### PublishUserActivities
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "PublishUserActivities"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "PublishUserActivities"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+* Stops Windows publishing user activities to the Activity Feed
+* [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+
+
+#### UploadUserActivities
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "UploadUserActivities"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\System"`
+                 -Name "UploadUserActivities"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+* Stops Windows uploading user activities to the cloud
+* [Policy CSP - Privacy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-privacy)
+
+
+#### DoNotShowFeedbackNotifications
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
+                 -Name "DoNotShowFeedbackNotifications"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection"`
+                 -Name "DoNotShowFeedbackNotifications"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Notes:
+
+* Stops Windows prompting for feedback
+* [Manage connections from Windows to Microsoft services - Feedback & diagnostics](https://learn.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services#1816-feedback--diagnostics)
+
+
+#### Start_TrackProgs
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "Start_TrackProgs"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
+                 -Name "Start_TrackProgs"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+ * Stops tracking app launches used for `Most used` in the Start menu and search
 
 
 #### DiagTrack
@@ -1294,6 +1426,17 @@ winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
 ```
 
 
+#### Microsoft 365 (Office)
+
+Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft 365 (Office)" --exact --all-versions
+```
+
+
 #### Copilot
 
 Uninstalls `Copilot` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
@@ -1371,6 +1514,35 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\WindowsNotepad"`
                  -Value "0"
 ```
 
+
+
+### Consumer Features
+
+Id to include: `ConsumerFeatures`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent"`
+                 -Name "DisableWindowsConsumerFeatures"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent"`
+                 -Name "DisableWindowsConsumerFeatures"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Stops Windows silently installing promoted and suggested apps (e.g. Candy Crush, TikTok)
+* Fully effective on Pro/Enterprise/Education editions; the effect on Home is limited in recent builds
+* [admx.help: DisableWindowsConsumerFeatures](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.CloudContent::DisableWindowsConsumerFeatures)
 
 
 ### Customize This Folder
@@ -1892,33 +2064,6 @@ winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
 
 
-### Paint
-
-Id to include: `Paint`
-
-#### Paint
-
-Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint" --exact --all-versions
-```
-
-
-#### paint.net
-
-Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget install --name "paint.net" --exact
-```
-
-
-
 ### Phone Link
 
 Id to include: `PhoneLink`
@@ -1993,6 +2138,63 @@ winget uninstall --name "Quick Assist" --exact --all-versions
 #### Notes:
 
  * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
+
+
+### Recall
+
+Id to include: `Recall`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableAIDataAnalysis"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableAIDataAnalysis"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Notes:
+
+* Stops Windows saving screen snapshots for Recall (AI screen capture and analysis)
+* Requires Windows 11 24H2 or later. Note the policy key is `WindowsAI`, not `WindowsCopilot`
+* [Policy CSP - WindowsAI / DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
+
+
+### Store Notifications
+
+Id to include: `StoreNotifications`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* Disables toast notifications from the Microsoft Store, such as the "PC Game Pass is included" promotional popup offering a free 3 months of Game Pass <br><img src="/src/StoreNotifications.png" height="200px">
+* Equivalent to Settings > Notifications > Microsoft Store > Off
 
 
 ### Teams

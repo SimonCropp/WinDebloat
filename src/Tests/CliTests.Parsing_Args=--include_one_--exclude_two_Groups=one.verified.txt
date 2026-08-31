@@ -1,4 +1,4 @@
-{
+﻿{
   console:
 No item found for exclude: two
 Item is already includes: one
