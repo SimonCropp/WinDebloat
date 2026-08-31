@@ -110,8 +110,6 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Office 365](#office-365) (optional)
  * [Office Cloud Files](#office-cloud-files) (optional)
  * [OneDrive](#onedrive) (optional)
- * [Paint 3D](#paint-3d)
- * [Paint](#paint) (optional)
  * [Pay](#pay)
  * [People](#people)
  * [Phone Link](#phone-link) (optional)
@@ -127,6 +125,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Startup boost](#startup-boost)
  * [Start Menu Recommendations](#start-menu-recommendations)
  * [Sticky Notes](#sticky-notes)
+ * [Store Notifications](#store-notifications) (optional)
  * [TaskBar Search](#taskbar-search)
  * [Task View](#task-view)
  * [Teams](#teams) (optional)
@@ -781,19 +780,6 @@ winget uninstall --name "OneNote for Windows 10" --exact --all-versions
 ```
 
 
-### Paint 3D
-
-Id to exclude: `Paint3D`
-
-Uninstalls `Paint 3D` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-#### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint 3D" --exact --all-versions
-```
-
-
 ### Pay
 
 Id to exclude: `Pay`
@@ -1357,6 +1343,17 @@ Uninstalls `Microsoft 365 Copilot` using [winget](https://learn.microsoft.com/en
 
 ```ps
 winget uninstall --name "Microsoft 365 Copilot" --exact --all-versions
+```
+
+
+#### Microsoft 365 (Office)
+
+Uninstalls `Microsoft 365 (Office)` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
+##### Command to manually apply:
+
+```ps
+winget uninstall --name "Microsoft 365 (Office)" --exact --all-versions
 ```
 
 
@@ -1987,33 +1984,6 @@ winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
  * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)
 
 
-### Paint
-
-Id to include: `Paint`
-
-#### Paint
-
-Uninstalls `Paint` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget uninstall --name "Paint" --exact --all-versions
-```
-
-
-#### paint.net
-
-Installs `paint.net` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-
-##### Command to manually apply:
-
-```ps
-winget install --name "paint.net" --exact
-```
-
-
-
 ### Phone Link
 
 Id to include: `PhoneLink`
@@ -2090,6 +2060,34 @@ winget uninstall --name "Quick Assist" --exact --all-versions
  * [Solve PC problems over a remote connection](https://support.microsoft.com/en-us/windows/solve-pc-problems-over-a-remote-connection-b077e31a-16f4-2529-1a47-21f6a9040bf3)
 
 
+### Store Notifications
+
+Id to include: `StoreNotifications`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App"`
+                 -Name "Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* Disables toast notifications from the Microsoft Store, such as the "PC Game Pass is included" promotional popup offering a free 3 months of Game Pass <br><img src="/src/StoreNotifications.png" height="200px">
+* Equivalent to Settings > Notifications > Microsoft Store > Off
+
+
 ### Teams
 
 Id to include: `Teams`
@@ -2152,6 +2150,7 @@ winget uninstall --name "Windows Voice Recorder" --exact --all-versions
  * [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
  * https://winget.run. An online registry of winget packages.
  * [ExplorerPatcher](https://github.com/valinet/ExplorerPatcher). A helpful to use in conjunction with this project to make Windows more usable.
+ * [Start11](https://www.stardock.com/products/start11/). A third-party Start menu replacement. Removes the "Store" section (suggested apps and games) from Start menu search — content that cannot be disabled via registry, policy, or firewall on Windows 11 24H2 and later.
  * [Setting a single registry entry using PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries#setting-a-single-registry-entry)
 
 

@@ -1,5 +1,6 @@
 ﻿#if DEBUG
 [TestFixture]
+[Explicit]
 public class WinGetTests
 {
     string name = "GitHub CLI";

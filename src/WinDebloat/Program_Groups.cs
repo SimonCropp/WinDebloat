@@ -98,6 +98,7 @@
             [
                 new UninstallByNameJob("Microsoft Copilot"),
                 new UninstallByNameJob("Microsoft 365 Copilot"),
+                new UninstallByNameJob("Microsoft 365 (Office)"),
                 new UninstallByNameJob("Copilot"),
                 new RegistryValueJob(
                     RegistryHive.LocalMachine,
@@ -451,14 +452,6 @@
                 "Microsoft.OneDrive",
                 Notes: " * [OneDrive Personal Cloud Storage](https://www.microsoft.com/en-au/microsoft-365/onedrive/online-cloud-storage)")
         ),
-        new("Paint 3D", true, new UninstallByNameJob("Paint 3D")),
-        new(
-            "Paint",
-            false,
-            [
-                new UninstallByNameJob("Paint"),
-                new InstallByNameJob("paint.net"),
-            ]),
         new("Pay", true, new UninstallByNameJob("Microsoft Pay")),
         new("People", true, new UninstallByNameJob("Microsoft People")),
         new(
@@ -535,6 +528,21 @@
             new UninstallByNameJob(
                 "Microsoft Sticky Notes",
                 Notes: " * [AppStore: Sticky Notes](https://apps.microsoft.com/store/detail/microsoft-sticky-notes/9NBLGGH4QGHW)")),
+        new(
+            "Store Notifications",
+            false,
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App",
+                "Enabled",
+                0,
+                1,
+                "Microsoft Store Notifications",
+                Notes:
+                """
+                * Disables toast notifications from the Microsoft Store, such as the "PC Game Pass is included" promotional popup offering a free 3 months of Game Pass <br><img src="/src/StoreNotifications.png" height="200px">
+                * Equivalent to Settings > Notifications > Microsoft Store > Off
+                """)),
         new(
             "TaskBar Search",
             true,
