@@ -132,6 +132,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Teams](#teams) (optional)
  * [Teams Installer](#teams-installer)
  * [Telemetry](#telemetry)
+ * [Text and Image Generation](#text-and-image-generation) (optional)
  * [Tips](#tips)
  * [To Do](#to-do)
  * [Visual Studio Telemetry](#visual-studio-telemetry) (optional)
@@ -2331,6 +2332,88 @@ Uninstalls `Microsoft.Teams` using [winget](https://learn.microsoft.com/en-us/wi
 ```ps
 winget uninstall --id "Microsoft.Teams" --all-versions --exact
 ```
+
+
+
+### Text and Image Generation
+
+Id to include: `TextandImageGeneration`
+
+#### LetAppsAccessSystemAIModels
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy"`
+                 -Name "LetAppsAccessSystemAIModels"`
+                 -Type "DWord"`
+                 -Value "2"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy"`
+                 -Name "LetAppsAccessSystemAIModels"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Notes:
+
+* Force denies apps use of the on-device generative AI models (`Settings` > `Privacy & security` > `Text and image generation`) <br><img src="/src/TextAndImageGeneration.png" height="200px">
+* Policy values: `0` = user in control, `1` = force allow, `2` = force deny
+* Group policy: `Computer Configuration` > `Administrative Templates` > `Windows Components` > `App Privacy` > `Let Windows apps make use of Text and image generation features of Windows`
+
+
+#### Text and image generation (HKLM)
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels"`
+                 -Name "Value"`
+                 -Type "String"`
+                 -Value "Deny"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels"`
+                 -Name "Value"`
+                 -Type "String"`
+                 -Value "Allow"
+```
+
+##### Notes:
+
+ * Turns off the device wide `Text and image generation` toggle
+
+
+#### Text and image generation (HKCU)
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels"`
+                 -Name "Value"`
+                 -Type "String"`
+                 -Value "Deny"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels"`
+                 -Name "Value"`
+                 -Type "String"`
+                 -Value "Allow"
+```
+
+##### Notes:
+
+ * Turns off `Let apps use Text and image generation` for the current user
 
 
 
