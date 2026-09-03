@@ -675,6 +675,42 @@
                 new DisableServiceJob("DiagTrack")
             ]),
         new(
+            "Text and Image Generation",
+            false,
+            [
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\AppPrivacy",
+                    "LetAppsAccessSystemAIModels",
+                    2,
+                    0,
+                    "LetAppsAccessSystemAIModels",
+                    Notes:
+                    """
+                    * Force denies apps use of the on-device generative AI models (`Settings` > `Privacy & security` > `Text and image generation`) <br><img src="/src/TextAndImageGeneration.png" height="200px">
+                    * Policy values: `0` = user in control, `1` = force allow, `2` = force deny
+                    * Group policy: `Computer Configuration` > `Administrative Templates` > `Windows Components` > `App Privacy` > `Let Windows apps make use of Text and image generation features of Windows`
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels",
+                    "Value",
+                    "Deny",
+                    "Allow",
+                    "Text and image generation (HKLM)",
+                    RegistryValueKind.String,
+                    Notes: " * Turns off the device wide `Text and image generation` toggle"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels",
+                    "Value",
+                    "Deny",
+                    "Allow",
+                    "Text and image generation (HKCU)",
+                    RegistryValueKind.String,
+                    Notes: " * Turns off `Let apps use Text and image generation` for the current user"),
+            ]),
+        new(
             "Tips",
             true,
             new UninstallByNameJob("Microsoft Tips")),
