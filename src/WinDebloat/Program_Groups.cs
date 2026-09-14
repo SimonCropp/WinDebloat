@@ -488,19 +488,48 @@
         new(
             "Recall",
             false,
-            new RegistryValueJob(
-                RegistryHive.LocalMachine,
-                @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
-                "DisableAIDataAnalysis",
-                1,
-                0,
-                "DisableAIDataAnalysis",
-                Notes:
-                """
-                * Stops Windows saving screen snapshots for Recall (AI screen capture and analysis)
-                * Requires Windows 11 24H2 or later. Note the policy key is `WindowsAI`, not `WindowsCopilot`
-                * [Policy CSP - WindowsAI / DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
-                """)),
+            [
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                    "DisableAIDataAnalysis",
+                    1,
+                    0,
+                    "DisableAIDataAnalysis",
+                    Notes:
+                    """
+                    * Stops Windows saving screen snapshots for Recall (AI screen capture and analysis)
+                    * Requires Windows 11 24H2 or later. Note the policy key is `WindowsAI`, not `WindowsCopilot`
+                    * [Policy CSP - WindowsAI / DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                    "DisableClickToDo",
+                    1,
+                    0,
+                    "DisableClickToDo",
+                    Notes:
+                    """
+                    * Disables Click to Do (screenshots the screen and analyzes it to suggest actions) and removes its entry points
+                    * [Policy CSP - WindowsAI / DisableClickToDo](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo)
+                    """),
+                new RegistryValueJob(
+                    RegistryHive.LocalMachine,
+                    @"SOFTWARE\Policies\Microsoft\Windows\WindowsAI",
+                    "AllowRecallEnablement",
+                    0,
+                    1,
+                    "AllowRecallEnablement",
+                    Notes:
+                    """
+                    * Disables the Recall optional component and removes the Recall bits from the device
+                    * Any previously saved snapshots are deleted
+                    * Requires a restart to take effect
+                    * Requires Windows 11 24H2 or later
+                    * [Policy CSP - WindowsAI / AllowRecallEnablement](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#allowrecallenablement)
+                    """)
+            ]),
         new(
             "Skype",
             true,
