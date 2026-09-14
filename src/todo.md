@@ -52,6 +52,10 @@ Implemented as opt-in group `Recall` (Id `Recall`, `IsDefault = false`), matchin
 - ⚠️ NOTE: privacy.sexy ships this under an **outdated `WindowsCopilot` path**. Microsoft's official key is
   `WindowsAI` (verified on MS Learn). Use `WindowsAI`.
 - Suggested group: new `Recall` (or fold into `Copilot`). Default is a convention call — see open question below.
+- `DisableAIDataAnalysis` only stops snapshots — it does **not** stop the Recall processes. Verified on 28000: policy
+  set, rebooted, `AIXHost.exe` (from `MicrosoftWindows.Client.AIX`, launched by sihost) and `aihost.exe` still start.
+  Added `AllowRecallEnablement` = `0` (revert `1`) to the `Recall` group, which removes the Recall optional component
+  (restart required). Still TODO: reboot and confirm whether both processes are gone.
 
 ```csharp
 new(
@@ -117,7 +121,8 @@ new RegistryValueJob(
 
 ## Tier 2 — reasonable, extends existing groups
 
-### 4. Disable Click to Do (Recall-adjacent AI)
+### 4. Disable Click to Do (Recall-adjacent AI) — ✅ DONE (opt-in)
+Implemented as a second job in the opt-in `Recall` group.
 - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI`
 - Value: `DisableClickToDo` = `1` (DWORD), revert `0`
 - Source: https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo
