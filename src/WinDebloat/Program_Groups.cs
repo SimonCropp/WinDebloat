@@ -211,6 +211,21 @@
                 "AllowDevelopmentWithoutDevLicense",
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
+            "Edge Background Mode",
+            true,
+            new RegistryValueJob(
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Edge",
+                "BackgroundModeEnabled",
+                0,
+                1,
+                "BackgroundModeEnabled",
+                Notes:
+                """
+                * [Continue running background apps after Microsoft Edge closes](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#backgroundmodeenabled)
+                * Prevents Edge processes starting on sign-in and staying resident after Edge is closed
+                """)),
+        new(
             "Edge Bing SideBar",
             false,
             new RegistryValueJob(
@@ -530,6 +545,17 @@
                     * [Policy CSP - WindowsAI / AllowRecallEnablement](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#allowrecallenablement)
                     """)
             ]),
+        new(
+            "Restart Apps",
+            true,
+            new RegistryValueJob(
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows NT\CurrentVersion\Winlogon",
+                "RestartApps",
+                0,
+                1,
+                "RestartApps",
+                Notes: " * Disables 'Automatically save my restartable apps and restart them when I sign back in', which reopens apps such as Edge after a reboot")),
         new(
             "Skype",
             true,

@@ -16,6 +16,7 @@
  * [DevHome](#devhome) (optional)
  * [dotnet](#dotnet) (optional)
  * [Developer Mode](#developer-mode) (optional)
+ * [Edge Background Mode](#edge-background-mode)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [Edge Default Location To Blank](#edge-default-location-to-blank) (optional)
@@ -55,6 +56,7 @@
  * [Program Compatibility Assistant](#program-compatibility-assistant) (optional)
  * [Quick Assist](#quick-assist) (optional)
  * [Recall](#recall) (optional)
+ * [Restart Apps](#restart-apps)
  * [Skype](#skype)
  * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
@@ -275,6 +277,34 @@ Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/pa
 ```ps
 winget uninstall --name "Cortana" --exact --all-versions
 ```
+
+
+### Edge Background Mode
+
+Id to exclude: `EdgeBackgroundMode`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "BackgroundModeEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "BackgroundModeEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* [Continue running background apps after Microsoft Edge closes](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#backgroundmodeenabled)
+* Prevents Edge processes starting on sign-in and staying resident after Edge is closed
 
 
 ### Edge Desktop Search Bar
@@ -804,6 +834,33 @@ Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/p
 ```ps
 winget uninstall --name "Print 3D" --exact --all-versions
 ```
+
+
+### Restart Apps
+
+Id to exclude: `RestartApps`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"`
+                 -Name "RestartApps"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"`
+                 -Name "RestartApps"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+ * Disables 'Automatically save my restartable apps and restart them when I sign back in', which reopens apps such as Edge after a reboot
 
 
 ### Skype

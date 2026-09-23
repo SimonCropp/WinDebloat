@@ -82,6 +82,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [DevHome](#devhome) (optional)
  * [dotnet](#dotnet) (optional)
  * [Developer Mode](#developer-mode) (optional)
+ * [Edge Background Mode](#edge-background-mode)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
  * [Edge Default Location To Blank](#edge-default-location-to-blank) (optional)
@@ -341,6 +342,34 @@ Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/pa
 ```ps
 winget uninstall --name "Cortana" --exact --all-versions
 ```
+
+
+### Edge Background Mode
+
+Id to exclude: `EdgeBackgroundMode`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "BackgroundModeEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Edge"`
+                 -Name "BackgroundModeEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+* [Continue running background apps after Microsoft Edge closes](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#backgroundmodeenabled)
+* Prevents Edge processes starting on sign-in and staying resident after Edge is closed
 
 
 ### Edge Desktop Search Bar
