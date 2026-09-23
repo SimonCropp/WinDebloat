@@ -2240,7 +2240,9 @@ winget uninstall --name "Quick Assist" --exact --all-versions
 
 Id to include: `Recall`
 
-#### Command to manually apply:
+#### DisableAIDataAnalysis
+
+##### Command to manually apply:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
@@ -2249,7 +2251,7 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Windo
                  -Value "1"
 ```
 
-#### Command to manually revert:
+##### Command to manually revert:
 
 ```ps
 Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
@@ -2258,11 +2260,67 @@ Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\Windo
                  -Value "0"
 ```
 
-#### Notes:
+##### Notes:
 
 * Stops Windows saving screen snapshots for Recall (AI screen capture and analysis)
 * Requires Windows 11 24H2 or later. Note the policy key is `WindowsAI`, not `WindowsCopilot`
 * [Policy CSP - WindowsAI / DisableAIDataAnalysis](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableaidataanalysis)
+
+
+#### DisableClickToDo
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableClickToDo"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "DisableClickToDo"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Notes:
+
+* Disables Click to Do (screenshots the screen and analyzes it to suggest actions) and removes its entry points
+* [Policy CSP - WindowsAI / DisableClickToDo](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#disableclicktodo)
+
+
+#### AllowRecallEnablement
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "AllowRecallEnablement"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"`
+                 -Name "AllowRecallEnablement"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+* Disables the Recall optional component and removes the Recall bits from the device
+* Any previously saved snapshots are deleted
+* Requires a restart to take effect
+* Requires Windows 11 24H2 or later
+* [Policy CSP - WindowsAI / AllowRecallEnablement](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-windowsai#allowrecallenablement)
+
 
 
 ### Store Notifications
