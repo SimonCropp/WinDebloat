@@ -1,6 +1,6 @@
 # <img src="/src/icon.png" height="30px" width="30px"> WinDebloat
 
-[![Build status](https://img.shields.io/appveyor/build/SimonCropp/WinDebloat)](https://ci.appveyor.com/project/SimonCropp/WinDebloat)
+[![Build status](https://github.com/SimonCropp/WinDebloat/actions/workflows/build.yml/badge.svg)](https://github.com/SimonCropp/WinDebloat/actions/workflows/build.yml)
 [![NuGet Status](https://img.shields.io/nuget/v/WinDebloat.svg)](https://www.nuget.org/packages/WinDebloat/)
 
 A dotnet tool that removes the bloat in Windows 11
