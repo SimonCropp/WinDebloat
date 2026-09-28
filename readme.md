@@ -122,6 +122,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [Program Compatibility Assistant](#program-compatibility-assistant) (optional)
  * [Quick Assist](#quick-assist) (optional)
  * [Recall](#recall) (optional)
+ * [Restart Apps](#restart-apps)
  * [Skype](#skype)
  * [Spotify](#spotify)
  * [Startup boost](#startup-boost)
@@ -899,6 +900,33 @@ Uninstalls `Print 3D` using [winget](https://learn.microsoft.com/en-us/windows/p
 ```ps
 winget uninstall --name "Print 3D" --exact --all-versions
 ```
+
+
+### Restart Apps
+
+Id to exclude: `RestartApps`
+
+#### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"`
+                 -Name "RestartApps"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+#### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"`
+                 -Name "RestartApps"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+#### Notes:
+
+ * Disables 'Automatically save my restartable apps and restart them when I sign back in', which reopens apps such as Edge after a reboot
 
 
 ### Skype

@@ -1,5 +1,4 @@
 ﻿#if DEBUG
-[TestFixture]
 public class ProgramTests
 {
     [Test]

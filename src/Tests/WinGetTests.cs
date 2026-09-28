@@ -1,5 +1,4 @@
 ﻿#if DEBUG
-[TestFixture]
 [Explicit]
 public class WinGetTests
 {
@@ -39,13 +38,13 @@ public class WinGetTests
     {
         await WinGet.InstallByName(name);
         var list = await WinGet.List();
-        IsTrue(list.Any(_ => _.name == name));
-        IsTrue(list.Any(_ => _.id == id));
+        await Assert.That(list.Any(_ => _.name == name)).IsTrue();
+        await Assert.That(list.Any(_ => _.id == id)).IsTrue();
 
         await WinGet.UninstallByName(name);
         list = await WinGet.List();
-        IsFalse(list.Any(_ => _.name == name));
-        IsFalse(list.Any(_ => _.id == id));
+        await Assert.That(list.Any(_ => _.name == name)).IsFalse();
+        await Assert.That(list.Any(_ => _.id == id)).IsFalse();
     }
 
     [Test]
@@ -53,13 +52,13 @@ public class WinGetTests
     {
         await WinGet.InstallById(id);
         var list = await WinGet.List();
-        IsTrue(list.Any(_ => _.name == name));
-        IsTrue(list.Any(_ => _.id == id));
+        await Assert.That(list.Any(_ => _.name == name)).IsTrue();
+        await Assert.That(list.Any(_ => _.id == id)).IsTrue();
 
         await WinGet.UninstallById(id);
         list = await WinGet.List();
-        IsFalse(list.Any(_ => _.name == name));
-        IsFalse(list.Any(_ => _.id == id));
+        await Assert.That(list.Any(_ => _.name == name)).IsFalse();
+        await Assert.That(list.Any(_ => _.id == id)).IsFalse();
     }
 
     [Test]
@@ -75,7 +74,7 @@ public class WinGetTests
     public async Task GetVersion()
     {
         var version = await WinGet.GetVersion();
-        Greater(3, version.Major);
+        await Assert.That(version.Major).IsLessThan(3);
     }
 }
 #endif

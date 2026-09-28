@@ -1,4 +1,4 @@
-*.suo
+﻿*.suo
 *.user
 bin/
 obj/
@@ -9,3 +9,4 @@ obj/
 nugets/
 .claude/settings.local.json
 *.lnk
+TestResults/

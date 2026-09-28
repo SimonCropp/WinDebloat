@@ -1,15 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net10.0-windows</TargetFramework>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" />
-        <PackageReference Include="NUnit" />
-        <PackageReference Include="NUnit3TestAdapter" />
         <PackageReference Include="ProjectFiles" />
+        <PackageReference Include="TUnit" />
         <PackageReference Include="Verify.DiffPlex" />
-        <PackageReference Include="Verify.Nunit" />
+        <PackageReference Include="Verify.TUnit" />
         <PackageReference Include="Argon" />
         <PackageReference Include="DiffEngine" />
         <PackageReference Include="EmptyFiles" />
@@ -18,7 +17,5 @@
         <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
         <ProjectReference Include="..\WinDebloat\WinDebloat.csproj" />
         <PackageReference Include="System.ServiceProcess.ServiceController" />
-        <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
-        <Using Include="NUnit.Framework.Assert" Static="True" />
     </ItemGroup>
 </Project>

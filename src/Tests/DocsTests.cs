@@ -1,5 +1,4 @@
-﻿[TestFixture]
-public class DocsTests
+﻿public class DocsTests
 {
     [Test]
     public void Full()

@@ -1,10 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#pragma warning disable TUnit0055
 
-[TestFixture]
-[NonParallelizable]
+using System.Diagnostics.CodeAnalysis;
+
+[NotInParallel]
 public class CliTests
 {
-    [TestCaseSource(nameof(GetData))]
+    [Test]
+    [MethodDataSource(nameof(GetData))]
     public Task Exclude(FindGroup findGroup)
     {
         var argument = ArgumentBuilder.Build("id");
@@ -18,7 +20,8 @@ public class CliTests
             });
     }
 
-    [TestCaseSource(nameof(GetData))]
+    [Test]
+    [MethodDataSource(nameof(GetData))]
     public Task Include(FindGroup findGroup)
     {
         var argument = ArgumentBuilder.Build("id");
@@ -32,7 +35,7 @@ public class CliTests
             });
     }
 
-    public static IEnumerable<object[]> GetData()
+    public static IEnumerable<FindGroup> GetData()
     {
         foreach (var findGroup in new FindGroup[]
                  {
@@ -41,7 +44,7 @@ public class CliTests
                      NotFound
                  })
         {
-            yield return [findGroup];
+            yield return findGroup;
         }
     }
 
@@ -63,7 +66,8 @@ public class CliTests
         return false;
     }
 
-    [TestCaseSource(nameof(GetStringParsingData))]
+    [Test]
+    [MethodDataSource(nameof(GetStringParsingData))]
     public async Task Parsing(string[] args, Group[] groups)
     {
         var argValue = string.Join('_', args);
@@ -93,12 +97,22 @@ public class CliTests
         }
 
         await using var writer = new StringWriter();
+        var originalOut = Console.Out;
+        var originalError = Console.Error;
         Console.SetOut(writer);
         Console.SetError(writer);
-        await ArgumentParser.Invoke(
-            args,
-            Invoke,
-            groups);
+        try
+        {
+            await ArgumentParser.Invoke(
+                args,
+                Invoke,
+                groups);
+        }
+        finally
+        {
+            Console.SetOut(originalOut);
+            Console.SetError(originalError);
+        }
 
         await Verify(
             new
@@ -124,15 +138,25 @@ public class CliTests
         }
 
         await using var writer = new StringWriter();
+        var originalOut = Console.Out;
+        var originalError = Console.Error;
         Console.SetOut(writer);
         Console.SetError(writer);
-        await ArgumentParser.Invoke(
-            ["--include-all"],
-            Invoke,
-            [
-                new("one", true, jobs),
-                new("two", false, jobs),
-            ]);
+        try
+        {
+            await ArgumentParser.Invoke(
+                ["--include-all"],
+                Invoke,
+                [
+                    new("one", true, jobs),
+                    new("two", false, jobs),
+                ]);
+        }
+        finally
+        {
+            Console.SetOut(originalOut);
+            Console.SetError(originalError);
+        }
 
         await Verify(
             new
@@ -145,7 +169,7 @@ public class CliTests
 
     static InstallByNameJob[] jobs = [new("job")];
 
-    public static IEnumerable<object[]> GetStringParsingData()
+    public static IEnumerable<Func<(string[], Group[])>> GetStringParsingData()
     {
         foreach (var arg in new[]
                  {
@@ -157,24 +181,24 @@ public class CliTests
         {
             var args = arg.Split(' ');
 
-            yield return
-            [
+            yield return () =>
+            (
                 args,
                 new Group[]
                 {
                     new("one", true, jobs),
                     new("two", false, jobs),
                 }
-            ];
-            yield return
-            [
+            );
+            yield return () =>
+            (
                 args,
                 new Group[]
                 {
                     new("one", false, jobs),
                     new("two", true, jobs),
                 }
-            ];
+            );
             foreach (var groupNames in new[]
                      {
                          "one two",
@@ -183,20 +207,20 @@ public class CliTests
                      })
             {
                 var groupIds = groupNames.Split(' ');
-                yield return
-                [
+                yield return () =>
+                (
                     args,
                     groupIds
                         .Select(_ => new Group(_, true, jobs))
                         .ToArray()
-                ];
-                yield return
-                [
+                );
+                yield return () =>
+                (
                     args,
                     groupIds
                         .Select(_ => new Group(_, false, jobs))
                         .ToArray()
-                ];
+                );
             }
         }
     }

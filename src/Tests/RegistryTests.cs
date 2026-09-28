@@ -1,8 +1,8 @@
-﻿[TestFixture]
+﻿[NotInParallel]
 public class RegistryTests
 {
     [Test]
-    public void NonExistingParent()
+    public async Task NonExistingParent()
     {
         Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
 
@@ -19,7 +19,7 @@ public class RegistryTests
 
             using var key = Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")!;
 
-            AreEqual(0, key.GetValue("TaskbarDa"));
+            await Assert.That(key.GetValue("TaskbarDa")).IsEqualTo(0);
         }
         finally
         {
@@ -28,7 +28,7 @@ public class RegistryTests
     }
 
     [Test]
-    public void DeleteValue()
+    public async Task DeleteValue()
     {
         Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
 
@@ -50,12 +50,12 @@ public class RegistryTests
             using var key = Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")!;
 
             // the stale spaced value is gone, the real one is untouched
-            IsNull(key.GetValue("Allow Telemetry"));
-            AreEqual(0, key.GetValue("AllowTelemetry"));
+            await Assert.That(key.GetValue("Allow Telemetry")).IsNull();
+            await Assert.That(key.GetValue("AllowTelemetry")).IsEqualTo(0);
 
             // running again when the value is already absent is a no-op
             Program.HandleRegistry(job);
-            IsNull(key.GetValue("Allow Telemetry"));
+            await Assert.That(key.GetValue("Allow Telemetry")).IsNull();
         }
         finally
         {
@@ -64,7 +64,7 @@ public class RegistryTests
     }
 
     [Test]
-    public void DeleteValueWithNonExistingParent()
+    public async Task DeleteValueWithNonExistingParent()
     {
         Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
 
@@ -76,6 +76,6 @@ public class RegistryTests
         Program.HandleRegistry(job);
 
         // the key must not be created as a side effect of the delete
-        IsNull(Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child"));
+        await Assert.That(Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")).IsNull();
     }
 }
