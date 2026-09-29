@@ -184,20 +184,18 @@ public class CliTests
             yield return () =>
             (
                 args,
-                new Group[]
-                {
+                [
                     new("one", true, jobs),
-                    new("two", false, jobs),
-                }
+                    new("two", false, jobs)
+                ]
             );
             yield return () =>
             (
                 args,
-                new Group[]
-                {
+                [
                     new("one", false, jobs),
-                    new("two", true, jobs),
-                }
+                    new("two", true, jobs)
+                ]
             );
             foreach (var groupNames in new[]
                      {

@@ -2,10 +2,10 @@
 {
     public static IEnumerable<(string, Version)> GetVersionTestData()
     {
-        yield return ("v1.2.3", new Version(1, 2, 3));
-        yield return ("v1.2.3.4", new Version(1, 2, 3, 4));
-        yield return ("v1.2.3-prerelease", new Version(1, 2, 3));
-        yield return ("v1.2.3.4-prerelease", new Version(1, 2, 3, 4));
+        yield return ("v1.2.3", new(1, 2, 3));
+        yield return ("v1.2.3.4", new(1, 2, 3, 4));
+        yield return ("v1.2.3-prerelease", new(1, 2, 3));
+        yield return ("v1.2.3.4-prerelease", new(1, 2, 3, 4));
     }
 
     [Test]
