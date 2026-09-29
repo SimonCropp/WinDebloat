@@ -110,6 +110,9 @@
             case DeleteRegistryValueJob deleteRegistryValue:
                 HandleRegistry(deleteRegistryValue);
                 break;
+            case DeleteRegistryValuesByPrefixJob deleteRegistryValuesByPrefix:
+                HandleRegistry(deleteRegistryValuesByPrefix);
+                break;
             case InstallByNameJob installByNameJob:
                 return HandleInstall(installByNameJob);
             case InstallByIdJob installByIdJob:
@@ -303,6 +306,35 @@
 
         Log.Information("Remove {JobHive} {JobPath} {KeyName}", hive, key, keyName);
         subKey.DeleteValue(keyName, false);
+    }
+
+    public static void HandleRegistry(DeleteRegistryValuesByPrefixJob job)
+    {
+        var (hive, key, prefix, name, _) = job;
+        Log.Information("Registry: {Name}", name);
+        using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
+        using var subKey = baseKey.OpenSubKey(key, true);
+        if (subKey == null)
+        {
+            Log.Information("Skipped removing {JobHive} {JobPath} {Prefix}* since the key does not exist", hive, key, prefix);
+            return;
+        }
+
+        var valueNames = subKey
+            .GetValueNames()
+            .Where(_ => _.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        if (valueNames.Count == 0)
+        {
+            Log.Information("Skipped removing {JobHive} {JobPath} {Prefix}* since no values match", hive, key, prefix);
+            return;
+        }
+
+        foreach (var valueName in valueNames)
+        {
+            Log.Information("Remove {JobHive} {JobPath} {KeyName}", hive, key, valueName);
+            subKey.DeleteValue(valueName, false);
+        }
     }
 
     static List<(string name, string id)> installed = null!;

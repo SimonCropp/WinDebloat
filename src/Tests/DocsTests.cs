@@ -177,6 +177,20 @@
 
                      """);
                 break;
+            case DeleteRegistryValuesByPrefixJob deleteRegistryValuesByPrefixJob:
+                writer.WriteLine(
+                    $$"""
+                     {{headingLevel}} Command to manually apply:
+
+                     ```ps
+                     $key = Get-Item -Path "Registry::{{deleteRegistryValuesByPrefixJob.ShortKey}}"
+                     $key.GetValueNames() |
+                         Where-Object { $_ -like "{{deleteRegistryValuesByPrefixJob.Prefix}}*" } |
+                         ForEach-Object { Remove-ItemProperty -Path $key.PSPath -Name $_ }
+                     ```
+
+                     """);
+                break;
             case RegistryKeyJob registryJob:
             {
                 if (registryJob.Invert)
