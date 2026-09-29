@@ -78,4 +78,56 @@ public class RegistryTests
         // the key must not be created as a side effect of the delete
         await Assert.That(Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")).IsNull();
     }
+
+    [Test]
+    public async Task DeleteValuesByPrefix()
+    {
+        Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
+
+        try
+        {
+            using (var seed = Registry.CurrentUser.CreateSubKey(@"Software\WinDebloat\Child"))
+            {
+                seed.SetValue("MicrosoftEdgeAutoLaunch_6B0DB9F2", "msedge.exe", RegistryValueKind.String);
+                seed.SetValue("MicrosoftEdgeAutoLaunch_A1B2C3D4", "msedge.exe", RegistryValueKind.String);
+                seed.SetValue("OneDrive", "OneDrive.exe", RegistryValueKind.String);
+            }
+
+            var job = new DeleteRegistryValuesByPrefixJob(
+                RegistryHive.CurrentUser,
+                @"Software\WinDebloat\Child",
+                "MicrosoftEdgeAutoLaunch_",
+                "MicrosoftEdgeAutoLaunch");
+            Program.HandleRegistry(job);
+
+            using var key = Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")!;
+
+            // all matching values are gone, others are untouched
+            await Assert.That(key.GetValueNames()).IsEquivalentTo(["OneDrive"]);
+
+            // running again when nothing matches is a no-op
+            Program.HandleRegistry(job);
+            await Assert.That(key.GetValueNames()).IsEquivalentTo(["OneDrive"]);
+        }
+        finally
+        {
+            Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
+        }
+    }
+
+    [Test]
+    public async Task DeleteValuesByPrefixWithNonExistingParent()
+    {
+        Registry.CurrentUser.DeleteSubKeyTree(@"Software\WinDebloat", false);
+
+        var job = new DeleteRegistryValuesByPrefixJob(
+            RegistryHive.CurrentUser,
+            @"Software\WinDebloat\Child",
+            "MicrosoftEdgeAutoLaunch_",
+            "MicrosoftEdgeAutoLaunch");
+        Program.HandleRegistry(job);
+
+        // the key must not be created as a side effect of the delete
+        await Assert.That(Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")).IsNull();
+    }
 }

@@ -82,6 +82,7 @@ WinDebloat --exclude AdvertiserId Xbox
  * [DevHome](#devhome) (optional)
  * [dotnet](#dotnet) (optional)
  * [Developer Mode](#developer-mode) (optional)
+ * [Edge Auto Launch](#edge-auto-launch)
  * [Edge Background Mode](#edge-background-mode)
  * [Edge Bing SideBar](#edge-bing-sidebar) (optional)
  * [Edge Desktop Search Bar](#edge-desktop-search-bar)
@@ -343,6 +344,25 @@ Uninstalls `Cortana` using [winget](https://learn.microsoft.com/en-us/windows/pa
 ```ps
 winget uninstall --name "Cortana" --exact --all-versions
 ```
+
+
+### Edge Auto Launch
+
+Id to exclude: `EdgeAutoLaunch`
+
+#### Command to manually apply:
+
+```ps
+$key = Get-Item -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
+$key.GetValueNames() |
+    Where-Object { $_ -like "MicrosoftEdgeAutoLaunch_*" } |
+    ForEach-Object { Remove-ItemProperty -Path $key.PSPath -Name $_ }
+```
+
+#### Notes:
+
+* Removes the `MicrosoftEdgeAutoLaunch_*` Run entry that Edge adds to launch itself (`msedge.exe --win-session-start`) at sign-in
+* Edge can recreate this entry, for example after an update, so it is removed on every run
 
 
 ### Edge Background Mode

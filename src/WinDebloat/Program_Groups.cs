@@ -211,6 +211,19 @@
                 "AllowDevelopmentWithoutDevLicense",
                 Notes: " * [Developer Mode features and debugging](https://learn.microsoft.com/en-us/windows/apps/get-started/developer-mode-features-and-debugging)")),
         new(
+            "Edge Auto Launch",
+            true,
+            new DeleteRegistryValuesByPrefixJob(
+                RegistryHive.CurrentUser,
+                @"Software\Microsoft\Windows\CurrentVersion\Run",
+                "MicrosoftEdgeAutoLaunch_",
+                "MicrosoftEdgeAutoLaunch",
+                Notes:
+                """
+                * Removes the `MicrosoftEdgeAutoLaunch_*` Run entry that Edge adds to launch itself (`msedge.exe --win-session-start`) at sign-in
+                * Edge can recreate this entry, for example after an update, so it is removed on every run
+                """)),
+        new(
             "Edge Background Mode",
             true,
             new RegistryValueJob(
