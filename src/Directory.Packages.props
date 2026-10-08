@@ -12,15 +12,15 @@
     <PackageVersion Include="Serilog" Version="4.4.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0" />
-    <PackageVersion Include="TUnit" Version="1.72.16" />
+    <PackageVersion Include="TUnit" Version="1.73.5" />
     <PackageVersion Include="System.CommandLine" Version="2.0.12" />
     <PackageVersion Include="System.Management" Version="10.0.12" />
     <PackageVersion Include="System.ServiceProcess.ServiceController" Version="10.0.12" />
-    <PackageVersion Include="Verify.TUnit" Version="33.3.2-beta.1" />
-    <PackageVersion Include="Argon" Version="0.38.0" />
-    <PackageVersion Include="DiffEngine" Version="20.7.0" />
-    <PackageVersion Include="EmptyFiles" Version="8.20.0" />
-    <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
-    <PackageVersion Include="Verify" Version="33.3.2-beta.1" />
+    <PackageVersion Include="Verify.TUnit" Version="33.3.2" />
+    <PackageVersion Include="Argon" Version="0.38.2" />
+    <PackageVersion Include="DiffEngine" Version="20.7.2" />
+    <PackageVersion Include="EmptyFiles" Version="8.20.1" />
+    <PackageVersion Include="SimpleInfoName" Version="3.2.1" />
+    <PackageVersion Include="Verify" Version="33.3.2" />
   </ItemGroup>
 </Project>
