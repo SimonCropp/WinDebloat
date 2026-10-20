@@ -845,12 +845,13 @@
             "Widgets",
             true,
             new RegistryValueJob(
-                RegistryHive.CurrentUser,
-                @"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
-                "TaskbarDa",
+                RegistryHive.LocalMachine,
+                @"SOFTWARE\Policies\Microsoft\Dsh",
+                "AllowNewsAndInterests",
                 0,
-                1,
-                "TaskbarDa")),
+                null,
+                "AllowNewsAndInterests",
+                Notes: " * [Disable Widgets via policy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-newsandinterests#allownewsandinterests). The `TaskbarDa` value is protected by the User Choice Protection Driver on recent Windows 11 builds and cannot be written.")),
         new(
             "Xbox",
             true,
