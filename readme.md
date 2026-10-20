@@ -1430,8 +1430,8 @@ Id to exclude: `Widgets`
 #### Command to manually apply:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
-                 -Name "TaskbarDa"`
+Set-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Dsh"`
+                 -Name "AllowNewsAndInterests"`
                  -Type "DWord"`
                  -Value "0"
 ```
@@ -1439,11 +1439,13 @@ Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion
 #### Command to manually revert:
 
 ```ps
-Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"`
-                 -Name "TaskbarDa"`
-                 -Type "DWord"`
-                 -Value "1"
+Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Dsh"`
+                    -Name "AllowNewsAndInterests"
 ```
+
+#### Notes:
+
+ * [Disable Widgets via policy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-newsandinterests#allownewsandinterests). The `TaskbarDa` value is protected by the User Choice Protection Driver on recent Windows 11 builds and cannot be written.
 
 
 ### Xbox
