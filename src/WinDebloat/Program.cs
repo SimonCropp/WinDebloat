@@ -130,9 +130,34 @@
             case DeleteDirectoryJob deleteDirectoryJob:
                 HandleDeleteDirectory(deleteDirectoryJob);
                 break;
+            case RemoveAppxPackageJob removeAppxPackageJob:
+                return HandleRemoveAppxPackage(removeAppxPackageJob);
         }
 
         return Task.CompletedTask;
+    }
+
+    static async Task HandleRemoveAppxPackage(RemoveAppxPackageJob job)
+    {
+        Log.Information("RemoveAppxPackage: {Name}", job.Name);
+        var error = new List<string>();
+        var result = await Cli.Wrap("powershell")
+            .WithArguments(["-NoProfile", "-NonInteractive", "-Command", job.Script])
+            .WithStandardErrorPipe(PipeTarget.ToDelegate(error.Add))
+            .WithValidation(CommandResultValidation.None)
+            .ExecuteAsync();
+
+        if (result.ExitCode != 0 || error.Count > 0)
+        {
+            throw new(
+                $"""
+                 Failed to remove appx package {job.PackageName}.
+                   ExitCode: {result.ExitCode}
+                   Error: {string.Join('\n', error)}
+                 """);
+        }
+
+        Log.Information("Removed appx package {PackageName} for all users", job.PackageName);
     }
 
     static void HandleDeleteDirectory(DeleteDirectoryJob job)

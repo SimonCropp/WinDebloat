@@ -485,9 +485,17 @@
         new(
             "Phone Link",
             false,
-            new UninstallByNameJob(
-                "Phone Link",
-                Notes: " * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)")),
+            [
+                new UninstallByNameJob("Phone Link"),
+                new RemoveAppxPackageJob(
+                    "Microsoft.YourPhone",
+                    "Phone Link (all users)",
+                    Notes:
+                    """
+                     * Removes Phone Link for all user accounts and deprovisions it so new accounts do not get it. This allows Windows to delete the leftover `C:\Program Files\WindowsApps\Microsoft.YourPhone_*` folders.
+                     * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)
+                    """)
+            ]),
         new("Photos", true, new UninstallByNameJob("Microsoft Photos")),
         new("Power Automate", true, new UninstallByNameJob("Power Automate")),
         new(

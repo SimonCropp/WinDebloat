@@ -2177,17 +2177,33 @@ winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
 
 Id to include: `PhoneLink`
 
+#### Phone Link
+
 Uninstalls `Phone Link` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Phone Link" --exact --all-versions
 ```
 
-#### Notes:
 
+#### Phone Link (all users)
+
+Removes the `Microsoft.YourPhone` appx package for all users and deprovisions it.
+
+##### Command to manually apply:
+
+```ps
+Get-AppxPackage -AllUsers -Name "Microsoft.YourPhone" | Remove-AppxPackage -AllUsers
+Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq "Microsoft.YourPhone" | Remove-AppxProvisionedPackage -Online
+```
+
+##### Notes:
+
+ * Removes Phone Link for all user accounts and deprovisions it so new accounts do not get it. This allows Windows to delete the leftover `C:\Program Files\WindowsApps\Microsoft.YourPhone_*` folders.
  * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)
+
 
 
 ### Printer
