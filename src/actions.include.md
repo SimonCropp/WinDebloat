@@ -1759,17 +1759,35 @@ winget uninstall --id "Microsoft.DevHome" --all-versions --exact
 
 Id to include: `dotnet`
 
+#### dotnetTelemetry
+
 Sets environment variable `DOTNET_CLI_TELEMETRY_OPTOUT` to `true`.
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = "true";
 ```
 
-#### Notes:
+##### Notes:
 
  * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)
+
+
+#### dotnetWorkloadUpdateNotify
+
+Sets environment variable `DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE` to `true`.
+
+##### Command to manually apply:
+
+```ps
+$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE = "true";
+```
+
+##### Notes:
+
+ * Disables the .NET SDK background check for workload updates, which leaves `dotnet-sdk-advertising-temp` directories in `%TEMP%`. Use `dotnet workload update` to update workloads manually
+
 
 
 ### Developer Mode
