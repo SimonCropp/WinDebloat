@@ -1825,17 +1825,35 @@ winget uninstall --id "Microsoft.DevHome" --all-versions --exact
 
 Id to include: `dotnet`
 
+#### dotnetTelemetry
+
 Sets environment variable `DOTNET_CLI_TELEMETRY_OPTOUT` to `true`.
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = "true";
 ```
 
-#### Notes:
+##### Notes:
 
  * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)
+
+
+#### dotnetWorkloadUpdateNotify
+
+Sets environment variable `DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE` to `true`.
+
+##### Command to manually apply:
+
+```ps
+$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE = "true";
+```
+
+##### Notes:
+
+ * Disables the .NET SDK background check for workload updates, which leaves `dotnet-sdk-advertising-temp` directories in `%TEMP%`. Use `dotnet workload update` to update workloads manually
+
 
 
 ### Developer Mode
@@ -2243,17 +2261,33 @@ winget uninstall --id "Microsoft.OneDrive" --all-versions --exact
 
 Id to include: `PhoneLink`
 
+#### Phone Link
+
 Uninstalls `Phone Link` using [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
 
-#### Command to manually apply:
+##### Command to manually apply:
 
 ```ps
 winget uninstall --name "Phone Link" --exact --all-versions
 ```
 
-#### Notes:
 
+#### Phone Link (all users)
+
+Removes the `Microsoft.YourPhone` appx package for all users and deprovisions it.
+
+##### Command to manually apply:
+
+```ps
+Get-AppxPackage -AllUsers -Name "Microsoft.YourPhone" | Remove-AppxPackage -AllUsers
+Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq "Microsoft.YourPhone" | Remove-AppxProvisionedPackage -Online
+```
+
+##### Notes:
+
+ * Removes Phone Link for all user accounts and deprovisions it so new accounts do not get it. This allows Windows to delete the leftover `C:\Program Files\WindowsApps\Microsoft.YourPhone_*` folders.
  * [AppStore: Phone Link](https://apps.microsoft.com/store/detail/phone-link/9NMPJ99VJBWV)
+
 
 
 ### Printer
