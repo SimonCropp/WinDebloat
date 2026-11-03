@@ -305,6 +305,20 @@
 
                      """);
                 break;
+            case RemoveAppxPackageJob removeAppxPackageJob:
+
+                writer.WriteLine(
+                    $"""
+                     Removes the `{removeAppxPackageJob.PackageName}` appx package for all users and deprovisions it.
+
+                     {headingLevel} Command to manually apply:
+
+                     ```ps
+                     {removeAppxPackageJob.Script}
+                     ```
+
+                     """);
+                break;
             case EnvironmentVariableJob environmentVariableJob:
 
                 writer.WriteLine(
