@@ -22,7 +22,7 @@ dotnet test src/Tests/Tests.csproj --filter CliTests
 dotnet test src/Tests/Tests.csproj --filter "CliTests.ExcludeNonDefault"
 ```
 
-**Note:** Some tests require administrator privileges (registry/service tests). Tests marked `[Explicit]` or wrapped in `#if DEBUG` need manual invocation or a Debug build. The test project targets `net8.0-windows`.
+**Note:** Some tests require administrator privileges (registry/service tests). Tests marked `[Explicit]` or wrapped in `#if DEBUG` need manual invocation or a Debug build. The tool targets `net11.0` and the test project targets `net11.0-windows`.
 
 ## Architecture
 
