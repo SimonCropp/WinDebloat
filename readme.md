@@ -64,7 +64,8 @@ WinDebloat --exclude AdvertiserId Xbox
 ```
 
 
-## Items DeBloated<!-- include: actions. path: /src/actions.include.md -->
+<!-- include: actions. path: /src/actions.include.md -->
+## Items DeBloated
 
  * [3D Viewer](#3d-viewer)
  * [Advertiser Id](#advertiser-id)
