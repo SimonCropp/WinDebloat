@@ -78,6 +78,7 @@
  * [Web Experience Pack](#web-experience-pack)
  * [Start Menu Store Search](#start-menu-store-search)
  * [Start Menu Web Search](#start-menu-web-search)
+ * [Welcome Experience](#welcome-experience)
  * [Whiteboard](#whiteboard)
  * [Widgets](#widgets)
  * [Xbox](#xbox)
@@ -1342,6 +1343,61 @@ Set-ItemProperty -Path "Registry::HKCU\SOFTWARE\Policies\Microsoft\Windows\Explo
                  -Type "DWord"`
                  -Value "0"
 ```
+
+
+### Welcome Experience
+
+Id to exclude: `WelcomeExperience`
+
+#### SubscribedContent-310093Enabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-310093Enabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"`
+                 -Name "SubscribedContent-310093Enabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+ * Turns off `Show me the Windows welcome experience after updates and when signed in to show what's new and suggested`
+
+
+#### ScoobeSystemSettingEnabled
+
+##### Command to manually apply:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement"`
+                 -Name "ScoobeSystemSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "0"
+```
+
+##### Command to manually revert:
+
+```ps
+Set-ItemProperty -Path "Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement"`
+                 -Name "ScoobeSystemSettingEnabled"`
+                 -Type "DWord"`
+                 -Value "1"
+```
+
+##### Notes:
+
+ * Turns off `Suggest ways to get the most out of Windows and finish setting up this device`. Stops the post-update "Get Started" screen that promotes apps such as WhatsApp, Spotify, LinkedIn, TikTok, Duolingo, and Netflix
+
 
 
 ### Whiteboard
