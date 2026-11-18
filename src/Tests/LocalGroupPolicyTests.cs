@@ -1,5 +1,3 @@
-using System.Text;
-
 public class LocalGroupPolicyTests
 {
     // A Registry.pol written by Windows: a single key-only entry for

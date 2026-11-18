@@ -1,8 +1,3 @@
-using System.Globalization;
-using System.Text;
-using System.Text.RegularExpressions;
-using CliWrap.Buffered;
-
 // Edits the machine part of the local Group Policy Object, so that a policy value is written by the
 // Group Policy engine rather than by WinDebloat. Used for policy values that the User Choice Protection
 // Driver (UCPD.sys) refuses to let other processes write, e.g. HKLM\SOFTWARE\Policies\Microsoft\Dsh.
@@ -28,13 +23,13 @@ public static class LocalGroupPolicy
 
     public static async Task SetMachineValue(string key, string valueName, object value, RegistryValueKind kind)
     {
-        var entries = File.Exists(machinePolicyPath) ? Parse(File.ReadAllBytes(machinePolicyPath)) : [];
+        var entries = File.Exists(machinePolicyPath) ? Parse(await File.ReadAllBytesAsync(machinePolicyPath)) : [];
         SetValue(entries, CreateEntry(key, valueName, value, kind));
         Directory.CreateDirectory(Path.GetDirectoryName(machinePolicyPath)!);
-        File.WriteAllBytes(machinePolicyPath, Serialize(entries));
+        await File.WriteAllBytesAsync(machinePolicyPath, Serialize(entries));
 
-        var gptIni = File.Exists(gptIniPath) ? File.ReadAllText(gptIniPath) : "";
-        File.WriteAllText(gptIniPath, UpdateGptIni(gptIni));
+        var gptIni = File.Exists(gptIniPath) ? await File.ReadAllTextAsync(gptIniPath) : "";
+        await File.WriteAllTextAsync(gptIniPath, UpdateGptIni(gptIni));
 
         await Refresh();
     }
