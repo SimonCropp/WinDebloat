@@ -13,14 +13,16 @@ WinDebloat is a Windows 11 debloating tool distributed as a .NET global tool (`d
 dotnet build src/WinDebloat/WinDebloat.csproj
 
 # Run all tests
-dotnet test src/Tests/Tests.csproj
+dotnet test --project src/Tests/Tests.csproj
 
-# Run a specific test class
-dotnet test src/Tests/Tests.csproj --filter CliTests
+# Run a specific test class (TUnit tree filter: /assembly/namespace/class/test)
+dotnet test --project src/Tests/Tests.csproj --treenode-filter "/*/*/CliTests/*"
 
 # Run a specific test method
-dotnet test src/Tests/Tests.csproj --filter "CliTests.ExcludeNonDefault"
+dotnet test --project src/Tests/Tests.csproj --treenode-filter "/*/*/CliTests/IncludeAll"
 ```
+
+Tests run on Microsoft.Testing.Platform (set in `global.json`), so VSTest options such as `--filter` are rejected.
 
 **Note:** Some tests require administrator privileges (registry/service tests). Tests marked `[Explicit]` or wrapped in `#if DEBUG` need manual invocation or a Debug build. The tool targets `net11.0` and the test project targets `net11.0-windows`.
 
