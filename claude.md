@@ -44,7 +44,7 @@ dotnet test src/Tests/Tests.csproj --filter "CliTests.ExcludeNonDefault"
 
 ## Testing
 
-- **Framework:** NUnit 4 with Verify (approval testing)
+- **Framework:** TUnit with Verify (approval testing)
 - **Approval files:** `*.verified.txt` files in `src/Tests/` — update these when output changes using Verify's accept workflow
 - **DocsTests.cs** auto-generates documentation (`actions.include.md`) from the group definitions — run tests after modifying groups to regenerate docs
 - **Non-parallelizable:** Tests modify system state (registry, services)
