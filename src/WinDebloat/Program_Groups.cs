@@ -194,11 +194,18 @@
         new(
             "dotnet",
             false,
-            new EnvironmentVariableJob(
-                "dotnetTelemetry",
-                "DOTNET_CLI_TELEMETRY_OPTOUT",
-                "true",
-                Notes: " * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)")),
+            [
+                new EnvironmentVariableJob(
+                    "dotnetTelemetry",
+                    "DOTNET_CLI_TELEMETRY_OPTOUT",
+                    "true",
+                    Notes: " * [Opt out of .NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry#how-to-opt-out)"),
+                new EnvironmentVariableJob(
+                    "dotnetWorkloadUpdateNotify",
+                    "DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE",
+                    "true",
+                    Notes: " * Disables the .NET SDK background check for workload updates, which leaves `dotnet-sdk-advertising-temp` directories in `%TEMP%`. Use `dotnet workload update` to update workloads manually"),
+            ]),
         new(
             "Developer Mode",
             false,
