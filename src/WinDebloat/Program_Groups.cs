@@ -840,6 +840,27 @@
                 1,
                 0,
                 "DisableSearchBoxSuggestions")),
+        new(
+            "Welcome Experience",
+            true,
+            [
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                    "SubscribedContent-310093Enabled",
+                    0,
+                    1,
+                    "SubscribedContent-310093Enabled",
+                    Notes: " * Turns off `Show me the Windows welcome experience after updates and when signed in to show what's new and suggested`"),
+                new RegistryValueJob(
+                    RegistryHive.CurrentUser,
+                    @"Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement",
+                    "ScoobeSystemSettingEnabled",
+                    0,
+                    1,
+                    "ScoobeSystemSettingEnabled",
+                    Notes: " * Turns off `Suggest ways to get the most out of Windows and finish setting up this device`. Stops the post-update \"Get Started\" screen that promotes apps such as WhatsApp, Spotify, LinkedIn, TikTok, Duolingo, and Netflix"),
+            ]),
         new("Whiteboard", true, new UninstallByNameJob("Microsoft Whiteboard")),
         new(
             "Widgets",
