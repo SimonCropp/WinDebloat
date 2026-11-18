@@ -15,7 +15,7 @@ public class RegistryTests
                 0,
                 1,
                 "TaskbarDa");
-            Program.HandleRegistry(registryJob);
+            await Program.HandleRegistry(registryJob);
 
             using var key = Registry.CurrentUser.OpenSubKey(@"Software\WinDebloat\Child")!;
 

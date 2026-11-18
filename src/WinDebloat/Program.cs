@@ -102,8 +102,7 @@
         switch (job)
         {
             case RegistryValueJob registry:
-                HandleRegistry(registry);
-                break;
+                return HandleRegistry(registry);
             case RegistryKeyJob registry:
                 HandleRegistry(registry);
                 break;
@@ -248,7 +247,7 @@
     static bool IsInstalledById(string package) =>
         installed.Any(_ => string.Equals(_.id, package, StringComparison.OrdinalIgnoreCase));
 
-    public static void HandleRegistry(RegistryValueJob job)
+    public static async Task HandleRegistry(RegistryValueJob job)
     {
         var (hive, key, keyName, applyValue, _, name, kind, _) = job;
         Log.Information("Registry: {Name}", name);
@@ -262,15 +261,57 @@
             return;
         }
 
-        if (keyName == "(Default)")
+        try
         {
-            subKey.SetValue(null, applyValue, kind);
+            if (keyName == "(Default)")
+            {
+                subKey.SetValue(null, applyValue, kind);
+            }
+            else
+            {
+                subKey.SetValue(keyName, applyValue, kind);
+            }
         }
-        else
+        // The User Choice Protection Driver (UCPD.sys) blocks writes to some values (e.g. TaskbarDa,
+        // AllowNewsAndInterests) even for administrators.
+        catch (UnauthorizedAccessException) when (IsMachinePolicy(hive, key, keyName))
         {
-            subKey.SetValue(keyName, applyValue, kind);
+            // Policy values can still be set through local Group Policy, since the Group Policy engine does the write
+            Log.Information(
+                "Write access to {JobHive} {JobPath} {KeyName} was denied, likely by the User Choice Protection Driver. Applying it via local Group Policy instead",
+                hive,
+                key,
+                keyName);
+            await LocalGroupPolicy.SetMachineValue(key, keyName, applyValue, kind);
+
+            if (applyValue.Equals(subKey.GetValue(keyName, null)))
+            {
+                Log.Information("Applied {JobHive} {JobPath} {KeyName} via local Group Policy", hive, key, keyName);
+            }
+            else
+            {
+                Log.Warning(
+                    "Added {JobHive} {JobPath} {KeyName} to local Group Policy, but the Group Policy refresh has not applied it yet",
+                    hive,
+                    key,
+                    keyName);
+            }
+        }
+        catch (UnauthorizedAccessException)
+        {
+            // Skip rather than abort the whole run
+            Log.Warning(
+                "Skipped registry entry {JobHive} {JobPath} {KeyName} since write access was denied. It is likely protected by the User Choice Protection Driver",
+                hive,
+                key,
+                keyName);
         }
     }
+
+    static bool IsMachinePolicy(RegistryHive hive, string key, string keyName) =>
+        hive == RegistryHive.LocalMachine &&
+        keyName != "(Default)" &&
+        key.StartsWith(@"SOFTWARE\Policies\", StringComparison.OrdinalIgnoreCase);
 
     static void HandleRegistry(RegistryKeyJob job)
     {

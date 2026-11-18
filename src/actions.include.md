@@ -1379,7 +1379,9 @@ Remove-ItemProperty -Path "Registry::HKLM\SOFTWARE\Policies\Microsoft\Dsh"`
 
 #### Notes:
 
- * [Disable Widgets via policy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-newsandinterests#allownewsandinterests). The `TaskbarDa` value is protected by the User Choice Protection Driver on recent Windows 11 builds and cannot be written.
+* [Disable Widgets via policy](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-newsandinterests#allownewsandinterests). The `TaskbarDa` value is protected by the User Choice Protection Driver on recent Windows 11 builds and cannot be written.
+* Recent versions of the User Choice Protection Driver (UCPD.sys) also block writes to `AllowNewsAndInterests`, even for administrators. See [kolbi.cz: UCPD.sys part 2](https://kolbi.cz/blog/2025/07/15/ucpd-sys-userchoice-protection-driver-part-2/) and [Winhance: Show Widgets fails because UCPD blocks AllowNewsAndInterests](https://github.com/memstechtips/Winhance/issues/780).
+* When the write is blocked, the value is applied through local Group Policy instead. This is the same as setting `Computer Configuration > Administrative Templates > Windows Components > Widgets > Allow widgets` to `Disabled` in gpedit. To revert, set that policy back to `Not Configured`.
 
 
 ### Xbox
